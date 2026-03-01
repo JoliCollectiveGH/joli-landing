@@ -94,6 +94,71 @@
 
     .nav-cta:hover { background: var(--brand-dark) !important; color: var(--white) !important; }
 
+    /* ─── HERO VIDEO ──────────────────────────────────── */
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 16, 12, 0.58);
+    }
+
+    /* Mobile: hide video, show warm gradient fallback */
+    @media (max-width: 768px) {
+      .hero-video-wrap {
+        background: linear-gradient(160deg, #2A1F14 0%, #1A1410 100%);
+      }
+      .hero-video { display: none; }
+    }
+
+    /* Hero text flips to light on video */
+    .hero { background: var(--ink); }
+
+    .hero-eyebrow { color: rgba(240, 220, 200, 0.65); }
+
+    .hero-headline { color: var(--white); }
+
+    .hero-headline em { color: rgba(213, 140, 80, 0.95); }
+
+    .hero-sub { color: rgba(255, 255, 255, 0.60); }
+
+    .hero-note { color: rgba(255, 255, 255, 0.30); }
+
+    /* Light variants for buttons on dark hero */
+    .btn-primary-light {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .btn-primary-light:hover {
+      background: rgba(255,255,255,0.90);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .btn-ghost-light {
+      color: rgba(255,255,255,0.70);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .btn-ghost-light:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.50);
+      background: rgba(255,255,255,0.06);
+    }
+
     /* ─── HERO ────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
@@ -124,18 +189,10 @@
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--brand);
       margin-bottom: 28px;
       opacity: 0;
       animation: fadeUp 0.7s 0.1s ease forwards;
-    }
-
-    .hero-symbol {
-      width: 52px;
-      height: 52px;
-      margin: 0 auto 32px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.15s ease forwards;
+      position: relative; z-index: 1;
     }
 
     .hero-headline {
@@ -144,27 +201,26 @@
       font-weight: 400;
       line-height: 1.08;
       letter-spacing: -0.02em;
-      color: var(--ink);
       max-width: 760px;
       margin: 0 auto 24px;
       opacity: 0;
       animation: fadeUp 0.8s 0.25s ease forwards;
+      position: relative; z-index: 1;
     }
 
     .hero-headline em {
       font-style: italic;
-      color: var(--brand);
     }
 
     .hero-sub {
       font-size: 17px;
       font-weight: 300;
       line-height: 1.65;
-      color: var(--ink-muted);
-      max-width: 480px;
+      max-width: 500px;
       margin: 0 auto 48px;
       opacity: 0;
       animation: fadeUp 0.8s 0.35s ease forwards;
+      position: relative; z-index: 1;
     }
 
     .hero-actions {
@@ -175,6 +231,7 @@
       justify-content: center;
       opacity: 0;
       animation: fadeUp 0.8s 0.45s ease forwards;
+      position: relative; z-index: 1;
     }
 
     .btn-primary {
@@ -224,14 +281,14 @@
     .hero-note {
       margin-top: 20px;
       font-size: 12px;
-      color: var(--ink-faint);
       opacity: 0;
       animation: fadeUp 0.8s 0.55s ease forwards;
+      position: relative; z-index: 1;
     }
 
     /* ─── PROPERTY STRIP ──────────────────────────────── */
     .strip-section {
-      padding: 0 0 100px;
+      padding: 0 0 48px;
       opacity: 0;
       animation: fadeUp 1s 0.65s ease forwards;
     }
@@ -1092,40 +1149,51 @@
 <!-- ─── NAV ─────────────────────────────────────────── -->
 <nav>
   <a href="/" class="nav-logo">
-    <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.png" alt="JOLI Collective" />
+    <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI Collective" />
   </a>
   <div class="nav-links">
     <a href="#how-it-works">How it works</a>
+    <a href="#membership">Membership</a>
     <a href="#concierge">Concierge</a>
     <a href="#pricing">Pricing</a>
-    <a href="https://joli-44052b39.base44.app/" class="nav-cta">Try MILO free</a>
+    <a href="https://app.jolicollective.net/" class="nav-cta">Try MILO free</a>
   </div>
 </nav>
 
 <!-- ─── HERO ─────────────────────────────────────────── -->
 <section class="hero">
-  <p class="hero-eyebrow">Introducing MILO by JOLI Collective</p>
 
-  <img
-    src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.png"
-    alt="JOLI"
-    class="hero-symbol"
-  />
+  <!-- Video texture background -->
+  <div class="hero-video-wrap">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+    >
+      <source src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/Joli_Texture_06.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
+
+  <p class="hero-eyebrow">MILO by JOLI Collective</p>
 
   <h1 class="hero-headline">
-    Too many options.<br><em>Not enough taste.</em>
+    The stays you'd never find <em>scrolling.</em>
   </h1>
 
   <p class="hero-sub">
-    MILO is an AI travel copilot that finds remarkable places to stay — from a curated collection of design-led properties across Europe. Handpicked for character. Expanding globally.
+    Tell MILO where you're headed and what matters. It searches a handpicked collection of design-led stays across Europe — and finds the ones worth your time.
   </p>
 
   <div class="hero-actions">
-    <a href="https://joli-44052b39.base44.app/" class="btn-primary">
+    <a href="https://app.jolicollective.net/" class="btn-primary btn-primary-light">
       Try MILO free
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <a href="#membership" class="btn-ghost">Become a member</a>
+    <a href="#membership" class="btn-ghost btn-ghost-light">Become a member</a>
   </div>
 
   <p class="hero-note">Free to start · No credit card required</p>
@@ -1136,7 +1204,8 @@
   <p class="strip-label">From the collection</p>
   <div class="property-strip">
 
-    <a href="https://joli-44052b39.base44.app/" class="property-card" style="text-decoration:none;">
+    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
+      <!-- REPLACE: Use real property image from Supabase bucket -->
       <img class="property-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80&auto=format" alt="Alpine retreat" />
       <div class="property-info">
         <div class="property-name">Forsthofgut Natur Hotel</div>
@@ -1144,7 +1213,8 @@
       </div>
     </a>
 
-    <a href="https://joli-44052b39.base44.app/" class="property-card" style="text-decoration:none;">
+    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
+      <!-- REPLACE: Use real property image from Supabase bucket -->
       <img class="property-img" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80&auto=format" alt="Mediterranean villa" />
       <div class="property-info">
         <div class="property-name">Eremo</div>
@@ -1152,7 +1222,8 @@
       </div>
     </a>
 
-    <a href="https://joli-44052b39.base44.app/" class="property-card" style="text-decoration:none;">
+    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
+      <!-- REPLACE: Use real property image from Supabase bucket -->
       <img class="property-img" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80&auto=format" alt="Design hotel" />
       <div class="property-info">
         <div class="property-name">Palais Brut</div>
@@ -1160,7 +1231,8 @@
       </div>
     </a>
 
-    <a href="https://joli-44052b39.base44.app/" class="property-card" style="text-decoration:none;">
+    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
+      <!-- REPLACE: Use real property image from Supabase bucket -->
       <img class="property-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80&auto=format" alt="Tuscan estate" />
       <div class="property-info">
         <div class="property-name">Villa Montalcino</div>
@@ -1168,7 +1240,8 @@
       </div>
     </a>
 
-    <a href="https://joli-44052b39.base44.app/" class="property-card" style="text-decoration:none;">
+    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
+      <!-- REPLACE: Use real property image from Supabase bucket -->
       <img class="property-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80&auto=format" alt="Coastal retreat" />
       <div class="property-info">
         <div class="property-name">Casa do Pego</div>
@@ -1176,7 +1249,8 @@
       </div>
     </a>
 
-    <a href="https://joli-44052b39.base44.app/" class="property-card" style="text-decoration:none;">
+    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
+      <!-- REPLACE: Use real property image from Supabase bucket -->
       <img class="property-img" src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=400&q=80&auto=format" alt="Stone farmhouse" />
       <div class="property-info">
         <div class="property-name">Masseria Potenti</div>
@@ -1258,7 +1332,7 @@
     <h2 class="showcase-heading">
       Places chosen for <em>character</em>, not just availability.
     </h2>
-    <a href="https://joli-44052b39.base44.app/" class="showcase-link">
+    <a href="https://app.jolicollective.net/" class="showcase-link">
       Explore the collection
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
@@ -1266,6 +1340,7 @@
 
   <div class="showcase-grid reveal">
     <div class="showcase-card">
+      <!-- REPLACE: Use real property image from Supabase bucket -->
       <img class="showcase-img" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80&auto=format" alt="Featured property" />
       <div class="showcase-overlay">
         <div class="overlay-name">Casa Palladio</div>
@@ -1308,6 +1383,70 @@
 </section>
 
 <!-- ─── MEMBERSHIP ────────────────────────────────────── -->
+<div id="pricing"></div>
+<section class="membership-section" id="membership" style="scroll-margin-top: 64px;">
+  <div class="membership-inner">
+    <div class="membership-header reveal">
+      <p class="section-eyebrow" style="margin-bottom: 16px;">Membership</p>
+      <h2 class="membership-heading">Join the <em>collective</em></h2>
+      <p class="membership-sub">Start free. Upgrade when MILO becomes your go-to for travel planning.</p>
+    </div>
+
+    <div class="tiers">
+
+      <!-- Free -->
+      <div class="tier reveal">
+        <div class="tier-name">Free</div>
+        <div class="tier-price">£0</div>
+        <div class="tier-price-note">3 conversations per month</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li><span class="feature-dot"></span>3 MILO conversations/month</li>
+          <li><span class="feature-dot"></span>Property name, region & hero image</li>
+          <li><span class="feature-dot"></span>Mood-based search chips</li>
+          <li><span class="feature-dot"></span>No credit card required</li>
+        </ul>
+        <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-outline">Start exploring</a>
+      </div>
+
+      <!-- Member -->
+      <div class="tier featured reveal" style="transition-delay: 0.1s">
+        <div class="tier-badge">Most popular</div>
+        <div class="tier-name">JOLI Member</div>
+        <div class="tier-price">£15</div>
+        <div class="tier-price-note">per month · or £120/year (save £60)</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li><span class="feature-dot"></span>Unlimited conversations with MILO</li>
+          <li><span class="feature-dot"></span>Full property details & booking links</li>
+          <li><span class="feature-dot"></span>Save collections & favourites</li>
+          <li><span class="feature-dot"></span>Occasion & group-aware search</li>
+          <li><span class="feature-dot"></span>Priority access to new properties</li>
+        </ul>
+        <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-white">Become a member</a>
+      </div>
+
+      <!-- Concierge Annual -->
+      <div class="tier reveal" style="transition-delay: 0.2s">
+        <div class="tier-name">Annual Concierge</div>
+        <div class="tier-price">£250</div>
+        <div class="tier-price-note">per year · includes 5 trip shapings</div>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li><span class="feature-dot"></span>Everything in JOLI Member</li>
+          <li><span class="feature-dot"></span>5 bespoke trip shapings/year</li>
+          <li><span class="feature-dot"></span>Human-curated shortlists</li>
+          <li><span class="feature-dot"></span>Seasonal occasion nudges</li>
+          <li><span class="feature-dot"></span>Priority access & first looks</li>
+        </ul>
+        <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-brand">Join as Concierge</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONCIERGE ──────────────────────────────────────── -->
 <section class="concierge-section" id="concierge">
   <div class="concierge-left reveal">
     <div class="concierge-card">
@@ -1358,7 +1497,7 @@
       <span class="price-note">per request · or included in annual membership</span>
     </div>
 
-    <a href="https://joli-44052b39.base44.app/" class="btn-primary">
+    <a href="https://app.jolicollective.net/" class="btn-primary">
       Request a concierge shortlist
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
@@ -1368,98 +1507,29 @@
 <!-- ─── PRICING ───────────────────────────────────────── -->
 
 <!-- ─── MANIFESTO ──────────────────────────────────────── -->
-<div id="pricing"></div>
-<section class="membership-section" id="membership" style="scroll-margin-top: 64px;">
-  <div class="membership-inner">
-    <div class="membership-header reveal">
-      <p class="section-eyebrow" style="margin-bottom: 16px;">Membership</p>
-      <h2 class="membership-heading">Join the <em>collective</em></h2>
-      <p class="membership-sub">Start free. Upgrade when MILO becomes your go-to for travel planning.</p>
-    </div>
-
-    <div class="tiers">
-
-      <!-- Free -->
-      <div class="tier reveal">
-        <div class="tier-name">Free</div>
-        <div class="tier-price">£0</div>
-        <div class="tier-price-note">3 conversations per month</div>
-        <div class="tier-divider"></div>
-        <ul class="tier-features">
-          <li><span class="feature-dot"></span>3 MILO conversations/month</li>
-          <li><span class="feature-dot"></span>Property name, region & hero image</li>
-          <li><span class="feature-dot"></span>Mood-based search chips</li>
-          <li><span class="feature-dot"></span>No credit card required</li>
-        </ul>
-        <a href="https://joli-44052b39.base44.app/" class="tier-cta tier-cta-outline">Start exploring</a>
-      </div>
-
-      <!-- Member -->
-      <div class="tier featured reveal" style="transition-delay: 0.1s">
-        <div class="tier-badge">Most popular</div>
-        <div class="tier-name">JOLI Member</div>
-        <div class="tier-price">£15</div>
-        <div class="tier-price-note">per month · or £120/year (save £60)</div>
-        <div class="tier-divider"></div>
-        <ul class="tier-features">
-          <li><span class="feature-dot"></span>Unlimited conversations with MILO</li>
-          <li><span class="feature-dot"></span>Full property details & booking links</li>
-          <li><span class="feature-dot"></span>Save collections & favourites</li>
-          <li><span class="feature-dot"></span>Occasion & group-aware search</li>
-          <li><span class="feature-dot"></span>Priority access to new properties</li>
-        </ul>
-        <a href="https://joli-44052b39.base44.app/" class="tier-cta tier-cta-white">Become a member</a>
-      </div>
-
-      <!-- Concierge Annual -->
-      <div class="tier reveal" style="transition-delay: 0.2s">
-        <div class="tier-name">Annual Concierge</div>
-        <div class="tier-price">£250</div>
-        <div class="tier-price-note">per year · includes 5 trip shapings</div>
-        <div class="tier-divider"></div>
-        <ul class="tier-features">
-          <li><span class="feature-dot"></span>Everything in JOLI Member</li>
-          <li><span class="feature-dot"></span>5 bespoke trip shapings/year</li>
-          <li><span class="feature-dot"></span>Human-curated shortlists</li>
-          <li><span class="feature-dot"></span>Seasonal occasion nudges</li>
-          <li><span class="feature-dot"></span>Priority access & first looks</li>
-        </ul>
-        <a href="https://joli-44052b39.base44.app/" class="tier-cta tier-cta-brand">Join as Concierge</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONCIERGE ──────────────────────────────────────── -->
 <section class="manifesto-section">
   <div class="manifesto-inner reveal">
-    <img
-      src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_White.png"
-      alt="JOLI"
-      class="manifesto-symbol"
-    />
     <p class="manifesto-quote">
-      "We started JOLI because we believe the best places to stay are the ones that feel like they were made for you — and finding them shouldn't take a weekend."
+      "Travel is not really about leaving our homes, but leaving our habits."
     </p>
-    <p class="manifesto-byline">— JOLI COLLECTIVE</p>
+    <p class="manifesto-byline">— Pico Iyer</p>
   </div>
 </section>
 
 <!-- ─── FOOTER ─────────────────────────────────────────── -->
 <footer>
   <a href="/" class="footer-logo">
-    <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.png" alt="JOLI Collective" />
+    <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI Collective" />
   </a>
   <div class="footer-links">
     <a href="/privacy">Privacy</a>
     <a href="/terms">Terms</a>
-    <a href="/cdn-cgi/l/email-protection#f39b969f9f9cb3999c9f9a909c9f9f9690879a8596dd9d9687">Contact</a>
+    <a href="mailto:hello@jolicollective.net">Contact</a>
   </div>
   <p class="footer-copy">© 2026 JOLI Collective</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Intersection observer for scroll reveals
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
