@@ -18,26 +18,42 @@
     }
     @font-face {
       font-family: 'Monument Grotesk';
-      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Regular.woff2') format('woff2');
+      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Regular-Trial.woff2') format('woff2');
       font-weight: 400; font-style: normal; font-display: swap;
     }
-    :root {
-      --brand: #AD531B; --brand-dark: #8B4316; --ink: #1A1814;
-      --ink-muted: #6B6560; --ink-faint: #A8A39E; --surface: #F7F6F2;
-      --surface-warm: #F0EDE6; --white: #FFFFFF; --border: rgba(26, 24, 20, 0.10);
+    @font-face {
+      font-family: 'Monument Grotesk';
+      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Medium-Trial.woff2') format('woff2');
+      font-weight: 500; font-style: normal; font-display: swap;
     }
+
+    :root {
+      --brand: #AD531B; --brand-dark: #8B4316;
+      --ink: #1A1814; --ink-muted: #6B6560; --ink-faint: #A8A39E;
+      --surface: #F7F6F2; --surface-warm: #F0EDE6; --white: #FFFFFF;
+      --border: rgba(26, 24, 20, 0.10);
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Monument Grotesk', sans-serif; background: var(--surface); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Monument Grotesk', -apple-system, sans-serif; background: var(--surface); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; background: rgba(247, 246, 242, 0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); transition: opacity 0.4s ease; }
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 40px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(247, 246, 242, 0.88); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); transition: opacity 0.4s ease, box-shadow 0.3s ease;
+    }
     nav.nav-hidden { opacity: 0; pointer-events: none; }
-    .nav-logo img { height: 28px; }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a { font-size: 13px; color: var(--ink-muted); text-decoration: none; }
-    .nav-cta { background: none; border: none; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; }
+    .nav-logo img { height: 28px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--ink-muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { font-size: 13px; font-weight: 500; color: var(--ink); background: none; border: none; cursor: pointer; transition: color 0.15s; }
+    .nav-cta:hover { color: var(--brand); }
 
-    /* HERO & INTRO */
+    /* ─── INTRO & HERO ────────────────────────────────── */
     #intro { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     #intro-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     #intro-overlay { position: absolute; inset: 0; background: rgba(14, 11, 8, 0.40); }
@@ -48,111 +64,147 @@
     .hero-headline em { font-style: italic; color: rgba(213, 140, 80, 0.95); }
     .hero-sub { font-size: 16px; color: rgba(255,255,255,0.42); max-width: 600px; margin-bottom: 56px; }
 
-    /* BUTTONS */
-    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 100px; border: none; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: 0.2s; }
+    /* ─── BUTTONS ─────────────────────────────────────── */
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 100px; font-size: 14px; font-weight: 500; text-decoration: none; border: none; cursor: pointer; transition: 0.2s; }
     .btn-primary-light { background: white; color: var(--ink); }
-    .btn-ghost-light { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.2); padding: 14px 24px; border-radius: 100px; text-decoration: none; font-size: 14px; }
+    .btn-ghost-light { background: transparent; color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.20); padding: 14px 24px; border-radius: 100px; text-decoration: none; font-size: 14px; }
 
-    /* SECTIONS (EXPLAINERS) */
+    /* ─── SECTIONS ────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .section-padding { padding: 100px 40px; max-width: 960px; margin: 0 auto; }
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     .section-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--brand); margin-bottom: 20px; }
-    .section-heading { font-size: 32px; margin-bottom: 20px; line-height: 1.2; }
-    .section-body { font-size: 15px; color: var(--ink-muted); line-height: 1.7; }
+    .section-heading { font-size: clamp(28px, 3.5vw, 42px); line-height: 1.15; margin-bottom: 20px; }
+    .section-body { font-size: 15px; color: var(--ink-muted); line-height: 1.75; }
 
-    /* MILO POPUP */
-    #milo-container { position: fixed; bottom: 30px; right: 30px; width: 360px; background: white; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); z-index: 10000; display: none; flex-direction: column; border: 1px solid var(--border); }
-    #milo-header { padding: 14px 20px; background: #1A1814; color: white; display: flex; justify-content: space-between; border-radius: 15px 15px 0 0; font-size: 10px; text-transform: uppercase; }
-    #milo-body { padding: 20px; font-size: 14px; line-height: 1.6; max-height: 350px; overflow-y: auto; color: #1A1814; }
-    .milo-cursor { display: inline-block; width: 2px; height: 15px; background: var(--brand); animation: blink 1s infinite; margin-left: 4px; }
-    @keyframes blink { 50% { opacity: 0; } }
+    /* ─── MILO MODAL ──────────────────────────────────── */
+    #milo-modal {
+      position: fixed; bottom: 24px; right: 24px; width: 380px; max-width: calc(100vw - 48px);
+      background: white; border-radius: 16px; box-shadow: 0 20px 48px rgba(0,0,0,0.18);
+      z-index: 1000; display: none; flex-direction: column; border: 1px solid var(--border); overflow: hidden;
+    }
+    .milo-header { padding: 16px 20px; background: var(--ink); color: white; display: flex; justify-content: space-between; align-items: center; font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; }
+    .milo-body { padding: 24px; font-size: 15px; line-height: 1.6; max-height: 400px; overflow-y: auto; color: var(--ink); }
 
-    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; gap: 40px; } .nav-links { display: none; } }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; gap: 40px; } nav .nav-links { display: none; } }
   </style>
 </head>
 <body>
 
-  <nav id="main-nav">
-    <a href="#" class="nav-logo"><img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI"></a>
-    <div class="nav-links">
-      <a href="#how">How it works</a>
-      <button class="nav-cta" onclick="askMilo('Tell me about JOLI')">Try MILO free</button>
-    </div>
-  </nav>
+<div id="intro">
+  <video id="intro-video" autoplay muted loop playsinline poster="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/hero_poster.jpg">
+    <source src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/Joli_Texture_06.mp4" type="video/mp4" />
+  </video>
+  <div id="intro-overlay"></div>
+  <img id="intro-symbol" src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.svg" alt="JOLI" />
+</div>
 
-  <div id="intro">
-    <video id="intro-video" autoplay muted loop playsinline poster="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/hero_poster.jpg">
-      <source src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/Joli_Texture_06.mp4" type="video/mp4" />
-    </video>
-    <div id="intro-overlay"></div>
-    <img id="intro-symbol" src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.svg" alt="JOLI" />
+<nav id="main-nav" class="nav-hidden">
+  <a href="/" class="nav-logo"><img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI" /></a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#membership">Membership</a>
+    <button class="nav-cta" onclick="askMilo('Tell me more about JOLI')">Try MILO free</button>
   </div>
+</nav>
 
-  <section class="hero" id="hero">
-    <h1 class="hero-headline">Find places to stay.<br><em>Without the scrolling.</em></h1>
-    <p class="hero-sub">A handpicked collection of design-led stays, found through conversation.</p>
-    <div style="display:flex; gap:16px;">
-      <button class="btn-primary btn-primary-light" onclick="askMilo('Help me find a stay in Europe')">Try MILO free</button>
-      <a href="#" class="btn-ghost-light">Become a member</a>
-    </div>
-  </section>
-
-  <section class="section-padding grid-2" id="how">
-    <div>
-      <p class="section-eyebrow">The Problem</p>
-      <h2 class="section-heading">Volume isn't value.</h2>
-      <p class="section-body">Booking platforms optimize for millions of listings. We optimize for taste. MILO cuts through the noise to find character-driven stays that actually match your style.</p>
-    </div>
-    <div style="background:var(--surface-warm); padding:40px; border-radius:16px;">
-      <p style="font-style:italic; color:var(--brand);">"MILO found me a brutalist villa in Portugal that I never would have found on Airbnb."</p>
-    </div>
-  </section>
-
-  <section class="section-padding grid-2">
-    <div style="background:var(--ink); color:white; padding:40px; border-radius:16px;">
-      <p>01. Describe your trip</p>
-      <p style="opacity:0.6; font-size:13px; margin-top:10px;">"A quiet design-led cottage in the Cotswolds for a writing retreat."</p>
-    </div>
-    <div>
-      <p class="section-eyebrow">How it works</p>
-      <h2 class="section-heading">Conversation, not filters.</h2>
-      <p class="section-body">Stop wrestling with maps and price sliders. Just tell MILO what you're looking for in plain English. It understands context, vibe, and architecture.</p>
-    </div>
-  </section>
-
-  <div id="milo-container">
-    <div id="milo-header"><span>Milo — AI Copilot</span><button onclick="document.getElementById('milo-container').style.display='none'" style="color:white; background:none; border:none; cursor:pointer;">✕</button></div>
-    <div id="milo-body"><div id="milo-text"></div></div>
+<section class="hero" id="hero">
+  <p class="hero-eyebrow">MILO — A travel copilot by JOLI Collective</p>
+  <h1 class="hero-headline">Find places to stay.<br><em>Without the scrolling.</em></h1>
+  <p class="hero-sub">A handpicked collection of design-led stays, found through conversation.</p>
+  <div style="display:flex; gap:16px;">
+    <button class="btn-primary btn-primary-light" onclick="askMilo('Help me find a stay in Europe')">Try MILO free</button>
+    <a href="#membership" class="btn-ghost-light">Become a member</a>
   </div>
+</section>
 
-  <script>
-    async function askMilo(query) {
-      const container = document.getElementById('milo-container');
-      const textField = document.getElementById('milo-text');
-      container.style.display = 'flex';
-      textField.innerHTML = "Consulting the collection...<span class='milo-cursor'></span>";
+<section class="section-padding grid-2 reveal" id="how">
+  <div>
+    <p class="section-eyebrow">The Problem</p>
+    <h2 class="section-heading">Booking platforms optimize for volume. <em>MILO optimizes for taste.</em></h2>
+    <p class="section-body">Airbnb has 7 million listings. Booking.com has 28 million. The result isn't choice—it's paralysis. JOLI is the opposite: a deeply curated collection selected for character and design.</p>
+  </div>
+  <div style="background:var(--surface-warm); padding:40px; border-radius:16px;">
+    <p style="font-style:italic; color:var(--brand);">"MILO finds the right fit through conversation, not endless filters."</p>
+  </div>
+</section>
 
-      try {
-        // UPDATED TO YOUR ACTUAL VERCEL URL FROM SCREENSHOTS
-        const response = await fetch('https://joli-app-seven.vercel.app/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ user_message: query })
-        });
+<section class="section-padding reveal">
+  <p class="section-eyebrow" style="text-align:center;">How it works</p>
+  <div class="grid-2" style="margin-top:40px;">
+    <div style="background:var(--ink); color:white; padding:32px; border-radius:16px;">
+      <h3 style="margin-bottom:12px;">01. Describe your trip</h3>
+      <p style="opacity:0.6; font-size:14px;">Mention the vibe, location, or group. MILO understands natural language—no filters needed.</p>
+    </div>
+    <div style="background:white; border:1px solid var(--border); padding:32px; border-radius:16px;">
+      <h3 style="margin-bottom:12px;">02. MILO curates</h3>
+      <p style="color:var(--ink-muted); font-size:14px;">Receive a handful of well-matched properties from the JOLI collection, with a reason for each.</p>
+    </div>
+  </div>
+</section>
 
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        textField.innerHTML = ""; 
+<section class="section-padding reveal" id="membership">
+  <div style="text-align:center; margin-bottom:50px;">
+    <h2 class="section-heading">Simple plans. <em>Start free.</em></h2>
+  </div>
+  <div style="background:white; border:1px solid var(--border); padding:40px; border-radius:16px; max-width:400px; margin:0 auto;">
+    <p class="section-eyebrow">JOLI Member</p>
+    <p style="font-size:44px; margin:10px 0;">£15<span style="font-size:14px; color:var(--ink-faint);">/mo</span></p>
+    <ul style="list-style:none; margin:20px 0; font-size:14px; color:var(--ink-muted);">
+      <li style="margin-bottom:8px;">✓ Unlimited MILO conversations</li>
+      <li style="margin-bottom:8px;">✓ Full property details & booking links</li>
+    </ul>
+    <button class="btn-primary" style="width:100%; background:var(--ink);" onclick="askMilo('I want to become a member')">Get Started</button>
+  </div>
+</section>
 
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          textField.innerHTML += decoder.decode(value);
-        }
-      } catch (e) {
-        textField.innerHTML = "Milo is connecting to the collection. Please try again in a moment.";
-      }
+<div id="milo-modal">
+  <div class="milo-header">
+    <span>Milo — AI Copilot</span>
+    <button onclick="document.getElementById('milo-modal').style.display='none'" style="color:white; background:none; border:none; cursor:pointer; font-size:16px;">✕</button>
+  </div>
+  <div class="milo-body" id="milo-response">
+    Milo is connecting to the collection...
+  </div>
+</div>
+
+<script>
+  // SCROLL REVEAL LOGIC
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // NAV VISIBILITY LOGIC
+  const mainNav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight - 100) mainNav.classList.remove('nav-hidden');
+    else mainNav.classList.add('nav-hidden');
+  });
+
+  // MILO CHAT LOGIC
+  async function askMilo(query) {
+    const modal = document.getElementById('milo-modal');
+    const responseBox = document.getElementById('milo-response');
+    modal.style.display = 'flex';
+    responseBox.innerText = "Thinking...";
+
+    try {
+      // Points to your Vercel backend based on screenshot repo "joli-app"
+      const response = await fetch('https://joli-app-seven.vercel.app/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: query || 'Hello' })
+      });
+      if (!response.ok) throw new Error();
+      const data = await response.json();
+      responseBox.innerText = data.reply || "I'm ready to help you find a stay. What's the vibe?";
+    } catch (err) {
+      responseBox.innerText = "Milo is momentarily offline. Please check your Vercel deployment for 'joli-app'.";
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
