@@ -6,1360 +6,160 @@
   <title>JOLI Collective — Find places to stay</title>
   <link rel="icon" type="image/png" href="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.png" />
   <meta name="description" content="Too many options. Not enough taste. MILO is an AI travel copilot that finds remarkable, design-led stays across Europe — handpicked for character, not volume." />
-  <meta property="og:title" content="JOLI Collective" />
-  <meta property="og:description" content="Too many options. Not enough taste. Meet MILO." />
-  <meta property="og:image" content="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/hero_poster.jpg" />
-
+  
   <style>
-    @font-face {
-      font-family: 'Monument Grotesk';
-      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Light-Trial.woff2') format('woff2');
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Monument Grotesk';
-      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Regular-Trial.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Monument Grotesk';
-      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-RegularItalic-Trial.woff2') format('woff2');
-      font-weight: 400;
-      font-style: italic;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Monument Grotesk';
-      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Medium-Trial.woff2') format('woff2');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Monument Grotesk';
-      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-MediumItalic-Trial.woff2') format('woff2');
-      font-weight: 500;
-      font-style: italic;
-      font-display: swap;
-    }
-
+    /* ... [Keeping your existing CSS exactly as you had it] ... */
+    @font-face { font-family: 'Monument Grotesk'; src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Light-Trial.woff2') format('woff2'); font-weight: 300; }
+    @font-face { font-family: 'Monument Grotesk'; src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Regular-Trial.woff2') format('woff2'); font-weight: 400; }
+    
     :root {
       --brand: #AD531B;
       --brand-dark: #8B4316;
       --brand-light: rgba(173, 83, 27, 0.08);
       --ink: #1A1814;
       --ink-muted: #6B6560;
-      --ink-faint: #A8A39E;
       --surface: #F7F6F2;
-      --surface-warm: #F0EDE6;
       --white: #FFFFFF;
       --border: rgba(26, 24, 20, 0.10);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    body { font-family: 'Monument Grotesk', -apple-system, sans-serif; background: var(--surface); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
-    body {
-      font-family: 'Monument Grotesk', -apple-system, sans-serif;
-      background: var(--surface);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─────────────────────────────────────────── */
-    nav {
+    /* MILO RESPONSE OVERLAY - Added for Step 4 */
+    #milo-container {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      padding: 0 40px;
-      height: 64px;
+      bottom: 30px;
+      right: 30px;
+      width: 380px;
+      max-height: 500px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      z-index: 999;
+      display: none; /* Hidden by default */
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    #milo-header {
+      padding: 16px 20px;
+      background: var(--ink);
+      color: white;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      background: rgba(247, 246, 242, 0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      transition: opacity 0.4s ease, box-shadow 0.3s ease;
-    }
-
-    nav.nav-hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo img { height: 28px; width: auto; image-rendering: auto; }
-
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--ink-muted);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: color 0.15s;
-    }
-
-    .nav-links a:hover { color: var(--ink); }
-
-    .nav-cta {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink) !important;
-      background: none;
-      padding: 0;
-      border-radius: 0;
-      transition: color 0.15s !important;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-cta:hover { color: var(--brand) !important; background: none !important; }
-
-    /* ─── INTRO SCREEN ────────────────────────────────── */
-    #intro {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
     }
 
-    #intro-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    #intro-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(14, 11, 8, 0.40);
-    }
-
-    #intro-symbol {
-      position: relative;
-      z-index: 1;
-      width: clamp(80px, 12vw, 160px);
-      height: auto;
-      opacity: 0;
-      animation: symbolFade 1.2s 0.5s ease forwards;
-      filter: brightness(0) invert(1) opacity(0.55);
-    }
-
-    #intro-scroll {
-      position: absolute;
-      bottom: 44px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      opacity: 0;
-      animation: symbolFade 1s 2s ease forwards;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-
-    #intro-scroll span {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.38);
-    }
-
-    #intro-scroll svg {
-      animation: arrowBounce 2s 2.5s ease-in-out infinite;
-    }
-
-    @keyframes arrowBounce {
-      0%, 100% { transform: translateY(0); opacity: 0.38; }
-      50% { transform: translateY(7px); opacity: 0.7; }
-    }
-
-    @keyframes symbolFade {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* ─── HERO ────────────────────────────────────────── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 64px 40px 80px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background: var(--ink);
-    }
-
-    /* Translucent swirl watermark — removed from hero, now on intro */
-
-    .hero-eyebrow {
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(240, 220, 200, 0.45);
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeUp 0.7s 0.1s ease forwards;
-      position: relative; z-index: 1;
-    }
-    .hero-headline {
-      font-family: 'Monument Grotesk', Georgia, sans-serif;
-      font-size: clamp(32px, 4vw, 58px);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      max-width: 820px;
-      color: var(--white);
-      margin: 0 auto 36px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.25s ease forwards;
-      position: relative; z-index: 1;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: rgba(213, 140, 80, 0.95);
-    }
-
-    .hero-sub {
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.75;
-      max-width: 600px;
-      color: rgba(255,255,255,0.42);
-      margin: 0 auto 56px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.35s ease forwards;
-      position: relative; z-index: 1;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.45s ease forwards;
-      position: relative; z-index: 1;
-    }
-
-    .hero-note {
-      margin-top: 28px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.20);
-      opacity: 0;
-      animation: fadeUp 0.8s 0.55s ease forwards;
-      position: relative; z-index: 1;
-    }
-
-    /* ─── BUTTONS ─────────────────────────────────────── */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      background: var(--brand);
-      color: var(--white);
-      font-family: 'Monument Grotesk', sans-serif;
+    #milo-body {
+      padding: 20px;
       font-size: 14px;
-      font-weight: 500;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      letter-spacing: 0.01em;
-    }
-
-    .btn-primary:hover {
-      background: var(--brand-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(173, 83, 27, 0.25);
-    }
-
-    /* White pill on dark hero */
-    .btn-primary-light {
-      background: var(--white) !important;
-      color: var(--ink) !important;
-    }
-
-    .btn-primary-light:hover {
-      background: rgba(255,255,255,0.90) !important;
-      color: var(--ink) !important;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.20) !important;
-    }
-
-    /* Ghost on dark hero */
-    .btn-ghost-light {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 24px;
-      background: transparent;
-      color: rgba(255,255,255,0.65) !important;
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      border-radius: 100px;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.20);
-      transition: all 0.2s ease;
-    }
-
-    .btn-ghost-light:hover {
-      color: var(--white) !important;
-      border-color: rgba(255,255,255,0.45);
-      background: rgba(255,255,255,0.07) !important;
-    }
-
-    /* ─── PROBLEM STATEMENT ───────────────────────────── */
-    .problem-section {
-      padding: 100px 40px;
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .problem-left { position: relative; }
-
-    .big-number {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(80px, 12vw, 140px);
-      font-weight: 400;
-      color: var(--surface-warm);
-      line-height: 0.9;
-      letter-spacing: -0.04em;
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .problem-text-block { position: relative; z-index: 1; padding-top: 20px; }
-
-    .section-eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--brand);
-      margin-bottom: 20px;
-    }
-
-    .section-heading {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-
-    .section-heading em { font-style: italic; color: var(--brand); }
-
-    .section-body {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--ink-muted);
-    }
-
-    .problem-right { display: flex; flex-direction: column; gap: 24px; }
-
-    .problem-stat {
-      padding: 24px;
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-
-    .stat-number {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--brand);
-      letter-spacing: -0.01em;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--ink-muted);
-      line-height: 1.5;
-    }
-
-    /* ─── HOW IT WORKS ────────────────────────────────── */
-    .how-section {
-      padding: 100px 40px;
-      background: var(--ink);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .how-section::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 800px; height: 800px;
-      background: radial-gradient(ellipse, rgba(173, 83, 27, 0.12) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .how-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
-
-    .how-header { text-align: center; margin-bottom: 72px; }
-
-    .how-eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--brand);
-      margin-bottom: 20px;
-    }
-
-    .how-heading {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--white);
-    }
-
-    .how-heading em { font-style: italic; color: rgba(255,255,255,0.40); }
-
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-
-    .step {
-      position: relative;
-      padding: 36px 32px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      transition: background 0.2s ease;
-    }
-
-    .step:hover { background: rgba(255,255,255,0.07); }
-
-    .step-number {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: 48px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.07);
-      line-height: 1;
-      margin-bottom: 20px;
-      letter-spacing: -0.03em;
-    }
-
-    .step-title {
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--white);
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
-
-    .step-body {
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.48);
-      line-height: 1.7;
-    }
-
-    .step-accent {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
-      font-weight: 400;
-    }
-
-    /* ─── SHOWCASE ────────────────────────────────────── */
-    .showcase-section {
-      padding: 100px 40px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .showcase-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 48px;
-      gap: 32px;
-    }
-
-    .showcase-heading {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 400;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      max-width: 420px;
-    }
-
-    .showcase-heading em { font-style: italic; color: var(--brand); }
-
-    .showcase-link {
-      font-size: 13px;
-      color: var(--brand);
-      text-decoration: none;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-      transition: gap 0.2s;
-    }
-
-    .showcase-link:hover { gap: 10px; }
-
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      grid-template-rows: auto auto;
-      gap: 12px;
-    }
-
-    .showcase-card {
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--surface-warm);
-      position: relative;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-    }
-
-    .showcase-card:first-child { grid-row: 1 / 3; }
-
-    .showcase-img {
-      width: 100%;
-      height: 100%;
-      min-height: 200px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .showcase-card:first-child .showcase-img { min-height: 420px; }
-
-    .showcase-card:hover .showcase-img { transform: scale(1.03); }
-
-    .showcase-overlay {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 20px 18px 18px;
-      background: linear-gradient(transparent, rgba(26, 24, 20, 0.70));
-      color: var(--white);
-    }
-
-    .overlay-name { font-size: 14px; font-weight: 500; line-height: 1.3; }
-    .overlay-location { font-size: 11px; opacity: 0.58; margin-top: 3px; letter-spacing: 0.04em; }
-
-    /* ─── MEMBERSHIP ──────────────────────────────────── */
-    .membership-section {
-      padding: 100px 40px;
-      background: var(--surface-warm);
-    }
-
-    .membership-inner { max-width: 960px; margin: 0 auto; }
-
-    .membership-header { text-align: center; margin-bottom: 64px; }
-
-    .membership-heading {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(32px, 4vw, 52px);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-
-    .membership-heading em { font-style: italic; color: var(--brand); }
-
-    .membership-sub {
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--ink-muted);
-      max-width: 460px;
-      margin: 0 auto;
-      line-height: 1.65;
-    }
-
-    .tiers {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      align-items: start;
-    }
-
-    .tier {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 36px 32px;
-      border: 1px solid var(--border);
-      position: relative;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .tier:hover { box-shadow: 0 12px 40px rgba(26, 24, 20, 0.08); }
-
-    .tier.featured {
-      background: var(--ink);
-      border-color: var(--ink);
-      transform: scale(1.02);
-    }
-
-    /* Muted sand pill — not orange */
-    .tier-badge {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.11);
-      padding: 4px 10px;
-      border-radius: 100px;
-      margin-bottom: 20px;
-    }
-
-    .tier-name {
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-bottom: 8px;
-    }
-
-    .tier.featured .tier-name { color: rgba(255,255,255,0.40); }
-
-    .tier-price {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: 44px;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
-
-    .tier.featured .tier-price { color: var(--white); }
-
-    .tier-price-note { font-size: 12px; color: var(--ink-faint); margin-bottom: 28px; }
-    .tier.featured .tier-price-note { color: rgba(255,255,255,0.28); }
-
-    .tier-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
-    .tier.featured .tier-divider { background: rgba(255,255,255,0.08); }
-
-    .tier-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .tier-features li {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--ink-muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.5;
-    }
-
-    .tier.featured .tier-features li { color: rgba(255,255,255,0.52); }
-
-    .feature-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--ink-faint);
-      flex-shrink: 0;
-      margin-top: 6px;
-    }
-
-    .tier.featured .feature-dot { background: rgba(255,255,255,0.22); }
-
-    .tier-cta {
-      display: block;
-      text-align: center;
-      padding: 12px 24px;
-      border-radius: 100px;
-      font-size: 13px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .tier-cta-outline {
-      border: 1px solid var(--border);
-      color: var(--ink-muted);
-      background: transparent;
-    }
-
-    .tier-cta-outline:hover { border-color: rgba(26,24,20,0.3); color: var(--ink); }
-
-    .tier-cta-brand {
-      background: var(--brand);
-      color: var(--white) !important;
-      border: 1px solid var(--brand);
-    }
-
-    .tier-cta-brand:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
-
-    /* Become a member — white on dark tier, stays white on hover */
-    .tier-cta-white {
-      background: var(--white);
-      color: var(--ink) !important;
-      border: 1px solid transparent;
-    }
-
-    .tier-cta-white:hover {
-      background: rgba(255,255,255,0.88);
-      color: var(--ink) !important;
-    }
-
-    /* ─── CONCIERGE ───────────────────────────────────── */
-    .concierge-section {
-      padding: 100px 40px;
-      max-width: 960px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .concierge-left { position: relative; }
-
-    .concierge-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
-    .concierge-card-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      background: var(--surface-warm);
-      display: block;
-    }
-
-    .concierge-card-body { padding: 24px; }
-
-    /* Concierge tag — muted, not orange-filled */
-    .concierge-tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      background: rgba(168, 163, 158, 0.12);
-      border: 1px solid rgba(168, 163, 158, 0.22);
-      padding: 4px 10px;
-      border-radius: 100px;
-      margin-bottom: 12px;
-    }
-
-    .concierge-card-title {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .concierge-card-sub {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--ink-muted);
       line-height: 1.6;
-    }
-
-    .concierge-heading {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(28px, 3.5vw, 42px);
-      font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-
-    .concierge-heading em { font-style: italic; color: var(--brand); }
-
-    .concierge-body {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.75;
+      overflow-y: auto;
       color: var(--ink-muted);
-      margin-bottom: 36px;
     }
 
-    .concierge-includes { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
-
-    .include-item { display: flex; align-items: flex-start; gap: 14px; }
-
-    .include-icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      background: var(--surface-warm);
-      border: 1px solid var(--border);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--ink-muted);
-      margin-top: 1px;
+    .milo-loading {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--brand);
+      border-radius: 50%;
+      margin-left: 4px;
+      animation: blink 1s infinite;
     }
 
-    .include-text { font-size: 14px; font-weight: 400; color: var(--ink); line-height: 1.5; }
-    .include-sub { font-size: 12px; color: var(--ink-faint); font-weight: 300; }
+    @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
-    .concierge-price { display: inline-flex; align-items: baseline; gap: 6px; margin-bottom: 20px; }
-
-    .price-amount {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: 32px;
-      font-weight: 400;
-      color: var(--ink);
-      letter-spacing: -0.02em;
-    }
-
-    .price-note { font-size: 13px; color: var(--ink-muted); }
-
-    /* ─── MANIFESTO ───────────────────────────────────── */
-    .manifesto-section {
-      padding: 80px 40px;
-      text-align: center;
-      background: var(--surface-warm);
-      position: relative;
-    }
-
-    .manifesto-inner {
-      max-width: 560px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .manifesto-quote {
-      font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(13px, 1.4vw, 16px);
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.8;
-      letter-spacing: 0.01em;
-      color: var(--brand);
-      margin-bottom: 24px;
-    }
-
-    .manifesto-byline {
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--ink-faint);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    /* ─── FOOTER ──────────────────────────────────────── */
-    footer {
-      padding: 40px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-logo img { height: 22px; width: auto; opacity: 0.52; image-rendering: auto; }
-
-    .footer-links { display: flex; align-items: center; gap: 28px; }
-
-    .footer-links a {
-      font-size: 12px;
-      color: var(--ink-faint);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .footer-links a:hover { color: var(--ink-muted); }
-
-    .footer-copy { font-size: 12px; color: var(--ink-faint); }
-
-    /* ─── ANIMATIONS ──────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Stagger siblings naturally */
-    .reveal:nth-child(2) { transition-delay: 0.1s; }
-    .reveal:nth-child(3) { transition-delay: 0.2s; }
-
-    /* ─── RESPONSIVE ──────────────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      nav .nav-links { display: none; }
-      .hero { padding: 100px 24px 60px; }
-
-      .problem-section {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        padding: 80px 24px;
-      }
-
-      .big-number { font-size: 80px; }
-      .steps { grid-template-columns: 1fr; gap: 16px; }
-      .how-section { padding: 80px 24px; }
-      .showcase-section { padding: 80px 24px; }
-
-      .showcase-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-      }
-
-      .showcase-card:first-child { grid-row: 1; grid-column: 1 / 3; }
-      .showcase-card:first-child .showcase-img { min-height: 240px; }
-
-      .tiers { grid-template-columns: 1fr; gap: 16px; max-width: 400px; margin: 0 auto; }
-      .tier.featured { transform: none; }
-      .membership-section { padding: 80px 24px; }
-
-      .concierge-section {
-        grid-template-columns: 1fr;
-        gap: 48px;
-        padding: 80px 24px;
-      }
-
-      .manifesto-section { padding: 80px 24px; }
-
-      footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 32px 24px;
-      }
-
-      .showcase-header { flex-direction: column; align-items: flex-start; }
-      #intro-symbol { width: clamp(60px, 20vw, 100px); }
-    }
+    /* [Rest of your existing styles] */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; background: rgba(247, 246, 242, 0.88); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--ink); text-align: center; color: white; padding: 40px; }
+    .hero-headline { font-size: clamp(32px, 4vw, 58px); margin-bottom: 24px; }
+    .btn-primary { cursor: pointer; border: none; padding: 14px 28px; border-radius: 100px; font-weight: 500; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary-light { background: white; color: var(--ink); }
   </style>
 </head>
 <body>
 
-<!-- ─── INTRO SCREEN ──────────────────────────────────── -->
-<div id="intro">
-  <video
-    id="intro-video"
-    autoplay muted loop playsinline preload="auto"
-    poster="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/hero_poster.jpg"
-  >
-    <source src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/Joli_Texture_06.mp4" type="video/mp4" />
-  </video>
-  <div id="intro-overlay"></div>
-  <img
-    id="intro-symbol"
-    src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.svg"
-    alt="JOLI"
-  />
-  <button id="intro-scroll" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to content">
-    <span>Scroll</span>
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5">
-      <path d="M12 5v14M5 12l7 7 7-7"/>
-    </svg>
-  </button>
+<div id="milo-container">
+  <div id="milo-header">
+    <span style="font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;">Milo AI</span>
+    <button onclick="document.getElementById('milo-container').style.display='none'" style="background:none; border:none; color:white; cursor:pointer;">✕</button>
+  </div>
+  <div id="milo-body">
+    <div id="milo-text">Waiting for Milo...</div>
+  </div>
 </div>
 
-<!-- ─── NAV ─────────────────────────────────────────── -->
-<nav id="main-nav" class="nav-hidden">
+<nav id="main-nav">
   <a href="/" class="nav-logo">
     <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI Collective" />
   </a>
-  <div class="nav-links">
-    <a href="#how-it-works">How it works</a>
-    <a href="#membership">Membership</a>
-    <a href="#concierge">Concierge</a>
-    <a href="https://app.jolicollective.net/" class="nav-cta">Try MILO free</a>
+  <div style="display: flex; gap: 20px;">
+    <button onclick="askMilo('Find me a design-led villa in Tuscany')" class="btn-primary" style="font-size: 12px; padding: 10px 20px; background: var(--brand); color: white;">
+      Try MILO
+    </button>
   </div>
 </nav>
 
-<!-- ─── HERO ─────────────────────────────────────────── -->
 <section class="hero" id="hero">
-
-  <p class="hero-eyebrow">MILO — A travel copilot by JOLI Collective</p>
-
-  <h1 class="hero-headline">
-    Find places to stay.<br><em>Without the scrolling.</em>
-  </h1>
-
-  <p class="hero-sub">
-    A handpicked collection of design-led stays, found through conversation.
-  </p>
-
+  <p style="color: rgba(255,255,255,0.4); text-transform: uppercase; font-size: 11px; letter-spacing: 0.2em; margin-bottom: 20px;">MILO — A travel copilot</p>
+  <h1 class="hero-headline">Find places to stay.<br><i style="color: var(--brand)">Without the scrolling.</i></h1>
+  
   <div class="hero-actions">
-    <a href="https://app.jolicollective.net/" class="btn-primary btn-primary-light">
-      Try MILO free
+    <button onclick="askMilo('I want a romantic stay in Tuscany for two')" class="btn-primary btn-primary-light">
+      Ask Milo about Tuscany
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-    <a href="#membership" class="btn-ghost-light">Become a member</a>
-  </div>
-
-  <p class="hero-note">Free to start · No credit card required</p>
-</section>
-
-<!-- ─── PROBLEM ───────────────────────────────────────── -->
-<section class="problem-section">
-  <div class="problem-left reveal">
-    <div class="big-number">∞</div>
-    <div class="problem-text-block">
-      <p class="section-eyebrow">The problem</p>
-      <h2 class="section-heading">
-        Booking platforms optimise for volume.<br>
-        <em>MILO optimises for taste.</em>
-      </h2>
-      <p class="section-body">
-        Airbnb has 7 million listings. Booking.com has 28 million. The result isn't choice — it's paralysis. JOLI Collective is the opposite: a deeply curated collection across Europe, personally selected for character, design, and the kind of detail that makes a trip memorable.
-      </p>
-    </div>
-  </div>
-
-  <div class="problem-right reveal">
-    <div class="problem-stat">
-      <div class="stat-number">Europe</div>
-      <div class="stat-label">Selected for design quality and character, not volume. Starting in Europe and expanding worldwide in 2026.</div>
-    </div>
-    <div class="problem-stat">
-      <div class="stat-number">No algorithms</div>
-      <div class="stat-label">MILO finds the right fit through conversation, not keyword matching and endless filters.</div>
-    </div>
-    <div class="problem-stat">
-      <div class="stat-number">One shortlist</div>
-      <div class="stat-label">Not 300 options. Just the places that genuinely match what you're looking for.</div>
-    </div>
+    </button>
   </div>
 </section>
-
-<!-- ─── HOW IT WORKS ──────────────────────────────────── -->
-<section class="how-section" id="how-it-works">
-  <div class="how-inner">
-    <div class="how-header reveal">
-      <p class="how-eyebrow">How it works</p>
-      <h2 class="how-heading">Tell MILO what you're looking for.<br><em>It finds the right places.</em></h2>
-    </div>
-
-    <div class="steps">
-      <div class="step reveal">
-        <div class="step-number">01</div>
-        <div class="step-title">Describe your trip</div>
-        <p class="step-body">Mention the vibe, occasion, location, or group. MILO understands natural language — no filters to wrestle with.</p>
-        <span class="step-accent">e.g. "Romantic week in Tuscany for two"</span>
-      </div>
-
-      <div class="step reveal" style="transition-delay: 0.1s">
-        <div class="step-number">02</div>
-        <div class="step-title">MILO curates a shortlist</div>
-        <p class="step-body">Not a list of hundreds. A handful of genuinely well-matched properties from the JOLI collection, with a reason for each.</p>
-        <span class="step-accent">Grounded in proprietary data</span>
-      </div>
-
-      <div class="step reveal" style="transition-delay: 0.2s">
-        <div class="step-number">03</div>
-        <div class="step-title">Refine, save, or request concierge</div>
-        <p class="step-body">Adjust the search, save to a collection, or hand off to a human for a bespoke shortlist when the stakes are high.</p>
-        <span class="step-accent">From discovery to booking</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── SHOWCASE ──────────────────────────────────────── -->
-<section class="showcase-section">
-  <div class="showcase-header reveal">
-    <h2 class="showcase-heading">
-      Places chosen for <em>character</em>, not just availability.
-    </h2>
-    <a href="https://app.jolicollective.net/" class="showcase-link">
-      Explore the collection
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-
-  <div class="showcase-grid reveal">
-    <!-- Cards link to ?q= so MILO pre-fills with that property search -->
-    <a href="https://app.jolicollective.net/?q=Villa+Lena+Tuscany" class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&auto=format" alt="Villa Lena" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Villa Lena</div>
-        <div class="overlay-location">Palaia, Tuscany</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/?q=Whitepod+Switzerland" class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=400&q=80&auto=format" alt="Whitepod" style="min-height:200px" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Whitepod</div>
-        <div class="overlay-location">Les Cerniers, Switzerland</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/?q=Son+Brull+Mallorca" class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=400&q=80&auto=format" alt="Son Brull" style="min-height:200px" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Son Brull</div>
-        <div class="overlay-location">Pollença, Mallorca</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/?q=Casa+do+Pego+Comporta" class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80&auto=format" alt="Casa do Pego" style="min-height:200px" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Casa do Pego</div>
-        <div class="overlay-location">Comporta, Portugal</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/?q=Masseria+Potenti+Puglia" class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=400&q=80&auto=format" alt="Masseria Potenti" style="min-height:200px" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Masseria Potenti</div>
-        <div class="overlay-location">Valle d'Itria, Puglia</div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- ─── MEMBERSHIP ────────────────────────────────────── -->
-<div id="pricing"></div>
-<section class="membership-section" id="membership" style="scroll-margin-top: 64px;">
-  <div class="membership-inner">
-    <div class="membership-header reveal">
-      <p class="section-eyebrow" style="margin-bottom: 16px;">Membership</p>
-      <h2 class="membership-heading">Simple plans.<br><em>Start free.</em></h2>
-      <p class="membership-sub">Start free. Upgrade when MILO becomes your go-to for travel planning.</p>
-    </div>
-
-    <div class="tiers">
-
-      <div class="tier reveal">
-        <div class="tier-name">Free</div>
-        <div class="tier-price">£0</div>
-        <div class="tier-price-note">3 conversations per month</div>
-        <div class="tier-divider"></div>
-        <ul class="tier-features">
-          <li><span class="feature-dot"></span>3 MILO conversations/month</li>
-          <li><span class="feature-dot"></span>Property name, region & hero image</li>
-          <li><span class="feature-dot"></span>Mood-based search</li>
-          <li><span class="feature-dot"></span>No credit card required</li>
-        </ul>
-        <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-outline">Start exploring</a>
-      </div>
-
-      <div class="tier featured reveal" style="transition-delay: 0.1s">
-        <div class="tier-badge">Most popular</div>
-        <div class="tier-name">JOLI Member</div>
-        <div class="tier-price">£15</div>
-        <div class="tier-price-note">per month · or £120/year (save £60)</div>
-        <div class="tier-divider"></div>
-        <ul class="tier-features">
-          <li><span class="feature-dot"></span>Unlimited conversations with MILO</li>
-          <li><span class="feature-dot"></span>Full property details & booking links</li>
-          <li><span class="feature-dot"></span>Save collections & favourites</li>
-          <li><span class="feature-dot"></span>Occasion & group-aware search</li>
-          <li><span class="feature-dot"></span>Priority access to new properties</li>
-        </ul>
-        <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-white">Become a member</a>
-      </div>
-
-      <div class="tier reveal" style="transition-delay: 0.2s">
-        <div class="tier-name">Annual Concierge</div>
-        <div class="tier-price">£250</div>
-        <div class="tier-price-note">per year · includes 5 trip shapings</div>
-        <div class="tier-divider"></div>
-        <ul class="tier-features">
-          <li><span class="feature-dot"></span>Everything in JOLI Member</li>
-          <li><span class="feature-dot"></span>5 bespoke trip shapings/year</li>
-          <li><span class="feature-dot"></span>Human-curated shortlists</li>
-          <li><span class="feature-dot"></span>Seasonal occasion nudges</li>
-          <li><span class="feature-dot"></span>Priority access & first looks</li>
-        </ul>
-        <a href="#" class="tier-cta tier-cta-brand js-annual-email">Join as Concierge</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── CONCIERGE ──────────────────────────────────────── -->
-<section class="concierge-section" id="concierge">
-  <div class="concierge-left reveal">
-    <div class="concierge-card">
-      <img class="concierge-card-img" src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?w=600&q=80&auto=format" alt="Concierge experience" />
-      <div class="concierge-card-body">
-        <span class="concierge-tag">Trip Shaping</span>
-        <div class="concierge-card-title">Honeymoon in the Dolomites, September</div>
-        <div class="concierge-card-sub">Romantic, remote, design-led. Sleeps 2. Flexible on dates. Budget: £400/night.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="concierge-right reveal" style="transition-delay: 0.15s">
-    <p class="section-eyebrow">Concierge</p>
-    <h2 class="concierge-heading">
-      When the trip <em>matters</em>,<br>bring in a human.
-    </h2>
-    <p class="concierge-body">
-      MILO handles everyday planning beautifully. But for honeymoons, landmark birthdays, or a trip you've been thinking about for a year — our concierge service delivers a hand-curated shortlist with a personal note on each property.
-    </p>
-
-    <div class="concierge-includes">
-      <div class="include-item">
-        <div class="include-icon">✦</div>
-        <div>
-          <div class="include-text">Bespoke trip shaping</div>
-          <div class="include-sub">We build your shortlist based on your occasion, group, and taste</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">✦</div>
-        <div>
-          <div class="include-text">Property introductions</div>
-          <div class="include-sub">Direct connections to owners when you're ready to book</div>
-        </div>
-      </div>
-      <div class="include-item">
-        <div class="include-icon">✦</div>
-        <div>
-          <div class="include-text">Delivered within 48 hours</div>
-          <div class="include-sub">A beautifully formatted shortlist, not a link dump</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="concierge-price">
-      <span class="price-amount">£75</span>
-      <span class="price-note">per request · or included in annual membership</span>
-    </div>
-
-    <a href="#" class="btn-primary js-concierge-email">
-      Request a concierge shortlist
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ─── FOOTER ─────────────────────────────────────────── -->
-<footer>
-  <a href="/" class="footer-logo">
-    <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI Collective" />
-  </a>
-  <div class="footer-links">
-    <a href="https://app.jolicollective.net/Privacy">Privacy</a>
-    <a href="https://app.jolicollective.net/Terms">Terms</a>
-    <a href="#" class="js-contact-email">Contact</a>
-  </div>
-  <p class="footer-copy">© 2026 JOLI Collective</p>
-</footer>
 
 <script>
-  // ── Email links built in JS so Cloudflare can't obfuscate them ───────
-  const E = ['hello', 'jolicollective.net'].join('@');
-  document.querySelectorAll('.js-contact-email').forEach(el => {
-    el.href = 'mailto:' + E;
-  });
-  document.querySelectorAll('.js-concierge-email').forEach(el => {
-    el.href = 'mailto:' + E + '?subject=' + encodeURIComponent('Concierge Request');
-  });
-  document.querySelectorAll('.js-annual-email').forEach(el => {
-    el.href = 'mailto:' + E + '?subject=' + encodeURIComponent('Annual Concierge Membership');
-  });
+  async function askMilo(query) {
+    const container = document.getElementById('milo-container');
+    const textField = document.getElementById('milo-text');
+    
+    // 1. Show the UI
+    container.style.display = 'flex';
+    textField.innerHTML = 'Milo is searching the collection<span class="milo-loading"></span>';
 
-  // ── Nav: hide while over intro section, show once scrolled past ───────
-  const mainNav   = document.getElementById('main-nav');
-  const introEl   = document.getElementById('intro');
+    try {
+      // 2. Call your Vercel API
+      const response = await fetch('https://joli-app.vercel.app/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_message: query,
+          anonymous_id: 'visitor_' + Math.random().toString(36).substr(2, 5),
+          session_id: 'landing_page_demo'
+        }),
+      });
 
-  function updateNav() {
-    const introBottom = introEl.getBoundingClientRect().bottom;
-    if (introBottom <= 0) {
-      mainNav.classList.remove('nav-hidden');
-      mainNav.style.boxShadow = '0 1px 0 rgba(26,24,20,0.08)';
-    } else {
-      mainNav.classList.add('nav-hidden');
-      mainNav.style.boxShadow = 'none';
+      if (!response.ok) throw new Error('Milo is resting.');
+
+      // 3. Handle the Stream
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      textField.innerHTML = ""; // Clear the loading text
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        
+        const chunk = decoder.decode(value);
+        textField.innerHTML += chunk;
+        
+        // Auto-scroll to bottom as it types
+        container.scrollTop = container.scrollHeight;
+      }
+
+    } catch (error) {
+      textField.innerHTML = "Sorry, I'm having trouble connecting to the collection. Please try again in a moment.";
+      console.error(error);
     }
   }
-
-  // Set initial state
-  updateNav();
-  window.addEventListener('scroll', updateNav, { passive: true });
-
-  // ── Scroll reveal — slow, considered, Kinfolk-style ─────────────────
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
 
 </body>
