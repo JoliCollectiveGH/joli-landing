@@ -209,7 +209,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 120px 40px 80px;
+      padding: 160px 40px 120px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -252,7 +252,7 @@
       font-size: 17px;
       font-weight: 300;
       line-height: 1.65;
-      max-width: 500px;
+      max-width: 680px;
       color: rgba(255,255,255,0.55);
       margin: 0 auto 48px;
       opacity: 0;
@@ -879,41 +879,36 @@
 
     /* ─── MANIFESTO ───────────────────────────────────── */
     .manifesto-section {
-      padding: 120px 40px;
+      padding: 80px 40px;
       text-align: center;
-      background: var(--ink);
+      background: var(--surface-warm);
       position: relative;
-      overflow: hidden;
     }
 
-    .manifesto-section::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(173, 83, 27, 0.15) 0%, transparent 65%);
-      pointer-events: none;
+    .manifesto-inner {
+      max-width: 560px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
-
-    .manifesto-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
 
     .manifesto-quote {
       font-family: 'Monument Grotesk', sans-serif;
-      font-size: clamp(24px, 3.5vw, 40px);
+      font-size: clamp(13px, 1.4vw, 16px);
       font-weight: 400;
       font-style: italic;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-      color: var(--white);
-      margin-bottom: 32px;
+      line-height: 1.8;
+      letter-spacing: 0.01em;
+      color: var(--brand);
+      margin-bottom: 24px;
     }
 
     .manifesto-byline {
-      font-size: 13px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.28);
-      letter-spacing: 0.06em;
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--ink-faint);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
     /* ─── FOOTER ──────────────────────────────────────── */
@@ -944,17 +939,24 @@
 
     /* ─── ANIMATIONS ──────────────────────────────────── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(32px);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger siblings naturally */
+    .reveal:nth-child(2) { transition-delay: 0.1s; }
+    .reveal:nth-child(3) { transition-delay: 0.2s; }
 
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 900px) {
@@ -1053,7 +1055,7 @@
   </h1>
 
   <p class="hero-sub">
-    Tell MILO what you're looking for. It searches a handpicked collection of design-led stays across Europe and finds the ones worth your time.
+    A handpicked collection of design-led stays, found through conversation.
   </p>
 
   <div class="hero-actions">
@@ -1362,10 +1364,10 @@
   updateNav();
   window.addEventListener('scroll', updateNav, { passive: true });
 
-  // ── Scroll reveal ────────────────────────────────────────────────────
+  // ── Scroll reveal — slow, considered, Kinfolk-style ─────────────────
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
