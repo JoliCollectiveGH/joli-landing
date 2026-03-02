@@ -3,14 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JOLI Collective — Stays chosen for character, not just availability</title>
+  <title>JOLI Collective — Find places to stay</title>
+  <link rel="icon" type="image/png" href="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.png" />
   <meta name="description" content="Too many options. Not enough taste. MILO is an AI travel copilot that finds remarkable, design-led stays across Europe — handpicked for character, not volume." />
   <meta property="og:title" content="JOLI Collective" />
   <meta property="og:description" content="Too many options. Not enough taste. Meet MILO." />
-  <meta property="og:image" content="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.png" />
+  <meta property="og:image" content="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/hero_poster.jpg" />
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+    @font-face {
+      font-family: 'Monument Grotesk';
+      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Light-Trial.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Monument Grotesk';
+      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Regular-Trial.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Monument Grotesk';
+      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-RegularItalic-Trial.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Monument Grotesk';
+      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-Medium-Trial.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Monument Grotesk';
+      src: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/ABCMonumentGrotesk-MediumItalic-Trial.woff2') format('woff2');
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
 
     :root {
       --brand: #AD531B;
@@ -26,11 +65,10 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', -apple-system, sans-serif;
+      font-family: 'Monument Grotesk', -apple-system, sans-serif;
       background: var(--surface);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
@@ -41,35 +79,27 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 200;
       padding: 0 40px;
       height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(247, 246, 242, 0.85);
+      background: rgba(247, 246, 242, 0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      transition: all 0.3s ease;
+      transition: opacity 0.4s ease, box-shadow 0.3s ease;
     }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
+    nav.nav-hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
-    .nav-logo img {
-      height: 28px;
-      width: auto;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { height: 28px; width: auto; image-rendering: auto; }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
 
     .nav-links a {
       font-size: 13px;
@@ -85,78 +115,91 @@
     .nav-cta {
       font-size: 13px;
       font-weight: 500;
-      color: var(--white) !important;
-      background: var(--brand);
-      padding: 8px 20px;
-      border-radius: 100px;
-      transition: background 0.15s !important;
+      color: var(--ink) !important;
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      transition: color 0.15s !important;
+      letter-spacing: 0.01em;
     }
 
-    .nav-cta:hover { background: var(--brand-dark) !important; color: var(--white) !important; }
+    .nav-cta:hover { color: var(--brand) !important; background: none !important; }
 
-    /* ─── HERO VIDEO ──────────────────────────────────── */
-    .hero-video-wrap {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
+    /* ─── INTRO SCREEN ────────────────────────────────── */
+    #intro {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
-    .hero-video {
+    #intro-video {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .hero-video-overlay {
+    #intro-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(20, 16, 12, 0.58);
+      background: rgba(14, 11, 8, 0.40);
     }
 
-    /* Mobile: hide video, show warm gradient fallback */
-    @media (max-width: 768px) {
-      .hero-video-wrap {
-        background: linear-gradient(160deg, #2A1F14 0%, #1A1410 100%);
-      }
-      .hero-video { display: none; }
+    #intro-symbol {
+      position: relative;
+      z-index: 1;
+      width: clamp(80px, 12vw, 160px);
+      height: auto;
+      opacity: 0;
+      animation: symbolFade 1.2s 0.5s ease forwards;
+      filter: brightness(0) invert(1) opacity(0.55);
     }
 
-    /* Hero text flips to light on video */
-    .hero { background: var(--ink); }
-
-    .hero-eyebrow { color: rgba(240, 220, 200, 0.65); }
-
-    .hero-headline { color: var(--white); }
-
-    .hero-headline em { color: rgba(213, 140, 80, 0.95); }
-
-    .hero-sub { color: rgba(255, 255, 255, 0.60); }
-
-    .hero-note { color: rgba(255, 255, 255, 0.30); }
-
-    /* Light variants for buttons on dark hero */
-    .btn-primary-light {
-      background: var(--white);
-      color: var(--ink);
+    #intro-scroll {
+      position: absolute;
+      bottom: 44px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: symbolFade 1s 2s ease forwards;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
     }
 
-    .btn-primary-light:hover {
-      background: rgba(255,255,255,0.90);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    #intro-scroll span {
+      font-family: 'Monument Grotesk', sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
     }
 
-    .btn-ghost-light {
-      color: rgba(255,255,255,0.70);
-      border-color: rgba(255,255,255,0.22);
+    #intro-scroll svg {
+      animation: arrowBounce 2s 2.5s ease-in-out infinite;
     }
 
-    .btn-ghost-light:hover {
-      color: var(--white);
-      border-color: rgba(255,255,255,0.50);
-      background: rgba(255,255,255,0.06);
+    @keyframes arrowBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.38; }
+      50% { transform: translateY(7px); opacity: 0.7; }
+    }
+
+    @keyframes symbolFade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
 
     /* ─── HERO ────────────────────────────────────────── */
@@ -170,38 +213,30 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      background: var(--ink);
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(ellipse, rgba(173, 83, 27, 0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    /* Translucent swirl watermark — removed from hero, now on intro */
 
     .hero-eyebrow {
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-weight: 400;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: rgba(240, 220, 200, 0.50);
       margin-bottom: 28px;
       opacity: 0;
       animation: fadeUp 0.7s 0.1s ease forwards;
       position: relative; z-index: 1;
     }
-
     .hero-headline {
-      font-family: 'DM Serif Display', Georgia, serif;
-      font-size: clamp(42px, 6vw, 76px);
+      font-family: 'Monument Grotesk', Georgia, sans-serif;
+      font-size: clamp(28px, 3.8vw, 52px);
       font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      max-width: 760px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      max-width: 640px;
+      color: var(--white);
       margin: 0 auto 24px;
       opacity: 0;
       animation: fadeUp 0.8s 0.25s ease forwards;
@@ -210,6 +245,7 @@
 
     .hero-headline em {
       font-style: italic;
+      color: rgba(213, 140, 80, 0.95);
     }
 
     .hero-sub {
@@ -217,6 +253,7 @@
       font-weight: 300;
       line-height: 1.65;
       max-width: 500px;
+      color: rgba(255,255,255,0.55);
       margin: 0 auto 48px;
       opacity: 0;
       animation: fadeUp 0.8s 0.35s ease forwards;
@@ -234,6 +271,16 @@
       position: relative; z-index: 1;
     }
 
+    .hero-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.55s ease forwards;
+      position: relative; z-index: 1;
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────── */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -241,7 +288,7 @@
       padding: 14px 28px;
       background: var(--brand);
       color: var(--white);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: 14px;
       font-weight: 500;
       border-radius: 100px;
@@ -256,102 +303,39 @@
       box-shadow: 0 8px 24px rgba(173, 83, 27, 0.25);
     }
 
-    .btn-ghost {
+    /* White pill on dark hero */
+    .btn-primary-light {
+      background: var(--white) !important;
+      color: var(--ink) !important;
+    }
+
+    .btn-primary-light:hover {
+      background: rgba(255,255,255,0.90) !important;
+      color: var(--ink) !important;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.20) !important;
+    }
+
+    /* Ghost on dark hero */
+    .btn-ghost-light {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 14px 24px;
       background: transparent;
-      color: var(--ink-muted);
-      font-family: 'DM Sans', sans-serif;
+      color: rgba(255,255,255,0.65) !important;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: 14px;
       font-weight: 400;
       border-radius: 100px;
       text-decoration: none;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.20);
       transition: all 0.2s ease;
     }
 
-    .btn-ghost:hover {
-      color: var(--ink);
-      border-color: rgba(26, 24, 20, 0.2);
-      background: rgba(26, 24, 20, 0.03);
-    }
-
-    .hero-note {
-      margin-top: 20px;
-      font-size: 12px;
-      opacity: 0;
-      animation: fadeUp 0.8s 0.55s ease forwards;
-      position: relative; z-index: 1;
-    }
-
-    /* ─── PROPERTY STRIP ──────────────────────────────── */
-    .strip-section {
-      padding: 0 0 48px;
-      opacity: 0;
-      animation: fadeUp 1s 0.65s ease forwards;
-    }
-
-    .strip-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .property-strip {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      padding: 0 40px 12px;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .property-strip::-webkit-scrollbar { display: none; }
-
-    .property-card {
-      flex: 0 0 220px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--border);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-    }
-
-    .property-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(26, 24, 20, 0.10);
-    }
-
-    .property-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-      background: var(--surface-warm);
-    }
-
-    .property-info {
-      padding: 14px 16px;
-    }
-
-    .property-name {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1.3;
-    }
-
-    .property-location {
-      font-size: 11px;
-      color: var(--ink-faint);
-      margin-top: 3px;
+    .btn-ghost-light:hover {
+      color: var(--white) !important;
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.07) !important;
     }
 
     /* ─── PROBLEM STATEMENT ───────────────────────────── */
@@ -365,12 +349,10 @@
       align-items: center;
     }
 
-    .problem-left {
-      position: relative;
-    }
+    .problem-left { position: relative; }
 
     .big-number {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: clamp(80px, 12vw, 140px);
       font-weight: 400;
       color: var(--surface-warm);
@@ -383,11 +365,7 @@
       user-select: none;
     }
 
-    .problem-text-block {
-      position: relative;
-      z-index: 1;
-      padding-top: 20px;
-    }
+    .problem-text-block { position: relative; z-index: 1; padding-top: 20px; }
 
     .section-eyebrow {
       font-size: 11px;
@@ -399,7 +377,7 @@
     }
 
     .section-heading {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: clamp(28px, 3.5vw, 42px);
       font-weight: 400;
       line-height: 1.15;
@@ -417,11 +395,7 @@
       color: var(--ink-muted);
     }
 
-    .problem-right {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
+    .problem-right { display: flex; flex-direction: column; gap: 24px; }
 
     .problem-stat {
       padding: 24px;
@@ -431,11 +405,11 @@
     }
 
     .stat-number {
-      font-family: 'DM Serif Display', serif;
-      font-size: 36px;
+      font-family: 'Monument Grotesk', sans-serif;
+      font-size: 26px;
       font-weight: 400;
       color: var(--brand);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       line-height: 1;
       margin-bottom: 6px;
     }
@@ -458,26 +432,16 @@
     .how-section::before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 800px;
-      height: 800px;
+      width: 800px; height: 800px;
       background: radial-gradient(ellipse, rgba(173, 83, 27, 0.12) 0%, transparent 65%);
       pointer-events: none;
     }
 
-    .how-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
+    .how-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
 
-    .how-header {
-      text-align: center;
-      margin-bottom: 72px;
-    }
+    .how-header { text-align: center; margin-bottom: 72px; }
 
     .how-eyebrow {
       font-size: 11px;
@@ -489,7 +453,7 @@
     }
 
     .how-heading {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: clamp(32px, 4vw, 52px);
       font-weight: 400;
       line-height: 1.1;
@@ -497,13 +461,9 @@
       color: var(--white);
     }
 
-    .how-heading em { font-style: italic; color: rgba(255,255,255,0.5); }
+    .how-heading em { font-style: italic; color: rgba(255,255,255,0.40); }
 
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
 
     .step {
       position: relative;
@@ -517,10 +477,10 @@
     .step:hover { background: rgba(255,255,255,0.07); }
 
     .step-number {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: 48px;
       font-weight: 400;
-      color: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.07);
       line-height: 1;
       margin-bottom: 20px;
       letter-spacing: -0.03em;
@@ -537,18 +497,18 @@
     .step-body {
       font-size: 14px;
       font-weight: 300;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.48);
       line-height: 1.7;
     }
 
     .step-accent {
       display: inline-block;
       margin-top: 16px;
-      font-size: 11px;
-      letter-spacing: 0.1em;
+      font-size: 10px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--brand);
-      font-weight: 500;
+      color: rgba(255,255,255,0.25);
+      font-weight: 400;
     }
 
     /* ─── SHOWCASE ────────────────────────────────────── */
@@ -567,7 +527,7 @@
     }
 
     .showcase-heading {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: clamp(28px, 3.5vw, 44px);
       font-weight: 400;
       line-height: 1.12;
@@ -605,11 +565,11 @@
       background: var(--surface-warm);
       position: relative;
       cursor: pointer;
+      text-decoration: none;
+      display: block;
     }
 
-    .showcase-card:first-child {
-      grid-row: 1 / 3;
-    }
+    .showcase-card:first-child { grid-row: 1 / 3; }
 
     .showcase-img {
       width: 100%;
@@ -620,9 +580,7 @@
       transition: transform 0.5s ease;
     }
 
-    .showcase-card:first-child .showcase-img {
-      min-height: 420px;
-    }
+    .showcase-card:first-child .showcase-img { min-height: 420px; }
 
     .showcase-card:hover .showcase-img { transform: scale(1.03); }
 
@@ -630,21 +588,12 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       padding: 20px 18px 18px;
-      background: linear-gradient(transparent, rgba(26, 24, 20, 0.65));
+      background: linear-gradient(transparent, rgba(26, 24, 20, 0.70));
       color: var(--white);
     }
 
-    .overlay-name {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.3;
-    }
-
-    .overlay-location {
-      font-size: 11px;
-      opacity: 0.7;
-      margin-top: 3px;
-    }
+    .overlay-name { font-size: 14px; font-weight: 500; line-height: 1.3; }
+    .overlay-location { font-size: 11px; opacity: 0.58; margin-top: 3px; letter-spacing: 0.04em; }
 
     /* ─── MEMBERSHIP ──────────────────────────────────── */
     .membership-section {
@@ -652,18 +601,12 @@
       background: var(--surface-warm);
     }
 
-    .membership-inner {
-      max-width: 960px;
-      margin: 0 auto;
-    }
+    .membership-inner { max-width: 960px; margin: 0 auto; }
 
-    .membership-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
+    .membership-header { text-align: center; margin-bottom: 64px; }
 
     .membership-heading {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: clamp(32px, 4vw, 52px);
       font-weight: 400;
       line-height: 1.1;
@@ -699,9 +642,7 @@
       transition: box-shadow 0.2s ease;
     }
 
-    .tier:hover {
-      box-shadow: 0 12px 40px rgba(26, 24, 20, 0.08);
-    }
+    .tier:hover { box-shadow: 0 12px 40px rgba(26, 24, 20, 0.08); }
 
     .tier.featured {
       background: var(--ink);
@@ -709,14 +650,16 @@
       transform: scale(1.02);
     }
 
+    /* Muted sand pill — not orange */
     .tier-badge {
       display: inline-block;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-weight: 500;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: var(--white);
-      background: var(--brand);
+      color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.11);
       padding: 4px 10px;
       border-radius: 100px;
       margin-bottom: 20px;
@@ -731,10 +674,10 @@
       margin-bottom: 8px;
     }
 
-    .tier.featured .tier-name { color: rgba(255,255,255,0.5); }
+    .tier.featured .tier-name { color: rgba(255,255,255,0.40); }
 
     .tier-price {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: 44px;
       font-weight: 400;
       color: var(--ink);
@@ -745,21 +688,11 @@
 
     .tier.featured .tier-price { color: var(--white); }
 
-    .tier-price-note {
-      font-size: 12px;
-      color: var(--ink-faint);
-      margin-bottom: 28px;
-    }
+    .tier-price-note { font-size: 12px; color: var(--ink-faint); margin-bottom: 28px; }
+    .tier.featured .tier-price-note { color: rgba(255,255,255,0.28); }
 
-    .tier.featured .tier-price-note { color: rgba(255,255,255,0.35); }
-
-    .tier-divider {
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 24px;
-    }
-
-    .tier.featured .tier-divider { background: rgba(255,255,255,0.1); }
+    .tier-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+    .tier.featured .tier-divider { background: rgba(255,255,255,0.08); }
 
     .tier-features {
       list-style: none;
@@ -779,16 +712,17 @@
       line-height: 1.5;
     }
 
-    .tier.featured .tier-features li { color: rgba(255,255,255,0.6); }
+    .tier.featured .tier-features li { color: rgba(255,255,255,0.52); }
 
     .feature-dot {
-      width: 5px;
-      height: 5px;
+      width: 5px; height: 5px;
       border-radius: 50%;
-      background: var(--brand);
+      background: var(--ink-faint);
       flex-shrink: 0;
       margin-top: 6px;
     }
+
+    .tier.featured .feature-dot { background: rgba(255,255,255,0.22); }
 
     .tier-cta {
       display: block;
@@ -807,29 +741,26 @@
       background: transparent;
     }
 
-    .tier-cta-outline:hover {
-      border-color: var(--ink);
-      color: var(--ink);
-    }
+    .tier-cta-outline:hover { border-color: rgba(26,24,20,0.3); color: var(--ink); }
 
     .tier-cta-brand {
       background: var(--brand);
-      color: var(--white);
+      color: var(--white) !important;
       border: 1px solid var(--brand);
     }
 
-    .tier-cta-brand:hover {
-      background: var(--brand-dark);
-      border-color: var(--brand-dark);
-    }
+    .tier-cta-brand:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
 
+    /* Become a member — white on dark tier, stays white on hover */
     .tier-cta-white {
       background: var(--white);
-      color: var(--ink);
+      color: var(--ink) !important;
+      border: 1px solid transparent;
     }
 
     .tier-cta-white:hover {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.88);
+      color: var(--ink) !important;
     }
 
     /* ─── CONCIERGE ───────────────────────────────────── */
@@ -843,9 +774,7 @@
       align-items: center;
     }
 
-    .concierge-left {
-      position: relative;
-    }
+    .concierge-left { position: relative; }
 
     .concierge-card {
       background: var(--white);
@@ -862,25 +791,25 @@
       display: block;
     }
 
-    .concierge-card-body {
-      padding: 24px;
-    }
+    .concierge-card-body { padding: 24px; }
 
+    /* Concierge tag — muted, not orange-filled */
     .concierge-tag {
       display: inline-block;
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-weight: 500;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
-      color: var(--brand);
-      background: var(--brand-light);
+      color: var(--ink-muted);
+      background: rgba(168, 163, 158, 0.12);
+      border: 1px solid rgba(168, 163, 158, 0.22);
       padding: 4px 10px;
       border-radius: 100px;
       margin-bottom: 12px;
     }
 
     .concierge-card-title {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: 20px;
       font-weight: 400;
       color: var(--ink);
@@ -895,10 +824,8 @@
       line-height: 1.6;
     }
 
-    .concierge-right {}
-
     .concierge-heading {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: clamp(28px, 3.5vw, 42px);
       font-weight: 400;
       line-height: 1.15;
@@ -917,64 +844,38 @@
       margin-bottom: 36px;
     }
 
-    .concierge-includes {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 36px;
-    }
+    .concierge-includes { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
 
-    .include-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-    }
+    .include-item { display: flex; align-items: flex-start; gap: 14px; }
 
     .include-icon {
-      width: 32px;
-      height: 32px;
+      width: 32px; height: 32px;
       border-radius: 8px;
-      background: var(--brand-light);
+      background: var(--surface-warm);
+      border: 1px solid var(--border);
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 12px;
+      color: var(--ink-muted);
       margin-top: 1px;
     }
 
-    .include-text {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--ink);
-      line-height: 1.5;
-    }
+    .include-text { font-size: 14px; font-weight: 400; color: var(--ink); line-height: 1.5; }
+    .include-sub { font-size: 12px; color: var(--ink-faint); font-weight: 300; }
 
-    .include-sub {
-      font-size: 12px;
-      color: var(--ink-faint);
-      font-weight: 300;
-    }
-
-    .concierge-price {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
+    .concierge-price { display: inline-flex; align-items: baseline; gap: 6px; margin-bottom: 20px; }
 
     .price-amount {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: 32px;
       font-weight: 400;
       color: var(--ink);
       letter-spacing: -0.02em;
     }
 
-    .price-note {
-      font-size: 13px;
-      color: var(--ink-muted);
-    }
+    .price-note { font-size: 13px; color: var(--ink-muted); }
 
     /* ─── MANIFESTO ───────────────────────────────────── */
     .manifesto-section {
@@ -988,31 +889,17 @@
     .manifesto-section::before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 700px;
-      height: 700px;
+      width: 700px; height: 700px;
       background: radial-gradient(ellipse, rgba(173, 83, 27, 0.15) 0%, transparent 65%);
       pointer-events: none;
     }
 
-    .manifesto-inner {
-      max-width: 700px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .manifesto-symbol {
-      width: 40px;
-      height: 40px;
-      margin: 0 auto 40px;
-      opacity: 0.6;
-    }
+    .manifesto-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
 
     .manifesto-quote {
-      font-family: 'DM Serif Display', serif;
+      font-family: 'Monument Grotesk', sans-serif;
       font-size: clamp(24px, 3.5vw, 40px);
       font-weight: 400;
       font-style: italic;
@@ -1025,7 +912,7 @@
     .manifesto-byline {
       font-size: 13px;
       font-weight: 300;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.28);
       letter-spacing: 0.06em;
     }
 
@@ -1040,17 +927,9 @@
       flex-wrap: wrap;
     }
 
-    .footer-logo img {
-      height: 22px;
-      width: auto;
-      opacity: 0.6;
-    }
+    .footer-logo img { height: 22px; width: auto; opacity: 0.52; image-rendering: auto; }
 
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
+    .footer-links { display: flex; align-items: center; gap: 28px; }
 
     .footer-links a {
       font-size: 12px;
@@ -1061,10 +940,7 @@
 
     .footer-links a:hover { color: var(--ink-muted); }
 
-    .footer-copy {
-      font-size: 12px;
-      color: var(--ink-faint);
-    }
+    .footer-copy { font-size: 12px; color: var(--ink-faint); }
 
     /* ─── ANIMATIONS ──────────────────────────────────── */
     @keyframes fadeUp {
@@ -1078,16 +954,12 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       nav .nav-links { display: none; }
-
       .hero { padding: 100px 24px 60px; }
 
       .problem-section {
@@ -1097,31 +969,20 @@
       }
 
       .big-number { font-size: 80px; }
-
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
+      .steps { grid-template-columns: 1fr; gap: 16px; }
       .how-section { padding: 80px 24px; }
-
       .showcase-section { padding: 80px 24px; }
+
       .showcase-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
       }
-      .showcase-card:first-child { grid-row: 1; }
+
+      .showcase-card:first-child { grid-row: 1; grid-column: 1 / 3; }
       .showcase-card:first-child .showcase-img { min-height: 240px; }
 
-      .tiers {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
+      .tiers { grid-template-columns: 1fr; gap: 16px; max-width: 400px; margin: 0 auto; }
       .tier.featured { transform: none; }
-
       .membership-section { padding: 80px 24px; }
 
       .concierge-section {
@@ -1139,53 +1000,60 @@
         padding: 32px 24px;
       }
 
-      .property-strip { padding: 0 24px 12px; }
       .showcase-header { flex-direction: column; align-items: flex-start; }
+      #intro-symbol { width: clamp(60px, 20vw, 100px); }
     }
   </style>
 </head>
 <body>
 
+<!-- ─── INTRO SCREEN ──────────────────────────────────── -->
+<div id="intro">
+  <video
+    id="intro-video"
+    autoplay muted loop playsinline preload="auto"
+    poster="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/hero_poster.jpg"
+  >
+    <source src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/Joli_Texture_06.mp4" type="video/mp4" />
+  </video>
+  <div id="intro-overlay"></div>
+  <img
+    id="intro-symbol"
+    src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_Black.svg"
+    alt="JOLI"
+  />
+  <button id="intro-scroll" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})" aria-label="Scroll to content">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </button>
+</div>
+
 <!-- ─── NAV ─────────────────────────────────────────── -->
-<nav>
+<nav id="main-nav" class="nav-hidden">
   <a href="/" class="nav-logo">
     <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI Collective" />
   </a>
   <div class="nav-links">
     <a href="#how-it-works">How it works</a>
-    <a href="#membership">Membership</a>
     <a href="#concierge">Concierge</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#membership">Membership</a>
     <a href="https://app.jolicollective.net/" class="nav-cta">Try MILO free</a>
   </div>
 </nav>
 
 <!-- ─── HERO ─────────────────────────────────────────── -->
-<section class="hero">
+<section class="hero" id="hero">
 
-  <!-- Video texture background -->
-  <div class="hero-video-wrap">
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="none"
-    >
-      <source src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/Joli_Texture_06.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-video-overlay"></div>
-  </div>
-
-  <p class="hero-eyebrow">MILO by JOLI Collective</p>
+  <p class="hero-eyebrow">MILO — A travel copilot by JOLI Collective</p>
 
   <h1 class="hero-headline">
-    The stays you'd never find <em>scrolling.</em>
+    Find places to stay.<br><em>Without the scrolling.</em>
   </h1>
 
   <p class="hero-sub">
-    Tell MILO where you're headed and what matters. It searches a handpicked collection of design-led stays across Europe — and finds the ones worth your time.
+    Tell MILO what you're looking for. It searches a handpicked collection of design-led stays across Europe and finds the ones worth your time.
   </p>
 
   <div class="hero-actions">
@@ -1193,72 +1061,10 @@
       Try MILO free
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <a href="#membership" class="btn-ghost btn-ghost-light">Become a member</a>
+    <a href="#membership" class="btn-ghost-light">Become a member</a>
   </div>
 
   <p class="hero-note">Free to start · No credit card required</p>
-</section>
-
-<!-- ─── PROPERTY STRIP ────────────────────────────────── -->
-<section class="strip-section">
-  <p class="strip-label">From the collection</p>
-  <div class="property-strip">
-
-    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
-      <!-- REPLACE: Use real property image from Supabase bucket -->
-      <img class="property-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80&auto=format" alt="Alpine retreat" />
-      <div class="property-info">
-        <div class="property-name">Forsthofgut Natur Hotel</div>
-        <div class="property-location">Leogang, Salzburg</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
-      <!-- REPLACE: Use real property image from Supabase bucket -->
-      <img class="property-img" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80&auto=format" alt="Mediterranean villa" />
-      <div class="property-info">
-        <div class="property-name">Eremo</div>
-        <div class="property-location">Imperia, Liguria</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
-      <!-- REPLACE: Use real property image from Supabase bucket -->
-      <img class="property-img" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&q=80&auto=format" alt="Design hotel" />
-      <div class="property-info">
-        <div class="property-name">Palais Brut</div>
-        <div class="property-location">Märkische Schweiz</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
-      <!-- REPLACE: Use real property image from Supabase bucket -->
-      <img class="property-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80&auto=format" alt="Tuscan estate" />
-      <div class="property-info">
-        <div class="property-name">Villa Montalcino</div>
-        <div class="property-location">Montalcino, Tuscany</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
-      <!-- REPLACE: Use real property image from Supabase bucket -->
-      <img class="property-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80&auto=format" alt="Coastal retreat" />
-      <div class="property-info">
-        <div class="property-name">Casa do Pego</div>
-        <div class="property-location">Comporta, Portugal</div>
-      </div>
-    </a>
-
-    <a href="https://app.jolicollective.net/" class="property-card" style="text-decoration:none;">
-      <!-- REPLACE: Use real property image from Supabase bucket -->
-      <img class="property-img" src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=400&q=80&auto=format" alt="Stone farmhouse" />
-      <div class="property-info">
-        <div class="property-name">Masseria Potenti</div>
-        <div class="property-location">Valle d'Itria, Puglia</div>
-      </div>
-    </a>
-
-  </div>
 </section>
 
 <!-- ─── PROBLEM ───────────────────────────────────────── -->
@@ -1279,16 +1085,16 @@
 
   <div class="problem-right reveal">
     <div class="problem-stat">
-      <div class="stat-number" style="font-size: 28px; letter-spacing: -0.01em;">Europe</div>
-      <div class="stat-label">Deeply curated across Europe — selected for design quality and character, not volume. Expanding globally in 2026.</div>
+      <div class="stat-number">Europe</div>
+      <div class="stat-label">Selected for design quality and character, not volume. Starting in Europe and expanding worldwide in 2026.</div>
     </div>
     <div class="problem-stat">
-      <div class="stat-number">0</div>
-      <div class="stat-label">Algorithm-driven results. MILO finds the right fit through conversation, not keyword matching.</div>
+      <div class="stat-number">No algorithms</div>
+      <div class="stat-label">MILO finds the right fit through conversation, not keyword matching and endless filters.</div>
     </div>
     <div class="problem-stat">
-      <div class="stat-number">1</div>
-      <div class="stat-label">Shortlist. Not a list of 300 options. Just the places that genuinely match what you're looking for.</div>
+      <div class="stat-number">One shortlist</div>
+      <div class="stat-label">Not 300 options. Just the places that genuinely match what you're looking for.</div>
     </div>
   </div>
 </section>
@@ -1339,46 +1145,46 @@
   </div>
 
   <div class="showcase-grid reveal">
-    <div class="showcase-card">
-      <!-- REPLACE: Use real property image from Supabase bucket -->
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80&auto=format" alt="Featured property" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Casa Palladio</div>
-        <div class="overlay-location">Jaipur, Rajasthan</div>
-      </div>
-    </div>
-
-    <div class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1501117716987-c8c394bb29df?w=400&q=80&auto=format" alt="Coastal property" style="min-height:200px" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Amanjiwo</div>
-        <div class="overlay-location">Central Java</div>
-      </div>
-    </div>
-
-    <div class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=400&q=80&auto=format" alt="Mountain property" style="min-height:200px" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Whitepod</div>
-        <div class="overlay-location">Les Cerniers, Switzerland</div>
-      </div>
-    </div>
-
-    <div class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=400&q=80&auto=format" alt="Island property" style="min-height:200px" />
-      <div class="showcase-overlay">
-        <div class="overlay-name">Son Brull</div>
-        <div class="overlay-location">Pollença, Mallorca</div>
-      </div>
-    </div>
-
-    <div class="showcase-card">
-      <img class="showcase-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=400&q=80&auto=format" alt="Villa property" style="min-height:200px" />
+    <!-- Cards link to ?q= so MILO pre-fills with that property search -->
+    <a href="https://app.jolicollective.net/?q=Villa+Lena+Tuscany" class="showcase-card">
+      <img class="showcase-img" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&auto=format" alt="Villa Lena" />
       <div class="showcase-overlay">
         <div class="overlay-name">Villa Lena</div>
         <div class="overlay-location">Palaia, Tuscany</div>
       </div>
-    </div>
+    </a>
+
+    <a href="https://app.jolicollective.net/?q=Whitepod+Switzerland" class="showcase-card">
+      <img class="showcase-img" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=400&q=80&auto=format" alt="Whitepod" style="min-height:200px" />
+      <div class="showcase-overlay">
+        <div class="overlay-name">Whitepod</div>
+        <div class="overlay-location">Les Cerniers, Switzerland</div>
+      </div>
+    </a>
+
+    <a href="https://app.jolicollective.net/?q=Son+Brull+Mallorca" class="showcase-card">
+      <img class="showcase-img" src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=400&q=80&auto=format" alt="Son Brull" style="min-height:200px" />
+      <div class="showcase-overlay">
+        <div class="overlay-name">Son Brull</div>
+        <div class="overlay-location">Pollença, Mallorca</div>
+      </div>
+    </a>
+
+    <a href="https://app.jolicollective.net/?q=Casa+do+Pego+Comporta" class="showcase-card">
+      <img class="showcase-img" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80&auto=format" alt="Casa do Pego" style="min-height:200px" />
+      <div class="showcase-overlay">
+        <div class="overlay-name">Casa do Pego</div>
+        <div class="overlay-location">Comporta, Portugal</div>
+      </div>
+    </a>
+
+    <a href="https://app.jolicollective.net/?q=Masseria+Potenti+Puglia" class="showcase-card">
+      <img class="showcase-img" src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=400&q=80&auto=format" alt="Masseria Potenti" style="min-height:200px" />
+      <div class="showcase-overlay">
+        <div class="overlay-name">Masseria Potenti</div>
+        <div class="overlay-location">Valle d'Itria, Puglia</div>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -1394,7 +1200,6 @@
 
     <div class="tiers">
 
-      <!-- Free -->
       <div class="tier reveal">
         <div class="tier-name">Free</div>
         <div class="tier-price">£0</div>
@@ -1403,13 +1208,12 @@
         <ul class="tier-features">
           <li><span class="feature-dot"></span>3 MILO conversations/month</li>
           <li><span class="feature-dot"></span>Property name, region & hero image</li>
-          <li><span class="feature-dot"></span>Mood-based search chips</li>
+          <li><span class="feature-dot"></span>Mood-based search</li>
           <li><span class="feature-dot"></span>No credit card required</li>
         </ul>
         <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-outline">Start exploring</a>
       </div>
 
-      <!-- Member -->
       <div class="tier featured reveal" style="transition-delay: 0.1s">
         <div class="tier-badge">Most popular</div>
         <div class="tier-name">JOLI Member</div>
@@ -1426,7 +1230,6 @@
         <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-white">Become a member</a>
       </div>
 
-      <!-- Concierge Annual -->
       <div class="tier reveal" style="transition-delay: 0.2s">
         <div class="tier-name">Annual Concierge</div>
         <div class="tier-price">£250</div>
@@ -1439,7 +1242,7 @@
           <li><span class="feature-dot"></span>Seasonal occasion nudges</li>
           <li><span class="feature-dot"></span>Priority access & first looks</li>
         </ul>
-        <a href="https://app.jolicollective.net/" class="tier-cta tier-cta-brand">Join as Concierge</a>
+        <a href="#" class="tier-cta tier-cta-brand js-annual-email">Join as Concierge</a>
       </div>
 
     </div>
@@ -1497,14 +1300,12 @@
       <span class="price-note">per request · or included in annual membership</span>
     </div>
 
-    <a href="https://app.jolicollective.net/" class="btn-primary">
+    <a href="#" class="btn-primary js-concierge-email">
       Request a concierge shortlist
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
 </section>
-
-<!-- ─── PRICING ───────────────────────────────────────── -->
 
 <!-- ─── MANIFESTO ──────────────────────────────────────── -->
 <section class="manifesto-section">
@@ -1522,34 +1323,52 @@
     <img src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg" alt="JOLI Collective" />
   </a>
   <div class="footer-links">
-    <a href="/privacy">Privacy</a>
-    <a href="/terms">Terms</a>
-    <a href="mailto:hello@jolicollective.net">Contact</a>
+    <a href="https://app.jolicollective.net/Privacy">Privacy</a>
+    <a href="https://app.jolicollective.net/Terms">Terms</a>
+    <a href="#" class="js-contact-email">Contact</a>
   </div>
   <p class="footer-copy">© 2026 JOLI Collective</p>
 </footer>
 
 <script>
-  // Intersection observer for scroll reveals
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
+  // ── Email links built in JS so Cloudflare can't obfuscate them ───────
+  const E = ['hello', 'jolicollective.net'].join('@');
+  document.querySelectorAll('.js-contact-email').forEach(el => {
+    el.href = 'mailto:' + E;
+  });
+  document.querySelectorAll('.js-concierge-email').forEach(el => {
+    el.href = 'mailto:' + E + '?subject=' + encodeURIComponent('Concierge Request');
+  });
+  document.querySelectorAll('.js-annual-email').forEach(el => {
+    el.href = 'mailto:' + E + '?subject=' + encodeURIComponent('Annual Concierge Membership');
+  });
+
+  // ── Nav: hide while over intro section, show once scrolled past ───────
+  const mainNav   = document.getElementById('main-nav');
+  const introEl   = document.getElementById('intro');
+
+  function updateNav() {
+    const introBottom = introEl.getBoundingClientRect().bottom;
+    if (introBottom <= 0) {
+      mainNav.classList.remove('nav-hidden');
+      mainNav.style.boxShadow = '0 1px 0 rgba(26,24,20,0.08)';
+    } else {
+      mainNav.classList.add('nav-hidden');
+      mainNav.style.boxShadow = 'none';
+    }
+  }
+
+  // Set initial state
+  updateNav();
+  window.addEventListener('scroll', updateNav, { passive: true });
+
+  // ── Scroll reveal ────────────────────────────────────────────────────
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Nav shadow on scroll
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 2) {
-      nav.style.boxShadow = '0 1px 20px rgba(0,0,0,0.08)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
-  });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 </script>
+
 </body>
 </html>
