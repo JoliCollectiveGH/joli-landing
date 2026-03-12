@@ -86,7 +86,7 @@ export default function LandingPage() {
           <a href="#features">How it works</a>
           <a href="#showcase">Collection</a>
           <a href="#membership">Membership</a>
-          <Link href="/start" className={styles.navCta}>Start exploring</Link>
+          <Link href="https://app.jolicollective.net" className={styles.navCta}>Start exploring</Link>
         </div>
       </nav>
 
@@ -147,7 +147,7 @@ export default function LandingPage() {
                 Tell MILO what you&apos;re<br /><em>dreaming of.</em>
               </h2>
             </div>
-            <Link href="/start" className={`${styles.btn} ${styles.btnPrimary}`}>
+            <Link href="https://app.jolicollective.net" className={`${styles.btn} ${styles.btnPrimary}`}>
               Try it now
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -239,7 +239,7 @@ export default function LandingPage() {
                   <li key={f}>{CHECK_ICON}{f}</li>
                 ))}
               </ul>
-              <Link href="/start" className={`${styles.btn} ${styles.btnGhost}`} style={{ width: '100%', justifyContent: 'center' }}>
+              <Link href="https://app.jolicollective.net" className={`${styles.btn} ${styles.btnGhost}`} style={{ width: '100%', justifyContent: 'center' }}>
                 Start exploring
               </Link>
             </div>
