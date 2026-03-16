@@ -122,6 +122,10 @@ video::-webkit-media-controls {
   display: none !important;
 }
 
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
 .heroScrim {
   position: absolute;
   inset: 0;
@@ -180,24 +184,17 @@ video::-webkit-media-controls {
   50%       { transform: translateX(-50%) translateY(7px); }
 }
 
-/* ── QUOTE SECTION ── */
+/* ── QUOTE SIGN-OFF ── */
 .quoteSection {
   padding: 8rem 3rem;
   background: #F7F6F2;
+  border-top: 1px solid var(--surface-border-soft);
 }
 
 .quoteInner {
-  max-width: 1100px;
+  max-width: 640px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 450px) minmax(0, 550px);
-  gap: 80px;
-  align-items: center;
-  justify-content: center;
-}
-
-.quoteProse {
-  max-width: 550px;
+  text-align: center;
 }
 
 .quoteText {
@@ -225,10 +222,7 @@ video::-webkit-media-controls {
   opacity: 0.2;
   filter: invert(1);
   display: block;
-}
-
-.quoteImageWrap {
-  flex-shrink: 0;
+  margin: 0 auto;
 }
 
 /* ── EDITORIAL IMAGES (shared) ── */
@@ -470,19 +464,19 @@ video::-webkit-media-controls {
 }
 
 .worldwideInner {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 550px) minmax(0, 450px);
+  gap: 80px;
   align-items: center;
-  gap: 40px;
+  justify-content: center;
 }
 
 .worldwideText {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
   gap: 1.25rem;
 }
 
@@ -503,11 +497,16 @@ video::-webkit-media-controls {
   max-width: 440px;
 }
 
-.worldwideImage {
+.worldwideCollage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.worldwideThumb {
   width: 100%;
-  max-width: 800px;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+  max-width: 250px;
+  height: auto;
   border-radius: 8px;
   display: block;
 }
@@ -618,14 +617,14 @@ video::-webkit-media-controls {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .quoteInner,
-  .manifestoInner {
+  .manifestoInner,
+  .worldwideInner {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
-  .quoteImageWrap,
-  .manifestoImageWrap {
+  .manifestoImageWrap,
+  .worldwideCollage {
     display: none;
   }
 
@@ -682,10 +681,6 @@ video::-webkit-media-controls {
   .editorialImage {
     width: 100%;
     max-width: 400px;
-  }
-
-  .worldwideImage {
-    aspect-ratio: 4 / 3;
   }
 
   .footer { padding: 3rem 1.5rem; }

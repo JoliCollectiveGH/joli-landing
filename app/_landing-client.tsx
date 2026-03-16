@@ -63,6 +63,16 @@ const SHOWCASE_PROPERTIES = [
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
   const showcaseRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Force video play on mount (iOS sometimes blocks autoplay despite correct attributes)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+  }, []);
 
   // Nav transparency on scroll
   useEffect(() => {
@@ -135,12 +145,15 @@ export default function LandingPage() {
       {/* ── SECTION 1: HERO ── */}
       <section className={styles.hero}>
         <video
+          ref={videoRef}
           className={styles.heroVideo}
-          src={`${BASE}/Assets/Joli_Texture_06.mp4`}
           autoPlay loop muted playsInline
+          preload="auto"
           webkit-playsinline="true"
           aria-hidden="true"
-        />
+        >
+          <source src={`${BASE}/Assets/Joli_Texture_06.mp4`} type="video/mp4" />
+        </video>
         <div className={styles.heroScrim} />
         <div className={styles.heroContent}>
           <img
@@ -277,40 +290,38 @@ export default function LandingPage() {
               Plan a trip
             </a>
           </div>
-          <img
-            src={`${BASE}/landingpage/Pages3.png`}
-            alt=""
-            aria-hidden="true"
-            className={`${styles.worldwideImage} reveal`}
-          />
+          <div className={`${styles.worldwideCollage} reveal`}>
+            <img
+              src={`${BASE}/landingpage/Mask%20group3.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.worldwideThumb}
+            />
+            <img
+              src={`${BASE}/landingpage/Mask%20group.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.worldwideThumb}
+            />
+          </div>
         </div>
       </section>
 
       {/* ── SIGN-OFF: PICO IYER QUOTE ── */}
       <section className={styles.quoteSection}>
         <div className={styles.quoteInner}>
-          <div className={`${styles.quoteImageWrap} reveal`}>
-            <img
-              src={`${BASE}/landingpage/Mask%20group3.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.editorialImage}
-            />
-          </div>
-          <div className={`${styles.quoteProse} reveal`}>
-            <blockquote className={styles.quoteText}>
-              &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
-              In an age of distraction, nothing can feel more luxurious than paying attention.
-              And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
-            </blockquote>
-            <p className={styles.quoteAttribution}>Pico Iyer</p>
-            <img
-              src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.quoteMark}
-            />
-          </div>
+          <blockquote className={styles.quoteText}>
+            &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
+            In an age of distraction, nothing can feel more luxurious than paying attention.
+            And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
+          </blockquote>
+          <p className={styles.quoteAttribution}>Pico Iyer</p>
+          <img
+            src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+            alt=""
+            aria-hidden="true"
+            className={styles.quoteMark}
+          />
         </div>
       </section>
 
