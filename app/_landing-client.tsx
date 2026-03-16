@@ -203,10 +203,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── BREATHER: MANIFESTO → HOW IT WORKS ── */}
-      <div className={styles.breatherPair}>
-        <img src={`${BASE}/landingpage/Mask%20group4.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg280} reveal`} />
-        <img src={`${BASE}/landingpage/Mask%20group5.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg280} reveal`} />
+      {/* ── EDITORIAL IMAGE STRIP ── */}
+      <div className={styles.editorialStrip}>
+        <img src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777120839861_1090656_3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777297115262_1090656_1.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/Mask%20group3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/Mask%20group.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
       </div>
 
       {/* ── SECTION 3: HOW IT WORKS ── */}
@@ -287,35 +289,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── BREATHER: COLLECTION → SERVICE ── */}
-      <div className={styles.breatherLeft}>
-        <img src={`${BASE}/landingpage/Mask%20group8.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg400} reveal`} />
-      </div>
-
       {/* ── SECTION 5: THE SERVICE IS GLOBAL ── */}
       <section className={styles.worldwideSection}>
-        <div className={styles.worldwideInner}>
-          <div className={`${styles.worldwideText} reveal`}>
-            <h2 className={styles.worldwideTitle}>The service is global.</h2>
-            <p className={styles.worldwideSubtext}>Tell us where you want to go — anywhere in the world — and we&apos;ll build the plan.</p>
-            <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnPrimary}`}>
-              Plan a trip
-            </a>
-          </div>
-          <div className={`${styles.worldwideCollage} reveal`}>
-            <img
-              src={`${BASE}/landingpage/Mask%20group3.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.worldwideThumb}
-            />
-            <img
-              src={`${BASE}/landingpage/Mask%20group.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.worldwideThumb}
-            />
-          </div>
+        <div className={`${styles.worldwideText} reveal`}>
+          <h2 className={styles.worldwideTitle}>The service is global.</h2>
+          <p className={styles.worldwideSubtext}>Tell us where you want to go — anywhere in the world — and we&apos;ll build the plan.</p>
+          <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnPrimary}`}>
+            Plan a trip
+          </a>
         </div>
       </section>
 
@@ -325,21 +306,37 @@ export default function LandingPage() {
         <img src={`${BASE}/landingpage/Mask%20group11.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg220} reveal`} />
       </div>
 
-      {/* ── SIGN-OFF: PICO IYER QUOTE ── */}
-      <section className={styles.quoteSection}>
-        <div className={styles.quoteInner}>
-          <blockquote className={styles.quoteText}>
-            &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
-            In an age of distraction, nothing can feel more luxurious than paying attention.
-            And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
-          </blockquote>
-          <p className={styles.quoteAttribution}>Pico Iyer</p>
-          <img
-            src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
-            alt=""
-            aria-hidden="true"
-            className={styles.quoteMark}
-          />
+      {/* ── SIGN-OFF: QUOTE + EDITORIAL ── */}
+      <section className={styles.quoteEditorialSection}>
+        <div className={styles.quoteEditorialInner}>
+          <div className={`${styles.quoteEditorialLeft} reveal`}>
+            <img
+              src={`${BASE}/landingpage/Mask%20group8.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.quoteEditorialDining}
+            />
+          </div>
+          <div className={`${styles.quoteEditorialRight} reveal`}>
+            <blockquote className={styles.quoteText}>
+              &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
+              In an age of distraction, nothing can feel more luxurious than paying attention.
+              And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
+            </blockquote>
+            <p className={styles.quoteAttribution}>Pico Iyer</p>
+            <img
+              src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.quoteMark}
+            />
+            <img
+              src={`${BASE}/landingpage/Mask%20group7.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.quoteEditorialBathroom}
+            />
+          </div>
         </div>
       </section>
 
