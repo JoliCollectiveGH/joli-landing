@@ -487,40 +487,6 @@ video::-webkit-media-controls-enclosure {
   padding: 2.25rem 3rem 0;
 }
 
-/* ── WORLDWIDE ── */
-.worldwideSection {
-  padding: 100px 3rem;
-  background: #F7F6F2;
-  border-top: 1px solid var(--surface-border-soft);
-  display: flex;
-  justify-content: center;
-}
-
-.worldwideText {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.25rem;
-  max-width: 600px;
-}
-
-.worldwideTitle {
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  font-weight: 400;
-  color: var(--ink);
-  margin: 0;
-}
-
-.worldwideSubtext {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--ink-muted);
-  margin: 0;
-  max-width: 480px;
-}
 
 /* ── EDITORIAL IMAGE STRIP ── */
 .editorialStrip {
@@ -694,8 +660,7 @@ video::-webkit-media-controls-enclosure {
 
   .quoteEditorialSection,
   .manifestoSection,
-  .howSection,
-  .worldwideSection {
+  .howSection {
     padding: 60px 1.5rem;
   }
 

@@ -205,8 +205,8 @@ export default function LandingPage() {
 
       {/* ── EDITORIAL IMAGE STRIP ── */}
       <div className={styles.editorialStrip}>
-        <img src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777120839861_1090656_3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777297115262_1090656_1.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/editorial_1.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/editorial_2.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/Mask_group3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/Mask_group.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
       </div>
@@ -285,17 +285,6 @@ export default function LandingPage() {
         <div className={`${styles.collectionCta} reveal`}>
           <a href="https://app.jolicollective.net/stays" className={`${styles.btn} ${styles.btnGhost}`}>
             Browse the collection
-          </a>
-        </div>
-      </section>
-
-      {/* ── SECTION 5: THE SERVICE IS GLOBAL ── */}
-      <section className={styles.worldwideSection}>
-        <div className={`${styles.worldwideText} reveal`}>
-          <h2 className={styles.worldwideTitle}>The service is global.</h2>
-          <p className={styles.worldwideSubtext}>Tell us where you want to go — anywhere in the world — and we&apos;ll build the plan.</p>
-          <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnPrimary}`}>
-            Plan a trip
           </a>
         </div>
       </section>
