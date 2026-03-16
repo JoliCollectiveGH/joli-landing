@@ -248,6 +248,14 @@ video::-webkit-media-controls-enclosure {
   margin: 0;
 }
 
+.quotePortrait {
+  width: 220px;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  display: block;
+}
+
 /* ── EDITORIAL IMAGES (shared) ── */
 .editorialImage {
   width: 450px;
@@ -376,17 +384,9 @@ video::-webkit-media-controls-enclosure {
   display: block;
 }
 
-.howImageSecondary {
-  width: 72%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  align-self: flex-end;
-}
-
 /* ── COLLECTION ── */
 .collectionSection {
-  padding: 8rem 0;
+  padding: 5rem 0;
   background: #F7F6F2;
   border-top: 1px solid var(--surface-border-soft);
   overflow: hidden;
@@ -394,8 +394,22 @@ video::-webkit-media-controls-enclosure {
 
 .collectionHeader {
   max-width: 1100px;
-  margin: 0 auto 3rem;
+  margin: 0 auto 2rem;
   padding: 0 3rem;
+}
+
+.collectionHeaderRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.collectionHeaderCta {
+  flex-shrink: 0;
+}
+
+.collectionCtaMobile {
+  display: none;
 }
 
 .collectionTitle {
@@ -477,13 +491,6 @@ video::-webkit-media-controls-enclosure {
   margin-top: 24px;
 }
 
-.collectionCta {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2.25rem 3rem 0;
-}
-
-
 /* ── EDITORIAL IMAGE STRIP ── */
 .editorialStrip {
   display: grid;
@@ -491,7 +498,7 @@ video::-webkit-media-controls-enclosure {
   gap: 12px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 60px 3rem;
   background: #F7F6F2;
   box-sizing: border-box;
 }
@@ -569,7 +576,7 @@ video::-webkit-media-controls-enclosure {
 }
 
 .footerLogo img {
-  height: 1.5rem;
+  height: 1.25rem;
   width: auto;
   opacity: 0.65;
   transition: opacity 0.25s ease;
@@ -640,12 +647,6 @@ video::-webkit-media-controls-enclosure {
   .howImageMain {
     width: 50%;
   }
-
-  .howImageSecondary {
-    width: 44%;
-    align-self: flex-start;
-    margin-top: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -688,11 +689,14 @@ video::-webkit-media-controls-enclosure {
     scroll-snap-align: start;
   }
 
-  .collectionSection { padding: 60px 0; }
+  .collectionSection { padding: 40px 0; }
   .collectionHeader  { padding: 0 1.5rem; margin-bottom: 2rem; }
   .collectionScroll  { padding: 0.5rem 1.5rem 1rem; }
-  .collectionCta     { padding: 2rem 1.5rem 0; }
   .collectionCard    { flex-shrink: 0; width: 280px; }
+
+  .collectionHeaderRow { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .collectionHeaderCta { display: none; }
+  .collectionCtaMobile { display: block; padding: 2rem 1.5rem 0; }
 
   .howRight {
     flex-direction: column;
@@ -702,10 +706,7 @@ video::-webkit-media-controls-enclosure {
     width: 100%;
   }
 
-  .howImageSecondary {
-    width: 65%;
-    margin-top: 0;
-  }
+  .quotePortrait { display: none; }
 
   .editorialImage,
   .quoteEditorialDining {

@@ -248,16 +248,10 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.howRight} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask_group6.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.howImageMain}
-            />
-            <img
               src={`${BASE}/landingpage/Mask_group9.svg`}
               alt=""
               aria-hidden="true"
-              className={styles.howImageSecondary}
+              className={styles.howImageMain}
             />
           </div>
         </div>
@@ -266,10 +260,17 @@ export default function LandingPage() {
       {/* ── SECTION 4: THE COLLECTION ── */}
       <section className={styles.collectionSection} id="collection">
         <div className={styles.collectionHeader}>
-          <div className="reveal">
-            <p className={styles.eyebrow}>The collection</p>
-            <h2 className={styles.collectionTitle}>2,000+ handpicked stays across Europe</h2>
-            <p className={styles.collectionSubtext}>Every property chosen for character, design, and editorial merit.</p>
+          <div className={styles.collectionHeaderRow}>
+            <div className="reveal">
+              <p className={styles.eyebrow}>The collection</p>
+              <h2 className={styles.collectionTitle}>2,000+ handpicked stays across Europe</h2>
+              <p className={styles.collectionSubtext}>Every property chosen for character, design, and editorial merit.</p>
+            </div>
+            <div className={styles.collectionHeaderCta}>
+              <a href="https://app.jolicollective.net/stays" className={`${styles.btn} ${styles.btnGhost}`}>
+                Browse the collection
+              </a>
+            </div>
           </div>
         </div>
         <div className={`${styles.collectionScroll} reveal`} ref={showcaseRef}>
@@ -294,7 +295,7 @@ export default function LandingPage() {
             </div>
           ))}
         </div>
-        <div className={`${styles.collectionCta} reveal`}>
+        <div className={styles.collectionCtaMobile}>
           <a href="https://app.jolicollective.net/stays" className={`${styles.btn} ${styles.btnGhost}`}>
             Browse the collection
           </a>
@@ -325,6 +326,12 @@ export default function LandingPage() {
               aria-hidden="true"
               className={styles.quoteMark}
             />
+            <img
+              src={`${BASE}/landingpage/Mask_group10.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.quotePortrait}
+            />
           </div>
         </div>
       </section>
@@ -333,14 +340,14 @@ export default function LandingPage() {
       <footer className={styles.footer}>
         <Link href="/" className={styles.footerLogo}>
           <img
-            src={`${BASE}/Assets/JOLI_Lockup_Black.svg`}
+            src={`${BASE}/Assets/JOLI_Wordmark_Black.svg`}
             alt="JOLI Collective"
           />
         </Link>
         <div className={styles.footerLinks}>
-          <Link href="/privacy">Privacy</Link>
+          <a href="https://app.jolicollective.net/privacy">Privacy</a>
           <span className={styles.footerDot}>·</span>
-          <Link href="/terms">Terms</Link>
+          <a href="https://app.jolicollective.net/terms">Terms</a>
           <span className={styles.footerDot}>·</span>
           <a href="mailto:info@jolicollective.net">Contact</a>
         </div>
