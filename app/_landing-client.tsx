@@ -65,7 +65,7 @@ export default function LandingPage() {
   const showcaseRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Force video play on mount (iOS sometimes blocks autoplay despite correct attributes)
+  // Force video play on mount (iOS blocks autoplay despite correct attributes)
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
@@ -150,6 +150,7 @@ export default function LandingPage() {
           autoPlay loop muted playsInline
           preload="auto"
           webkit-playsinline="true"
+          poster={`${BASE}/Assets/hero_poster.jpg`}
           aria-hidden="true"
         >
           <source src={`${BASE}/Assets/Joli_Texture_06.mp4`} type="video/mp4" />
@@ -202,6 +203,12 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ── BREATHER: MANIFESTO → HOW IT WORKS ── */}
+      <div className={styles.breatherPair}>
+        <img src={`${BASE}/landingpage/Mask%20group4.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg280} reveal`} />
+        <img src={`${BASE}/landingpage/Mask%20group5.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg280} reveal`} />
+      </div>
+
       {/* ── SECTION 3: HOW IT WORKS ── */}
       <section className={styles.howSection}>
         <div className={styles.howInner}>
@@ -238,7 +245,7 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.howRight} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask%20group5.svg`}
+              src={`${BASE}/landingpage/Mask%20group6.svg`}
               alt=""
               aria-hidden="true"
               className={styles.howImageMain}
@@ -253,7 +260,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SECTION 5: THE COLLECTION ── */}
+      {/* ── SECTION 4: THE COLLECTION ── */}
       <section className={styles.collectionSection} id="collection">
         <div className={styles.collectionHeader}>
           <div className="reveal">
@@ -279,6 +286,11 @@ export default function LandingPage() {
           </a>
         </div>
       </section>
+
+      {/* ── BREATHER: COLLECTION → SERVICE ── */}
+      <div className={styles.breatherLeft}>
+        <img src={`${BASE}/landingpage/Mask%20group8.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg400} reveal`} />
+      </div>
 
       {/* ── SECTION 5: THE SERVICE IS GLOBAL ── */}
       <section className={styles.worldwideSection}>
@@ -306,6 +318,12 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* ── BREATHER: SERVICE → QUOTE ── */}
+      <div className={styles.breatherAsymmetric}>
+        <img src={`${BASE}/landingpage/Mask%20group10.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg280} reveal`} />
+        <img src={`${BASE}/landingpage/Mask%20group11.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg220} reveal`} />
+      </div>
 
       {/* ── SIGN-OFF: PICO IYER QUOTE ── */}
       <section className={styles.quoteSection}>

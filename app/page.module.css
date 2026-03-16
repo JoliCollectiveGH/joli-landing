@@ -107,6 +107,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #1a1a1a;
 }
 
 .heroVideo {
@@ -499,16 +500,65 @@ video::-webkit-media-controls-enclosure {
 
 .worldwideCollage {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  flex-direction: row;
+  gap: 12px;
+  align-items: flex-start;
 }
 
 .worldwideThumb {
-  width: 100%;
-  max-width: 250px;
+  width: 200px;
+  flex-shrink: 0;
   height: auto;
   border-radius: 8px;
   display: block;
+}
+
+/* ── EDITORIAL BREATHERS ── */
+.breatherPair {
+  padding: 60px 3rem;
+  background: #F7F6F2;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.breatherLeft {
+  padding: 60px 3rem;
+  background: #F7F6F2;
+}
+
+.breatherAsymmetric {
+  padding: 60px 3rem;
+  background: #F7F6F2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.breatherImg280 {
+  width: 280px;
+  flex-shrink: 0;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.breatherImg220 {
+  width: 220px;
+  flex-shrink: 0;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.breatherImg400 {
+  width: 400px;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin-left: 10%;
 }
 
 /* ── BUTTONS ── */
@@ -652,6 +702,9 @@ video::-webkit-media-controls-enclosure {
 @media (max-width: 768px) {
   .nav { padding: 1rem 1.5rem; }
 
+  /* Hide video on mobile — dark bg handles it */
+  .heroVideo { display: none !important; }
+
   .quoteSection,
   .manifestoSection,
   .howSection,
@@ -682,6 +735,18 @@ video::-webkit-media-controls-enclosure {
     width: 100%;
     max-width: 400px;
   }
+
+  .breatherPair,
+  .breatherLeft,
+  .breatherAsymmetric {
+    padding: 40px 1.5rem;
+  }
+
+  .breatherImg280 { width: 140px; }
+  .breatherImg220 { width: 110px; }
+  .breatherImg400 { width: 100%; max-width: 280px; margin-left: 0; }
+
+  .worldwideThumb { width: 130px; }
 
   .footer { padding: 3rem 1.5rem; }
 }
