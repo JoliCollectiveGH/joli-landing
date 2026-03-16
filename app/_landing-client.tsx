@@ -7,15 +7,57 @@ import styles from './page.module.css';
 
 const BASE = 'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public';
 
-const PROPERTY_CARDS = [
-  { src: `${BASE}/landingpage/Mask%20group.svg`,  alt: 'Handpicked stay 1' },
-  { src: `${BASE}/landingpage/Mask%20group2.svg`, alt: 'Handpicked stay 2' },
-  { src: `${BASE}/landingpage/Mask%20group3.svg`, alt: 'Handpicked stay 3' },
-  { src: `${BASE}/landingpage/Mask%20group4.svg`, alt: 'Handpicked stay 4' },
-  { src: `${BASE}/landingpage/Mask%20group5.svg`, alt: 'Handpicked stay 5' },
-  { src: `${BASE}/landingpage/Mask%20group6.svg`, alt: 'Handpicked stay 6' },
-  { src: `${BASE}/landingpage/Mask%20group7.svg`, alt: 'Handpicked stay 7' },
-  { src: `${BASE}/landingpage/Mask%20group8.svg`, alt: 'Handpicked stay 8' },
+const SHOWCASE_PROPERTIES = [
+  {
+    name: "Claridge's",
+    location: "Mayfair, London",
+    image: "https://www.claridges.co.uk/siteassets/homepage/claridges-homepage-doorman-960x1000artboard-1.jpg",
+  },
+  {
+    name: "Skinopi Lodge",
+    location: "Milos, South Aegean",
+    image: "https://assets.basehub.com/95f6dbe5/6565883af81e703eaae526b202aef7f5/skinopi-lodge-banner.jpg?width=1920&quality=85&format=auto",
+  },
+  {
+    name: "Villa Sant'Andrea",
+    location: "Taormina, Sicily",
+    image: "https://img.belmond.com/video/upload/w_1920,ar_16:9,c_fill,g_auto/f_auto,q_auto/v1762273533/videos/VSA/vsa-homepage-loop02.jpg",
+  },
+  {
+    name: "Vipp Chimney House",
+    location: "Copenhagen",
+    image: "https://media.umbraco.io/vipp-com-2/axnptdfz/asrosenvinge_vipp_chimney_house_copenhagen_3-copy.jpg?width=1920&format=webp",
+  },
+  {
+    name: "Dar Kemgia",
+    location: "Marrakech",
+    image: "https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7531/photos/eUWpOJ4RSiC8xoxbBUC9_77afdd9b-cb39-4a3c-f3e5-38583aedf562.jpg?width=1152&force_format=webp&q=50",
+  },
+  {
+    name: "Villa Keisa",
+    location: "Algarve",
+    image: "https://cdn.lecollectionist.com/__collectionist__/production/uploads/photos/house-3078/2019-04-15-9046a894304d0a0177c4897c8376f842.jpg?width=1152&force_format=webp&q=50",
+  },
+  {
+    name: "Heckfield Place",
+    location: "Hampshire, England",
+    image: "https://assets.basehub.com/95f6dbe5/aa6330a95e7b60d29759db5a87321d78/heckfield-place-banner.jpg?width=1920&quality=85&format=auto",
+  },
+  {
+    name: "Chalet Mckinley",
+    location: "Zermatt, Valais",
+    image: "https://cdn.lecollectionist.com/__collectionist__/production/uploads/photos/40989/e299bce5-438d-482c-a78d-cafb1c92e3c8.jpg?width=1152&force_format=webp&q=50",
+  },
+  {
+    name: "Casa Ariola",
+    location: "Bonifacio, Corsica",
+    image: "https://cdn.lecollectionist.com/__lecollectionist__/production/houses/8661/photos/BgteAaLSgG3JvzwKVsww_913cd770-c4a6-4a88-a4b4-0325f9068e4a.jpg?width=1152&force_format=webp&q=50",
+  },
+  {
+    name: "Villa Medicea",
+    location: "Florence, Tuscany",
+    image: "https://cdn.lecollectionist.com/__lecollectionist__/production/houses/5146/photos/enFQnSiTSe3lbPVKEIRw_3a053bec-65a6-4ad3-bedb-091ca5541724.jpg?width=2880&force_format=webp&q=50",
+  },
 ];
 
 export default function LandingPage() {
@@ -76,7 +118,7 @@ export default function LandingPage() {
         </Link>
         <div className={styles.navLinks}>
           <a
-            href="#collection"
+            href="https://app.jolicollective.net/stays"
             className={scrolled ? styles.navLinkDark : styles.navLinkLight}
           >
             The collection
@@ -117,8 +159,7 @@ export default function LandingPage() {
 
       {/* ── SECTION 2: QUOTE ── */}
       <section className={styles.quoteSection}>
-        <div className={styles.quoteOverlay} />
-        <div className={styles.quoteContent}>
+        <div className={styles.quoteInner}>
           <div className={`${styles.quoteProse} reveal`}>
             <blockquote className={styles.quoteText}>
               &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
@@ -126,33 +167,53 @@ export default function LandingPage() {
               And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
             </blockquote>
             <p className={styles.quoteAttribution}>Pico Iyer</p>
+            <img
+              src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.quoteMark}
+            />
+          </div>
+          <div className={`${styles.quoteImageWrap} reveal`}>
+            <img
+              src={`${BASE}/landingpage/Mask%20group3.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.editorialImage}
+            />
           </div>
         </div>
-        <img
-          src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
-          alt=""
-          aria-hidden="true"
-          className={styles.quoteMark}
-        />
       </section>
 
       {/* ── SECTION 3: MANIFESTO ── */}
       <section className={styles.manifestoSection}>
-        <div className={styles.manifestoContent}>
-          <p className={`${styles.manifestoText} reveal`}>
-            Like a snail carrying home within its shell, we move through new terrain.<br /><br />
-            An inward journey for belonging through presence rather than accumulation.<br /><br />
-            At JOLI we seek these experiences that are intentional, rooted, and open.<br /><br />
-            The type of journeys that foster profound connection with ourselves, and others.<br /><br />
-            Travel for people who understand that the most radical act might be slowing down.
-          </p>
+        <div className={styles.manifestoInner}>
+          <div className={`${styles.manifestoText} reveal`}>
+            <p>
+              We started JOLI because we were tired of searching.
+            </p>
+            <p>
+              Tired of scrolling through thousands of identical listings. Tired of algorithms that don&apos;t
+              understand the difference between a boutique hotel and a lodging.
+            </p>
+            <p>
+              JOLI is a concierge for people who care about where they stay. Tell us what you&apos;re looking
+              for — the place, the pace, the feeling — and we&apos;ll come back with a plan built around exactly that.
+            </p>
+            <p>
+              2,000 handpicked stays across Europe. Curated trip plans worldwide. Every recommendation earned,
+              not sponsored.
+            </p>
+          </div>
+          <div className={`${styles.manifestoImageWrap} reveal`}>
+            <img
+              src={`${BASE}/landingpage/Mask%20group7.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.editorialImage}
+            />
+          </div>
         </div>
-        <img
-          src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
-          alt=""
-          aria-hidden="true"
-          className={styles.manifestoMark}
-        />
       </section>
 
       {/* ── SECTION 4: HOW IT WORKS ── */}
@@ -191,9 +252,16 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.howRight} reveal`}>
             <img
-              src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777297115262_1090656_1.svg`}
-              alt="Editorial travel photography"
-              className={styles.howImage}
+              src={`${BASE}/landingpage/Mask%20group5.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.howImageMain}
+            />
+            <img
+              src={`${BASE}/landingpage/Mask%20group9.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.howImageSecondary}
             />
           </div>
         </div>
@@ -205,13 +273,17 @@ export default function LandingPage() {
           <div className="reveal">
             <p className={styles.eyebrow}>The collection</p>
             <h2 className={styles.collectionTitle}>2,000+ handpicked stays across Europe</h2>
-            <p className={styles.collectionSubtext}>Every property chosen for character, design, and editorial merit. Not star ratings.</p>
+            <p className={styles.collectionSubtext}>Every property chosen for character, design, and editorial merit.</p>
           </div>
         </div>
         <div className={`${styles.collectionScroll} reveal`} ref={showcaseRef}>
-          {PROPERTY_CARDS.map((card, i) => (
-            <div key={i} className={styles.collectionCard}>
-              <img src={card.src} alt={card.alt} className={styles.collectionCardImage} />
+          {SHOWCASE_PROPERTIES.map((prop) => (
+            <div key={prop.name} className={styles.collectionCard}>
+              <img src={prop.image} alt={prop.name} className={styles.collectionCardImage} />
+              <div className={styles.collectionCardMeta}>
+                <p className={styles.collectionCardName}>{prop.name}</p>
+                <p className={styles.collectionCardLocation}>{prop.location}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -222,11 +294,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SECTION 6: WORLDWIDE ── */}
+      {/* ── SECTION 6: THE SERVICE IS GLOBAL ── */}
       <section className={styles.worldwideSection}>
         <div className={styles.worldwideOverlay} />
         <div className={`${styles.worldwideInner} reveal`}>
-          <h2 className={styles.worldwideTitle}>The collection is European. The service is global.</h2>
+          <h2 className={styles.worldwideTitle}>The service is global.</h2>
           <p className={styles.worldwideSubtext}>Tell us where you want to go — anywhere in the world — and we&apos;ll build the plan.</p>
           <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnWhite}`}>
             Plan a trip
