@@ -652,9 +652,6 @@ video::-webkit-media-controls-enclosure {
 @media (max-width: 768px) {
   .nav { padding: 1rem 1.5rem; }
 
-  /* Hide video on mobile — dark bg handles it */
-  .heroVideo { display: none !important; }
-
   .quoteEditorialSection,
   .manifestoSection,
   .howSection {
