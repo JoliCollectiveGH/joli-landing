@@ -138,6 +138,7 @@ export default function LandingPage() {
           className={styles.heroVideo}
           src={`${BASE}/Assets/Joli_Texture_06.mp4`}
           autoPlay loop muted playsInline
+          webkit-playsinline="true"
           aria-hidden="true"
         />
         <div className={styles.heroScrim} />
@@ -187,16 +188,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* ── VISUAL BREATHER ── */}
-      <div className={styles.breatherSection}>
-        <img
-          src={`${BASE}/landingpage/Mask%20group2.svg`}
-          alt=""
-          aria-hidden="true"
-          className={`${styles.breatherImage} reveal`}
-        />
-      </div>
 
       {/* ── SECTION 3: HOW IT WORKS ── */}
       <section className={styles.howSection}>
@@ -286,20 +277,26 @@ export default function LandingPage() {
               Plan a trip
             </a>
           </div>
-          <div className={`${styles.worldwideImageWrap} reveal`}>
-            <img
-              src={`${BASE}/landingpage/Pages3.png`}
-              alt=""
-              aria-hidden="true"
-              className={styles.editorialImage}
-            />
-          </div>
+          <img
+            src={`${BASE}/landingpage/Pages3.png`}
+            alt=""
+            aria-hidden="true"
+            className={`${styles.worldwideImage} reveal`}
+          />
         </div>
       </section>
 
       {/* ── SIGN-OFF: PICO IYER QUOTE ── */}
       <section className={styles.quoteSection}>
         <div className={styles.quoteInner}>
+          <div className={`${styles.quoteImageWrap} reveal`}>
+            <img
+              src={`${BASE}/landingpage/Mask%20group3.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.editorialImage}
+            />
+          </div>
           <div className={`${styles.quoteProse} reveal`}>
             <blockquote className={styles.quoteText}>
               &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
@@ -312,14 +309,6 @@ export default function LandingPage() {
               alt=""
               aria-hidden="true"
               className={styles.quoteMark}
-            />
-          </div>
-          <div className={`${styles.quoteImageWrap} reveal`}>
-            <img
-              src={`${BASE}/landingpage/Mask%20group3.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.editorialImage}
             />
           </div>
         </div>
