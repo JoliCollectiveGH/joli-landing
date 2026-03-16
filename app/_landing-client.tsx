@@ -5,50 +5,45 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 
-const STRIPE = {
-  monthly:   'https://buy.stripe.com/5kQeVdcswcRH7Ob8dl6J202',
-  annual:    'https://buy.stripe.com/cNi9AT3W0bND9WjfFN6J201',
-  concierge: 'https://buy.stripe.com/14A9AT6485pfd8vbpx6J203',
-};
+const BASE = 'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public';
 
-const CONTACT_EMAIL = ['hello', 'jolicollective.net'].join('@');
-
-const SHOWCASE_ITEMS = [
-  { src: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80&auto=format', alt: 'Villa Lena',        location: 'Tuscany, Italy',        name: 'Villa Lena' },
-  { src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&q=80&auto=format', alt: 'Casa do Pego',      location: 'Comporta, Portugal',    name: 'Casa do Pego' },
-  { src: 'https://images.unsplash.com/photo-1596436889106-be35e843f974?w=600&q=80&auto=format', alt: 'Son Brull',         location: 'Mallorca, Spain',       name: 'Son Brull' },
-  { src: 'https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?w=600&q=80&auto=format', alt: 'Masseria Potenti',  location: 'Puglia, Italy',         name: 'Masseria Potenti' },
-  { src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80&auto=format', alt: 'Whitepod',          location: 'Valais, Switzerland',   name: 'Whitepod' },
+const PROPERTY_CARDS = [
+  { src: `${BASE}/landingpage/Mask%20group.svg`,  alt: 'Handpicked stay 1' },
+  { src: `${BASE}/landingpage/Mask%20group2.svg`, alt: 'Handpicked stay 2' },
+  { src: `${BASE}/landingpage/Mask%20group3.svg`, alt: 'Handpicked stay 3' },
+  { src: `${BASE}/landingpage/Mask%20group4.svg`, alt: 'Handpicked stay 4' },
+  { src: `${BASE}/landingpage/Mask%20group5.svg`, alt: 'Handpicked stay 5' },
+  { src: `${BASE}/landingpage/Mask%20group6.svg`, alt: 'Handpicked stay 6' },
+  { src: `${BASE}/landingpage/Mask%20group7.svg`, alt: 'Handpicked stay 7' },
+  { src: `${BASE}/landingpage/Mask%20group8.svg`, alt: 'Handpicked stay 8' },
 ];
 
-const CHIPS = ['Romantic escape', 'Family villa', 'Design hotel', 'Off the beaten track', 'Group celebration', 'Surprise me'];
-
-const CHECK_ICON = (
-  <svg className={styles.featureCheck} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
 export default function LandingPage() {
-  const [billing, setBilling] = useState<'monthly' | 'annual'>('monthly');
+  const [scrolled, setScrolled] = useState(false);
   const showcaseRef = useRef<HTMLDivElement>(null);
+
+  // Nav transparency on scroll
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   // Scroll reveal
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
     );
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  // Drag-to-scroll on showcase strip
+  // Drag-to-scroll on collection strip
   useEffect(() => {
     const el = showcaseRef.current;
     if (!el) return;
     let isDown = false, startX = 0, scrollLeft = 0;
-
     const down  = (e: MouseEvent) => { isDown = true; startX = e.pageX - el.offsetLeft; scrollLeft = el.scrollLeft; };
     const up    = () => { isDown = false; };
     const move  = (e: MouseEvent) => {
@@ -56,7 +51,6 @@ export default function LandingPage() {
       e.preventDefault();
       el.scrollLeft = scrollLeft - (e.pageX - el.offsetLeft - startX);
     };
-
     el.addEventListener('mousedown',  down);
     el.addEventListener('mouseleave', up);
     el.addEventListener('mouseup',    up);
@@ -69,250 +63,174 @@ export default function LandingPage() {
     };
   }, []);
 
-  const memberPrice  = billing === 'monthly' ? '£15'  : '£120';
-  const memberPeriod = billing === 'monthly' ? 'per month' : 'per year';
-
   return (
     <>
       {/* ── NAVIGATION ── */}
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : styles.navTransparent}`}>
         <Link href="/" className={styles.navLogo}>
           <img
-            src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Wordmark_Black.svg"
+            src={`${BASE}/Assets/JOLI_Wordmark_Black.svg`}
             alt="JOLI Collective"
+            className={scrolled ? '' : styles.navLogoInverted}
           />
         </Link>
         <div className={styles.navLinks}>
-          <a href="#features">How it works</a>
-          <a href="#showcase">Collection</a>
-          <a href="#membership">Membership</a>
-          <Link href="https://app.jolicollective.net" className={styles.navCta}>Start exploring</Link>
+          <a
+            href="#collection"
+            className={scrolled ? styles.navLinkDark : styles.navLinkLight}
+          >
+            The collection
+          </a>
+          <a
+            href="https://app.jolicollective.net/request"
+            className={`${styles.navCta} ${scrolled ? styles.navCtaDark : styles.navCtaLight}`}
+          >
+            Plan a trip
+          </a>
         </div>
       </nav>
 
-      {/* ── HERO ── */}
+      {/* ── SECTION 1: HERO ── */}
       <section className={styles.hero}>
         <video
           className={styles.heroVideo}
-          src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/Joli_Texture_06.mp4"
+          src={`${BASE}/Assets/Joli_Texture_06.mp4`}
           autoPlay loop muted playsInline
           aria-hidden="true"
         />
         <div className={styles.heroScrim} />
+        <div className={styles.heroContent}>
+          <img
+            src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+            alt=""
+            aria-hidden="true"
+            className={styles.heroSymbol}
+          />
+          <p className={styles.heroLabel}>JOLI COLLECTIVE</p>
+        </div>
+        <div className={styles.scrollArrow} aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+      </section>
+
+      {/* ── SECTION 2: QUOTE ── */}
+      <section className={styles.quoteSection}>
+        <div className={styles.quoteOverlay} />
+        <div className={styles.quoteContent}>
+          <div className={`${styles.quoteProse} reveal`}>
+            <blockquote className={styles.quoteText}>
+              &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
+              In an age of distraction, nothing can feel more luxurious than paying attention.
+              And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
+            </blockquote>
+            <p className={styles.quoteAttribution}>Pico Iyer</p>
+          </div>
+        </div>
         <img
-          className={styles.heroLogo}
-          src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Symbol_White.svg"
-          alt="JOLI Collective"
+          src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+          alt=""
+          aria-hidden="true"
+          className={styles.quoteMark}
         />
       </section>
 
-      {/* ── FEATURES ── */}
-      <section className={`${styles.section} ${styles.featuresSection}`} id="features">
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div className={`${styles.sectionHeader} reveal`}>
-            <p className={styles.sectionEyebrow}>How it works</p>
-            <h2 className={styles.sectionTitle}>
-              From conversation<br />
-              <em>to edit.</em>
-            </h2>
-          </div>
-
-          <div className={`${styles.featuresGrid} reveal-stagger reveal`}>
-            <div className={styles.featureCell}>
-              <div className={styles.featureNumber}>01</div>
-              <h3 className={styles.featureTitle}>Describe your trip</h3>
-              <p className={styles.featureDesc}>Mention the vibe, occasion, or location. MILO understands natural language — no filters to wrestle with.</p>
-            </div>
-            <div className={styles.featureCell}>
-              <div className={styles.featureNumber}>02</div>
-              <h3 className={styles.featureTitle}>Receive your edit</h3>
-              <p className={styles.featureDesc}>A handful of genuinely well-matched properties from our collection, each with a reason for its selection.</p>
-            </div>
-            <div className={styles.featureCell}>
-              <div className={styles.featureNumber}>03</div>
-              <h3 className={styles.featureTitle}>Refine or elevate</h3>
-              <p className={styles.featureDesc}>Adjust your search, save to collections, or hand off to our concierge for bespoke trip shaping.</p>
-            </div>
-          </div>
+      {/* ── SECTION 3: MANIFESTO ── */}
+      <section className={styles.manifestoSection}>
+        <div className={styles.manifestoContent}>
+          <p className={`${styles.manifestoText} reveal`}>
+            Like a snail carrying home within its shell, we move through new terrain.<br /><br />
+            An inward journey for belonging through presence rather than accumulation.<br /><br />
+            At JOLI we seek these experiences that are intentional, rooted, and open.<br /><br />
+            The type of journeys that foster profound connection with ourselves, and others.<br /><br />
+            Travel for people who understand that the most radical act might be slowing down.
+          </p>
         </div>
+        <img
+          src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+          alt=""
+          aria-hidden="true"
+          className={styles.manifestoMark}
+        />
       </section>
 
-      {/* ── APP MOCKUP ── */}
-      <section className={`${styles.section} ${styles.mockupSection}`}>
-        <div className={styles.mockupInner}>
-          <div className={`${styles.mockupHeader} reveal`}>
-            <div>
-              <p className={styles.sectionEyebrow}>See it in action</p>
-              <h2 className={styles.sectionTitle}>
-                Tell MILO what you&apos;re<br /><em>dreaming of.</em>
-              </h2>
-            </div>
-            <Link href="https://app.jolicollective.net" className={`${styles.btn} ${styles.btnPrimary}`}>
-              Try it now
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-
-          <div className={`${styles.browserFrame} reveal`}>
-            <div className={styles.browserChrome}>
-              <div className={styles.chromeDots}>
-                <div className={`${styles.chromeDot} ${styles.chromeDotRed}`} />
-                <div className={`${styles.chromeDot} ${styles.chromeDotYellow}`} />
-                <div className={`${styles.chromeDot} ${styles.chromeDotGreen}`} />
-              </div>
-              <div className={styles.chromeUrl}>meetmilo.org/start</div>
-            </div>
-            <div className={styles.browserContent}>
-              <h3 className={styles.appHeadline}>Where in Europe are you dreaming of going?</h3>
-              <div className={styles.appInputWrap}>
-                <div className={styles.appInputPlaceholder}>e.g. A design-led villa in Tuscany for 6...</div>
-                <div className={styles.appSendBtn}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                  </svg>
+      {/* ── SECTION 4: HOW IT WORKS ── */}
+      <section className={styles.howSection}>
+        <div className={styles.howInner}>
+          <div className={styles.howLeft}>
+            <p className={styles.eyebrow}>The service</p>
+            <div className={`${styles.howSteps} reveal-stagger reveal`}>
+              <div className={styles.howStep}>
+                <span className={styles.howNumber}>01</span>
+                <div>
+                  <h3 className={styles.howTitle}>Describe the trip you&apos;re imagining</h3>
+                  <p className={styles.howDesc}>Tell MILO — our concierge — about your destination, your pace, and the feeling you&apos;re after. Anywhere in the world.</p>
                 </div>
               </div>
-              <p className={styles.appTagline}>Handpicked places. Fewer options. Right for you.</p>
-              <div className={styles.appChips}>
-                {CHIPS.map((chip) => (
-                  <div key={chip} className={styles.appChip}>{chip}</div>
-                ))}
+              <div className={styles.howStep}>
+                <span className={styles.howNumber}>02</span>
+                <div>
+                  <h3 className={styles.howTitle}>We curate a bespoke plan</h3>
+                  <p className={styles.howDesc}>Our team researches, sources, and assembles a trip plan tailored to exactly what you&apos;ve described. Stays, dining, activities, logistics.</p>
+                </div>
+              </div>
+              <div className={styles.howStep}>
+                <span className={styles.howNumber}>03</span>
+                <div>
+                  <h3 className={styles.howTitle}>Travel with everything considered</h3>
+                  <p className={styles.howDesc}>Receive your plan within 48 hours. Every detail researched, every recommendation earned.</p>
+                </div>
               </div>
             </div>
+            <div>
+              <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnPrimary}`}>
+                Plan a trip
+              </a>
+            </div>
+          </div>
+          <div className={`${styles.howRight} reveal`}>
+            <img
+              src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777297115262_1090656_1.svg`}
+              alt="Editorial travel photography"
+              className={styles.howImage}
+            />
           </div>
         </div>
       </section>
 
-      {/* ── SHOWCASE ── */}
-      <section className={`${styles.section} ${styles.showcaseSection}`} id="showcase">
-        <div className={`${styles.showcaseHeader} reveal`}>
-          <div>
-            <p className={styles.sectionEyebrow}>The Collection</p>
-            <h2 className={styles.sectionTitle}>Chosen for character.</h2>
+      {/* ── SECTION 5: THE COLLECTION ── */}
+      <section className={styles.collectionSection} id="collection">
+        <div className={styles.collectionHeader}>
+          <div className="reveal">
+            <p className={styles.eyebrow}>The collection</p>
+            <h2 className={styles.collectionTitle}>2,000+ handpicked stays across Europe</h2>
+            <p className={styles.collectionSubtext}>Every property chosen for character, design, and editorial merit. Not star ratings.</p>
           </div>
-          <Link href="/properties" className={`${styles.btn} ${styles.btnGhost}`}>
-            View all properties
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
         </div>
-
-        <div className={`${styles.showcaseScroll} reveal`} ref={showcaseRef}>
-          {SHOWCASE_ITEMS.map((item) => (
-            <div key={item.name} className={styles.showcaseItem}>
-              <img src={item.src} alt={item.alt} className={styles.showcaseImage} />
-              <div className={styles.showcaseOverlay}>
-                <div className={styles.showcaseLocation}>{item.location}</div>
-                <div className={styles.showcaseName}>{item.name}</div>
-              </div>
+        <div className={`${styles.collectionScroll} reveal`} ref={showcaseRef}>
+          {PROPERTY_CARDS.map((card, i) => (
+            <div key={i} className={styles.collectionCard}>
+              <img src={card.src} alt={card.alt} className={styles.collectionCardImage} />
             </div>
           ))}
         </div>
+        <div className={`${styles.collectionCta} reveal`}>
+          <a href="https://app.jolicollective.net/stays" className={`${styles.btn} ${styles.btnGhost}`}>
+            Browse the collection
+          </a>
+        </div>
       </section>
 
-      {/* ── MEMBERSHIP ── */}
-      <section className={`${styles.section} ${styles.membershipSection}`} id="membership">
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div className="reveal" style={{ textAlign: 'center', margin: '0 auto 4rem', maxWidth: '520px' }}>
-            <p className={styles.sectionEyebrow} style={{ justifyContent: 'center' }}>Membership</p>
-            <h2 className={styles.sectionTitle}>
-              Simple plans.<br />
-              <em>Start free.</em>
-            </h2>
-            <p style={{ fontSize: '1rem', color: 'var(--ink-muted)', marginTop: '1rem', lineHeight: '1.7' }}>
-              Begin with MILO free. Upgrade when travel planning becomes a regular ritual.
-            </p>
-          </div>
-
-          <div className={`${styles.membershipGrid} reveal-stagger reveal`}>
-
-            {/* Explorer */}
-            <div className={styles.membershipCard}>
-              <div className={styles.membershipTier}>Explorer</div>
-              <div className={styles.membershipPrice}>£0</div>
-              <div className={styles.membershipPeriod}>Free forever</div>
-              <ul className={styles.membershipFeatures}>
-                {['3 conversations per month', 'Basic property details', 'Mood-based search'].map((f) => (
-                  <li key={f}>{CHECK_ICON}{f}</li>
-                ))}
-              </ul>
-              <Link href="https://app.jolicollective.net" className={`${styles.btn} ${styles.btnGhost}`} style={{ width: '100%', justifyContent: 'center' }}>
-                Start exploring
-              </Link>
-            </div>
-
-            {/* JOLI Member */}
-            <div className={`${styles.membershipCard} ${styles.featured}`}>
-              <div className={styles.membershipTier}>JOLI Member</div>
-
-              <div className={styles.billingToggle} role="group" aria-label="Billing frequency">
-                <button
-                  className={billing === 'monthly' ? styles.active : ''}
-                  onClick={() => setBilling('monthly')}
-                  aria-pressed={billing === 'monthly'}
-                >
-                  Monthly
-                </button>
-                <button
-                  className={billing === 'annual' ? styles.active : ''}
-                  onClick={() => setBilling('annual')}
-                  aria-pressed={billing === 'annual'}
-                >
-                  Annual <span className={styles.annualBadge}>Save 33%</span>
-                </button>
-              </div>
-
-              <div className={styles.membershipPrice}>{memberPrice}</div>
-              <div className={styles.membershipPeriod}>{memberPeriod}</div>
-
-              <ul className={styles.membershipFeatures}>
-                {[
-                  'Unlimited conversations',
-                  'Full property details & links',
-                  'Save collections & favourites',
-                  'Priority access to new properties',
-                ].map((f) => (
-                  <li key={f}>{CHECK_ICON}{f}</li>
-                ))}
-              </ul>
-
-              <a
-                href={STRIPE[billing]}
-                className={`${styles.btn} ${styles.btnPrimary}`}
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                Subscribe
-              </a>
-            </div>
-
-            {/* Concierge */}
-            <div className={styles.membershipCard}>
-              <div className={styles.membershipTier}>Concierge</div>
-              <div className={styles.membershipPrice}>£250</div>
-              <div className={styles.membershipPeriod}>per year</div>
-              <ul className={styles.membershipFeatures}>
-                {[
-                  'Everything in Member',
-                  '5 bespoke trip shapings/year',
-                  'Human-curated shortlists',
-                  'Seasonal occasion nudges',
-                ].map((f) => (
-                  <li key={f}>{CHECK_ICON}{f}</li>
-                ))}
-              </ul>
-              <a
-                href={STRIPE.concierge}
-                className={`${styles.btn} ${styles.btnSecondary}`}
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                Join as Concierge
-              </a>
-            </div>
-
-          </div>
+      {/* ── SECTION 6: WORLDWIDE ── */}
+      <section className={styles.worldwideSection}>
+        <div className={styles.worldwideOverlay} />
+        <div className={`${styles.worldwideInner} reveal`}>
+          <h2 className={styles.worldwideTitle}>The collection is European. The service is global.</h2>
+          <p className={styles.worldwideSubtext}>Tell us where you want to go — anywhere in the world — and we&apos;ll build the plan.</p>
+          <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnWhite}`}>
+            Plan a trip
+          </a>
         </div>
       </section>
 
@@ -320,16 +238,18 @@ export default function LandingPage() {
       <footer className={styles.footer}>
         <Link href="/" className={styles.footerLogo}>
           <img
-            src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/JOLI_Lockup_Black.svg"
+            src={`${BASE}/Assets/JOLI_Lockup_Black.svg`}
             alt="JOLI Collective"
           />
         </Link>
         <div className={styles.footerLinks}>
           <Link href="/privacy">Privacy</Link>
+          <span className={styles.footerDot}>·</span>
           <Link href="/terms">Terms</Link>
-          <a href={`mailto:${CONTACT_EMAIL}`}>Contact</a>
+          <span className={styles.footerDot}>·</span>
+          <a href="mailto:info@jolicollective.net">Contact</a>
         </div>
-        <p style={{ fontSize: '0.8125rem', color: 'var(--ink-faint)' }}>© 2026 JOLI Collective</p>
+        <p className={styles.footerCopy}>© 2026 JOLI Collective</p>
       </footer>
     </>
   );
