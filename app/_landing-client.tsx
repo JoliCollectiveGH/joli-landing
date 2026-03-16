@@ -11,7 +11,7 @@ const SHOWCASE_PROPERTIES = [
   {
     name: "Claridge's",
     location: "Mayfair, London",
-    image: "https://www.claridges.co.uk/siteassets/homepage/claridges-homepage-doorman-960x1000artboard-1.jpg",
+    image: "https://media.cntraveller.com/photos/69273c95310b260f170d9d3e/16:9/w_2560%2Cc_limit/Foyer-Reading-Room-Claridges-November2025-PR-Global.jpg",
   },
   {
     name: "Skinopi Lodge",
@@ -44,9 +44,9 @@ const SHOWCASE_PROPERTIES = [
     image: "https://assets.basehub.com/95f6dbe5/aa6330a95e7b60d29759db5a87321d78/heckfield-place-banner.jpg?width=1920&quality=85&format=auto",
   },
   {
-    name: "Chalet Mckinley",
-    location: "Zermatt, Valais",
-    image: "https://cdn.lecollectionist.com/__collectionist__/production/uploads/photos/40989/e299bce5-438d-482c-a78d-cafb1c92e3c8.jpg?width=1152&force_format=webp&q=50",
+    name: "Almhof Schneider",
+    location: "Lech, Vorarlberg",
+    image: "https://assets.basehub.com/95f6dbe5/d7de442737633f9c9de1348292b92b76/copy-of-almhofschneiderrestaurant2016-(c)-klaus-vyhnalek.jpg?width=1920&quality=85&format=auto",
   },
   {
     name: "Casa Ariola",
@@ -157,35 +157,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SECTION 2: QUOTE ── */}
-      <section className={styles.quoteSection}>
-        <div className={styles.quoteInner}>
-          <div className={`${styles.quoteProse} reveal`}>
-            <blockquote className={styles.quoteText}>
-              &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
-              In an age of distraction, nothing can feel more luxurious than paying attention.
-              And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
-            </blockquote>
-            <p className={styles.quoteAttribution}>Pico Iyer</p>
-            <img
-              src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.quoteMark}
-            />
-          </div>
-          <div className={`${styles.quoteImageWrap} reveal`}>
-            <img
-              src={`${BASE}/landingpage/Mask%20group3.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.editorialImage}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 3: MANIFESTO ── */}
+      {/* ── SECTION 2: MANIFESTO ── */}
       <section className={styles.manifestoSection}>
         <div className={styles.manifestoInner}>
           <div className={`${styles.manifestoText} reveal`}>
@@ -216,7 +188,17 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SECTION 4: HOW IT WORKS ── */}
+      {/* ── VISUAL BREATHER ── */}
+      <div className={styles.breatherSection}>
+        <img
+          src={`${BASE}/landingpage/Mask%20group2.svg`}
+          alt=""
+          aria-hidden="true"
+          className={`${styles.breatherImage} reveal`}
+        />
+      </div>
+
+      {/* ── SECTION 3: HOW IT WORKS ── */}
       <section className={styles.howSection}>
         <div className={styles.howInner}>
           <div className={styles.howLeft}>
@@ -294,15 +276,52 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SECTION 6: THE SERVICE IS GLOBAL ── */}
+      {/* ── SECTION 5: THE SERVICE IS GLOBAL ── */}
       <section className={styles.worldwideSection}>
-        <div className={styles.worldwideOverlay} />
-        <div className={`${styles.worldwideInner} reveal`}>
-          <h2 className={styles.worldwideTitle}>The service is global.</h2>
-          <p className={styles.worldwideSubtext}>Tell us where you want to go — anywhere in the world — and we&apos;ll build the plan.</p>
-          <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnWhite}`}>
-            Plan a trip
-          </a>
+        <div className={styles.worldwideInner}>
+          <div className={`${styles.worldwideText} reveal`}>
+            <h2 className={styles.worldwideTitle}>The service is global.</h2>
+            <p className={styles.worldwideSubtext}>Tell us where you want to go — anywhere in the world — and we&apos;ll build the plan.</p>
+            <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnPrimary}`}>
+              Plan a trip
+            </a>
+          </div>
+          <div className={`${styles.worldwideImageWrap} reveal`}>
+            <img
+              src={`${BASE}/landingpage/Pages3.png`}
+              alt=""
+              aria-hidden="true"
+              className={styles.editorialImage}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── SIGN-OFF: PICO IYER QUOTE ── */}
+      <section className={styles.quoteSection}>
+        <div className={styles.quoteInner}>
+          <div className={`${styles.quoteProse} reveal`}>
+            <blockquote className={styles.quoteText}>
+              &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
+              In an age of distraction, nothing can feel more luxurious than paying attention.
+              And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
+            </blockquote>
+            <p className={styles.quoteAttribution}>Pico Iyer</p>
+            <img
+              src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.quoteMark}
+            />
+          </div>
+          <div className={`${styles.quoteImageWrap} reveal`}>
+            <img
+              src={`${BASE}/landingpage/Mask%20group3.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.editorialImage}
+            />
+          </div>
         </div>
       </section>
 

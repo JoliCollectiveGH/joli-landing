@@ -186,13 +186,14 @@
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 6rem;
+  grid-template-columns: minmax(0, 550px) minmax(0, 450px);
+  gap: 80px;
   align-items: center;
+  justify-content: center;
 }
 
 .quoteProse {
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .quoteText {
@@ -228,8 +229,8 @@
 
 /* ── EDITORIAL IMAGES (shared) ── */
 .editorialImage {
-  width: 320px;
-  max-width: 350px;
+  width: 450px;
+  max-width: 450px;
   height: auto;
   border-radius: 8px;
   display: block;
@@ -246,13 +247,14 @@
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 6rem;
+  grid-template-columns: minmax(0, 550px) minmax(0, 450px);
+  gap: 80px;
   align-items: center;
+  justify-content: center;
 }
 
 .manifestoText {
-  max-width: 580px;
+  max-width: 550px;
   font-size: clamp(1rem, 1.6vw, 1.1875rem);
   line-height: 1.9;
   color: var(--ink);
@@ -269,6 +271,22 @@
 
 .manifestoImageWrap {
   flex-shrink: 0;
+}
+
+/* ── VISUAL BREATHER ── */
+.breatherSection {
+  padding: 80px 3rem;
+  background: #F7F6F2;
+  display: flex;
+  justify-content: center;
+}
+
+.breatherImage {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
 }
 
 /* ── HOW IT WORKS ── */
@@ -458,29 +476,25 @@
 
 /* ── WORLDWIDE ── */
 .worldwideSection {
-  position: relative;
-  padding: 10rem 3rem;
-  background-image: url('https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/landingpage/Pages3.png');
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  text-align: center;
-}
-
-.worldwideOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+  padding: 8rem 3rem;
+  background: #F7F6F2;
+  border-top: 1px solid var(--surface-border-soft);
 }
 
 .worldwideInner {
-  position: relative;
-  z-index: 1;
-  max-width: 640px;
+  max-width: 1100px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 550px) minmax(0, 450px);
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+.worldwideText {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.25rem;
 }
 
@@ -489,16 +503,20 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   font-weight: 400;
-  color: white;
+  color: var(--ink);
   margin: 0;
 }
 
 .worldwideSubtext {
   font-size: 1rem;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--ink-muted);
   margin: 0;
   max-width: 440px;
+}
+
+.worldwideImageWrap {
+  flex-shrink: 0;
 }
 
 /* ── BUTTONS ── */
@@ -608,13 +626,15 @@
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .quoteInner,
-  .manifestoInner {
+  .manifestoInner,
+  .worldwideInner {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
   .quoteImageWrap,
-  .manifestoImageWrap {
+  .manifestoImageWrap,
+  .worldwideImageWrap {
     display: none;
   }
 
@@ -649,6 +669,8 @@
     padding: 5rem 1.5rem;
   }
 
+  .breatherSection { padding: 3rem 1.5rem; }
+
   .collectionSection { padding: 5rem 0; }
   .collectionHeader  { padding: 0 1.5rem; margin-bottom: 2rem; }
   .collectionScroll  { padding: 0.5rem 1.5rem 1rem; }
@@ -669,7 +691,8 @@
   }
 
   .editorialImage {
-    width: 260px;
+    width: 100%;
+    max-width: 400px;
   }
 
   .footer { padding: 3rem 1.5rem; }
