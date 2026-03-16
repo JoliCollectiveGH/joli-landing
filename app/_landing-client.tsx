@@ -176,6 +176,7 @@ export default function LandingPage() {
       <section className={styles.manifestoSection}>
         <div className={styles.manifestoInner}>
           <div className={`${styles.manifestoText} reveal`}>
+            <p className={styles.eyebrow}>Our story</p>
             <p>
               We started JOLI because we were tired of searching.
             </p>
@@ -272,7 +273,18 @@ export default function LandingPage() {
           </div>
         </div>
         <div className={`${styles.collectionScroll} reveal`} ref={showcaseRef}>
-          {SHOWCASE_PROPERTIES.map((prop) => (
+          {SHOWCASE_PROPERTIES.slice(0, 5).map((prop) => (
+            <div key={prop.name} className={styles.collectionCard}>
+              <img src={prop.image} alt={prop.name} className={styles.collectionCardImage} />
+              <div className={styles.collectionCardMeta}>
+                <p className={styles.collectionCardName}>{prop.name}</p>
+                <p className={styles.collectionCardLocation}>{prop.location}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className={`${styles.collectionScroll} ${styles.collectionScrollRow2} reveal`}>
+          {SHOWCASE_PROPERTIES.slice(5, 10).map((prop) => (
             <div key={prop.name} className={styles.collectionCard}>
               <img src={prop.image} alt={prop.name} className={styles.collectionCardImage} />
               <div className={styles.collectionCardMeta}>

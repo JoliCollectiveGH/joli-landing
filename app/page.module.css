@@ -220,14 +220,6 @@ video::-webkit-media-controls-enclosure {
   gap: 1.25rem;
 }
 
-.quoteEditorialBathroom {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin-top: 8px;
-}
 
 .quoteText {
   font-size: clamp(1rem, 1.7vw, 1.25rem);
@@ -481,6 +473,10 @@ video::-webkit-media-controls-enclosure {
   margin: 0;
 }
 
+.collectionScrollRow2 {
+  margin-top: 24px;
+}
+
 .collectionCta {
   max-width: 1100px;
   margin: 0 auto;
@@ -490,13 +486,13 @@ video::-webkit-media-controls-enclosure {
 
 /* ── EDITORIAL IMAGE STRIP ── */
 .editorialStrip {
-  padding: 60px 3rem;
-  background: #F7F6F2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  max-width: 1080px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 60px 24px;
+  background: #F7F6F2;
   box-sizing: border-box;
 }
 
