@@ -194,7 +194,7 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.manifestoImageWrap} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask%20group7.svg`}
+              src={`${BASE}/landingpage/Mask_group5.svg`}
               alt=""
               aria-hidden="true"
               className={styles.editorialImage}
@@ -207,8 +207,8 @@ export default function LandingPage() {
       <div className={styles.editorialStrip}>
         <img src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777120839861_1090656_3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/clemenspoloczek_1684240265_3103954777297115262_1090656_1.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/Mask%20group3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/Mask%20group.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/Mask_group3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/Mask_group.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
       </div>
 
       {/* ── SECTION 3: HOW IT WORKS ── */}
@@ -247,13 +247,13 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.howRight} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask%20group6.svg`}
+              src={`${BASE}/landingpage/Mask_group6.svg`}
               alt=""
               aria-hidden="true"
               className={styles.howImageMain}
             />
             <img
-              src={`${BASE}/landingpage/Mask%20group9.svg`}
+              src={`${BASE}/landingpage/Mask_group9.svg`}
               alt=""
               aria-hidden="true"
               className={styles.howImageSecondary}
@@ -305,7 +305,7 @@ export default function LandingPage() {
         <div className={styles.quoteEditorialInner}>
           <div className={`${styles.quoteEditorialLeft} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask%20group8.svg`}
+              src={`${BASE}/landingpage/Mask_group8.svg`}
               alt=""
               aria-hidden="true"
               className={styles.quoteEditorialDining}
