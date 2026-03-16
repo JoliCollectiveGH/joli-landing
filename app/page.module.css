@@ -252,7 +252,6 @@ video::-webkit-media-controls-enclosure {
   width: 28px;
   height: auto;
   opacity: 0.2;
-  filter: invert(1);
   display: block;
   margin: 0;
 }
@@ -542,42 +541,6 @@ video::-webkit-media-controls-enclosure {
   display: block;
 }
 
-/* ── EDITORIAL BREATHERS ── */
-
-.breatherAsymmetric {
-  padding: 60px 3rem;
-  background: #F7F6F2;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 12px;
-}
-
-.breatherImg280 {
-  width: 280px;
-  flex-shrink: 0;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.breatherImg220 {
-  width: 220px;
-  flex-shrink: 0;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.breatherImg400 {
-  width: 400px;
-  max-width: 400px;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin-left: 10%;
-}
-
 /* ── BUTTONS ── */
 .btn {
   display: inline-flex;
@@ -733,7 +696,15 @@ video::-webkit-media-controls-enclosure {
   .manifestoSection,
   .howSection,
   .worldwideSection {
-    padding: 5rem 1.5rem;
+    padding: 60px 1.5rem;
+  }
+
+  /* Two-column grids stack on mobile */
+  .manifestoInner,
+  .howInner,
+  .quoteEditorialInner {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .editorialStrip {
@@ -756,11 +727,11 @@ video::-webkit-media-controls-enclosure {
     scroll-snap-align: start;
   }
 
-  .collectionSection { padding: 5rem 0; }
+  .collectionSection { padding: 60px 0; }
   .collectionHeader  { padding: 0 1.5rem; margin-bottom: 2rem; }
   .collectionScroll  { padding: 0.5rem 1.5rem 1rem; }
   .collectionCta     { padding: 2rem 1.5rem 0; }
-  .collectionCard    { width: 260px; }
+  .collectionCard    { flex-shrink: 0; width: 280px; }
 
   .howRight {
     flex-direction: column;
@@ -775,21 +746,18 @@ video::-webkit-media-controls-enclosure {
     margin-top: 0;
   }
 
-  .editorialImage {
+  .editorialImage,
+  .quoteEditorialDining {
     width: 100%;
-    max-width: 400px;
+    max-width: none;
   }
-
-  .breatherAsymmetric {
-    padding: 40px 1.5rem;
-  }
-
-  .breatherImg280 { width: 140px; }
-  .breatherImg220 { width: 110px; }
-
-  .quoteEditorialBathroom { max-width: 200px; }
 
   .footer { padding: 3rem 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  /* Hide "The collection" nav link on small screens, keep only "Plan a trip" */
+  .navLinks a:first-child { display: none; }
 }
 
 @media (max-width: 480px) {

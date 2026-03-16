@@ -300,12 +300,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── BREATHER: SERVICE → QUOTE ── */}
-      <div className={styles.breatherAsymmetric}>
-        <img src={`${BASE}/landingpage/Mask%20group10.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg280} reveal`} />
-        <img src={`${BASE}/landingpage/Mask%20group11.svg`} alt="" aria-hidden="true" className={`${styles.breatherImg220} reveal`} />
-      </div>
-
       {/* ── SIGN-OFF: QUOTE + EDITORIAL ── */}
       <section className={styles.quoteEditorialSection}>
         <div className={styles.quoteEditorialInner}>
@@ -325,16 +319,10 @@ export default function LandingPage() {
             </blockquote>
             <p className={styles.quoteAttribution}>Pico Iyer</p>
             <img
-              src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+              src={`${BASE}/Assets/JOLI_Symbol_Black.svg`}
               alt=""
               aria-hidden="true"
               className={styles.quoteMark}
-            />
-            <img
-              src={`${BASE}/landingpage/Mask%20group7.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.quoteEditorialBathroom}
             />
           </div>
         </div>
