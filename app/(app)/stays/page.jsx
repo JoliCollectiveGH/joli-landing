@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 
 function cleanName(name) {
   if (!name) return '';
-  // Remove common messy patterns
   let clean = name
     .replace(/^\[.*?\]\s*/, '')                // Remove [TAGS] prefix
     .replace(/\s*-\s*\d+\s*bedroom.*$/i, '')   // Remove "- 3 bedroom in..."
@@ -12,7 +11,6 @@ function cleanName(name) {
     .replace(/\s*\d+\s*sqm?\d*\s*.*$/i, '')    // Remove "120 sqm2..."
     .replace(/\s*\(.*?\)\s*$/, '')             // Remove trailing (parenthetical)
     .trim();
-  // Truncate to 35 chars if still long
   if (clean.length > 35) clean = clean.slice(0, 35).replace(/\s+\S*$/, '') + '…';
   return clean || name.slice(0, 35);
 }
@@ -104,7 +102,7 @@ function PlaceCard({ place, onSelect }) {
           />
         )}
       </div>
-      <p className="text-xs text-[#AD531B] tracking-wider uppercase mb-0.5">{place.location_display}</p>
+      <p className="text-xs text-[#AD531B] tracking-wider uppercase mb-0.5 truncate">{place.location_display}</p>
       <p className="text-sm text-[#1A1814] font-light leading-snug">{cleanName(place.name)}</p>
       {place.price_band && (
         <p className="text-xs text-[#6B6560] mt-0.5">{place.price_band}</p>
@@ -123,7 +121,7 @@ function CollectionCarousel({ collection, onSelect }) {
           <p className="text-sm text-[#6B6560] mt-1">{collection.subtitle}</p>
         )}
       </div>
-      <div className="flex gap-4 overflow-x-auto px-4 md:px-8 pb-2 scrollbar-hide">
+      <div className="flex gap-4 overflow-x-auto px-4 md:px-8 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {collection.properties.map((place) => (
           <PlaceCard key={place.stay_id} place={place} onSelect={onSelect} />
         ))}
@@ -133,10 +131,9 @@ function CollectionCarousel({ collection, onSelect }) {
 }
 
 function FeaturedCollection({ collection, onSelect }) {
-  const hero = collection.properties.length > 1 ? collection.properties[1] : collection.properties[0];
-  const rest = collection.properties
-    .filter((_, i) => i !== (collection.properties.length > 1 ? 1 : 0))
-    .slice(0, 4);
+  const heroIndex = collection.properties.length > 1 ? 1 : 0;
+  const hero = collection.properties[heroIndex];
+  const rest = collection.properties.filter((_, i) => i !== heroIndex).slice(0, 4);
 
   if (!hero) return null;
 
@@ -150,7 +147,6 @@ function FeaturedCollection({ collection, onSelect }) {
         )}
       </div>
 
-      {/* Hero */}
       <div
         className="cursor-pointer group relative rounded-xl overflow-hidden mb-4 h-72 bg-[#E0DCD5]"
         onClick={() => onSelect(hero)}
@@ -170,15 +166,38 @@ function FeaturedCollection({ collection, onSelect }) {
         </div>
       </div>
 
-      {/* Rest as cards */}
       {rest.length > 0 && (
-        <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {rest.map((place) => (
             <PlaceCard key={place.stay_id} place={place} onSelect={onSelect} />
           ))}
         </div>
       )}
     </section>
+  );
+}
+
+function SkeletonCard() {
+  return (
+    <div className="flex-shrink-0 w-56 animate-pulse">
+      <div className="h-36 rounded-lg bg-[#E0DCD5] mb-2" />
+      <div className="h-2.5 w-20 rounded bg-[#E0DCD5] mb-1.5" />
+      <div className="h-3 w-32 rounded bg-[#E8E4DE]" />
+    </div>
+  );
+}
+
+function SkeletonSection() {
+  return (
+    <div className="mb-10">
+      <div className="mb-4 px-4 md:px-8 animate-pulse">
+        <div className="h-2.5 w-16 rounded bg-[#E0DCD5] mb-2" />
+        <div className="h-5 w-40 rounded bg-[#E8E4DE]" />
+      </div>
+      <div className="flex gap-4 overflow-hidden px-4 md:px-8">
+        {[...Array(4)].map((_, i) => <SkeletonCard key={i} />)}
+      </div>
+    </div>
   );
 }
 
@@ -197,14 +216,6 @@ export default function BrowsePage() {
       .catch(() => setLoading(false));
   }, []);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-sm text-[#6B6560]">Loading…</p>
-      </div>
-    );
-  }
-
   return (
     <main className="min-h-screen bg-[#FAF9F6] py-10">
       <div className="mb-8 px-4 md:px-8">
@@ -212,26 +223,33 @@ export default function BrowsePage() {
         <p className="text-sm text-[#6B6560] mt-1">Handpicked properties across Europe</p>
       </div>
 
-      {collections.map((collection, i) => {
-        if (!collection.properties || collection.properties.length === 0) return null;
-        // Use FeaturedCollection for the first collection, carousel for the rest
-        if (i === 0) {
+      {loading ? (
+        <>
+          <SkeletonSection />
+          <SkeletonSection />
+          <SkeletonSection />
+        </>
+      ) : (
+        collections.map((collection, i) => {
+          if (!collection.properties || collection.properties.length === 0) return null;
+          if (collection.featured) {
+            return (
+              <FeaturedCollection
+                key={collection.id}
+                collection={collection}
+                onSelect={setSelectedPlace}
+              />
+            );
+          }
           return (
-            <FeaturedCollection
+            <CollectionCarousel
               key={collection.id}
               collection={collection}
               onSelect={setSelectedPlace}
             />
           );
-        }
-        return (
-          <CollectionCarousel
-            key={collection.id}
-            collection={collection}
-            onSelect={setSelectedPlace}
-          />
-        );
-      })}
+        })
+      )}
 
       {selectedPlace && (
         <PlaceDetail place={selectedPlace} onClose={() => setSelectedPlace(null)} />
