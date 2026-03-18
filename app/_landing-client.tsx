@@ -62,7 +62,6 @@ const SHOWCASE_PROPERTIES = [
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
-  const showcaseRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Force video play on mount (iOS blocks autoplay despite correct attributes)
@@ -91,29 +90,6 @@ export default function LandingPage() {
     return () => observer.disconnect();
   }, []);
 
-  // Drag-to-scroll on collection strip
-  useEffect(() => {
-    const el = showcaseRef.current;
-    if (!el) return;
-    let isDown = false, startX = 0, scrollLeft = 0;
-    const down  = (e: MouseEvent) => { isDown = true; startX = e.pageX - el.offsetLeft; scrollLeft = el.scrollLeft; };
-    const up    = () => { isDown = false; };
-    const move  = (e: MouseEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      el.scrollLeft = scrollLeft - (e.pageX - el.offsetLeft - startX);
-    };
-    el.addEventListener('mousedown',  down);
-    el.addEventListener('mouseleave', up);
-    el.addEventListener('mouseup',    up);
-    el.addEventListener('mousemove',  move);
-    return () => {
-      el.removeEventListener('mousedown',  down);
-      el.removeEventListener('mouseleave', up);
-      el.removeEventListener('mouseup',    up);
-      el.removeEventListener('mousemove',  move);
-    };
-  }, []);
 
   return (
     <>
@@ -171,21 +147,10 @@ export default function LandingPage() {
         <div className={styles.manifestoInner}>
           <div className={`${styles.manifestoText} reveal`}>
             <p className={styles.eyebrow}>Our story</p>
-            <p>
-              We started JOLI because we were tired of searching.
-            </p>
-            <p>
-              Tired of scrolling through thousands of identical listings. Tired of algorithms that don&apos;t
-              understand the difference between a boutique hotel and a lodging.
-            </p>
-            <p>
-              JOLI is a concierge for people who care about where they stay. Tell us what you&apos;re looking
-              for — the place, the pace, the feeling — and we&apos;ll come back with a plan built around exactly that.
-            </p>
-            <p>
-              2,000 handpicked stays across Europe. Curated trip plans worldwide. Every recommendation earned,
-              not sponsored.
-            </p>
+            <p>JOLI is a trip planning service for people who travel with intention.</p>
+            <p>Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after — and we&apos;ll come back with a complete plan built around exactly that.</p>
+            <p>Stays, dining, activities, day-by-day logistics. Every detail researched. Every recommendation earned, not sponsored.</p>
+            <p>No algorithms. No endless scrolling. Just a considered plan, delivered to your inbox.</p>
           </div>
           <div className={`${styles.manifestoImageWrap} reveal`}>
             <img
@@ -223,14 +188,14 @@ export default function LandingPage() {
                 <span className={styles.howNumber}>02</span>
                 <div>
                   <h3 className={styles.howTitle}>We curate a bespoke plan</h3>
-                  <p className={styles.howDesc}>Our team researches, sources, and assembles a trip plan tailored to exactly what you&apos;ve described. Stays, dining, activities, logistics.</p>
+                  <p className={styles.howDesc}>Our team researches, sources, and builds a trip plan tailored to exactly what you&apos;ve described — stays, dining, activities, logistics.</p>
                 </div>
               </div>
               <div className={styles.howStep}>
                 <span className={styles.howNumber}>03</span>
                 <div>
-                  <h3 className={styles.howTitle}>Travel with everything considered</h3>
-                  <p className={styles.howDesc}>Receive your plan within 24 hours. A complete, bespoke trip plan — stays, dining, activities, and logistics — delivered to your inbox within 24 hours.</p>
+                  <h3 className={styles.howTitle}>Receive your plan within 24 hours</h3>
+                  <p className={styles.howDesc}>A complete, bespoke trip plan delivered to your inbox. Every detail considered, every recommendation earned.</p>
                 </div>
               </div>
             </div>
@@ -267,8 +232,8 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <div className={`${styles.collectionScroll} reveal`} ref={showcaseRef}>
-          {SHOWCASE_PROPERTIES.slice(0, 5).map((prop) => (
+        <div className={`${styles.collectionScroll} reveal`}>
+          {SHOWCASE_PROPERTIES.slice(0, 4).map((prop) => (
             <div key={prop.name} className={styles.collectionCard}>
               <img src={prop.image} alt={prop.name} className={styles.collectionCardImage} />
               <div className={styles.collectionCardMeta}>
@@ -277,22 +242,6 @@ export default function LandingPage() {
               </div>
             </div>
           ))}
-        </div>
-        <div className={`${styles.collectionScroll} ${styles.collectionScrollRow2} reveal`}>
-          {SHOWCASE_PROPERTIES.slice(5, 10).map((prop) => (
-            <div key={prop.name} className={styles.collectionCard}>
-              <img src={prop.image} alt={prop.name} className={styles.collectionCardImage} />
-              <div className={styles.collectionCardMeta}>
-                <p className={styles.collectionCardName}>{prop.name}</p>
-                <p className={styles.collectionCardLocation}>{prop.location}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className={styles.collectionCtaMobile}>
-          <a href="https://app.jolicollective.net/stays" className={`${styles.btn} ${styles.btnGhost}`}>
-            Browse the collection
-          </a>
         </div>
       </section>
 

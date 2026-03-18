@@ -101,7 +101,7 @@
 /* ── HERO ── */
 .hero {
   position: relative;
-  height: 85vh;
+  height: 75vh;
   min-height: 600px;
   overflow: hidden;
   display: flex;
@@ -151,8 +151,11 @@ video::-webkit-media-controls-enclosure {
 }
 
 .heroSymbol {
-  width: clamp(80px, 10vw, 120px);
+  width: 120px;
   height: auto;
+  image-rendering: auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .heroLabel {
@@ -283,7 +286,7 @@ video::-webkit-media-controls-enclosure {
 }
 
 .manifestoText {
-  max-width: 550px;
+  max-width: 480px;
   font-size: clamp(1rem, 1.6vw, 1.1875rem);
   line-height: 1.9;
   color: var(--ink);
@@ -369,6 +372,7 @@ video::-webkit-media-controls-enclosure {
   line-height: 1.75;
   color: var(--ink-muted);
   margin: 0;
+  max-width: 340px;
 }
 
 .howRight {
@@ -386,16 +390,16 @@ video::-webkit-media-controls-enclosure {
 
 /* ── COLLECTION ── */
 .collectionSection {
-  padding: 5rem 0;
+  padding: 5rem 3rem;
   background: #F7F6F2;
   border-top: 1px solid var(--surface-border-soft);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .collectionHeader {
   max-width: 1100px;
   margin: 0 auto 2rem;
-  padding: 0 3rem;
+  padding: 0;
 }
 
 .collectionHeaderRow {
@@ -430,31 +434,17 @@ video::-webkit-media-controls-enclosure {
 }
 
 .collectionScroll {
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  padding: 0.5rem 3rem 1rem;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  cursor: grab;
-}
-
-.collectionScroll:active {
-  cursor: grabbing;
-}
-
-.collectionScroll::-webkit-scrollbar {
-  display: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .collectionCard {
-  flex: 0 0 auto;
-  width: 320px;
+  background: white;
   border-radius: 8px;
   overflow: hidden;
-  background: white;
-  box-shadow: 0 1px 6px rgba(26, 24, 20, 0.06);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .collectionCard:hover {
@@ -487,9 +477,6 @@ video::-webkit-media-controls-enclosure {
   margin: 0;
 }
 
-.collectionScrollRow2 {
-  margin-top: 24px;
-}
 
 /* ── EDITORIAL IMAGE STRIP ── */
 .editorialStrip {
@@ -686,14 +673,8 @@ video::-webkit-media-controls-enclosure {
     scroll-snap-align: start;
   }
 
-  .collectionSection { padding: 40px 0; }
-  .collectionHeader  { padding: 0 1.5rem; margin-bottom: 2rem; }
-  .collectionScroll  { padding: 0.5rem 1.5rem 1rem; }
-  .collectionCard    { flex-shrink: 0; width: 280px; }
-
-  .collectionHeaderRow { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .collectionHeaderCta { display: none; }
-  .collectionCtaMobile { display: block; padding: 2rem 1.5rem 0; }
+  .collectionSection { padding: 40px 1.5rem; }
+  .collectionScroll  { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0; }
 
   .howRight {
     flex-direction: column;
@@ -714,12 +695,7 @@ video::-webkit-media-controls-enclosure {
   .footer { padding: 3rem 1.5rem; }
 }
 
-@media (max-width: 640px) {
-  /* Hide "The collection" nav link on small screens, keep only "Plan a trip" */
-  .navLinks a:first-child { display: none; }
-}
-
 @media (max-width: 480px) {
-  .heroSymbol { width: 80px; }
+  .heroSymbol { width: 90px; }
   .navLinks   { gap: 0.875rem; }
 }
