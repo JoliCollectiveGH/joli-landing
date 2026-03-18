@@ -147,10 +147,10 @@ export default function LandingPage() {
         <div className={styles.manifestoInner}>
           <div className={`${styles.manifestoText} reveal`}>
             <p className={styles.eyebrow}>Our story</p>
-            <p>JOLI is a trip planning service for people who travel with intention.</p>
-            <p>Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after — and we&apos;ll come back with a complete plan built around exactly that.</p>
-            <p>Stays, dining, activities, day-by-day logistics. Every detail researched. Every recommendation earned, not sponsored.</p>
-            <p>No algorithms. No endless scrolling. Just a considered plan, delivered to your inbox.</p>
+            <p>JOLI is a full-service trip planning concierge for people who travel with intention.</p>
+            <p>Tell us where you&apos;re going, who you&apos;re travelling with, and what kind of experience you&apos;re after. Our team will build a complete plan around exactly that — stays, dining, activities, flights, transfers, and every logistical detail in between.</p>
+            <p>We don&apos;t use algorithms. Every plan is built by people who know these destinations personally, tailored to your interests and your pace.</p>
+            <p>No endless scrolling. No guesswork. Just a considered plan, delivered to your inbox.</p>
           </div>
           <div className={`${styles.manifestoImageWrap} reveal`}>
             <img
