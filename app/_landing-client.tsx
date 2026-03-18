@@ -292,6 +292,8 @@ export default function LandingPage() {
           <a href="https://app.jolicollective.net/terms">Terms</a>
           <span className={styles.footerDot}>·</span>
           <a href="mailto:info@jolicollective.net">Contact</a>
+          <span className={styles.footerDot}>·</span>
+          <a href="https://instagram.com/joli.collective" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
         <p className={styles.footerCopy}>© 2026 JOLI Collective</p>
       </footer>

@@ -2,17 +2,17 @@ import type { Metadata } from 'next';
 import LandingPage from './_landing-client';
 
 export const metadata: Metadata = {
-  title: 'MILO — Your AI Travel Copilot',
-  description: 'MILO is your AI travel copilot. A handpicked collection of design-led stays across Europe, found through conversation.',
+  title: 'JOLI Collective — Trip Planning Concierge',
+  description: 'A full-service trip planning concierge. Tell us where you want to go — we deliver a complete, bespoke plan within 24 hours.',
   openGraph: {
-    title: 'MILO — Your AI Travel Copilot',
-    description: 'MILO is your AI travel copilot. A handpicked collection of design-led stays across Europe, found through conversation.',
-    url: 'https://meetmilo.org',
-    siteName: 'MILO by JOLI Collective',
+    title: 'JOLI Collective — Trip Planning Concierge',
+    description: 'A full-service trip planning concierge. Tell us where you want to go — we deliver a complete, bespoke plan within 24 hours.',
+    url: 'https://jolicollective.net',
+    siteName: 'JOLI Collective',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://meetmilo.org',
+    canonical: 'https://jolicollective.net',
   },
 };
 
