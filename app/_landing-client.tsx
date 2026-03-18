@@ -263,7 +263,7 @@ export default function LandingPage() {
             </blockquote>
             <p className={styles.quoteAttribution}>Pico Iyer</p>
             <img
-              src={`${BASE}/Assets/JOLI_Symbol_Black.svg`}
+              src={`${BASE}/Assets/JOLI_Symbol_Black.png`}
               alt=""
               aria-hidden="true"
               className={styles.quoteMark}
