@@ -128,12 +128,6 @@ export default function LandingPage() {
         </Link>
         <div className={styles.navLinks}>
           <a
-            href="https://app.jolicollective.net/stays"
-            className={scrolled ? styles.navLinkDark : styles.navLinkLight}
-          >
-            The collection
-          </a>
-          <a
             href="https://app.jolicollective.net/request"
             className={`${styles.navCta} ${scrolled ? styles.navCtaDark : styles.navCtaLight}`}
           >
@@ -195,7 +189,7 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.manifestoImageWrap} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask_group5.svg`}
+              src={`${BASE}/landingpage/Mask_group6.svg`}
               alt=""
               aria-hidden="true"
               className={styles.editorialImage}
@@ -208,7 +202,7 @@ export default function LandingPage() {
       <div className={styles.editorialStrip}>
         <img src={`${BASE}/landingpage/editorial_1.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/editorial_2.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/Mask_group3.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/Mask_group2.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/Mask_group.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
       </div>
 
@@ -222,7 +216,7 @@ export default function LandingPage() {
                 <span className={styles.howNumber}>01</span>
                 <div>
                   <h3 className={styles.howTitle}>Describe the trip you&apos;re imagining</h3>
-                  <p className={styles.howDesc}>Tell MILO — our concierge — about your destination, your pace, and the feeling you&apos;re after. Anywhere in the world.</p>
+                  <p className={styles.howDesc}>Tell us about your destination, your pace, and the feeling you&apos;re after. Anywhere in the world.</p>
                 </div>
               </div>
               <div className={styles.howStep}>
@@ -236,7 +230,7 @@ export default function LandingPage() {
                 <span className={styles.howNumber}>03</span>
                 <div>
                   <h3 className={styles.howTitle}>Travel with everything considered</h3>
-                  <p className={styles.howDesc}>Receive your plan within 48 hours. Every detail researched, every recommendation earned.</p>
+                  <p className={styles.howDesc}>Receive your plan within 24 hours. A complete, bespoke trip plan — stays, dining, activities, and logistics — delivered to your inbox within 24 hours.</p>
                 </div>
               </div>
             </div>

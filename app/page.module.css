@@ -101,7 +101,7 @@
 /* ── HERO ── */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 85vh;
   min-height: 600px;
   overflow: hidden;
   display: flex;
