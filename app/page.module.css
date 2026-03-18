@@ -102,7 +102,7 @@
 .hero {
   position: relative;
   height: 50vh;
-  min-height: 600px;
+  min-height: 400px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -156,6 +156,8 @@ video::-webkit-media-controls-enclosure {
   image-rendering: auto;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .heroLabel {
@@ -290,6 +292,7 @@ video::-webkit-media-controls-enclosure {
   line-height: 1.7;
   color: var(--ink);
   font-weight: 300;
+  text-align: justify;
 }
 
 .manifestoText p {
@@ -371,6 +374,7 @@ video::-webkit-media-controls-enclosure {
   line-height: 1.75;
   color: var(--ink-muted);
   margin: 0;
+  text-align: justify;
 }
 
 .howRight {
@@ -694,6 +698,6 @@ video::-webkit-media-controls-enclosure {
 }
 
 @media (max-width: 480px) {
-  .heroSymbol { width: 50px; }
+  .heroSymbol { width: 40px; }
   .navLinks   { gap: 0.875rem; }
 }

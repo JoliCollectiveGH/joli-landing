@@ -128,7 +128,7 @@ export default function LandingPage() {
         <div className={styles.heroScrim} />
         <div className={styles.heroContent}>
           <img
-            src={`${BASE}/Assets/JOLI_Symbol_White.svg`}
+            src={`${BASE}/Assets/JOLI_Symbol_White.png`}
             alt=""
             aria-hidden="true"
             className={styles.heroSymbol}
