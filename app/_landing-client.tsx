@@ -221,7 +221,7 @@ export default function LandingPage() {
           <div className={styles.collectionHeaderRow}>
             <div className="reveal">
               <p className={styles.eyebrow}>The collection</p>
-              <h2 className={styles.collectionTitle}>2,000+ handpicked stays across Europe</h2>
+              <h2 className={styles.collectionTitle}>A curated collection of stays across Europe</h2>
               <p className={styles.collectionSubtext}>Every property chosen for character, design, and editorial merit.</p>
             </div>
             <div className={styles.collectionHeaderCta}>
