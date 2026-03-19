@@ -256,6 +256,8 @@ video::-webkit-media-controls-enclosure {
 .quotePortrait {
   width: 220px;
   max-width: 100%;
+  height: 280px;
+  object-fit: cover;
   border-radius: 8px;
   margin-top: 1.5rem;
   display: block;
@@ -265,7 +267,8 @@ video::-webkit-media-controls-enclosure {
 .editorialImage {
   width: 450px;
   max-width: 450px;
-  height: auto;
+  height: 500px;
+  object-fit: cover;
   border-radius: 8px;
   display: block;
 }
@@ -390,35 +393,19 @@ video::-webkit-media-controls-enclosure {
   display: block;
 }
 
-/* ── COLLECTION ── */
-.collectionSection {
+/* ── PLATFORM FEATURES ── */
+.platformSection {
   padding: 5rem 3rem;
   background: #F7F6F2;
   border-top: 1px solid var(--surface-border-soft);
-  overflow: visible;
 }
 
-.collectionHeader {
+.platformInner {
   max-width: 1100px;
-  margin: 0 auto 2rem;
-  padding: 0;
+  margin: 0 auto;
 }
 
-.collectionHeaderRow {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.collectionHeaderCta {
-  flex-shrink: 0;
-}
-
-.collectionCtaMobile {
-  display: none;
-}
-
-.collectionTitle {
+.platformTitle {
   font-size: clamp(1.625rem, 2.8vw, 2.375rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -427,57 +414,64 @@ video::-webkit-media-controls-enclosure {
   margin: 0.75rem 0 0.75rem;
 }
 
-.collectionSubtext {
+.platformSubtext {
   font-size: 0.9375rem;
   line-height: 1.65;
   color: var(--ink-muted);
-  margin: 0;
-  max-width: 440px;
+  margin: 0 0 2.5rem;
+  max-width: 520px;
 }
 
-.collectionScroll {
+.platformGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
-.collectionCard {
+.platformCard {
   background: white;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 12px;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.collectionCard:hover {
-  box-shadow: 0 6px 24px rgba(26, 24, 20, 0.11);
+.platformCard:hover {
+  box-shadow: 0 8px 32px rgba(26, 24, 20, 0.1);
   transform: translateY(-3px);
 }
 
-.collectionCardImage {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
+.platformCardIcon {
+  color: var(--brand);
+  width: 32px;
+  height: 32px;
 }
 
-.collectionCardMeta {
-  padding: 0.875rem 1rem 1rem;
-}
-
-.collectionCardName {
-  font-size: 0.875rem;
-  font-weight: 600;
+.platformCardTitle {
+  font-size: 1.0625rem;
+  font-weight: 500;
   color: var(--ink);
-  margin: 0 0 0.2rem;
+  margin: 0;
   line-height: 1.3;
 }
 
-.collectionCardLocation {
-  font-size: 0.8125rem;
+.platformCardDesc {
+  font-size: 0.875rem;
+  line-height: 1.7;
   color: var(--ink-muted);
   margin: 0;
+  flex: 1;
+}
+
+.platformCardLink {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--brand);
+  margin-top: auto;
 }
 
 
@@ -495,7 +489,8 @@ video::-webkit-media-controls-enclosure {
 
 .editorialStripImg {
   width: 100%;
-  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
   border-radius: 8px;
   display: block;
 }
@@ -676,8 +671,8 @@ video::-webkit-media-controls-enclosure {
     scroll-snap-align: start;
   }
 
-  .collectionSection { padding: 40px 1.5rem; }
-  .collectionScroll  { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0; }
+  .platformSection { padding: 40px 1.5rem; }
+  .platformGrid { grid-template-columns: 1fr; gap: 16px; }
 
   .howRight {
     flex-direction: column;

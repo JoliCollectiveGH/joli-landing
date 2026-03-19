@@ -7,58 +7,6 @@ import styles from './page.module.css';
 
 const BASE = 'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public';
 
-const SHOWCASE_PROPERTIES = [
-  {
-    name: "Claridge's",
-    location: "Mayfair, London",
-    image: "https://media.cntraveller.com/photos/69273c95310b260f170d9d3e/16:9/w_2560%2Cc_limit/Foyer-Reading-Room-Claridges-November2025-PR-Global.jpg",
-  },
-  {
-    name: "Skinopi Lodge",
-    location: "Milos, South Aegean",
-    image: "https://assets.basehub.com/95f6dbe5/6565883af81e703eaae526b202aef7f5/skinopi-lodge-banner.jpg?width=1920&quality=85&format=auto",
-  },
-  {
-    name: "Villa Sant'Andrea",
-    location: "Taormina, Sicily",
-    image: "https://img.belmond.com/video/upload/w_1920,ar_16:9,c_fill,g_auto/f_auto,q_auto/v1762273533/videos/VSA/vsa-homepage-loop02.jpg",
-  },
-  {
-    name: "Vipp Chimney House",
-    location: "Copenhagen",
-    image: "https://media.umbraco.io/vipp-com-2/axnptdfz/asrosenvinge_vipp_chimney_house_copenhagen_3-copy.jpg?width=1920&format=webp",
-  },
-  {
-    name: "Dar Kemgia",
-    location: "Marrakech",
-    image: "https://cdn.lecollectionist.com/__lecollectionist__/production/houses/7531/photos/eUWpOJ4RSiC8xoxbBUC9_77afdd9b-cb39-4a3c-f3e5-38583aedf562.jpg?width=1152&force_format=webp&q=50",
-  },
-  {
-    name: "Villa Keisa",
-    location: "Algarve",
-    image: "https://cdn.lecollectionist.com/__collectionist__/production/uploads/photos/house-3078/2019-04-15-9046a894304d0a0177c4897c8376f842.jpg?width=1152&force_format=webp&q=50",
-  },
-  {
-    name: "Heckfield Place",
-    location: "Hampshire, England",
-    image: "https://assets.basehub.com/95f6dbe5/aa6330a95e7b60d29759db5a87321d78/heckfield-place-banner.jpg?width=1920&quality=85&format=auto",
-  },
-  {
-    name: "Almhof Schneider",
-    location: "Lech, Vorarlberg",
-    image: "https://assets.basehub.com/95f6dbe5/d7de442737633f9c9de1348292b92b76/copy-of-almhofschneiderrestaurant2016-(c)-klaus-vyhnalek.jpg?width=1920&quality=85&format=auto",
-  },
-  {
-    name: "Casa Ariola",
-    location: "Bonifacio, Corsica",
-    image: "https://cdn.lecollectionist.com/__lecollectionist__/production/houses/8661/photos/BgteAaLSgG3JvzwKVsww_913cd770-c4a6-4a88-a4b4-0325f9068e4a.jpg?width=1152&force_format=webp&q=50",
-  },
-  {
-    name: "Villa Medicea",
-    location: "Florence, Tuscany",
-    image: "https://cdn.lecollectionist.com/__lecollectionist__/production/houses/5146/photos/enFQnSiTSe3lbPVKEIRw_3a053bec-65a6-4ad3-bedb-091ca5541724.jpg?width=2880&force_format=webp&q=50",
-  },
-];
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -103,6 +51,12 @@ export default function LandingPage() {
           />
         </Link>
         <div className={styles.navLinks}>
+          <a
+            href="https://app.jolicollective.net/discover"
+            className={scrolled ? styles.navLinkDark : styles.navLinkLight}
+          >
+            Discover
+          </a>
           <a
             href="https://app.jolicollective.net/request"
             className={`${styles.navCta} ${scrolled ? styles.navCtaDark : styles.navCtaLight}`}
@@ -153,7 +107,7 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.manifestoImageWrap} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask_group6.svg`}
+              src={`${BASE}/landingpage/bruno-bd-XKvbGtdUUyQ-unsplash.jpg`}
               alt=""
               aria-hidden="true"
               className={styles.editorialImage}
@@ -164,10 +118,10 @@ export default function LandingPage() {
 
       {/* ── EDITORIAL IMAGE STRIP ── */}
       <div className={styles.editorialStrip}>
-        <img src={`${BASE}/landingpage/editorial_1.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/editorial_2.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/Mask_group2.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/Mask_group.svg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/jack-ward-rknrvCrfS1k-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/jonathan-borba-CQURee7S7eo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
       </div>
 
       {/* ── SECTION 3: HOW IT WORKS ── */}
@@ -215,32 +169,68 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SECTION 4: THE COLLECTION ── */}
-      <section className={styles.collectionSection} id="collection">
-        <div className={styles.collectionHeader}>
-          <div className={styles.collectionHeaderRow}>
-            <div className="reveal">
-              <p className={styles.eyebrow}>The collection</p>
-              <h2 className={styles.collectionTitle}>A curated collection of stays across Europe</h2>
-              <p className={styles.collectionSubtext}>Every property chosen for character, design, and editorial merit.</p>
-            </div>
-            <div className={styles.collectionHeaderCta}>
-              <a href="https://app.jolicollective.net/stays" className={`${styles.btn} ${styles.btnGhost}`}>
-                Browse the collection
-              </a>
-            </div>
+      {/* ── SECTION 4: THE PLATFORM ── */}
+      <section className={styles.platformSection}>
+        <div className={styles.platformInner}>
+          <div className="reveal">
+            <p className={styles.eyebrow}>The platform</p>
+            <h2 className={styles.platformTitle}>More than a concierge</h2>
+            <p className={styles.platformSubtext}>
+              Your membership gives you a personal travel profile, curated destination guides,
+              and a concierge team that gets to know your taste over time.
+            </p>
           </div>
-        </div>
-        <div className={`${styles.collectionScroll} reveal`}>
-          {SHOWCASE_PROPERTIES.slice(0, 4).map((prop) => (
-            <div key={prop.name} className={styles.collectionCard}>
-              <img src={prop.image} alt={prop.name} className={styles.collectionCardImage} />
-              <div className={styles.collectionCardMeta}>
-                <p className={styles.collectionCardName}>{prop.name}</p>
-                <p className={styles.collectionCardLocation}>{prop.location}</p>
+
+          <div className={`${styles.platformGrid} reveal`}>
+            {/* Passport card */}
+            <a href="https://app.jolicollective.net/passport" className={styles.platformCard}>
+              <div className={styles.platformCardIcon}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                </svg>
               </div>
-            </div>
-          ))}
+              <h3 className={styles.platformCardTitle}>Your Passport</h3>
+              <p className={styles.platformCardDesc}>
+                Build your travel taste profile. Save inspiration, track trips,
+                and stamp the countries you&apos;ve explored. The more you add,
+                the sharper your concierge plans become.
+              </p>
+              <span className={styles.platformCardLink}>Open your passport →</span>
+            </a>
+
+            {/* Discovery card */}
+            <a href="https://app.jolicollective.net/discover" className={styles.platformCard}>
+              <div className={styles.platformCardIcon}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+              </div>
+              <h3 className={styles.platformCardTitle}>Discovery</h3>
+              <p className={styles.platformCardDesc}>
+                Curated destination guides and editorial collections —
+                written from experience, not scraped from the internet.
+                Explore places through a lens you can trust.
+              </p>
+              <span className={styles.platformCardLink}>Start exploring →</span>
+            </a>
+
+            {/* Concierge card */}
+            <a href="https://app.jolicollective.net/request" className={styles.platformCard}>
+              <div className={styles.platformCardIcon}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <h3 className={styles.platformCardTitle}>Concierge</h3>
+              <p className={styles.platformCardDesc}>
+                Describe the trip you&apos;re imagining. Our team builds a complete,
+                bespoke plan — stays, dining, activities, logistics — delivered
+                to your inbox within 24 hours.
+              </p>
+              <span className={styles.platformCardLink}>Plan a trip →</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -269,7 +259,7 @@ export default function LandingPage() {
               className={styles.quoteMark}
             />
             <img
-              src={`${BASE}/landingpage/Mask_group10.svg`}
+              src={`${BASE}/landingpage/molly-lowney-gr4ytMdzi4o-unsplash.jpg`}
               alt=""
               aria-hidden="true"
               className={styles.quotePortrait}
