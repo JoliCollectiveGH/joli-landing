@@ -118,7 +118,7 @@ export default function LandingPage() {
 
       {/* ── EDITORIAL IMAGE STRIP ── */}
       <div className={styles.editorialStrip}>
-        <img src={`${BASE}/landingpage/jack-ward-rknrvCrfS1k-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/jonathan-borba-CQURee7S7eo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />

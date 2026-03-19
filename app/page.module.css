@@ -265,9 +265,9 @@ video::-webkit-media-controls-enclosure {
 
 /* ── EDITORIAL IMAGES (shared) ── */
 .editorialImage {
-  width: 450px;
+  width: 100%;
   max-width: 450px;
-  height: 500px;
+  height: 400px;
   object-fit: cover;
   border-radius: 8px;
   display: block;
