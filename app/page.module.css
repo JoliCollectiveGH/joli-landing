@@ -479,7 +479,7 @@ video::-webkit-media-controls-enclosure {
 .editorialStrip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 16px;
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 3rem;
