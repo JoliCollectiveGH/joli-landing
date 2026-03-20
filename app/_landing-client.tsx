@@ -206,7 +206,7 @@ export default function LandingPage() {
                   <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
                 </svg>
               </div>
-              <h3 className={styles.platformCardTitle}>Discovery</h3>
+              <h3 className={styles.platformCardTitle}>Travel Inspiration</h3>
               <p className={styles.platformCardDesc}>
                 Curated destination guides and editorial collections —
                 written from experience, not scraped from the internet.
@@ -222,7 +222,7 @@ export default function LandingPage() {
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
               </div>
-              <h3 className={styles.platformCardTitle}>Concierge</h3>
+              <h3 className={styles.platformCardTitle}>Trip Planner</h3>
               <p className={styles.platformCardDesc}>
                 Describe the trip you&apos;re imagining. Our team builds a complete,
                 bespoke plan — stays, dining, activities, logistics — delivered
