@@ -183,19 +183,19 @@ export default function LandingPage() {
 
           <div className={`${styles.platformGrid} reveal`}>
             {/* Passport card */}
-            <a href="https://app.jolicollective.net/passport" className={styles.platformCard}>
+            <a href="https://app.jolicollective.net/taste-profile" className={styles.platformCard}>
               <div className={styles.platformCardIcon}>
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
                 </svg>
               </div>
-              <h3 className={styles.platformCardTitle}>Your Passport</h3>
+              <h3 className={styles.platformCardTitle}>Your Taste Profile</h3>
               <p className={styles.platformCardDesc}>
                 Build your travel taste profile. Save inspiration, track trips,
                 and stamp the countries you&apos;ve explored. The more you add,
                 the sharper your concierge plans become.
               </p>
-              <span className={styles.platformCardLink}>Open your passport →</span>
+              <span className={styles.platformCardLink}>View your taste profile →</span>
             </a>
 
             {/* Discovery card */}
