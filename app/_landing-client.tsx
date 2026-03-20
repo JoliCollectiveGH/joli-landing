@@ -107,7 +107,7 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.manifestoImageWrap} reveal`}>
             <img
-              src={`${BASE}/landingpage/jonathan-borba-CQURee7S7eo-unsplash.jpg`}
+              src={`${BASE}/landingpage/Mask_group6.png`}
               alt=""
               aria-hidden="true"
               className={styles.editorialImage}
@@ -119,7 +119,7 @@ export default function LandingPage() {
       {/* ── EDITORIAL IMAGE STRIP ── */}
       <div className={styles.editorialStrip}>
         <img src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/bruno-bd-XKvbGtdUUyQ-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+        <img src={`${BASE}/landingpage/photo-1640190582299-b8c67cfca2a4.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
         <img src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
       </div>
