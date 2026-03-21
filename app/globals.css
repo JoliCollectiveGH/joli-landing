@@ -75,7 +75,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* ── Scroll reveal (toggled by IntersectionObserver on landing page) ── */

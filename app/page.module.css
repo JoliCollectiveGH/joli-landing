@@ -228,7 +228,7 @@ video::-webkit-media-controls-enclosure {
 
 .quoteText {
   font-size: clamp(1rem, 1.7vw, 1.25rem);
-  line-height: 1.85;
+  line-height: 1.7;
   color: var(--ink);
   font-style: italic;
   font-weight: 300;
@@ -292,7 +292,7 @@ video::-webkit-media-controls-enclosure {
 
 .manifestoText {
   font-size: clamp(1rem, 1.6vw, 1.1875rem);
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--ink);
   font-weight: 300;
   text-align: justify;
@@ -374,7 +374,7 @@ video::-webkit-media-controls-enclosure {
 
 .howDesc {
   font-size: 0.875rem;
-  line-height: 1.75;
+  line-height: 1.6;
   color: var(--ink-muted);
   margin: 0;
   text-align: justify;
@@ -416,7 +416,7 @@ video::-webkit-media-controls-enclosure {
 
 .platformSubtext {
   font-size: 0.9375rem;
-  line-height: 1.65;
+  line-height: 1.55;
   color: var(--ink-muted);
   margin: 0 0 2.5rem;
   max-width: 520px;
@@ -461,7 +461,7 @@ video::-webkit-media-controls-enclosure {
 
 .platformCardDesc {
   font-size: 0.875rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--ink-muted);
   margin: 0;
   flex: 1;
