@@ -246,12 +246,6 @@ export default function LandingPage() {
             />
           </div>
           <div className={`${styles.quoteEditorialRight} reveal`}>
-            <blockquote className={styles.quoteText}>
-              &ldquo;In an age of speed, I began to think nothing could be more exhilarating than going slow.
-              In an age of distraction, nothing can feel more luxurious than paying attention.
-              And in an age of constant movement, nothing is more urgent than sitting still.&rdquo;
-            </blockquote>
-            <p className={styles.quoteAttribution}>Pico Iyer</p>
             <img
               src={`${BASE}/Assets/JOLI_Symbol_Black.png`}
               alt=""
