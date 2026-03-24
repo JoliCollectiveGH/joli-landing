@@ -234,34 +234,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SIGN-OFF: QUOTE + EDITORIAL ── */}
-      <section className={styles.quoteEditorialSection}>
-        <div className={styles.quoteEditorialInner}>
-          <div className={`${styles.quoteEditorialLeft} reveal`}>
-            <img
-              src={`${BASE}/landingpage/Mask_group8.svg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.quoteEditorialDining}
-            />
-          </div>
-          <div className={`${styles.quoteEditorialRight} reveal`}>
-            <img
-              src={`${BASE}/Assets/JOLI_Symbol_Black.png`}
-              alt=""
-              aria-hidden="true"
-              className={styles.quoteMark}
-            />
-            <img
-              src={`${BASE}/landingpage/molly-lowney-gr4ytMdzi4o-unsplash.jpg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.quotePortrait}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* ── FOOTER ── */}
       <footer className={styles.footer}>
         <Link href="/" className={styles.footerLogo}>
