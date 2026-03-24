@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/og-default.jpg',
+        url: 'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/social_austria.jpeg',
         width: 1200,
         height: 630,
         alt: 'JOLI Collective — Trip Planning Concierge',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JOLI Collective — Trip Planning Concierge',
     description: 'A full-service trip planning concierge. Tell us where you want to go — we deliver a complete, bespoke plan within 24 hours.',
-    images: ['https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/og-default.jpg'],
+    images: ['https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/social_austria.jpeg'],
   },
   alternates: {
     canonical: 'https://jolicollective.net',
