@@ -52,10 +52,10 @@ export default function LandingPage() {
         </Link>
         <div className={styles.navLinks}>
           <a
-            href="https://app.jolicollective.net/discover"
+            href="https://app.jolicollective.net/guides"
             className={scrolled ? styles.navLinkDark : styles.navLinkLight}
           >
-            Discover
+            Travel Guides
           </a>
           <a
             href="https://app.jolicollective.net/request"
@@ -198,8 +198,8 @@ export default function LandingPage() {
               <span className={styles.platformCardLink}>View your taste profile →</span>
             </a>
 
-            {/* Discovery card */}
-            <a href="https://app.jolicollective.net/discover" className={styles.platformCard}>
+            {/* Travel Guides card */}
+            <a href="https://app.jolicollective.net/guides" className={styles.platformCard}>
               <div className={styles.platformCardIcon}>
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
