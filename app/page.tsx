@@ -10,6 +10,20 @@ export const metadata: Metadata = {
     url: 'https://jolicollective.net',
     siteName: 'JOLI Collective',
     type: 'website',
+    images: [
+      {
+        url: 'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/og-default.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'JOLI Collective — Trip Planning Concierge',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JOLI Collective — Trip Planning Concierge',
+    description: 'A full-service trip planning concierge. Tell us where you want to go — we deliver a complete, bespoke plan within 24 hours.',
+    images: ['https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets/og-default.jpg'],
   },
   alternates: {
     canonical: 'https://jolicollective.net',
