@@ -51,10 +51,8 @@ export default function LandingPage() {
           ref={videoRef}
           className={styles.heroVideo}
           autoPlay loop muted playsInline
-          playsinline
           preload="auto"
           webkit-playsinline="true"
-          x5-playsinline="true"
           poster={`${BASE}/Assets/hero_poster.jpg`}
           aria-hidden="true"
         >
