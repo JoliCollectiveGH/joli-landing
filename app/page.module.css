@@ -101,8 +101,8 @@
 /* ── HERO ── */
 .hero {
   position: relative;
-  height: 50vh;
-  min-height: 400px;
+  height: 100vh;
+  width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -544,7 +544,7 @@ video::-webkit-media-controls-enclosure {
 
 /* ── FOOTER ── */
 .footer {
-  padding: 4.5rem 3rem;
+  padding: 32px 48px;
   background: #F7F6F2;
   border-top: 1px solid var(--surface-border-soft);
   display: flex;
@@ -702,7 +702,7 @@ video::-webkit-media-controls-enclosure {
     max-width: none;
   }
 
-  .footer { padding: 3rem 1.5rem; }
+  .footer { padding: 24px 24px; }
 }
 
 @media (max-width: 480px) {

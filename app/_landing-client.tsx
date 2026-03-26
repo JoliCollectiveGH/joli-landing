@@ -40,20 +40,6 @@ export default function LandingPage() {
             className={scrolled ? '' : styles.navLogoInverted}
           />
         </Link>
-        <div className={styles.navLinks}>
-          <a
-            href="https://app.jolicollective.net/guides"
-            className={scrolled ? styles.navLinkDark : styles.navLinkLight}
-          >
-            Discover
-          </a>
-          <a
-            href="https://app.jolicollective.net/request"
-            className={`${styles.navCta} ${scrolled ? styles.navCtaDark : styles.navCtaLight}`}
-          >
-            Plan a trip
-          </a>
-        </div>
       </nav>
 
       {/* ── HERO ── */}
