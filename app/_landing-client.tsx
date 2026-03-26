@@ -74,29 +74,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className={styles.footer}>
-        <Link href="/" className={styles.footerLogo}>
-          <img
-            src={`${BASE}/Assets/JOLI_Wordmark_Black.svg`}
-            alt="JOLI Collective"
-          />
-        </Link>
-        <div className={styles.footerLinks}>
-          <a href="https://app.jolicollective.net/how-it-works">How it works</a>
-          <span className={styles.footerDot}>·</span>
-          <a href="https://app.jolicollective.net/guides">Discover</a>
-          <span className={styles.footerDot}>·</span>
-          <a href="https://app.jolicollective.net/privacy">Privacy</a>
-          <span className={styles.footerDot}>·</span>
-          <a href="https://app.jolicollective.net/terms">Terms</a>
-          <span className={styles.footerDot}>·</span>
-          <a href="mailto:info@jolicollective.net">Contact</a>
-          <span className={styles.footerDot}>·</span>
-          <a href="https://instagram.com/joli.collective" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-        <p className={styles.footerCopy}>© 2026 JOLI Collective</p>
-      </footer>
     </>
   );
 }
