@@ -45,7 +45,7 @@ export default function LandingPage() {
             href="https://app.jolicollective.net/guides"
             className={scrolled ? styles.navLinkDark : styles.navLinkLight}
           >
-            Travel Guides
+            Discover
           </a>
           <a
             href="https://app.jolicollective.net/request"
@@ -71,23 +71,16 @@ export default function LandingPage() {
         </video>
         <div className={styles.heroScrim} />
         <div className={styles.heroContent}>
-          <img
-            src={`${BASE}/Assets/JOLI_Symbol_White.png`}
-            alt=""
-            aria-hidden="true"
-            className={styles.heroSymbol}
-          />
           <div className={styles.heroCtas}>
             <a
               href="https://app.jolicollective.net/guides"
-              className={styles.heroLink}
+              className={styles.navLinkLight}
             >
-              Travel Guides
+              Discover
             </a>
-            <span className={styles.heroDivider}>·</span>
             <a
               href="https://app.jolicollective.net/request"
-              className={styles.heroLink}
+              className={`${styles.navCta} ${styles.navCtaLight}`}
             >
               Plan a trip
             </a>
@@ -106,7 +99,7 @@ export default function LandingPage() {
         <div className={styles.footerLinks}>
           <a href="https://app.jolicollective.net/how-it-works">How it works</a>
           <span className={styles.footerDot}>·</span>
-          <a href="https://app.jolicollective.net/guides">Travel Guides</a>
+          <a href="https://app.jolicollective.net/guides">Discover</a>
           <span className={styles.footerDot}>·</span>
           <a href="https://app.jolicollective.net/privacy">Privacy</a>
           <span className={styles.footerDot}>·</span>

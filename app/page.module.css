@@ -164,25 +164,7 @@ video::-webkit-media-controls-enclosure {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.heroLink {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.heroLink:hover {
-  color: #ffffff;
-}
-
-.heroDivider {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8rem;
+  margin-top: 0;
 }
 
 .heroLabel {
