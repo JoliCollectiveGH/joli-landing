@@ -394,6 +394,7 @@ video::-webkit-media-controls-enclosure {
 .platformInner {
   max-width: 1100px;
   margin: 0 auto;
+  padding-top: 2rem;
 }
 
 .platformTitle {

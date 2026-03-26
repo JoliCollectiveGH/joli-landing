@@ -196,7 +196,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── CLOSING IMAGE ── */}
-      <div style={{ padding: '0 48px 80px' }}>
+      <div style={{ padding: '0 3rem 80px', maxWidth: '1100px', margin: '0 auto' }}>
         <img
           src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
           alt=""
