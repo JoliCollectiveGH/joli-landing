@@ -15,13 +15,32 @@ export default function LandingPage() {
   // Force video play on mount (iOS blocks autoplay despite correct attributes)
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.muted = true;
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
-      video.load();
+    if (!video) return;
+
+    video.muted = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+
+    const attemptPlay = () => {
       video.play().catch(() => {});
-    }
+    };
+
+    // Try immediately
+    attemptPlay();
+
+    // Also try on canplay in case browser needs to buffer first
+    video.addEventListener('canplay', attemptPlay, { once: true });
+
+    // Fallback: retry on user interaction (Chrome iOS sometimes needs this)
+    const onTouch = () => {
+      video.play().catch(() => {});
+    };
+    document.addEventListener('touchstart', onTouch, { once: true });
+
+    return () => {
+      video.removeEventListener('canplay', attemptPlay);
+      document.removeEventListener('touchstart', onTouch);
+    };
   }, []);
 
   // Nav transparency on scroll
@@ -50,7 +69,7 @@ export default function LandingPage() {
         <video
           ref={videoRef}
           className={styles.heroVideo}
-          autoPlay loop muted playsInline
+          autoPlay loop muted playsInline controls={false}
           preload="auto"
           webkit-playsinline="true"
           poster={`${BASE}/Assets/hero_poster.jpg`}
