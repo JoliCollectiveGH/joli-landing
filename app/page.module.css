@@ -596,6 +596,22 @@ video::-webkit-media-controls-enclosure {
   margin: 0;
 }
 
+/* ── CLOSING IMAGES ── */
+.closingImgFull {
+  width: 50%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.closingImgHalf {
+  width: 50%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .manifestoInner {
@@ -692,4 +708,13 @@ video::-webkit-media-controls-enclosure {
 @media (max-width: 480px) {
   .heroSymbol { width: 40px; }
   .navLinks   { gap: 0.875rem; }
+}
+
+@media (max-width: 640px) {
+  .closingImgFull {
+    width: 100%;
+  }
+  .closingImgHalf {
+    display: none;
+  }
 }

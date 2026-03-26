@@ -133,7 +133,7 @@ export default function LandingPage() {
             />
           </div>
         </div>
-        <div style={{ maxWidth: '1100px', margin: '2rem auto 0' }}>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '16px 48px 0' }}>
           <a
             href="https://app.jolicollective.net/request"
             style={{ color: '#AD531B', fontSize: '0.9rem', letterSpacing: '0.08em', textDecoration: 'none' }}
@@ -148,11 +148,6 @@ export default function LandingPage() {
         <div className={styles.platformInner}>
           <div className="reveal">
             <p className={styles.eyebrow}>The platform</p>
-            <h2 className={styles.platformTitle}>More than a concierge</h2>
-            <p className={styles.platformSubtext}>
-              Your membership gives you a personal travel profile, curated destination guides,
-              and a concierge team that gets to know your taste over time.
-            </p>
           </div>
 
           <div className={`${styles.platformGrid} reveal`}>
@@ -216,13 +211,13 @@ export default function LandingPage() {
               src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
               alt=""
               aria-hidden="true"
-              style={{ width: '50%', height: '420px', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
+              className={styles.closingImgFull}
             />
             <img
               src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`}
               alt=""
               aria-hidden="true"
-              style={{ width: '50%', height: '420px', objectFit: 'cover', display: 'block' }}
+              className={styles.closingImgHalf}
             />
           </div>
           <div style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)' }}>
