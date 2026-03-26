@@ -28,16 +28,6 @@ export default function LandingPage() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Scroll reveal
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
-    );
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
 
   return (
     <>
@@ -66,7 +56,7 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* ── SECTION 1: HERO ── */}
+      {/* ── HERO ── */}
       <section className={styles.hero}>
         <video
           ref={videoRef}
@@ -87,123 +77,23 @@ export default function LandingPage() {
             aria-hidden="true"
             className={styles.heroSymbol}
           />
-        </div>
-        <div className={styles.scrollArrow} aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </div>
-      </section>
-
-      {/* ── SECTION 3: HOW IT WORKS ── */}
-      <section className={styles.howSection}>
-        <div className={styles.howInner}>
-          <div className={styles.howLeft}>
-<p className={styles.eyebrow}>THE SERVICE</p>
-            <div className={`${styles.howSteps} reveal-stagger reveal`}>
-              <div className={styles.howStep}>
-                <span className={styles.howNumber}>01</span>
-                <div>
-                  <h3 className={styles.howTitle}>Describe the trip you&apos;re imagining</h3>
-                  <p className={styles.howDesc}>Tell us about your destination, your pace, and the feeling you&apos;re after. Anywhere in the world.</p>
-                </div>
-              </div>
-              <div className={styles.howStep}>
-                <span className={styles.howNumber}>02</span>
-                <div>
-                  <h3 className={styles.howTitle}>We curate a bespoke plan</h3>
-                  <p className={styles.howDesc}>Our team researches, sources, and builds a trip plan tailored to exactly what you&apos;ve described — stays, dining, activities, logistics.</p>
-                </div>
-              </div>
-              <div className={styles.howStep}>
-                <span className={styles.howNumber}>03</span>
-                <div>
-                  <h3 className={styles.howTitle}>Receive your plan within 24 hours</h3>
-                  <p className={styles.howDesc}>A complete, bespoke trip plan delivered to your inbox. Every detail considered, every recommendation earned.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={`${styles.howRight} reveal`}>
-            <img
-              src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.howImageMain}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 4: THE PLATFORM ── */}
-      <section className={styles.platformSection}>
-        <div className={styles.platformInner}>
-          <div className="reveal">
-            <p className={styles.eyebrow}>The platform</p>
-          </div>
-
-          <div className={`${styles.platformGrid} reveal`}>
-            {/* Passport card */}
-            <a href="https://app.jolicollective.net/taste-profile" className={styles.platformCard}>
-              <div className={styles.platformCardIcon}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-                </svg>
-              </div>
-              <h3 className={styles.platformCardTitle}>Your Taste Profile</h3>
-              <p className={styles.platformCardDesc}>
-                Build your travel taste profile. Save inspiration, track trips,
-                and stamp the countries you&apos;ve explored. The more you add,
-                the sharper your concierge plans become.
-              </p>
-              <span className={styles.platformCardLink}>View your taste profile →</span>
+          <div className={styles.heroCtas}>
+            <a
+              href="https://app.jolicollective.net/guides"
+              className={styles.heroLink}
+            >
+              Travel Guides
             </a>
-
-            {/* Travel Guides card */}
-            <a href="https://app.jolicollective.net/guides" className={styles.platformCard}>
-              <div className={styles.platformCardIcon}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                </svg>
-              </div>
-              <h3 className={styles.platformCardTitle}>Travel Inspiration</h3>
-              <p className={styles.platformCardDesc}>
-                Curated destination guides and editorial collections —
-                written from experience, not scraped from the internet.
-                Explore places through a lens you can trust.
-              </p>
-              <span className={styles.platformCardLink}>Start exploring →</span>
-            </a>
-
-            {/* Concierge card */}
-            <a href="https://app.jolicollective.net/request" className={styles.platformCard}>
-              <div className={styles.platformCardIcon}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
-              </div>
-              <h3 className={styles.platformCardTitle}>Trip Planner</h3>
-              <p className={styles.platformCardDesc}>
-                Describe the trip you&apos;re imagining. Our team builds a complete,
-                bespoke plan — stays, dining, activities, logistics — delivered
-                to your inbox within 24 hours.
-              </p>
-              <span className={styles.platformCardLink}>Plan a trip →</span>
+            <span className={styles.heroDivider}>·</span>
+            <a
+              href="https://app.jolicollective.net/request"
+              className={styles.heroLink}
+            >
+              Plan a trip
             </a>
           </div>
         </div>
       </section>
-
-      {/* ── CLOSING IMAGE ── */}
-      <div style={{ padding: '0 3rem 80px', maxWidth: '1100px', margin: '0 auto' }}>
-        <img
-          src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
-          alt=""
-          aria-hidden="true"
-          style={{ width: '100%', height: '480px', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }}
-        />
-      </div>
 
       {/* ── FOOTER ── */}
       <footer className={styles.footer}>
@@ -214,6 +104,10 @@ export default function LandingPage() {
           />
         </Link>
         <div className={styles.footerLinks}>
+          <a href="https://app.jolicollective.net/how-it-works">How it works</a>
+          <span className={styles.footerDot}>·</span>
+          <a href="https://app.jolicollective.net/guides">Travel Guides</a>
+          <span className={styles.footerDot}>·</span>
           <a href="https://app.jolicollective.net/privacy">Privacy</a>
           <span className={styles.footerDot}>·</span>
           <a href="https://app.jolicollective.net/terms">Terms</a>
