@@ -101,7 +101,7 @@ export default function LandingPage() {
         <div className={styles.manifestoInner}>
           <div className={`${styles.manifestoText} reveal`}>
             <p className={styles.eyebrow}>The Personal Travel Concierge</p>
-            <p>JOLI is a trip planning tool built entirely around your taste. Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after. We build a complete plan around exactly that — stays, dining, activities, and every logistical detail in between. Delivered to your inbox within 24 hours.</p>
+            <p>JOLI is a trip planning tool built entirely around your taste. Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after. We build a complete plan around exactly that — stays, dining, activities, and every logistical detail in between. Delivered within 24 hours.</p>
           </div>
           <div className={`${styles.manifestoImageWrap} reveal`}>
             <img
