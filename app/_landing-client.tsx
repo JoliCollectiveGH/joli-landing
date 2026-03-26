@@ -103,23 +103,17 @@ export default function LandingPage() {
             <p className={styles.eyebrow}>The Personal Travel Concierge</p>
             <p>JOLI is a trip planning tool built entirely around your taste. Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after. We build a complete plan around exactly that — stays, dining, activities, and every logistical detail in between. Delivered within 24 hours.</p>
           </div>
-          <div className={`${styles.manifestoImageWrap} reveal`}>
-            <img
-              src={`${BASE}/landingpage/Mask_group6.png`}
-              alt=""
-              aria-hidden="true"
-              className={styles.editorialImage}
-            />
-          </div>
         </div>
       </section>
 
       {/* ── EDITORIAL IMAGE STRIP ── */}
-      <div className={styles.editorialStrip}>
-        <img src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/photo-1640190582299-b8c67cfca2a4.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
-        <img src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`} alt="" aria-hidden="true" className={styles.editorialStripImg} />
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px 80px' }}>
+        <img
+          src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`}
+          alt=""
+          aria-hidden="true"
+          style={{ width: '100%', height: 'auto', display: 'block' }}
+        />
       </div>
 
       {/* ── SECTION 3: HOW IT WORKS ── */}
