@@ -61,6 +61,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 ::selection {
@@ -71,6 +72,8 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
+  overscroll-behavior: none;
   font-family: 'ABC Monument Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
