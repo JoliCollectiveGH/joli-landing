@@ -126,20 +126,12 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.howRight} reveal`}>
             <img
-              src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`}
+              src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`}
               alt=""
               aria-hidden="true"
               className={styles.howImageMain}
             />
           </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '16px 48px 0' }}>
-          <a
-            href="https://app.jolicollective.net/request"
-            style={{ color: '#AD531B', fontSize: '0.9rem', letterSpacing: '0.08em', textDecoration: 'none' }}
-          >
-            Plan a trip →
-          </a>
         </div>
       </section>
 
@@ -203,41 +195,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── CLOSING SECTION ── */}
+      {/* ── CLOSING IMAGE ── */}
       <div style={{ padding: '0 48px 80px' }}>
-        <div style={{ position: 'relative' }}>
-          <div style={{ display: 'flex', gap: '8px' }}>
-            <img
-              src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.closingImgFull}
-            />
-            <img
-              src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`}
-              alt=""
-              aria-hidden="true"
-              className={styles.closingImgHalf}
-            />
-          </div>
-          <div style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)' }}>
-            <a
-              href="https://app.jolicollective.net/request"
-              style={{
-                color: '#fff',
-                fontSize: '0.9rem',
-                letterSpacing: '0.08em',
-                textDecoration: 'none',
-                backgroundColor: 'rgba(0,0,0,0.35)',
-                padding: '10px 24px',
-                backdropFilter: 'blur(4px)',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              Plan a trip →
-            </a>
-          </div>
-        </div>
+        <img
+          src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
+          alt=""
+          aria-hidden="true"
+          style={{ width: '100%', height: '480px', objectFit: 'cover', objectPosition: 'center 40%', display: 'block' }}
+        />
       </div>
 
       {/* ── FOOTER ── */}
