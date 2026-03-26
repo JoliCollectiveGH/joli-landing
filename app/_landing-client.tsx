@@ -123,11 +123,6 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div>
-              <a href="https://app.jolicollective.net/request" className={`${styles.btn} ${styles.btnPrimary}`}>
-                Plan a trip
-              </a>
-            </div>
           </div>
           <div className={`${styles.howRight} reveal`}>
             <img
@@ -204,6 +199,30 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* ── CLOSING SECTION ── */}
+      <div style={{ display: 'flex', gap: '8px', margin: '0 0 80px' }}>
+        <img
+          src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
+          alt=""
+          aria-hidden="true"
+          style={{ width: '50%', height: '500px', objectFit: 'cover', display: 'block' }}
+        />
+        <img
+          src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`}
+          alt=""
+          aria-hidden="true"
+          style={{ width: '50%', height: '500px', objectFit: 'cover', display: 'block' }}
+        />
+      </div>
+      <div style={{ textAlign: 'center', paddingBottom: '80px' }}>
+        <a
+          href="https://app.jolicollective.net/request"
+          style={{ color: '#AD531B', fontSize: '1rem', letterSpacing: '0.05em', textDecoration: 'none' }}
+        >
+          Plan a trip →
+        </a>
+      </div>
 
       {/* ── FOOTER ── */}
       <footer className={styles.footer}>
