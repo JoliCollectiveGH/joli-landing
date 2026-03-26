@@ -99,7 +99,6 @@ export default function LandingPage() {
       <section className={styles.howSection}>
         <div className={styles.howInner}>
           <div className={styles.howLeft}>
-            <p className={styles.eyebrow}>JOLI COLLECTIVE</p>
 <p className={styles.eyebrow}>THE SERVICE</p>
             <div className={`${styles.howSteps} reveal-stagger reveal`}>
               <div className={styles.howStep}>
