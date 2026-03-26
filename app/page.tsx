@@ -3,10 +3,10 @@ import LandingPage from './_landing-client';
 
 export const metadata: Metadata = {
   title: 'JOLI Collective — Plan your trip',
-  description: 'A trip planning tool built around your taste. Handpicked stays, dining, and experiences across Europe — delivered to your inbox within 24 hours.',
+  description: 'Handpicked stays, dining, and experiences, wherever you're going.',
   openGraph: {
     title: 'JOLI Collective — Plan your trip',
-    description: 'A trip planning tool built around your taste. Handpicked stays, dining, and experiences across Europe — delivered to your inbox within 24 hours.',
+    description: 'Handpicked stays, dining, and experiences, wherever you're going.',
     url: 'https://jolicollective.net',
     siteName: 'JOLI Collective',
     type: 'website',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'JOLI Collective — Plan your trip',
-    description: 'A trip planning tool built around your taste. Handpicked stays, dining, and experiences across Europe — delivered to your inbox within 24 hours.',
+    description: 'Handpicked stays, dining, and experiences, wherever you're going.',
     images: ['https://jolicollective.net/og-image.jpg'],
   },
   alternates: {
