@@ -201,27 +201,40 @@ export default function LandingPage() {
       </section>
 
       {/* ── CLOSING SECTION ── */}
-      <div style={{ display: 'flex', gap: '8px', margin: '0 0 80px' }}>
-        <img
-          src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
-          alt=""
-          aria-hidden="true"
-          style={{ width: '50%', height: '500px', objectFit: 'cover', display: 'block' }}
-        />
-        <img
-          src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`}
-          alt=""
-          aria-hidden="true"
-          style={{ width: '50%', height: '500px', objectFit: 'cover', display: 'block' }}
-        />
-      </div>
-      <div style={{ textAlign: 'center', paddingBottom: '80px' }}>
-        <a
-          href="https://app.jolicollective.net/request"
-          style={{ color: '#AD531B', fontSize: '1rem', letterSpacing: '0.05em', textDecoration: 'none' }}
-        >
-          Plan a trip →
-        </a>
+      <div style={{ padding: '0 48px 80px' }}>
+        <div style={{ position: 'relative' }}>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <img
+              src={`${BASE}/landingpage/filiz-elaerts-ltrL-fcDGWo-unsplash.jpg`}
+              alt=""
+              aria-hidden="true"
+              style={{ width: '50%', height: '420px', objectFit: 'cover', objectPosition: 'center 30%', display: 'block' }}
+            />
+            <img
+              src={`${BASE}/landingpage/peter-thomas-o3K6o34EnPo-unsplash.jpg`}
+              alt=""
+              aria-hidden="true"
+              style={{ width: '50%', height: '420px', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
+          <div style={{ position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)' }}>
+            <a
+              href="https://app.jolicollective.net/request"
+              style={{
+                color: '#fff',
+                fontSize: '0.9rem',
+                letterSpacing: '0.08em',
+                textDecoration: 'none',
+                backgroundColor: 'rgba(0,0,0,0.35)',
+                padding: '10px 24px',
+                backdropFilter: 'blur(4px)',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Plan a trip →
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* ── FOOTER ── */}
