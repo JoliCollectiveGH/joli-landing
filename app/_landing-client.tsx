@@ -87,7 +87,6 @@ export default function LandingPage() {
             aria-hidden="true"
             className={styles.heroSymbol}
           />
-          <p className={styles.heroLabel}>JOLI COLLECTIVE</p>
         </div>
         <div className={styles.scrollArrow} aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -96,22 +95,13 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── SECTION 2: MANIFESTO ── */}
-      <section className={styles.manifestoSection}>
-        <div className={styles.manifestoInner}>
-          <div className={`${styles.manifestoText} reveal`}>
-            <p className={styles.eyebrow}>JOLI COLLECTIVE</p>
-            <p>JOLI is a trip planning tool built entirely around your taste. Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after. We build a complete plan around exactly that — stays, dining, activities, and every logistical detail in between. Delivered within 24 hours.</p>
-          </div>
-        </div>
-      </section>
-
-
       {/* ── SECTION 3: HOW IT WORKS ── */}
       <section className={styles.howSection}>
         <div className={styles.howInner}>
           <div className={styles.howLeft}>
-            <p className={styles.eyebrow}>The service</p>
+            <p className={styles.eyebrow}>JOLI COLLECTIVE</p>
+            <p style={{ marginBottom: '2rem' }}>JOLI is a trip planning tool built entirely around your taste. Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after. We build a complete plan around exactly that — stays, dining, activities, and every logistical detail in between. Delivered within 24 hours.</p>
+            <p className={styles.eyebrow}>THE SERVICE</p>
             <div className={`${styles.howSteps} reveal-stagger reveal`}>
               <div className={styles.howStep}>
                 <span className={styles.howNumber}>01</span>
