@@ -133,6 +133,14 @@ export default function LandingPage() {
             />
           </div>
         </div>
+        <div style={{ maxWidth: '1100px', margin: '2rem auto 0' }}>
+          <a
+            href="https://app.jolicollective.net/request"
+            style={{ color: '#AD531B', fontSize: '0.9rem', letterSpacing: '0.08em', textDecoration: 'none' }}
+          >
+            Plan a trip →
+          </a>
+        </div>
       </section>
 
       {/* ── SECTION 4: THE PLATFORM ── */}
