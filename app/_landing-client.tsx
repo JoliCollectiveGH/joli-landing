@@ -106,15 +106,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── EDITORIAL IMAGE STRIP ── */}
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 24px 80px' }}>
-        <img
-          src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`}
-          alt=""
-          aria-hidden="true"
-          style={{ width: '100%', height: 'auto', display: 'block' }}
-        />
-      </div>
 
       {/* ── SECTION 3: HOW IT WORKS ── */}
       <section className={styles.howSection}>
@@ -152,7 +143,7 @@ export default function LandingPage() {
           </div>
           <div className={`${styles.howRight} reveal`}>
             <img
-              src={`${BASE}/landingpage/Mask_group9.svg`}
+              src={`${BASE}/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg`}
               alt=""
               aria-hidden="true"
               className={styles.howImageMain}
