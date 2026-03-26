@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/:path*',
+        source: '/((?!_next|favicon|og-image|.*\\..*).*)',
         has: [{ type: 'host', value: 'www.jolicollective.net' }],
         destination: 'https://jolicollective.net/:path*',
         permanent: true,
