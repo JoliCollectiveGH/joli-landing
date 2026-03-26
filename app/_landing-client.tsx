@@ -100,8 +100,7 @@ export default function LandingPage() {
         <div className={styles.howInner}>
           <div className={styles.howLeft}>
             <p className={styles.eyebrow}>JOLI COLLECTIVE</p>
-            <p style={{ marginBottom: '2rem' }}>JOLI is a trip planning tool built entirely around your taste. Tell us where you&apos;re going, who you&apos;re travelling with, and the kind of experience you&apos;re after. We build a complete plan around exactly that — stays, dining, activities, and every logistical detail in between. Delivered within 24 hours.</p>
-            <p className={styles.eyebrow}>THE SERVICE</p>
+<p className={styles.eyebrow}>THE SERVICE</p>
             <div className={`${styles.howSteps} reveal-stagger reveal`}>
               <div className={styles.howStep}>
                 <span className={styles.howNumber}>01</span>
