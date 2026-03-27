@@ -10,7 +10,13 @@ const BASE = 'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public'
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Only show video on non-mobile (≥769px) — iOS Safari renders poster even with display:none
+  useEffect(() => {
+    setShowVideo(window.innerWidth >= 769);
+  }, []);
 
   // Force video play on mount (iOS blocks autoplay despite correct attributes)
   useEffect(() => {
@@ -66,17 +72,19 @@ export default function LandingPage() {
 
       {/* ── HERO ── */}
       <section className={styles.hero}>
-        <video
-          ref={videoRef}
-          className={styles.heroVideo}
-          autoPlay loop muted playsInline controls={false}
-          preload="auto"
-          webkit-playsinline="true"
-          poster={`${BASE}/Assets/hero_poster.jpg`}
-          aria-hidden="true"
-        >
-          <source src={`${BASE}/Assets/Joli_Texture_06.mp4`} type="video/mp4" />
-        </video>
+        {showVideo && (
+          <video
+            ref={videoRef}
+            className={styles.heroVideo}
+            autoPlay loop muted playsInline controls={false}
+            preload="auto"
+            webkit-playsinline="true"
+            poster={`${BASE}/Assets/hero_poster.jpg`}
+            aria-hidden="true"
+          >
+            <source src={`${BASE}/Assets/Joli_Texture_06.mp4`} type="video/mp4" />
+          </video>
+        )}
         <div className={styles.heroScrim} />
         <div className={styles.heroContent}>
           <div className={styles.heroCtas}>
