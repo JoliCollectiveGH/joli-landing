@@ -84,7 +84,7 @@ export default function LandingPage() {
               href="https://app.jolicollective.net/guides"
               className={styles.navLinkLight}
             >
-              Discover
+              Be Inspired
             </a>
             <a
               href="https://app.jolicollective.net/request"
