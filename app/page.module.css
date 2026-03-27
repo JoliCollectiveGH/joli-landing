@@ -652,6 +652,8 @@ video::-webkit-media-controls-enclosure {
 @media (max-width: 768px) {
   .nav { padding: 1rem 1.5rem; }
 
+  .heroVideo { display: none; }
+
   .quoteEditorialSection,
   .howSection {
     padding: 60px 1.5rem;
