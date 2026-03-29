@@ -79,17 +79,14 @@ export default function LandingPage() {
         </video>
         <div className={styles.heroScrim} />
         <div className={styles.heroContent}>
+          <img
+            src={`${BASE}/Assets/JOLI_Symbol_White.png`}
+            alt=""
+            aria-hidden="true"
+            className={styles.heroSymbol}
+          />
           <div className={styles.heroCtas}>
-            <a
-              href="https://app.jolicollective.net/guides"
-              className={styles.navLinkLight}
-            >
-              Be Inspired
-            </a>
-            <a
-              href="https://app.jolicollective.net/request"
-              className={`${styles.navCta} ${styles.navCtaLight}`}
-            >
+            <a href="https://app.jolicollective.net/how-it-works" className={`${styles.navCta} ${styles.navCtaLight}`}>
               Plan a trip
             </a>
           </div>
