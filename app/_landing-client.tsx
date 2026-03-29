@@ -55,13 +55,6 @@ export default function LandingPage() {
     <>
       {/* ── NAVIGATION ── */}
       <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : styles.navTransparent}`}>
-        <Link href="/" className={styles.navLogo}>
-          <img
-            src={`${BASE}/Assets/JOLI_Wordmark_Black.svg`}
-            alt="JOLI Collective"
-            className={scrolled ? '' : styles.navLogoInverted}
-          />
-        </Link>
       </nav>
 
       {/* ── HERO ── */}
