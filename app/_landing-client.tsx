@@ -68,7 +68,7 @@ export default function LandingPage() {
           poster={`${BASE}/Assets/hero_poster.jpg`}
           aria-hidden="true"
         >
-          <source src={`${BASE}/Assets/Joli_Texture_06.mp4`} type="video/mp4" />
+          <source src="/Joli_Texture_06.mp4" type="video/mp4" />
         </video>
         <div className={styles.heroScrim} />
         <div className={styles.heroContent}>
