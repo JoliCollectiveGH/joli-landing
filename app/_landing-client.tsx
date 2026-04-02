@@ -116,8 +116,8 @@ export default function LandingClient() {
           <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>How it works</span>
           <div className={styles.stepsRow}>
             {[
-              { num: '01', title: 'Describe your trip', desc: 'A quick conversation — not a form.' },
-              { num: '02', title: 'Your plan is built', desc: 'Day-by-day itinerary with accommodation, restaurants, and experiences — matched to what you told us.' },
+              { num: '01', title: 'Describe your trip', desc: 'A quick conversation with our AI — not a form.' },
+              { num: '02', title: 'Your plan is built instantly', desc: 'Day-by-day itinerary with accommodation, restaurants, and experiences — matched to what you told us.' },
               { num: '03', title: 'Your plan arrives', desc: 'Use the copilot to change anything — swap a hotel, add a day, ask a question.' },
             ].map((step) => (
               <div key={step.num} data-stagger className={`${styles.stepCard} ${styles.staggerChild}`}>
