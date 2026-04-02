@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
    JOLI Landing Page — page.module.css
-   Replace entirely.
+   v2 — visual refinements
    ═══════════════════════════════════════════ */
 
 /* ──────────────────── NAV ──────────────────── */
@@ -47,12 +47,10 @@
   opacity: 0.7;
 }
 
-/* Over the hero: invert the black SVG to white */
 .logoHero {
   filter: brightness(0) invert(1);
 }
 
-/* When scrolled: show natural black SVG */
 .logoScrolled {
   filter: none;
 }
@@ -255,8 +253,8 @@
 /* ──────────────────── PITCH ──────────────────── */
 
 .pitch {
-  background: var(--surface);
-  padding: 100px 2rem;
+  background: var(--white);
+  padding: 72px 2rem;
 }
 
 .pitchInner {
@@ -284,8 +282,7 @@
 
 .product {
   background: var(--surface);
-  border-top: 1px solid var(--surface-border-soft);
-  padding: 100px 2rem;
+  padding: 80px 2rem;
 }
 
 .productInner {
@@ -298,7 +295,7 @@
 }
 
 .productTitle {
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.375rem, 2.4vw, 1.875rem);
   font-weight: 300;
   letter-spacing: -0.015em;
   color: var(--ink);
@@ -321,6 +318,7 @@
   box-shadow:
     0 1px 3px rgba(26, 24, 20, 0.06),
     0 8px 32px rgba(26, 24, 20, 0.08);
+  background: var(--white);
 }
 
 .browserChrome {
@@ -328,7 +326,7 @@
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  background: #fff;
+  background: var(--white);
   border-bottom: 1px solid var(--surface-border-soft);
 }
 
@@ -364,9 +362,8 @@
 /* ──────────────────── HOW IT WORKS ──────────────────── */
 
 .howItWorks {
-  background: var(--surface);
-  border-top: 1px solid var(--surface-border-soft);
-  padding: 100px 2rem;
+  background: var(--white);
+  padding: 80px 2rem;
 }
 
 .howInner {
@@ -377,8 +374,21 @@
 .steps {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 0;
   margin-bottom: 48px;
+}
+
+.step {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--surface-border-soft);
+}
+
+.step:first-child {
+  padding-top: 0;
+}
+
+.step:last-child {
+  border-bottom: none;
 }
 
 .stepNum {
@@ -507,7 +517,10 @@
 }
 
 @media (max-width: 768px) {
-  .pitch,
+  .pitch {
+    padding: 56px 1.5rem;
+  }
+
   .product,
   .howItWorks {
     padding: 60px 1.5rem;

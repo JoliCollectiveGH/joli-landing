@@ -60,8 +60,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  overscroll-behavior: none;
 }
 
 ::selection {
@@ -80,25 +78,3 @@ body {
   margin: 0;
   line-height: 1.5;
 }
-
-/* ── Scroll reveal (toggled by IntersectionObserver on landing page) ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-stagger > * {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal-stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
-.reveal-stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.15s; }
-.reveal-stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.25s; }
