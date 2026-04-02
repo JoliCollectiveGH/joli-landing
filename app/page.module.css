@@ -271,7 +271,7 @@
 
 .howSection {
   background: var(--white);
-  padding: 64px 2rem;
+  padding: 64px 2rem 40px;
 }
 
 .howInner {

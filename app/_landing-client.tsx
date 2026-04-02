@@ -10,7 +10,11 @@ const TRUSTPILOT_URL = 'https://uk.trustpilot.com/review/jolicollective.net';
 
 const TESTIMONIALS = [
   {
-    quote: 'Jolicollective takes the brain strain out of planning a trip.',
+    quote: 'Great suggestions within budget plus options if I fancied treating myself.',
+    name: 'Peter',
+  },
+  {
+    quote: 'An incredibly inspiring programme, even with my very basic details.',
     name: 'Laura',
   },
   {
@@ -22,11 +26,6 @@ const TESTIMONIALS = [
     quote:
       'It\u2019s like being taken by the hand by someone who really understands you.',
     name: 'Ali',
-  },
-  {
-    quote:
-      'Great suggestions within budget plus options if I fancied treating myself.',
-    name: 'Sarah',
   },
 ];
 
