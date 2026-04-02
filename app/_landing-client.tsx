@@ -127,10 +127,6 @@ export default function LandingClient() {
               </div>
             ))}
           </div>
-          <div data-stagger className={`${styles.howCta} ${styles.staggerChild}`}>
-            <a href={`${APP_URL}/how-it-works`} className={styles.btnPillSolid}>Plan a trip</a>
-            <a href={`${APP_URL}/membership`} className={styles.textLink}>View pricing →</a>
-          </div>
         </div>
       </section>
 
