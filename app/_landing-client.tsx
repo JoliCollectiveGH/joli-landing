@@ -72,7 +72,7 @@ export default function LandingClient() {
         </div>
         <div className={styles.heroContent}>
           <img
-            src={`${SUPABASE_ASSETS}/JOLI_Symbol_White.svg`}
+            src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`}
             alt=""
             className={styles.heroSymbol}
           />
