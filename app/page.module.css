@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
    JOLI Landing Page — page.module.css
-   v3 — tighter, lighter, animated
+   v4 — merged sections, pill buttons
    ═══════════════════════════════════════════ */
 
 /* ──────────────────── NAV ──────────────────── */
@@ -55,67 +55,58 @@
   filter: none;
 }
 
-/* ──────────────────── BUTTONS ──────────────────── */
+/* ──────────────────── PILL BUTTONS ──────────────────── */
 
-.btn,
-.btnGhost,
-.btnPrimary,
-.btnNav,
-.btnNavHero {
+.btnPill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.01em;
-  border-radius: 6px;
-  padding: 10px 24px;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  padding: 8px 20px;
   text-decoration: none;
   transition: all 0.25s ease;
   cursor: pointer;
   white-space: nowrap;
 }
 
-.btnNavHero {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
-}
-.btnNavHero:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.btnNav {
-  background: var(--brand);
+/* Solid terracotta with transparent background */
+.btnPillSolid {
+  composes: btnPill;
+  background: rgba(173, 83, 27, 0.08);
   border: 1px solid var(--brand);
-  color: #fff;
+  color: var(--brand);
 }
-.btnNav:hover {
-  background: var(--brand-dark);
-  border-color: var(--brand-dark);
+.btnPillSolid:hover {
+  background: rgba(173, 83, 27, 0.15);
 }
 
-.btnGhost {
-  background: rgba(255, 255, 255, 0.1);
+/* Ghost on dark/hero backgrounds */
+.btnPillGhost {
+  composes: btnPill;
+  background: rgba(173, 83, 27, 0.06);
+  border: 1px solid var(--brand);
+  color: var(--brand);
+}
+.btnPillGhost:hover {
+  background: rgba(173, 83, 27, 0.12);
+}
+
+/* Ghost white — hero CTA */
+.btnPillGhostWhite {
+  composes: btnPill;
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: #fff;
 }
-.btnGhost:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.btnPrimary {
-  background: var(--brand);
-  border: 1px solid var(--brand);
-  color: #fff;
-}
-.btnPrimary:hover {
-  background: var(--brand-dark);
-  border-color: var(--brand-dark);
+.btnPillGhostWhite:hover {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .textLink {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   color: var(--ink-muted);
   text-decoration: none;
@@ -225,7 +216,7 @@
 /* ──────────────────── SCROLL REVEAL (staggered) ──────────────────── */
 
 .revealSection {
-  /* Section-level: just controls visibility for the observer */
+  /* Observer target */
 }
 
 .staggerChild {
@@ -251,19 +242,23 @@
   margin-bottom: 16px;
 }
 
-/* ──────────────────── PITCH ──────────────────── */
+/* ──────────────────── COMBINED: PITCH + HOW IT WORKS ──────────────────── */
 
-.pitch {
+.combined {
   background: var(--white);
-  padding: 56px 2rem;
+  padding: 64px 2rem;
 }
 
-.pitchInner {
-  max-width: 520px;
+.combinedInner {
+  max-width: 1080px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
 }
 
-.pitchInner p {
+.combinedPitch p {
   font-size: clamp(15px, 1.1vw, 17px);
   line-height: 1.7;
   font-weight: 300;
@@ -271,12 +266,57 @@
   margin: 0 0 20px;
 }
 
-.pitchInner p:last-child {
+.combinedPitch p:last-child {
   margin-bottom: 0;
 }
 
 .pitchKicker {
   color: var(--ink) !important;
+}
+
+.combinedSteps {
+  /* right column */
+}
+
+.step {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--surface-border-soft);
+}
+
+.step:last-of-type {
+  border-bottom: none;
+}
+
+.stepNum {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--brand);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.stepTitle {
+  font-size: clamp(15px, 1.1vw, 16px);
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.stepDesc {
+  font-size: clamp(14px, 1vw, 15px);
+  font-weight: 300;
+  color: var(--ink-muted);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.combinedCta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 24px;
 }
 
 /* ──────────────────── PRODUCT ──────────────────── */
@@ -368,74 +408,11 @@
   height: auto;
 }
 
-/* ──────────────────── HOW IT WORKS ──────────────────── */
-
-.howItWorks {
-  background: var(--white);
-  padding: 64px 2rem;
-}
-
-.howInner {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  margin-bottom: 40px;
-}
-
-.step {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--surface-border-soft);
-}
-
-.step:first-child {
-  padding-top: 0;
-}
-
-.step:last-child {
-  border-bottom: none;
-}
-
-.stepNum {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--brand);
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-.stepTitle {
-  font-size: clamp(15px, 1.1vw, 16px);
-  font-weight: 500;
-  color: var(--ink);
-  margin: 0 0 4px;
-  line-height: 1.3;
-}
-
-.stepDesc {
-  font-size: clamp(14px, 1vw, 15px);
-  font-weight: 300;
-  color: var(--ink-muted);
-  margin: 0;
-  line-height: 1.55;
-}
-
-.howCta {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
 /* ──────────────────── CLOSING ──────────────────── */
 
 .closing {
   background: var(--surface);
-  padding: 64px 2rem;
+  padding: 56px 2rem;
 }
 
 .closingInner {
@@ -448,14 +425,14 @@
   width: 48px;
   height: 1px;
   background: var(--surface-border);
-  margin: 0 auto 32px;
+  margin: 0 auto 28px;
 }
 
 .closingHeadline {
   font-size: clamp(1.25rem, 2.2vw, 1.625rem);
   font-weight: 300;
   color: var(--ink);
-  margin: 0 0 28px;
+  margin: 0 0 24px;
   line-height: 1.3;
   letter-spacing: -0.015em;
 }
@@ -526,6 +503,11 @@
 /* ──────────────────── RESPONSIVE ──────────────────── */
 
 @media (max-width: 900px) {
+  .combinedInner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   .productInner {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -533,17 +515,13 @@
 }
 
 @media (max-width: 768px) {
-  .pitch {
-    padding: 44px 1.5rem;
-  }
-
-  .product,
-  .howItWorks {
+  .combined,
+  .product {
     padding: 48px 1.5rem;
   }
 
   .closing {
-    padding: 48px 1.5rem;
+    padding: 40px 1.5rem;
   }
 
   .heroHeadline {
@@ -560,9 +538,9 @@
     width: 40px;
   }
 
-  .howCta {
+  .combinedCta {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
   }
 }

@@ -14,14 +14,12 @@ export default function LandingClient() {
   const [scrolled, setScrolled] = useState(false);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
-  // Nav scroll state
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Staggered scroll reveal
   useEffect(() => {
     const els = revealRefs.current.filter(Boolean) as HTMLElement[];
     const observer = new IntersectionObserver(
@@ -30,7 +28,6 @@ export default function LandingClient() {
           if (entry.isIntersecting) {
             const el = entry.target as HTMLElement;
             el.classList.add(styles.revealed);
-            // Stagger children that have data-stagger
             const children = el.querySelectorAll('[data-stagger]');
             children.forEach((child, i) => {
               (child as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
@@ -67,7 +64,7 @@ export default function LandingClient() {
           </a>
           <a
             href={`${APP_URL}/how-it-works`}
-            className={`${styles.btn} ${scrolled ? styles.btnNav : styles.btnNavHero}`}
+            className={`${styles.btnPill} ${scrolled ? styles.btnPillSolid : styles.btnPillGhost}`}
           >
             Plan a trip
           </a>
@@ -90,7 +87,7 @@ export default function LandingClient() {
           <p className={styles.heroSub}>
             Where to stay. Where to eat. What&rsquo;s worth your time.
           </p>
-          <a href={`${APP_URL}/how-it-works`} className={styles.btnGhost}>
+          <a href={`${APP_URL}/how-it-works`} className={styles.btnPillGhostWhite}>
             Plan a trip
           </a>
         </div>
@@ -113,21 +110,62 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────────────────────── PITCH ──────────────────────────── */}
-      <section className={`${styles.pitch} ${styles.revealSection}`} ref={setRef(0)}>
-        <div className={styles.pitchInner}>
-          <p data-stagger className={styles.staggerChild}>
-            Describe your trip. Your plan arrives in minutes — accommodation,
-            restaurants, things to do, day by day.
-          </p>
-          <p data-stagger className={styles.staggerChild}>
-            It&rsquo;s not a static document. Ask the copilot to swap a hotel,
-            add a dinner, extend by a day. The plan updates as you go.
-          </p>
-          <p data-stagger className={`${styles.pitchKicker} ${styles.staggerChild}`}>
-            No booking engine. No sponsored results. Just a plan built around
-            places we&rsquo;d actually send a friend.
-          </p>
+      {/* ──────────────── COMBINED: PITCH + HOW IT WORKS ──────────────── */}
+      <section className={`${styles.combined} ${styles.revealSection}`} ref={setRef(0)}>
+        <div className={styles.combinedInner}>
+          {/* Left column: editorial pitch */}
+          <div className={styles.combinedPitch}>
+            <p data-stagger className={styles.staggerChild}>
+              Describe your trip. Your plan arrives in minutes — accommodation,
+              restaurants, things to do, day by day.
+            </p>
+            <p data-stagger className={styles.staggerChild}>
+              It&rsquo;s not a static document. Ask the copilot to swap a hotel,
+              add a dinner, extend by a day. The plan updates as you go.
+            </p>
+            <p data-stagger className={`${styles.pitchKicker} ${styles.staggerChild}`}>
+              No booking engine. No sponsored results. Just a plan built around
+              places we&rsquo;d actually send a friend.
+            </p>
+          </div>
+
+          {/* Right column: steps */}
+          <div className={styles.combinedSteps}>
+            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>
+              How it works
+            </span>
+            {[
+              {
+                num: '01',
+                title: 'Describe your trip',
+                desc: 'A quick conversation — not a form.',
+              },
+              {
+                num: '02',
+                title: 'Your plan is built',
+                desc: 'Accommodation, restaurants, and day-by-day logistics — matched to what you told us.',
+              },
+              {
+                num: '03',
+                title: 'Your plan arrives',
+                desc: 'Ready in minutes. Edit it or go as-is.',
+              },
+            ].map((step) => (
+              <div key={step.num} data-stagger className={`${styles.step} ${styles.staggerChild}`}>
+                <span className={styles.stepNum}>{step.num}</span>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDesc}>{step.desc}</p>
+              </div>
+            ))}
+            <div data-stagger className={`${styles.combinedCta} ${styles.staggerChild}`}>
+              <a href={`${APP_URL}/how-it-works`} className={styles.btnPillSolid}>
+                Plan a trip
+              </a>
+              <a href={`${APP_URL}/pricing`} className={styles.textLink}>
+                View pricing →
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -171,50 +209,8 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────────────────────── HOW IT WORKS ──────────────────────────── */}
-      <section className={`${styles.howItWorks} ${styles.revealSection}`} ref={setRef(2)}>
-        <div className={styles.howInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>
-            How it works
-          </span>
-          <div className={styles.steps}>
-            {[
-              {
-                num: '01',
-                title: 'Describe your trip',
-                desc: 'A quick conversation — not a form.',
-              },
-              {
-                num: '02',
-                title: 'Your plan is built',
-                desc: 'Accommodation, restaurants, and day-by-day logistics — matched to what you told us.',
-              },
-              {
-                num: '03',
-                title: 'Your plan arrives',
-                desc: 'Ready in minutes. Edit it or go as-is.',
-              },
-            ].map((step) => (
-              <div key={step.num} data-stagger className={`${styles.step} ${styles.staggerChild}`}>
-                <span className={styles.stepNum}>{step.num}</span>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepDesc}>{step.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div data-stagger className={`${styles.howCta} ${styles.staggerChild}`}>
-            <a href={`${APP_URL}/how-it-works`} className={styles.btnPrimary}>
-              Plan a trip
-            </a>
-            <a href={`${APP_URL}/pricing`} className={styles.textLink}>
-              View pricing →
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* ──────────────────────────── CLOSING ──────────────────────────── */}
-      <section className={`${styles.closing} ${styles.revealSection}`} ref={setRef(3)}>
+      <section className={`${styles.closing} ${styles.revealSection}`} ref={setRef(2)}>
         <div className={styles.closingInner}>
           <div className={styles.closingRule} />
           <h2 data-stagger className={`${styles.closingHeadline} ${styles.staggerChild}`}>
@@ -223,7 +219,7 @@ export default function LandingClient() {
           <a
             data-stagger
             href={`${APP_URL}/how-it-works`}
-            className={`${styles.btnPrimary} ${styles.staggerChild}`}
+            className={`${styles.btnPillSolid} ${styles.staggerChild}`}
           >
             Plan a trip
           </a>
