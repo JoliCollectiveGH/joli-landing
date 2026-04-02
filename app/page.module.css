@@ -156,7 +156,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  height: 92dvh;
+  height: 85dvh;
   min-height: 600px;
   display: flex;
   align-items: center;
