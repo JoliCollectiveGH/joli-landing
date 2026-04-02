@@ -77,7 +77,7 @@ export default function LandingClient() {
               className={`${styles.logoImg} ${scrolled ? styles.logoScrolled : styles.logoHero}`}
             />
           </a>
-          <div className={styles.navLinks}>
+          <div className={styles.navPills}>
             <a
               href={`${APP_URL}/how-it-works`}
               className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}
@@ -97,6 +97,8 @@ export default function LandingClient() {
               Plan a trip
             </a>
           </div>
+          {/* Spacer to balance the logo on the left */}
+          <div className={styles.navSpacer} />
         </div>
       </nav>
 
@@ -131,25 +133,11 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────────────────────── HOW IT WORKS ──────────────────────────── */}
-      <section className={`${styles.card} ${styles.howItWorks} ${styles.revealSection}`} ref={setRef(0)}>
-        <div className={styles.howInner}>
-          <div className={styles.howPitch}>
-            <p data-stagger className={styles.staggerChild}>
-              Describe your trip. Your plan arrives in minutes — accommodation,
-              restaurants, things to do, day by day.
-            </p>
-            <p data-stagger className={styles.staggerChild}>
-              It&rsquo;s not a static document. Ask the copilot to swap a hotel,
-              add a dinner, extend by a day. The plan updates as you go.
-            </p>
-            <p data-stagger className={`${styles.pitchKicker} ${styles.staggerChild}`}>
-              No booking engine. No sponsored results. Just a plan built around
-              places we&rsquo;d actually send a friend.
-            </p>
-          </div>
-
-          <div className={styles.howSteps}>
+      {/* ──────── HOW IT WORKS + YOUR TRIP PLAN (side by side) ──────── */}
+      <section className={`${styles.card} ${styles.mainSection} ${styles.revealSection}`} ref={setRef(0)}>
+        <div className={styles.mainInner}>
+          {/* Left: How it works */}
+          <div className={styles.stepsCol}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>How it works</span>
             {[
               { num: '01', title: 'Describe your trip', desc: 'A quick conversation — not a form.' },
@@ -162,7 +150,17 @@ export default function LandingClient() {
                 <p className={styles.stepDesc}>{step.desc}</p>
               </div>
             ))}
-            <div data-stagger className={`${styles.howCta} ${styles.staggerChild}`}>
+          </div>
+
+          {/* Right: Your trip plan */}
+          <div className={styles.planCol}>
+            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Your trip plan</span>
+            <h2 data-stagger className={`${styles.planTitle} ${styles.staggerChild}`}>Every detail in one place</h2>
+            <p data-stagger className={`${styles.planBody} ${styles.staggerChild}`}>
+              Day-by-day itinerary with accommodation, restaurants, and experiences.
+              Use the copilot to change anything — swap a hotel, add a day, ask a question.
+            </p>
+            <div data-stagger className={`${styles.planCta} ${styles.staggerChild}`}>
               <a href={`${APP_URL}/how-it-works`} className={styles.btnPillSolid}>Plan a trip</a>
               <a href={`${APP_URL}/membership`} className={styles.textLink}>View pricing →</a>
             </div>
@@ -170,20 +168,8 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────────────────────── YOUR TRIP PLAN ──────────────────────────── */}
-      <section className={`${styles.card} ${styles.tripPlan} ${styles.revealSection}`} ref={setRef(1)}>
-        <div className={styles.tripPlanInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Your trip plan</span>
-          <h2 data-stagger className={`${styles.sectionTitle} ${styles.staggerChild}`}>Every detail in one place</h2>
-          <p data-stagger className={`${styles.sectionBody} ${styles.staggerChild}`}>
-            Day-by-day itinerary with accommodation, restaurants, and experiences.
-            Use the copilot to change anything — swap a hotel, add a day, ask a question.
-          </p>
-        </div>
-      </section>
-
-      {/* ──────────────────────────── WHAT PEOPLE SAY ──────────────────────────── */}
-      <section className={`${styles.card} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(2)}>
+      {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
+      <section className={`${styles.card} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.testimonialsInner}>
           <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>
             What people say
@@ -197,12 +183,7 @@ export default function LandingClient() {
             ))}
           </div>
           <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
-            <a
-              href={TRUSTPILOT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.trustpilotLink}
-            >
+            <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
               <span className={styles.trustpilotStars}>★★★★</span>
               <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
             </a>
