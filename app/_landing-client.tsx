@@ -131,7 +131,7 @@ export default function LandingClient() {
       {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
       <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.testimonialsInner}>
-          <div className={styles.testimonialsGrid}>
+          <div className={styles.testimonialsLayout}>
             <div className={styles.quotesCol}>
               <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>What people say</span>
               <div className={styles.quoteGrid}>
@@ -149,13 +149,13 @@ export default function LandingClient() {
                 </a>
               </div>
             </div>
-            <div data-stagger className={`${styles.testimonialsScreenshot} ${styles.staggerChild}`}>
-              <div className={styles.browserFrame}>
-                <div className={styles.browserChrome}>
-                  <div className={styles.browserDots}><span /><span /><span /></div>
-                  <div className={styles.browserUrl}>app.jolicollective.net/trips</div>
+            <div data-stagger className={`${styles.screenshotCol} ${styles.staggerChild}`}>
+              <div className={styles.screenshotFrame}>
+                <div className={styles.screenshotChrome}>
+                  <div className={styles.screenshotDots}><span /><span /><span /></div>
+                  <div className={styles.screenshotUrl}>app.jolicollective.net/trips</div>
                 </div>
-                <div className={styles.browserBody}>
+                <div className={styles.screenshotBody}>
                   <img src={`${SUPABASE_ASSETS}/Platform3.jpg`} alt="JOLI trip plans" className={styles.screenshotImg} />
                 </div>
               </div>

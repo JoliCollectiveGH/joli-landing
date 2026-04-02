@@ -1,11 +1,10 @@
 /* ═══════════════════════════════════════════
    JOLI Landing Page — page.module.css
-   v9 — card radius fix, 4 testimonials
+   v10 — complete clean build
    ═══════════════════════════════════════════ */
 
 .pageWrap { }
 
-/* Only the first card (slides over hero) gets rounded top + shadow */
 .cardFirst {
   position: relative;
   z-index: 2;
@@ -13,7 +12,6 @@
   box-shadow: 0 -4px 24px rgba(26, 24, 20, 0.06);
 }
 
-/* Subsequent sections: flat, no card effect */
 .section {
   position: relative;
   z-index: 2;
@@ -51,7 +49,6 @@
 .navLogo {
   display: flex;
   align-items: center;
-  flex: 0 0 auto;
 }
 
 .logoImg {
@@ -68,7 +65,6 @@
   align-items: center;
   gap: 8px;
 }
-
 
 .navPill {
   display: inline-flex;
@@ -106,7 +102,7 @@
 
 /* ──────────────────── BUTTONS ──────────────────── */
 
-.btnPill {
+.btnPillGhostWhite {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -119,32 +115,11 @@
   transition: all 0.25s ease;
   cursor: pointer;
   white-space: nowrap;
-}
-
-.btnPillSolid {
-  composes: btnPill;
-  background: rgba(173, 83, 27, 0.08);
-  border: 1px solid var(--brand);
-  color: var(--brand);
-}
-.btnPillSolid:hover { background: rgba(173, 83, 27, 0.15); }
-
-.btnPillGhostWhite {
-  composes: btnPill;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.35);
   color: #fff;
 }
 .btnPillGhostWhite:hover { background: rgba(255, 255, 255, 0.16); }
-
-.textLink {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--ink-muted);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.textLink:hover { color: var(--ink); }
 
 /* ──────────────────── HERO ──────────────────── */
 
@@ -216,17 +191,6 @@
   animation: hintBounce 2.4s ease-in-out infinite;
 }
 
-.scrollLabel {
-  display: block;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 4px;
-  text-align: center;
-}
-
 @keyframes hintBounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(6px); }
@@ -259,9 +223,7 @@
   margin-bottom: 20px;
 }
 
-.eyebrowCentre {
-  text-align: center;
-}
+.eyebrowCentre { text-align: center; }
 
 /* ──────────────────── HOW IT WORKS ──────────────────── */
 
@@ -279,7 +241,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
-  margin-bottom: 40px;
 }
 
 .stepCard {
@@ -312,13 +273,6 @@
   line-height: 1.6;
 }
 
-.howCta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
 /* ──────────────────── TESTIMONIALS ──────────────────── */
 
 .testimonials {
@@ -331,7 +285,7 @@
   margin: 0 auto;
 }
 
-.testimonialsGrid {
+.testimonialsLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
@@ -389,7 +343,45 @@
   color: var(--ink-faint);
 }
 
-.testimonialsScreenshot { }
+/* Screenshot in testimonials — unique class names to avoid conflicts */
+.screenshotCol { }
+
+.screenshotFrame {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border);
+  box-shadow: 0 1px 3px rgba(26,24,20,0.06), 0 8px 32px rgba(26,24,20,0.08);
+  background: var(--white);
+}
+
+.screenshotChrome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--white);
+  border-bottom: 1px solid var(--surface-border-soft);
+}
+
+.screenshotDots { display: flex; gap: 5px; }
+
+.screenshotDots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface-border);
+}
+
+.screenshotUrl {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--ink-faint);
+  letter-spacing: 0.01em;
+}
+
+.screenshotBody { background: var(--surface); }
+
+.screenshotImg { display: block; width: 100%; height: auto; }
 
 /* ──────────────────── FOOTER ──────────────────── */
 
@@ -442,13 +434,13 @@
   .stepsRow { grid-template-columns: 1fr; gap: 0; }
   .stepCard { border-top: none; border-bottom: 1px solid var(--surface-border-soft); padding: 20px 0; }
   .stepCard:last-child { border-bottom: none; }
-  .testimonialsGrid { grid-template-columns: 1fr; gap: 32px; }
+  .testimonialsLayout { grid-template-columns: 1fr; gap: 32px; }
   .cardFirst { border-radius: 16px 16px 0 0; }
 }
 
 @media (max-width: 768px) {
   .navPills { display: none; }
-  .howSection { padding: 48px 1.5rem; }
+  .howSection { padding: 48px 1.5rem 32px; }
   .testimonials { padding: 40px 1.5rem; }
   .heroHeadline { font-size: 1.625rem; }
   .navInner { padding: 14px 1.25rem; }
@@ -458,8 +450,4 @@
 @media (max-width: 480px) {
   .heroSymbol { width: 40px; }
   .quoteGrid { grid-template-columns: 1fr; }
-  .howCta {
-    flex-direction: column;
-    gap: 12px;
-  }
 }
