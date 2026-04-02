@@ -104,8 +104,9 @@ export default function LandingClient() {
           <a href={`${APP_URL}/how-it-works`} className={styles.btnPillGhostWhite}>Plan a trip</a>
         </div>
         <div className={styles.scrollHint}>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 4v10m0 0l-4-4m4 4l4-4" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <span className={styles.scrollLabel}>Scroll</span>
+          <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 4v10m0 0l-4-4m4 4l4-4" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
       </section>
