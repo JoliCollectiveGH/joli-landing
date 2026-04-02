@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import styles from './page.module.css';
 
 const SUPABASE_ASSETS =
@@ -12,7 +12,7 @@ const PRODUCT_SCREENSHOT = `${SUPABASE_ASSETS}/Platform2.jpg`;
 
 export default function LandingClient() {
   const [scrolled, setScrolled] = useState(false);
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Nav scroll state
   useEffect(() => {
@@ -21,27 +21,37 @@ export default function LandingClient() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Scroll reveal — one-shot IntersectionObserver
+  // Staggered scroll reveal
   useEffect(() => {
-    const els = sectionsRef.current.filter(Boolean) as HTMLElement[];
+    const els = revealRefs.current.filter(Boolean) as HTMLElement[];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add(styles.revealed);
-            observer.unobserve(entry.target);
+            const el = entry.target as HTMLElement;
+            el.classList.add(styles.revealed);
+            // Stagger children that have data-stagger
+            const children = el.querySelectorAll('[data-stagger]');
+            children.forEach((child, i) => {
+              (child as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
+              (child as HTMLElement).classList.add(styles.staggerRevealed);
+            });
+            observer.unobserve(el);
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.15 }
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  const setRef = (i: number) => (el: HTMLElement | null) => {
-    sectionsRef.current[i] = el;
-  };
+  const setRef = useCallback(
+    (i: number) => (el: HTMLElement | null) => {
+      revealRefs.current[i] = el;
+    },
+    []
+  );
 
   return (
     <>
@@ -104,17 +114,17 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── PITCH ──────────────────────────── */}
-      <section className={styles.pitch} ref={setRef(0)}>
+      <section className={`${styles.pitch} ${styles.revealSection}`} ref={setRef(0)}>
         <div className={styles.pitchInner}>
-          <p>
+          <p data-stagger className={styles.staggerChild}>
             Describe your trip. Your plan arrives in minutes — accommodation,
             restaurants, things to do, day by day.
           </p>
-          <p>
+          <p data-stagger className={styles.staggerChild}>
             It&rsquo;s not a static document. Ask the copilot to swap a hotel,
             add a dinner, extend by a day. The plan updates as you go.
           </p>
-          <p className={styles.pitchKicker}>
+          <p data-stagger className={`${styles.pitchKicker} ${styles.staggerChild}`}>
             No booking engine. No sponsored results. Just a plan built around
             places we&rsquo;d actually send a friend.
           </p>
@@ -122,18 +132,22 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── PRODUCT ──────────────────────────── */}
-      <section className={styles.product} ref={setRef(1)}>
+      <section className={`${styles.product} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.productInner}>
           <div className={styles.productText}>
-            <span className={styles.eyebrow}>Your trip plan</span>
-            <h2 className={styles.productTitle}>Every detail in one place</h2>
-            <p className={styles.productBody}>
+            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>
+              Your trip plan
+            </span>
+            <h2 data-stagger className={`${styles.productTitle} ${styles.staggerChild}`}>
+              Every detail in one place
+            </h2>
+            <p data-stagger className={`${styles.productBody} ${styles.staggerChild}`}>
               Day-by-day itinerary with accommodation, restaurants, and
               experiences. Use the copilot to change anything — swap a hotel,
               add a day, ask a question.
             </p>
           </div>
-          <div className={styles.productScreenshot}>
+          <div data-stagger className={`${styles.productScreenshot} ${styles.staggerChild}`}>
             <div className={styles.browserFrame}>
               <div className={styles.browserChrome}>
                 <div className={styles.browserDots}>
@@ -158,9 +172,11 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── HOW IT WORKS ──────────────────────────── */}
-      <section className={styles.howItWorks} ref={setRef(2)}>
+      <section className={`${styles.howItWorks} ${styles.revealSection}`} ref={setRef(2)}>
         <div className={styles.howInner}>
-          <span className={styles.eyebrow}>How it works</span>
+          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>
+            How it works
+          </span>
           <div className={styles.steps}>
             {[
               {
@@ -179,14 +195,14 @@ export default function LandingClient() {
                 desc: 'Ready in minutes. Edit it or go as-is.',
               },
             ].map((step) => (
-              <div key={step.num} className={styles.step}>
+              <div key={step.num} data-stagger className={`${styles.step} ${styles.staggerChild}`}>
                 <span className={styles.stepNum}>{step.num}</span>
                 <h3 className={styles.stepTitle}>{step.title}</h3>
                 <p className={styles.stepDesc}>{step.desc}</p>
               </div>
             ))}
           </div>
-          <div className={styles.howCta}>
+          <div data-stagger className={`${styles.howCta} ${styles.staggerChild}`}>
             <a href={`${APP_URL}/how-it-works`} className={styles.btnPrimary}>
               Plan a trip
             </a>
@@ -198,12 +214,17 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── CLOSING ──────────────────────────── */}
-      <section className={styles.closing} ref={setRef(3)}>
+      <section className={`${styles.closing} ${styles.revealSection}`} ref={setRef(3)}>
         <div className={styles.closingInner}>
-          <h2 className={styles.closingHeadline}>
+          <div className={styles.closingRule} />
+          <h2 data-stagger className={`${styles.closingHeadline} ${styles.staggerChild}`}>
             A trip plan you&rsquo;ll actually use.
           </h2>
-          <a href={`${APP_URL}/how-it-works`} className={styles.btnGhost}>
+          <a
+            data-stagger
+            href={`${APP_URL}/how-it-works`}
+            className={`${styles.btnPrimary} ${styles.staggerChild}`}
+          >
             Plan a trip
           </a>
         </div>

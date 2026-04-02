@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════
    JOLI Landing Page — page.module.css
-   v2 — visual refinements
+   v3 — tighter, lighter, animated
    ═══════════════════════════════════════════ */
 
 /* ──────────────────── NAV ──────────────────── */
@@ -222,18 +222,19 @@
   }
 }
 
-/* ──────────────────── SCROLL REVEAL ──────────────────── */
+/* ──────────────────── SCROLL REVEAL (staggered) ──────────────────── */
 
-.pitch,
-.product,
-.howItWorks,
-.closing {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+.revealSection {
+  /* Section-level: just controls visibility for the observer */
 }
 
-.revealed {
+.staggerChild {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.staggerRevealed {
   opacity: 1;
   transform: translateY(0);
 }
@@ -254,7 +255,7 @@
 
 .pitch {
   background: var(--white);
-  padding: 72px 2rem;
+  padding: 56px 2rem;
 }
 
 .pitchInner {
@@ -267,7 +268,7 @@
   line-height: 1.7;
   font-weight: 300;
   color: var(--ink-muted);
-  margin: 0 0 24px;
+  margin: 0 0 20px;
 }
 
 .pitchInner p:last-child {
@@ -282,7 +283,7 @@
 
 .product {
   background: var(--surface);
-  padding: 80px 2rem;
+  padding: 64px 2rem;
 }
 
 .productInner {
@@ -290,7 +291,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap: 64px;
+  gap: 56px;
   align-items: center;
 }
 
@@ -299,7 +300,7 @@
   font-weight: 300;
   letter-spacing: -0.015em;
   color: var(--ink);
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   line-height: 1.2;
 }
 
@@ -319,6 +320,14 @@
     0 1px 3px rgba(26, 24, 20, 0.06),
     0 8px 32px rgba(26, 24, 20, 0.08);
   background: var(--white);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.browserFrame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 2px 6px rgba(26, 24, 20, 0.08),
+    0 16px 48px rgba(26, 24, 20, 0.12);
 }
 
 .browserChrome {
@@ -363,7 +372,7 @@
 
 .howItWorks {
   background: var(--white);
-  padding: 80px 2rem;
+  padding: 64px 2rem;
 }
 
 .howInner {
@@ -375,11 +384,11 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .step {
-  padding: 28px 0;
+  padding: 24px 0;
   border-bottom: 1px solid var(--surface-border-soft);
 }
 
@@ -397,14 +406,14 @@
   letter-spacing: 0.12em;
   color: var(--brand);
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .stepTitle {
   font-size: clamp(15px, 1.1vw, 16px);
   font-weight: 500;
   color: var(--ink);
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   line-height: 1.3;
 }
 
@@ -425,8 +434,8 @@
 /* ──────────────────── CLOSING ──────────────────── */
 
 .closing {
-  background: var(--ink);
-  padding: 120px 2rem;
+  background: var(--surface);
+  padding: 64px 2rem;
 }
 
 .closingInner {
@@ -435,12 +444,19 @@
   text-align: center;
 }
 
+.closingRule {
+  width: 48px;
+  height: 1px;
+  background: var(--surface-border);
+  margin: 0 auto 32px;
+}
+
 .closingHeadline {
-  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.625rem);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 0 0 32px;
-  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 28px;
+  line-height: 1.3;
   letter-spacing: -0.015em;
 }
 
@@ -449,7 +465,7 @@
 .footer {
   background: var(--surface);
   border-top: 1px solid var(--surface-border-soft);
-  padding: 48px 2rem;
+  padding: 40px 2rem;
 }
 
 .footerInner {
@@ -458,7 +474,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .footerLogo {
@@ -512,22 +528,22 @@
 @media (max-width: 900px) {
   .productInner {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 }
 
 @media (max-width: 768px) {
   .pitch {
-    padding: 56px 1.5rem;
+    padding: 44px 1.5rem;
   }
 
   .product,
   .howItWorks {
-    padding: 60px 1.5rem;
+    padding: 48px 1.5rem;
   }
 
   .closing {
-    padding: 80px 1.5rem;
+    padding: 48px 1.5rem;
   }
 
   .heroHeadline {
