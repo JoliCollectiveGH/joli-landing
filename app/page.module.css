@@ -69,10 +69,6 @@
   gap: 8px;
 }
 
-.navSpacer {
-  flex: 0 0 auto;
-  width: 80px;
-}
 
 .navPill {
   display: inline-flex;
@@ -335,11 +331,20 @@
   margin: 0 auto;
 }
 
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.quotesCol { }
+
 .quoteGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  margin-bottom: 32px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
 }
 
 .quote { margin: 0; padding: 0; }
@@ -348,23 +353,20 @@
   font-size: 14px;
   font-weight: 300;
   font-style: italic;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--ink-muted);
-  margin: 0 0 12px;
+  margin: 0 0 8px;
 }
 
 .quoteCite {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   font-style: normal;
   color: var(--ink);
   letter-spacing: 0.01em;
 }
 
-.trustpilot {
-  text-align: center;
-  padding-top: 8px;
-}
+.trustpilot { padding-top: 4px; }
 
 .trustpilotLink {
   display: inline-flex;
@@ -386,6 +388,8 @@
   font-weight: 400;
   color: var(--ink-faint);
 }
+
+.testimonialsScreenshot { }
 
 /* ──────────────────── FOOTER ──────────────────── */
 
@@ -438,23 +442,22 @@
   .stepsRow { grid-template-columns: 1fr; gap: 0; }
   .stepCard { border-top: none; border-bottom: 1px solid var(--surface-border-soft); padding: 20px 0; }
   .stepCard:last-child { border-bottom: none; }
-  .quoteGrid { grid-template-columns: 1fr 1fr; }
+  .testimonialsGrid { grid-template-columns: 1fr; gap: 32px; }
   .cardFirst { border-radius: 16px 16px 0 0; }
 }
 
 @media (max-width: 768px) {
   .navPills { display: none; }
-  .navSpacer { display: none; }
   .howSection { padding: 48px 1.5rem; }
   .testimonials { padding: 40px 1.5rem; }
   .heroHeadline { font-size: 1.625rem; }
   .navInner { padding: 14px 1.25rem; }
   .cardFirst { border-radius: 12px 12px 0 0; }
-  .quoteGrid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
   .heroSymbol { width: 40px; }
+  .quoteGrid { grid-template-columns: 1fr; }
   .howCta {
     flex-direction: column;
     gap: 12px;

@@ -84,9 +84,8 @@ export default function LandingClient() {
           <div className={styles.navPills}>
             <a href={`${APP_URL}/how-it-works`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>How it works</a>
             <a href={`${APP_URL}/membership`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Pricing</a>
-            <a href={`${APP_URL}/how-it-works`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Plan a trip</a>
+            <a href={`${APP_URL}/request`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Plan a trip</a>
           </div>
-          <div className={styles.navSpacer} />
         </div>
       </nav>
 
@@ -100,7 +99,7 @@ export default function LandingClient() {
           <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.heroSymbol} />
           <h1 className={styles.heroHeadline}>Personalised travel planning</h1>
           <p className={styles.heroSub}>Where to stay. Where to eat. What&rsquo;s worth your time.</p>
-          <a href={`${APP_URL}/how-it-works`} className={styles.btnPillGhostWhite}>Plan a trip</a>
+          <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Plan a trip</a>
         </div>
         <div className={styles.scrollHint}>
           <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,20 +131,35 @@ export default function LandingClient() {
       {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
       <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.testimonialsInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>What people say</span>
-          <div className={styles.quoteGrid}>
-            {TESTIMONIALS.map((t) => (
-              <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
-                <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
-                <cite className={styles.quoteCite}>— {t.name}</cite>
-              </blockquote>
-            ))}
-          </div>
-          <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
-            <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
-              <span className={styles.trustpilotStars}>★★★★</span>
-              <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
-            </a>
+          <div className={styles.testimonialsGrid}>
+            <div className={styles.quotesCol}>
+              <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>What people say</span>
+              <div className={styles.quoteGrid}>
+                {TESTIMONIALS.map((t) => (
+                  <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
+                    <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
+                    <cite className={styles.quoteCite}>— {t.name}</cite>
+                  </blockquote>
+                ))}
+              </div>
+              <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
+                <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
+                  <span className={styles.trustpilotStars}>★★★★</span>
+                  <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
+                </a>
+              </div>
+            </div>
+            <div data-stagger className={`${styles.testimonialsScreenshot} ${styles.staggerChild}`}>
+              <div className={styles.browserFrame}>
+                <div className={styles.browserChrome}>
+                  <div className={styles.browserDots}><span /><span /><span /></div>
+                  <div className={styles.browserUrl}>app.jolicollective.net/trips</div>
+                </div>
+                <div className={styles.browserBody}>
+                  <img src={`${SUPABASE_ASSETS}/Platform3.jpg`} alt="JOLI trip plans" className={styles.screenshotImg} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
