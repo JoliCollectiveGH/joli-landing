@@ -6,31 +6,22 @@ import styles from './page.module.css';
 const SUPABASE_ASSETS =
   'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets';
 const APP_URL = 'https://app.jolicollective.net';
-
-const HERO_IMAGE = `${SUPABASE_ASSETS}/Landing1.jpeg`;
-const SCREENSHOT_PLAN = `${SUPABASE_ASSETS}/Platform2.jpg`;
-const SCREENSHOT_CHAT = `${SUPABASE_ASSETS}/Platform4.jpg`;
-const SCREENSHOT_PLANS_LIST = `${SUPABASE_ASSETS}/Platform3.jpg`;
-
 const TRUSTPILOT_URL = 'https://uk.trustpilot.com/review/jolicollective.net';
 
-const testimonials = [
+const TESTIMONIALS = [
   {
     quote: 'Jolicollective takes the brain strain out of planning a trip.',
     name: 'Laura',
-    context: 'Trip to Italy',
   },
   {
     quote:
       'It actually filtered for the things we genuinely enjoy. It took all the guesswork out of planning.',
     name: 'Nicole',
-    context: 'Trip to Turin',
   },
   {
     quote:
-      "It\u2019s like being taken by the hand by someone who really understands you.",
+      'It\u2019s like being taken by the hand by someone who really understands you.',
     name: 'Ali',
-    context: 'Multiple trips',
   },
 ];
 
@@ -89,30 +80,34 @@ export default function LandingClient() {
           <div className={styles.navLinks}>
             <a
               href={`${APP_URL}/how-it-works`}
-              className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}
+              className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}
             >
               How it works
             </a>
             <a
-              href={`${APP_URL}/pricing`}
-              className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}
+              href={`${APP_URL}/membership`}
+              className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}
             >
               Pricing
             </a>
+            <a
+              href={`${APP_URL}/how-it-works`}
+              className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}
+            >
+              Plan a trip
+            </a>
           </div>
-          <a
-            href={`${APP_URL}/how-it-works`}
-            className={`${styles.btnPill} ${scrolled ? styles.btnPillSolid : styles.btnPillGhostWhite}`}
-          >
-            Plan a trip
-          </a>
         </div>
       </nav>
 
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>
         <div className={styles.heroBg}>
-          <img src={HERO_IMAGE} alt="" className={styles.heroBgImg} />
+          <img
+            src={`${SUPABASE_ASSETS}/Landing1.jpeg`}
+            alt=""
+            className={styles.heroBgImg}
+          />
           <div className={styles.heroScrim} />
         </div>
         <div className={styles.heroContent}>
@@ -136,38 +131,25 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────── COMBINED: PITCH + HOW IT WORKS ──────────── */}
-      <section className={`${styles.card} ${styles.combined} ${styles.revealSection}`} ref={setRef(0)}>
-        <div className={styles.combinedInner}>
-          <div className={styles.combinedLeft}>
-            <div className={styles.combinedPitch}>
-              <p data-stagger className={styles.staggerChild}>
-                Describe your trip. Your plan arrives in minutes — accommodation,
-                restaurants, things to do, day by day.
-              </p>
-              <p data-stagger className={styles.staggerChild}>
-                It&rsquo;s not a static document. Ask the copilot to swap a hotel,
-                add a dinner, extend by a day. The plan updates as you go.
-              </p>
-              <p data-stagger className={`${styles.pitchKicker} ${styles.staggerChild}`}>
-                No booking engine. No sponsored results. Just a plan built around
-                places we&rsquo;d actually send a friend.
-              </p>
-            </div>
-            <div data-stagger className={`${styles.chatScreenshot} ${styles.staggerChild}`}>
-              <div className={styles.browserFrame}>
-                <div className={styles.browserChrome}>
-                  <div className={styles.browserDots}><span /><span /><span /></div>
-                  <div className={styles.browserUrl}>app.jolicollective.net</div>
-                </div>
-                <div className={styles.browserBody}>
-                  <img src={SCREENSHOT_CHAT} alt="JOLI trip intake conversation" className={styles.screenshotImg} />
-                </div>
-              </div>
-            </div>
+      {/* ──────────────────────────── HOW IT WORKS ──────────────────────────── */}
+      <section className={`${styles.card} ${styles.howItWorks} ${styles.revealSection}`} ref={setRef(0)}>
+        <div className={styles.howInner}>
+          <div className={styles.howPitch}>
+            <p data-stagger className={styles.staggerChild}>
+              Describe your trip. Your plan arrives in minutes — accommodation,
+              restaurants, things to do, day by day.
+            </p>
+            <p data-stagger className={styles.staggerChild}>
+              It&rsquo;s not a static document. Ask the copilot to swap a hotel,
+              add a dinner, extend by a day. The plan updates as you go.
+            </p>
+            <p data-stagger className={`${styles.pitchKicker} ${styles.staggerChild}`}>
+              No booking engine. No sponsored results. Just a plan built around
+              places we&rsquo;d actually send a friend.
+            </p>
           </div>
 
-          <div className={styles.combinedSteps}>
+          <div className={styles.howSteps}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>How it works</span>
             {[
               { num: '01', title: 'Describe your trip', desc: 'A quick conversation — not a form.' },
@@ -180,115 +162,51 @@ export default function LandingClient() {
                 <p className={styles.stepDesc}>{step.desc}</p>
               </div>
             ))}
-            <div data-stagger className={`${styles.combinedCta} ${styles.staggerChild}`}>
+            <div data-stagger className={`${styles.howCta} ${styles.staggerChild}`}>
               <a href={`${APP_URL}/how-it-works`} className={styles.btnPillSolid}>Plan a trip</a>
-              <a href={`${APP_URL}/pricing`} className={styles.textLink}>View pricing →</a>
+              <a href={`${APP_URL}/membership`} className={styles.textLink}>View pricing →</a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ──────────────────── PRODUCT: TRIP PLAN ──────────────────── */}
-      <section className={`${styles.card} ${styles.product} ${styles.revealSection}`} ref={setRef(1)}>
-        <div className={styles.productInner}>
-          <div className={styles.productText}>
-            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Your trip plan</span>
-            <h2 data-stagger className={`${styles.productTitle} ${styles.staggerChild}`}>Every detail in one place</h2>
-            <p data-stagger className={`${styles.productBody} ${styles.staggerChild}`}>
-              Day-by-day itinerary with accommodation, restaurants, and
-              experiences. Use the copilot to change anything — swap a hotel,
-              add a day, ask a question.
-            </p>
-          </div>
-          <div data-stagger className={`${styles.productScreenshot} ${styles.staggerChild}`}>
-            <div className={styles.browserFrame}>
-              <div className={styles.browserChrome}>
-                <div className={styles.browserDots}><span /><span /><span /></div>
-                <div className={styles.browserUrl}>app.jolicollective.net</div>
-              </div>
-              <div className={styles.browserBody}>
-                <img src={SCREENSHOT_PLAN} alt="JOLI trip plan with day-by-day itinerary" className={styles.screenshotImg} />
-              </div>
-            </div>
-          </div>
+      {/* ──────────────────────────── YOUR TRIP PLAN ──────────────────────────── */}
+      <section className={`${styles.card} ${styles.tripPlan} ${styles.revealSection}`} ref={setRef(1)}>
+        <div className={styles.tripPlanInner}>
+          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Your trip plan</span>
+          <h2 data-stagger className={`${styles.sectionTitle} ${styles.staggerChild}`}>Every detail in one place</h2>
+          <p data-stagger className={`${styles.sectionBody} ${styles.staggerChild}`}>
+            Day-by-day itinerary with accommodation, restaurants, and experiences.
+            Use the copilot to change anything — swap a hotel, add a day, ask a question.
+          </p>
         </div>
       </section>
 
-      {/* ──────────────────── YOUR PLANS: LIST VIEW ──────────────────── */}
-      <section className={`${styles.card} ${styles.plansSection} ${styles.revealSection}`} ref={setRef(2)}>
-        <div className={styles.plansInner}>
-          <div className={styles.plansText}>
-            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Your plans</span>
-            <h2 data-stagger className={`${styles.productTitle} ${styles.staggerChild}`}>All your trips, one place</h2>
-            <p data-stagger className={`${styles.productBody} ${styles.staggerChild}`}>
-              Every plan you&rsquo;ve built lives in your account. Come back to
-              edit, extend, or start a new one.
-            </p>
-          </div>
-          <div data-stagger className={`${styles.plansScreenshot} ${styles.staggerChild}`}>
-            <div className={styles.browserFrame}>
-              <div className={styles.browserChrome}>
-                <div className={styles.browserDots}><span /><span /><span /></div>
-                <div className={styles.browserUrl}>app.jolicollective.net/trips</div>
-              </div>
-              <div className={styles.browserBody}>
-                <img src={SCREENSHOT_PLANS_LIST} alt="JOLI trip plans dashboard" className={styles.screenshotImg} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ──────────────────── TESTIMONIALS ──────────────────── */}
-      <section className={`${styles.card} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(3)}>
+      {/* ──────────────────────────── WHAT PEOPLE SAY ──────────────────────────── */}
+      <section className={`${styles.card} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(2)}>
         <div className={styles.testimonialsInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild} ${styles.testimonialEyebrow}`}>
+          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>
             What people say
           </span>
           <div className={styles.quoteGrid}>
-            {testimonials.map((t, i) => (
-              <blockquote key={i} data-stagger className={`${styles.quoteCard} ${styles.staggerChild}`}>
+            {TESTIMONIALS.map((t) => (
+              <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
                 <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
-                <footer className={styles.quoteFooter}>
-                  <span className={styles.quoteName}>{t.name}</span>
-                  <span className={styles.quoteContext}>{t.context}</span>
-                </footer>
+                <cite className={styles.quoteCite}>— {t.name}</cite>
               </blockquote>
             ))}
           </div>
           <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
-            <div className={styles.trustpilotStars}>
-              {[1, 2, 3, 4].map((n) => (
-                <svg key={n} width="16" height="16" viewBox="0 0 24 24" fill="var(--brand)" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-            </div>
             <a
               href={TRUSTPILOT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.trustpilotLink}
             >
-              Rated 4 out of 5 on Trustpilot
+              <span className={styles.trustpilotStars}>★★★★</span>
+              <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* ──────────────────────────── CLOSING ──────────────────────────── */}
-      <section className={`${styles.card} ${styles.closing} ${styles.revealSection}`} ref={setRef(4)}>
-        <div className={styles.closingInner}>
-          <div className={styles.closingRule} />
-          <h2 data-stagger className={`${styles.closingHeadline} ${styles.staggerChild}`}>
-            A trip plan you&rsquo;ll actually use.
-          </h2>
-          <a data-stagger href={`${APP_URL}/how-it-works`} className={`${styles.btnPillSolid} ${styles.staggerChild}`}>
-            Plan a trip
-          </a>
         </div>
       </section>
 
@@ -301,7 +219,7 @@ export default function LandingClient() {
           <div className={styles.footerLinks}>
             <a href={`${APP_URL}/how-it-works`}>How it works</a>
             <span className={styles.footerDot}>·</span>
-            <a href={`${APP_URL}/pricing`}>Pricing</a>
+            <a href={`${APP_URL}/membership`}>Pricing</a>
             <span className={styles.footerDot}>·</span>
             <a href="https://www.instagram.com/jolicollective/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
