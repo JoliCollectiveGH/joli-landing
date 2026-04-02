@@ -23,6 +23,11 @@ const TESTIMONIALS = [
       'It\u2019s like being taken by the hand by someone who really understands you.',
     name: 'Ali',
   },
+  {
+    quote:
+      'Great suggestions within budget plus options if I fancied treating myself.',
+    name: 'Sarah',
+  },
 ];
 
 export default function LandingClient() {
@@ -45,7 +50,7 @@ export default function LandingClient() {
             el.classList.add(styles.revealed);
             const children = el.querySelectorAll('[data-stagger]');
             children.forEach((child, i) => {
-              (child as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
+              (child as HTMLElement).style.transitionDelay = `${i * 0.15}s`;
               (child as HTMLElement).classList.add(styles.staggerRevealed);
             });
             observer.unobserve(el);
@@ -78,26 +83,10 @@ export default function LandingClient() {
             />
           </a>
           <div className={styles.navPills}>
-            <a
-              href={`${APP_URL}/how-it-works`}
-              className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}
-            >
-              How it works
-            </a>
-            <a
-              href={`${APP_URL}/membership`}
-              className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}
-            >
-              Pricing
-            </a>
-            <a
-              href={`${APP_URL}/how-it-works`}
-              className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}
-            >
-              Plan a trip
-            </a>
+            <a href={`${APP_URL}/how-it-works`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>How it works</a>
+            <a href={`${APP_URL}/membership`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Pricing</a>
+            <a href={`${APP_URL}/how-it-works`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Plan a trip</a>
           </div>
-          {/* Spacer to balance the logo on the left */}
           <div className={styles.navSpacer} />
         </div>
       </nav>
@@ -105,26 +94,14 @@ export default function LandingClient() {
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>
         <div className={styles.heroBg}>
-          <img
-            src={`${SUPABASE_ASSETS}/Landing1.jpeg`}
-            alt=""
-            className={styles.heroBgImg}
-          />
+          <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.heroBgImg} />
           <div className={styles.heroScrim} />
         </div>
         <div className={styles.heroContent}>
-          <img
-            src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`}
-            alt=""
-            className={styles.heroSymbol}
-          />
+          <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.heroSymbol} />
           <h1 className={styles.heroHeadline}>Personalised travel planning</h1>
-          <p className={styles.heroSub}>
-            Where to stay. Where to eat. What&rsquo;s worth your time.
-          </p>
-          <a href={`${APP_URL}/how-it-works`} className={styles.btnPillGhostWhite}>
-            Plan a trip
-          </a>
+          <p className={styles.heroSub}>Where to stay. Where to eat. What&rsquo;s worth your time.</p>
+          <a href={`${APP_URL}/how-it-works`} className={styles.btnPillGhostWhite}>Plan a trip</a>
         </div>
         <div className={styles.scrollHint}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -133,47 +110,34 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────── HOW IT WORKS + YOUR TRIP PLAN (side by side) ──────── */}
-      <section className={`${styles.card} ${styles.mainSection} ${styles.revealSection}`} ref={setRef(0)}>
-        <div className={styles.mainInner}>
-          {/* Left: How it works */}
-          <div className={styles.stepsCol}>
-            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>How it works</span>
+      {/* ──────────────────── HOW IT WORKS ──────────────────── */}
+      <section className={`${styles.cardFirst} ${styles.howSection} ${styles.revealSection}`} ref={setRef(0)}>
+        <div className={styles.howInner}>
+          <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>How it works</span>
+          <div className={styles.stepsRow}>
             {[
               { num: '01', title: 'Describe your trip', desc: 'A quick conversation — not a form.' },
-              { num: '02', title: 'Your plan is built', desc: 'Accommodation, restaurants, and day-by-day logistics — matched to what you told us.' },
-              { num: '03', title: 'Your plan arrives', desc: 'Ready in minutes. Edit it or go as-is.' },
+              { num: '02', title: 'Your plan is built', desc: 'Day-by-day itinerary with accommodation, restaurants, and experiences — matched to what you told us.' },
+              { num: '03', title: 'Your plan arrives', desc: 'Use the copilot to change anything — swap a hotel, add a day, ask a question.' },
             ].map((step) => (
-              <div key={step.num} data-stagger className={`${styles.step} ${styles.staggerChild}`}>
+              <div key={step.num} data-stagger className={`${styles.stepCard} ${styles.staggerChild}`}>
                 <span className={styles.stepNum}>{step.num}</span>
                 <h3 className={styles.stepTitle}>{step.title}</h3>
                 <p className={styles.stepDesc}>{step.desc}</p>
               </div>
             ))}
           </div>
-
-          {/* Right: Your trip plan */}
-          <div className={styles.planCol}>
-            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Your trip plan</span>
-            <h2 data-stagger className={`${styles.planTitle} ${styles.staggerChild}`}>Every detail in one place</h2>
-            <p data-stagger className={`${styles.planBody} ${styles.staggerChild}`}>
-              Day-by-day itinerary with accommodation, restaurants, and experiences.
-              Use the copilot to change anything — swap a hotel, add a day, ask a question.
-            </p>
-            <div data-stagger className={`${styles.planCta} ${styles.staggerChild}`}>
-              <a href={`${APP_URL}/how-it-works`} className={styles.btnPillSolid}>Plan a trip</a>
-              <a href={`${APP_URL}/membership`} className={styles.textLink}>View pricing →</a>
-            </div>
+          <div data-stagger className={`${styles.howCta} ${styles.staggerChild}`}>
+            <a href={`${APP_URL}/how-it-works`} className={styles.btnPillSolid}>Plan a trip</a>
+            <a href={`${APP_URL}/membership`} className={styles.textLink}>View pricing →</a>
           </div>
         </div>
       </section>
 
       {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
-      <section className={`${styles.card} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(1)}>
+      <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.testimonialsInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>
-            What people say
-          </span>
+          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>What people say</span>
           <div className={styles.quoteGrid}>
             {TESTIMONIALS.map((t) => (
               <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
@@ -192,7 +156,7 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── FOOTER ──────────────────────────── */}
-      <footer className={`${styles.card} ${styles.footer}`}>
+      <footer className={`${styles.section} ${styles.footer}`}>
         <div className={styles.footerInner}>
           <a href="https://jolicollective.net" className={styles.footerLogo}>
             <img src={`${SUPABASE_ASSETS}/JOLI_Wordmark_Black.svg`} alt="JOLI" className={styles.footerLogoImg} />
