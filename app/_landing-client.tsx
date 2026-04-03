@@ -195,31 +195,36 @@ export default function LandingClient() {
 
       {/* ──────────────────── FAQ ──────────────────── */}
       <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(2)}>
-        <div className={styles.faqInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>Questions</span>
-          <h2 data-stagger className={`${styles.faqHeadline} ${styles.staggerChild}`}>Frequently asked</h2>
-          <div data-stagger className={`${styles.faqList} ${styles.staggerChild}`}>
-            {FAQS.map((faq, i) => (
-              <div key={i} className={styles.faqItem}>
-                <button
-                  className={styles.faqQuestion}
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                >
-                  <span>{faq.q}</span>
-                  <svg
-                    width="16" height="16" viewBox="0 0 16 16" fill="none"
-                    className={`${styles.faqChevron} ${openFaq === i ? styles.faqChevronOpen : ''}`}
+        <div className={styles.faqOuter}>
+          <div className={styles.faqCol}>
+            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Questions</span>
+            <h2 data-stagger className={`${styles.faqHeadline} ${styles.staggerChild}`}>Frequently asked</h2>
+            <div data-stagger className={`${styles.faqList} ${styles.staggerChild}`}>
+              {FAQS.map((faq, i) => (
+                <div key={i} className={styles.faqItem}>
+                  <button
+                    className={styles.faqQuestion}
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   >
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                {openFaq === i && (
-                  <div className={styles.faqAnswer}>
-                    <p>{faq.a}</p>
-                  </div>
-                )}
-              </div>
-            ))}
+                    <span>{faq.q}</span>
+                    <svg
+                      width="16" height="16" viewBox="0 0 16 16" fill="none"
+                      className={`${styles.faqChevron} ${openFaq === i ? styles.faqChevronOpen : ''}`}
+                    >
+                      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  {openFaq === i && (
+                    <div className={styles.faqAnswer}>
+                      <p>{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild}`}>
+            <img src={`${SUPABASE_ASSETS}/Alpine_flower.JPG`} alt="" className={styles.faqImage} />
           </div>
         </div>
       </section>

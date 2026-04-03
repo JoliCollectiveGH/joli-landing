@@ -390,20 +390,25 @@
 /* ──────────────────── FAQ ──────────────────── */
 
 .faqSection {
-  background: var(--white);
+  background: var(--surface);
   padding: 56px 2rem;
 }
 
-.faqInner {
-  max-width: 640px;
+.faqOuter {
+  max-width: 1080px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
 }
+
+.faqCol { }
 
 .faqHeadline {
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: 300;
   color: var(--ink);
-  text-align: center;
   margin: 0 0 32px;
   letter-spacing: -0.02em;
 }
@@ -454,6 +459,18 @@
   color: var(--ink-muted);
   line-height: 1.6;
   margin: 0;
+}
+
+.faqImageCol {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faqImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 
 /* ──────────────────── FOOTER ──────────────────── */
@@ -509,6 +526,7 @@
   .stepCard:last-child { border-bottom: none; }
   .testimonialsLayout { grid-template-columns: 1fr; gap: 32px; }
   .cardFirst { border-radius: 16px 16px 0 0; }
+  .faqOuter { grid-template-columns: 1fr; gap: 32px; }
 }
 
 @media (max-width: 768px) {
