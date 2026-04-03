@@ -484,6 +484,10 @@
   .cardFirst { border-radius: 12px 12px 0 0; }
   .quoteText { font-size: 18px; line-height: 1.5; }
   .quoteCite { font-size: 13px; }
+  .faqCol { text-align: center; }
+  .faqHeadline { text-align: center; }
+  .faqCol .eyebrow { text-align: center; }
+  .faqQuestion { text-align: left; }
 }
 
 @media (max-width: 480px) {
