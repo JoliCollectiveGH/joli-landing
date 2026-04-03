@@ -127,8 +127,8 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  height: 85dvh;
-  min-height: 600px;
+  height: 75dvh;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,6 +383,75 @@
 
 .screenshotImg { display: block; width: 100%; height: auto; }
 
+/* ──────────────────── FAQ ──────────────────── */
+
+.faqSection {
+  background: var(--white);
+  padding: 56px 2rem;
+}
+
+.faqInner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.faqHeadline {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 300;
+  color: var(--ink);
+  text-align: center;
+  margin: 0 0 32px;
+  letter-spacing: -0.02em;
+}
+
+.faqList {
+  border-top: 1px solid var(--surface-border-soft);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--surface-border-soft);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.faqQuestion:hover { color: var(--brand); }
+
+.faqChevron {
+  color: var(--ink-faint);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.faqChevronOpen {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding: 0 0 16px;
+}
+
+.faqAnswer p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
 /* ──────────────────── FOOTER ──────────────────── */
 
 .footer {
@@ -439,9 +508,11 @@
 }
 
 @media (max-width: 768px) {
-  .navPills { display: none; }
+  .navPills { gap: 6px; }
+  .navPill { font-size: 11px; padding: 5px 12px; }
   .howSection { padding: 48px 1.5rem 32px; }
   .testimonials { padding: 40px 1.5rem; }
+  .faqSection { padding: 40px 1.5rem; }
   .heroHeadline { font-size: 1.625rem; }
   .navInner { padding: 14px 1.25rem; }
   .cardFirst { border-radius: 12px 12px 0 0; }

@@ -29,8 +29,36 @@ const TESTIMONIALS = [
   },
 ];
 
+const FAQS = [
+  {
+    q: 'What is JOLI?',
+    a: 'JOLI is a premium trip planning service. Tell us where you\'re going and what kind of experience you\'re after — and we build a complete, personalised plan: accommodation, dining, activities, and logistics.',
+  },
+  {
+    q: 'How does it work?',
+    a: 'Start a conversation with JOLI, answer a few questions about your trip, and your plan is built in minutes — powered by AI working within our proprietary curated datasets.',
+  },
+  {
+    q: 'How much does it cost?',
+    a: 'A single trip plan is £5 with no subscription. Monthly plans start at £9/month with copilot editing included.',
+  },
+  {
+    q: 'Can I edit my plan?',
+    a: 'Yes. Paid plans include access to the copilot — an in-plan AI editor that can swap recommendations, add days, or rework any section based on your feedback.',
+  },
+  {
+    q: 'Where do you cover?',
+    a: 'JOLI plans trips worldwide. Our curated database is strongest across Europe, but we research and build plans for any destination.',
+  },
+  {
+    q: 'Is JOLI just AI?',
+    a: 'JOLI is AI-powered — that\'s how we deliver plans in minutes. But the AI works within proprietary datasets we\'ve built ourselves, with quality filters we set. The result feels curated because the system behind it is curated.',
+  },
+];
+
 export default function LandingClient() {
   const [scrolled, setScrolled] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -160,6 +188,37 @@ export default function LandingClient() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────────────── FAQ ──────────────────── */}
+      <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(2)}>
+        <div className={styles.faqInner}>
+          <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>Questions</span>
+          <h2 data-stagger className={`${styles.faqHeadline} ${styles.staggerChild}`}>Frequently asked</h2>
+          <div data-stagger className={`${styles.faqList} ${styles.staggerChild}`}>
+            {FAQS.map((faq, i) => (
+              <div key={i} className={styles.faqItem}>
+                <button
+                  className={styles.faqQuestion}
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
+                  <span>{faq.q}</span>
+                  <svg
+                    width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    className={`${styles.faqChevron} ${openFaq === i ? styles.faqChevronOpen : ''}`}
+                  >
+                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                {openFaq === i && (
+                  <div className={styles.faqAnswer}>
+                    <p>{faq.a}</p>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
