@@ -102,13 +102,6 @@ export default function LandingClient() {
       {/* ──────────────────────────── NAV ──────────────────────────── */}
       <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
         <div className={styles.navInner}>
-          <a href="https://jolicollective.net" className={styles.navLogo}>
-            <img
-              src={`${SUPABASE_ASSETS}/JOLI_Wordmark_Black.svg`}
-              alt="JOLI"
-              className={`${styles.logoImg} ${scrolled ? styles.logoScrolled : styles.logoHero}`}
-            />
-          </a>
           <div className={styles.navPills}>
             <a href={`${APP_URL}/how-it-works`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>How it works</a>
             <a href={`${APP_URL}/membership`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Pricing</a>
@@ -120,7 +113,7 @@ export default function LandingClient() {
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.heroSymbol} />
+          <img src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`} alt="JOLI" className={styles.heroSymbol} />
           <h1 className={styles.heroHeadline}>Personalised travel planning</h1>
           <p className={styles.heroSub}>Where to stay. Where to eat. What&rsquo;s worth your time.</p>
           <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Plan a trip</a>
