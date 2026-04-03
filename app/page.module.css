@@ -129,30 +129,37 @@
   z-index: 1;
   height: 75dvh;
   min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #AD531B;
   overflow: hidden;
 }
 
-.heroBg {
-  position: absolute;
-  inset: 0;
-  background: #AD531B;
+.heroSplit {
+  display: flex;
+  height: 100%;
 }
 
-.heroContent {
-  position: relative;
-  z-index: 2;
+.heroText {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 2rem;
+  justify-content: center;
+  padding: 0 4rem 0 max(2rem, calc((100vw - 1200px) / 2 + 2rem));
   opacity: 0;
   transform: translateY(16px);
   animation: heroFadeIn 1.4s ease forwards;
   animation-delay: 0.3s;
+}
+
+.heroImage {
+  width: 45%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @keyframes heroFadeIn {
@@ -160,7 +167,7 @@
   to { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
 
-.heroSymbol { width: 56px; height: auto; margin-bottom: 28px; }
+.heroSymbol { width: 48px; height: auto; margin-bottom: 24px; }
 
 .heroHeadline {
   font-size: clamp(1.75rem, 4vw, 2.75rem);
@@ -182,7 +189,7 @@
 .scrollHint {
   position: absolute;
   bottom: 24px;
-  left: 50%;
+  left: 25%;
   transform: translateX(-50%);
   z-index: 2;
   animation: hintBounce 2.4s ease-in-out infinite;
@@ -513,6 +520,15 @@
   .heroHeadline { font-size: 1.625rem; }
   .navInner { padding: 14px 1.25rem; }
   .cardFirst { border-radius: 12px 12px 0 0; }
+  .heroSplit { flex-direction: column; }
+  .heroText {
+    flex: none;
+    padding: 80px 1.5rem 32px;
+    text-align: center;
+    align-items: center;
+  }
+  .heroImage { width: 100%; flex: 1; }
+  .scrollHint { left: 50%; }
 }
 
 @media (max-width: 480px) {

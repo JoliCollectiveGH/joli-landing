@@ -119,12 +119,16 @@ export default function LandingClient() {
 
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>
-        <div className={styles.heroBg} />
-        <div className={styles.heroContent}>
-          <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.heroSymbol} />
-          <h1 className={styles.heroHeadline}>Personalised travel planning</h1>
-          <p className={styles.heroSub}>Where to stay. Where to eat. What&rsquo;s worth your time.</p>
-          <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Plan a trip</a>
+        <div className={styles.heroSplit}>
+          <div className={styles.heroText}>
+            <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.heroSymbol} />
+            <h1 className={styles.heroHeadline}>Personalised travel planning</h1>
+            <p className={styles.heroSub}>Where to stay. Where to eat. What&rsquo;s worth your time.</p>
+            <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Plan a trip</a>
+          </div>
+          <div className={styles.heroImage}>
+            <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.heroImg} />
+          </div>
         </div>
         <div className={styles.scrollHint}>
           <svg width="28" height="28" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
