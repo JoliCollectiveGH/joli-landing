@@ -147,8 +147,7 @@ export default function LandingClient() {
             <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
           </div>
           <div className={styles.faqCol}>
-            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Questions</span>
-            <h2 data-stagger className={`${styles.faqHeadline} ${styles.staggerChild}`}>Frequently asked</h2>
+            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Frequently asked</span>
             <div data-stagger className={`${styles.faqList} ${styles.staggerChild}`}>
               {FAQS.map((faq, i) => (
                 <div key={i} className={styles.faqItem}>

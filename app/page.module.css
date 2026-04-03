@@ -333,14 +333,6 @@
 
 .faqCol { }
 
-.faqHeadline {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  font-weight: 300;
-  color: var(--ink);
-  margin: 0 0 32px;
-  letter-spacing: -0.02em;
-}
-
 .faqList {
   border-top: 1px solid var(--surface-border-soft);
 }
@@ -471,7 +463,6 @@
   .quoteText { font-size: 18px; line-height: 1.5; }
   .quoteCite { font-size: 13px; }
   .faqCol { text-align: center; }
-  .faqHeadline { text-align: center; }
   .faqCol .eyebrow { text-align: center; }
   .faqQuestion { text-align: left; }
 }
