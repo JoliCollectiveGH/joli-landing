@@ -150,6 +150,9 @@ export default function LandingClient() {
       {/* ──────────────────── FAQ ──────────────────── */}
       <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.faqOuter}>
+          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild}`}>
+            <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
+          </div>
           <div className={styles.faqCol}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Questions</span>
             <h2 data-stagger className={`${styles.faqHeadline} ${styles.staggerChild}`}>Frequently asked</h2>
@@ -176,9 +179,6 @@ export default function LandingClient() {
                 </div>
               ))}
             </div>
-          </div>
-          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild}`}>
-            <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
           </div>
         </div>
       </section>
