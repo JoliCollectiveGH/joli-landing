@@ -167,13 +167,9 @@
 }
 
 .heroSymbol {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 36px;
+  width: 48px;
   height: auto;
-  opacity: 0.15;
-  pointer-events: none;
+  margin-bottom: 24px;
 }
 
 .heroHeadline {
