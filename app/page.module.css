@@ -151,11 +151,11 @@
 }
 
 .heroImage {
-  width: 45%;
+  width: 38%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  padding: 2rem 2rem 2rem 0;
+  padding: 3rem;
 }
 
 .heroImg {
@@ -170,7 +170,15 @@
   to { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
 
-.heroSymbol { width: 48px; height: auto; margin-bottom: 24px; }
+.heroSymbol {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 36px;
+  height: auto;
+  opacity: 0.15;
+  pointer-events: none;
+}
 
 .heroHeadline {
   font-size: clamp(1.75rem, 4vw, 2.75rem);
@@ -189,19 +197,6 @@
   line-height: 1.5;
 }
 
-.scrollHint {
-  position: absolute;
-  bottom: 24px;
-  left: 72%;
-  transform: translateX(-50%);
-  z-index: 2;
-  animation: hintBounce 2.4s ease-in-out infinite;
-}
-
-@keyframes hintBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(6px); }
-}
 
 /* ──────────────────── SCROLL REVEAL ──────────────────── */
 
@@ -541,16 +536,14 @@
   .heroHeadline { font-size: 1.625rem; }
   .navInner { padding: 14px 1.25rem; }
   .cardFirst { border-radius: 12px 12px 0 0; }
-  .heroSplit { flex-direction: column; }
+  .heroSplit { flex-direction: column; justify-content: center; }
   .heroText {
     flex: none;
-    padding: 80px 1.5rem 32px;
+    padding: 80px 1.5rem 48px;
     text-align: center;
     align-items: center;
   }
-  .heroImage { width: 100%; flex: 1; padding: 0; }
-  .heroImg { border-radius: 0; }
-  .scrollHint { left: 50%; }
+  .heroImage { display: none; }
 }
 
 @media (max-width: 480px) {
