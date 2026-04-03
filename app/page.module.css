@@ -272,19 +272,10 @@
   margin: 0 auto;
 }
 
-.testimonialsLayout {
+.quoteRow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: start;
-}
-
-.quotesCol { }
-
-.quoteGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
   margin-bottom: 24px;
 }
 
@@ -330,45 +321,6 @@
   color: var(--ink-faint);
 }
 
-/* Screenshot in testimonials — unique class names to avoid conflicts */
-.screenshotCol { }
-
-.screenshotFrame {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--surface-border);
-  box-shadow: 0 1px 3px rgba(26,24,20,0.06), 0 8px 32px rgba(26,24,20,0.08);
-  background: var(--white);
-}
-
-.screenshotChrome {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  background: var(--white);
-  border-bottom: 1px solid var(--surface-border-soft);
-}
-
-.screenshotDots { display: flex; gap: 5px; }
-
-.screenshotDots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--surface-border);
-}
-
-.screenshotUrl {
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--ink-faint);
-  letter-spacing: 0.01em;
-}
-
-.screenshotBody { background: var(--surface); }
-
-.screenshotImg { display: block; width: 100%; height: auto; }
 
 /* ──────────────────── FAQ ──────────────────── */
 
@@ -449,12 +401,7 @@
   overflow: hidden;
 }
 
-.testimonialImageFrame {
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.testimonialImage {
+.faqImage {
   display: block;
   width: 100%;
   height: auto;
@@ -512,7 +459,7 @@
   .stepsRow { grid-template-columns: 1fr; gap: 0; }
   .stepCard { border-top: none; border-bottom: 1px solid var(--surface-border-soft); padding: 20px 0; }
   .stepCard:last-child { border-bottom: none; }
-  .testimonialsLayout { grid-template-columns: 1fr; gap: 32px; }
+  .quoteRow { grid-template-columns: 1fr 1fr; }
   .cardFirst { border-radius: 16px 16px 0 0; }
   .faqOuter { grid-template-columns: 1fr; gap: 32px; }
 }
@@ -530,5 +477,5 @@
 
 @media (max-width: 480px) {
   .heroSymbol { width: 40px; }
-  .quoteGrid { grid-template-columns: 1fr; }
+  .quoteRow { grid-template-columns: 1fr; }
 }
