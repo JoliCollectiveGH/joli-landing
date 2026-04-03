@@ -127,42 +127,27 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  height: 75dvh;
-  min-height: 500px;
+  height: 65dvh;
+  min-height: 420px;
   background: #AD531B;
   overflow: hidden;
-}
-
-.heroSplit {
   display: flex;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.heroText {
-  flex: 1;
+.heroContent {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 max(2rem, calc((100vw - 1200px) / 2 + 2rem)) 0 4rem;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
   opacity: 0;
   transform: translateY(16px);
   animation: heroFadeIn 1.4s ease forwards;
   animation-delay: 0.3s;
-}
-
-.heroImage {
-  width: 38%;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  padding: 3rem;
-}
-
-.heroImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
 }
 
 @keyframes heroFadeIn {
@@ -536,14 +521,6 @@
   .heroHeadline { font-size: 1.625rem; }
   .navInner { padding: 14px 1.25rem; }
   .cardFirst { border-radius: 12px 12px 0 0; }
-  .heroSplit { flex-direction: column; justify-content: center; }
-  .heroText {
-    flex: none;
-    padding: 80px 1.5rem 48px;
-    text-align: center;
-    align-items: center;
-  }
-  .heroImage { display: none; }
 }
 
 @media (max-width: 480px) {
