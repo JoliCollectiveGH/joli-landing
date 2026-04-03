@@ -147,29 +147,8 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
-      <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(1)}>
-        <div className={styles.testimonialsInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>What people say</span>
-          <div className={styles.quoteRow}>
-            {TESTIMONIALS.map((t) => (
-              <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
-                <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
-                <cite className={styles.quoteCite}>— {t.name}</cite>
-              </blockquote>
-            ))}
-          </div>
-          <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`} style={{ textAlign: 'center' }}>
-            <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
-              <span className={styles.trustpilotStars}>★★★★</span>
-              <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* ──────────────────── FAQ ──────────────────── */}
-      <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(2)}>
+      <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.faqOuter}>
           <div className={styles.faqCol}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Questions</span>
@@ -200,6 +179,27 @@ export default function LandingClient() {
           </div>
           <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild}`}>
             <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
+      <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(2)}>
+        <div className={styles.testimonialsInner}>
+          <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>What people say</span>
+          <div className={styles.quoteRow}>
+            {TESTIMONIALS.map((t) => (
+              <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
+                <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
+                <cite className={styles.quoteCite}>— {t.name}</cite>
+              </blockquote>
+            ))}
+          </div>
+          <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`} style={{ textAlign: 'center' }}>
+            <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
+              <span className={styles.trustpilotStars}>★★★★</span>
+              <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
+            </a>
           </div>
         </div>
       </section>
