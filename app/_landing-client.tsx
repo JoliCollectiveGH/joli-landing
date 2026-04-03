@@ -169,14 +169,8 @@ export default function LandingClient() {
               </div>
             </div>
             <div data-stagger className={`${styles.screenshotCol} ${styles.staggerChild}`}>
-              <div className={styles.screenshotFrame}>
-                <div className={styles.screenshotChrome}>
-                  <div className={styles.screenshotDots}><span /><span /><span /></div>
-                  <div className={styles.screenshotUrl}>app.jolicollective.net/trips</div>
-                </div>
-                <div className={styles.screenshotBody}>
-                  <img src={`${SUPABASE_ASSETS}/Platform3.jpg`} alt="JOLI trip plans" className={styles.screenshotImg} />
-                </div>
+              <div className={styles.testimonialImageFrame}>
+                <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.testimonialImage} />
               </div>
             </div>
           </div>
@@ -186,6 +180,17 @@ export default function LandingClient() {
       {/* ──────────────────── FAQ ──────────────────── */}
       <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(2)}>
         <div className={styles.faqOuter}>
+          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild}`}>
+            <div className={styles.screenshotFrame}>
+              <div className={styles.screenshotChrome}>
+                <div className={styles.screenshotDots}><span /><span /><span /></div>
+                <div className={styles.screenshotUrl}>app.jolicollective.net/trips</div>
+              </div>
+              <div className={styles.screenshotBody}>
+                <img src={`${SUPABASE_ASSETS}/Platform3.jpg`} alt="JOLI trip plans" className={styles.screenshotImg} />
+              </div>
+            </div>
+          </div>
           <div className={styles.faqCol}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Questions</span>
             <h2 data-stagger className={`${styles.faqHeadline} ${styles.staggerChild}`}>Frequently asked</h2>
@@ -212,9 +217,6 @@ export default function LandingClient() {
                 </div>
               ))}
             </div>
-          </div>
-          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild}`}>
-            <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
           </div>
         </div>
       </section>

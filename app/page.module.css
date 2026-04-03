@@ -449,7 +449,12 @@
   overflow: hidden;
 }
 
-.faqImage {
+.testimonialImageFrame {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.testimonialImage {
   display: block;
   width: 100%;
   height: auto;
