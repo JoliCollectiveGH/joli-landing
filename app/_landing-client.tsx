@@ -151,7 +151,6 @@ export default function LandingClient() {
           <div className={styles.sectionHeader}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>See it in action</span>
             <h2 data-stagger className={`${styles.sectionHeadline} ${styles.staggerChild}`}>Built to feel like a conversation.</h2>
-            <p data-stagger className={`${styles.sectionSub} ${styles.staggerChild}`}>From the first message to a finished plan — here's what using JOLI actually looks like.</p>
           </div>
 
           {/* Desktop tab switcher — hidden on mobile */}
