@@ -434,10 +434,15 @@ export default function LandingClient() {
         </div>
       </section>
 
+      {/* Mobile-only image between testimonials and FAQ */}
+      <div className={styles.faqImageMobile}>
+        <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
+      </div>
+
       {/* ──────────────────── FAQ ──────────────────── */}
       <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(2)}>
         <div className={styles.faqOuter}>
-          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild}`}>
+          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild} ${styles.faqImageDesktop}`}>
             <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
           </div>
           <div className={styles.faqCol}>
