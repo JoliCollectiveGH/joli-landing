@@ -54,6 +54,18 @@ const FAQS = [
     q: 'Is JOLI just AI?',
     a: 'JOLI is AI-powered — that\'s how we deliver plans in minutes. But the AI works within proprietary datasets we\'ve built ourselves, with quality filters we set. The result feels curated because the system behind it is curated.',
   },
+  {
+    q: 'How long does a plan take?',
+    a: 'Most plans are ready within a few minutes of submission. You\'ll receive an email the moment yours is complete.',
+  },
+  {
+    q: 'Can I request changes after I receive my plan?',
+    a: 'Yes. Every plan includes a built-in copilot you can use to swap recommendations, adjust the pace, or ask questions about any part of your itinerary.',
+  },
+  {
+    q: 'Do I need an account to get a plan?',
+    a: 'You\'ll need to create a free account to submit a request and receive your plan. It takes under a minute and your plan is saved to your account for easy access.',
+  },
 ];
 
 export default function LandingClient() {
