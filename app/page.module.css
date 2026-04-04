@@ -515,6 +515,89 @@
 .demoTab:hover { color: var(--ink); border-color: var(--ink-faint); }
 .demoTabActive { background: var(--brand); border-color: var(--brand); color: #fff; }
 
+/* Desktop only / Mobile only toggles */
+.demoTabsDesktop { display: flex; }
+.demoDesktopOnly { display: block; }
+.demoCarousel { display: none; }
+
+/* ──────────────────── MOBILE CAROUSEL ──────────────────── */
+
+.demoCarousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.demoCarouselTrack {
+  display: flex;
+  gap: 16px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 16px;
+  cursor: grab;
+}
+
+.demoCarouselTrack::-webkit-scrollbar { display: none; }
+
+.demoCarouselCard {
+  flex: 0 0 85vw;
+  max-width: 360px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demoCarouselLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin: 0;
+}
+
+.demoCarouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 12px;
+}
+
+.demoCarouselDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--surface-border);
+}
+
+.demoCopilotPickerMobile {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demoCopilotPickerCardStatic {
+  width: 100%;
+  text-align: left;
+  background: var(--white);
+  border: 1px solid var(--surface-border-soft);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Responsive overrides */
+@media (max-width: 768px) {
+  .demoTabsDesktop { display: none; }
+  .demoDesktopOnly { display: none !important; }
+  .demoCarousel { display: block; }
+}
+
 .demoPanelDark {
   position: relative;
   background: #342F2C;
