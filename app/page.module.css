@@ -583,6 +583,7 @@
 
 /* ──────────────────── CTA BANNER ──────────────────── */
 
+.ctaBannerSection { background: var(--surface); padding: 0 2rem 64px; }
 .ctaBanner { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 32px; background: var(--brand); border-radius: 20px; padding: 48px 56px; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .ctaBanner:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(173, 83, 27, 0.25); }
 .ctaBannerLeft { display: flex; flex-direction: column; gap: 8px; }

@@ -128,7 +128,6 @@ export default function LandingClient() {
           <div className={styles.sectionHeader}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>How it works</span>
             <h2 data-stagger className={`${styles.sectionHeadline} ${styles.staggerChild}`}>A complete trip plan in minutes.</h2>
-            <p data-stagger className={`${styles.sectionSub} ${styles.staggerChild}`}>Describe your trip, answer a few questions, and JOLI builds a personalised plan — accommodation, dining, experiences, and logistics — ready to explore and refine.</p>
           </div>
           <div className={styles.stepsRow}>
             {[
@@ -170,7 +169,7 @@ export default function LandingClient() {
 
           {/* Chat demo */}
           {activeDemo === 'chat' && (
-            <div data-stagger className={`${styles.demoPanelDark} ${styles.staggerChild}`}>
+            <div className={styles.demoPanelDark}>
               <div className={styles.demoChatHeader}>
                 <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.demoChatLogo} />
                 <span className={styles.demoChatLabel}>JOLI</span>
@@ -374,7 +373,7 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── CTA BANNER ──────────────────────────── */}
-      <section className={styles.section} style={{ padding: '0 2rem 48px' }}>
+      <section className={styles.ctaBannerSection}>
         <div className={styles.howInner}>
           <a href={`${APP_URL}/request`} className={styles.ctaBanner}>
             <div className={styles.ctaBannerLeft}>
