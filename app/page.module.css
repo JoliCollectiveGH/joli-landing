@@ -659,13 +659,13 @@
 .demoBudgetRowTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 .demoBudgetLabel { font-size: 14px; font-weight: 500; color: var(--ink); }
 .demoBudgetEstimate { font-size: 12px; color: var(--ink-faint); }
-.demoBudgetRowMid { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.demoBudgetSpent { font-size: 20px; font-weight: 300; color: var(--ink); }
+.demoBudgetRowMid { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.demoBudgetSpent { font-size: 16px; font-weight: 300; color: var(--ink); }
 .demoBudgetStatus { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .demoBudgetBar { height: 4px; background: #F0EDE6; border-radius: 100px; overflow: hidden; }
 .demoBudgetBarFill { height: 100%; border-radius: 100px; transition: width 0.5s ease; }
-.demoBudgetTotal { padding: 16px; background: #F5EDE5; border-top: 1px solid var(--surface-border-soft); }
-.demoBudgetSpentLarge { font-size: 28px; font-weight: 300; color: var(--ink); margin: 6px 0 10px; }
+.demoBudgetTotal { padding: 10px 16px; background: #F5EDE5; border-top: 1px solid var(--surface-border-soft); }
+.demoBudgetSpentLarge { font-size: 20px; font-weight: 300; color: var(--ink); margin: 4px 0 8px; }
 
 /* ──────────────────── CTA BANNER ──────────────────── */
 
