@@ -650,7 +650,7 @@
 .demoCopilotMsgUser { align-self: flex-end; background: var(--brand); color: #fff; border-radius: 14px; border-top-right-radius: 4px; padding: 10px 14px; font-size: 13px; font-weight: 300; line-height: 1.5; max-width: 85%; }
 .demoCopilotMsgJoli { align-self: flex-start; background: var(--white); color: var(--ink); border-radius: 14px; border-top-left-radius: 4px; padding: 10px 14px; font-size: 13px; font-weight: 300; line-height: 1.5; max-width: 85%; border: 1px solid var(--surface-border-soft); }
 
-.demoBudgetWrap { padding: 24px; }
+.demoBudgetWrap { padding: 24px; min-height: 380px; }
 .demoBudgetNote { font-size: 12px; color: var(--ink-faint); font-weight: 300; margin: 0 0 16px; padding-bottom: 16px; border-bottom: 1px solid var(--surface-border-soft); }
 .demoBudgetRows { border-top: 1px solid var(--surface-border-soft); }
 .demoBudgetRow { padding: 14px 0; border-bottom: 1px solid var(--surface-border-soft); }
