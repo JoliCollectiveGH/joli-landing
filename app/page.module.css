@@ -604,6 +604,7 @@
   border-radius: 16px;
   padding: 24px 24px 0;
   overflow: hidden;
+  max-height: 380px;
 }
 
 .demoChatHeader { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
