@@ -386,8 +386,7 @@ export default function LandingClient() {
                   {[
                     { label: 'Accommodation', estimate: 'Est. £2,800–3,400', spent: 2950, low: 2800, high: 3400 },
                     { label: 'Food & drink', estimate: 'Est. £480–620', spent: 310, low: 480, high: 620 },
-                    { label: 'Transport', estimate: 'Est. £900–1,200', spent: 0, low: 900, high: 1200 },
-                    { label: 'Activities', estimate: 'Est. £320–500', spent: 0, low: 320, high: 500 },
+                    { label: 'Transport', estimate: 'Est. £900–1,200', spent: 820, low: 900, high: 1200 },
                   ].map((cat) => {
                     const max = cat.high * 1.1;
                     const pct = Math.min((cat.spent / max) * 100, 100);
