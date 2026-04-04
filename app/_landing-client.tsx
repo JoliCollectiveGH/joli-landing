@@ -180,6 +180,15 @@ export default function LandingClient() {
 
           {/* Mobile carousel — hidden on desktop */}
           <div className={styles.demoCarousel}>
+            <div className={styles.demoCarouselHint}>
+              <span className={styles.demoCarouselHintLabel}>3 features</span>
+              <span className={styles.demoCarouselHintArrow}>
+                Swipe to explore
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </div>
             <div className={styles.demoCarouselTrack}>
 
               {/* Card 1 — Chat */}

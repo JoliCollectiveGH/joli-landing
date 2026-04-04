@@ -529,26 +529,51 @@
   overflow: hidden;
 }
 
+.demoCarouselHint {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.demoCarouselHintLabel {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.demoCarouselHintArrow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+
 .demoCarouselTrack {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding-bottom: 16px;
+  padding-right: 32px;
+  padding-bottom: 4px;
   cursor: grab;
 }
 
+.demoCarouselTrack:active { cursor: grabbing; }
 .demoCarouselTrack::-webkit-scrollbar { display: none; }
 
 .demoCarouselCard {
-  flex: 0 0 85vw;
-  max-width: 360px;
+  flex: 0 0 82vw;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .demoCarouselLabel {
@@ -558,20 +583,22 @@
   text-transform: uppercase;
   color: var(--brand);
   margin: 0;
+  padding: 0 2px;
 }
 
 .demoCarouselDots {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  padding-top: 12px;
+  gap: 5px;
+  padding-top: 14px;
 }
 
 .demoCarouselDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
   background: var(--surface-border);
+  transition: background 0.2s ease;
 }
 
 .demoCopilotPickerMobile {
