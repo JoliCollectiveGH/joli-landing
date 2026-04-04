@@ -258,6 +258,8 @@
 .testimonials {
   background: var(--surface);
   padding: 56px 2rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .testimonialsInner {
@@ -320,6 +322,8 @@
 .faqSection {
   background: var(--surface);
   padding: 56px 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .faqOuter {
@@ -723,7 +727,7 @@
 }
 
 .faqImageDesktop { display: block; }
-.faqImageMobile { display: none; }
+.faqImageMobile { display: none; position: relative; z-index: 2; background: var(--surface); }
 
 @media (max-width: 900px) {
   .faqImageDesktop { display: none; }
