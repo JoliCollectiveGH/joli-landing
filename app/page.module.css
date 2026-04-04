@@ -471,3 +471,139 @@
   .quoteRow { grid-template-columns: 1fr; }
   .quoteText { font-size: 20px; }
 }
+
+/* ──────────────────── SECTION HEADERS ──────────────────── */
+
+.sectionHeader { margin-bottom: 48px; }
+
+.sectionHeadline {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.sectionSub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  max-width: 560px;
+  margin: 0;
+}
+
+/* ──────────────────── PRODUCT DEMO ──────────────────── */
+
+.demoSection { background: var(--white); padding: 64px 2rem; }
+.demoInner { max-width: 1080px; margin: 0 auto; }
+
+.demoTabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+
+.demoTab {
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid var(--surface-border);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.demoTab:hover { color: var(--ink); border-color: var(--ink-faint); }
+.demoTabActive { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+.demoPanelDark {
+  position: relative;
+  background: #342F2C;
+  border-radius: 16px;
+  padding: 24px 24px 0;
+  overflow: hidden;
+}
+
+.demoChatHeader { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.demoChatLogo { width: 16px; height: 16px; opacity: 0.4; }
+.demoChatLabel { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+
+.demoChatMessages { display: flex; flex-direction: column; gap: 16px; padding-bottom: 80px; }
+
+.demoChatJoli { display: flex; flex-direction: column; gap: 4px; max-width: 72%; }
+.demoChatSender { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); padding-left: 4px; }
+.demoChatBubbleJoli { background: #fff; border-radius: 16px; border-top-left-radius: 4px; padding: 12px 16px; font-size: 14px; font-weight: 300; color: #1A1814; line-height: 1.55; }
+
+.demoChatUser { display: flex; justify-content: flex-end; }
+.demoChatBubbleUser { background: #AD531B; border-radius: 16px; border-top-right-radius: 4px; padding: 12px 16px; font-size: 14px; font-weight: 300; color: #fff; line-height: 1.55; max-width: 72%; }
+
+.demoChatFade { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(to bottom, transparent, #342F2C); pointer-events: none; }
+
+.demoPanelLight { background: var(--surface); border-radius: 16px; border: 1px solid var(--surface-border-soft); overflow: hidden; }
+
+.demoCopilotWrap { display: grid; grid-template-columns: 1fr 1fr; min-height: 380px; }
+.demoCopilotContext { padding: 28px; border-right: 1px solid var(--surface-border-soft); background: #F5EDE5; }
+.demoCopilotEyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand); margin: 0 0 12px; }
+.demoCopilotTitle { font-size: 17px; font-weight: 400; color: var(--ink); margin: 0 0 4px; line-height: 1.3; }
+.demoCopilotMeta { font-size: 12px; color: var(--ink-faint); margin: 0 0 20px; }
+.demoCopilotItems { display: flex; flex-direction: column; gap: 8px; }
+.demoCopilotItem { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-muted); font-weight: 300; }
+.demoCopilotStar { color: var(--brand); font-size: 10px; flex-shrink: 0; }
+
+.demoCopilotPanel { display: flex; flex-direction: column; }
+.demoCopilotPanelHeader { padding: 16px 20px; border-bottom: 1px solid var(--surface-border-soft); }
+.demoCopilotPanelTitle { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); }
+.demoCopilotBack { background: none; border: none; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); cursor: pointer; padding: 0; transition: color 0.2s; }
+.demoCopilotBack:hover { color: var(--ink); }
+
+.demoCopilotPicker { padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.demoCopilotPickerPrompt { font-size: 13px; color: var(--ink-muted); margin: 0 0 4px; text-align: center; }
+.demoCopilotPickerCard { width: 100%; text-align: left; background: var(--white); border: 1px solid var(--surface-border-soft); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: all 0.2s ease; display: flex; flex-direction: column; gap: 2px; }
+.demoCopilotPickerCard:hover { border-color: var(--brand); transform: translateY(-1px); }
+.demoCopilotPickerLabel { font-size: 13px; font-weight: 500; color: var(--ink); }
+.demoCopilotPickerSub { font-size: 12px; color: var(--ink-faint); font-weight: 300; }
+
+.demoCopilotChat { padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; justify-content: flex-end; }
+.demoCopilotMsgUser { align-self: flex-end; background: var(--brand); color: #fff; border-radius: 14px; border-top-right-radius: 4px; padding: 10px 14px; font-size: 13px; font-weight: 300; line-height: 1.5; max-width: 85%; }
+.demoCopilotMsgJoli { align-self: flex-start; background: var(--white); color: var(--ink); border-radius: 14px; border-top-left-radius: 4px; padding: 10px 14px; font-size: 13px; font-weight: 300; line-height: 1.5; max-width: 85%; border: 1px solid var(--surface-border-soft); }
+
+.demoBudgetWrap { padding: 24px; }
+.demoBudgetNote { font-size: 12px; color: var(--ink-faint); font-weight: 300; margin: 0 0 16px; padding-bottom: 16px; border-bottom: 1px solid var(--surface-border-soft); }
+.demoBudgetRows { border-top: 1px solid var(--surface-border-soft); }
+.demoBudgetRow { padding: 14px 0; border-bottom: 1px solid var(--surface-border-soft); }
+.demoBudgetRowTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.demoBudgetLabel { font-size: 14px; font-weight: 500; color: var(--ink); }
+.demoBudgetEstimate { font-size: 12px; color: var(--ink-faint); }
+.demoBudgetRowMid { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.demoBudgetSpent { font-size: 20px; font-weight: 300; color: var(--ink); }
+.demoBudgetStatus { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.demoBudgetBar { height: 4px; background: #F0EDE6; border-radius: 100px; overflow: hidden; }
+.demoBudgetBarFill { height: 100%; border-radius: 100px; transition: width 0.5s ease; }
+.demoBudgetTotal { padding: 16px; background: #F5EDE5; border-top: 1px solid var(--surface-border-soft); }
+.demoBudgetSpentLarge { font-size: 28px; font-weight: 300; color: var(--ink); margin: 6px 0 10px; }
+
+/* ──────────────────── CTA BANNER ──────────────────── */
+
+.ctaBanner { display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 32px; background: var(--brand); border-radius: 20px; padding: 48px 56px; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.ctaBanner:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(173, 83, 27, 0.25); }
+.ctaBannerLeft { display: flex; flex-direction: column; gap: 8px; }
+.ctaBannerEyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0; }
+.ctaBannerHeadline { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 300; color: #fff; line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
+.ctaBannerBtns { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+.ctaBannerBtn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: #fff; color: var(--brand); border-radius: 100px; padding: 14px 28px; font-size: 14px; font-weight: 500; white-space: nowrap; transition: background 0.2s ease; }
+.ctaBanner:hover .ctaBannerBtn { background: #F0EDE6; }
+.ctaBannerBtnGhost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.4); border-radius: 100px; padding: 14px 28px; font-size: 14px; font-weight: 500; white-space: nowrap; text-decoration: none; transition: all 0.2s ease; }
+.ctaBannerBtnGhost:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
+.ctaBannerArrow { display: inline-block; transition: transform 0.2s ease; }
+.ctaBanner:hover .ctaBannerArrow { transform: translateX(4px); }
+
+@media (max-width: 900px) {
+  .demoCopilotWrap { grid-template-columns: 1fr; }
+  .demoCopilotContext { border-right: none; border-bottom: 1px solid var(--surface-border-soft); }
+  .ctaBanner { flex-direction: column; align-items: flex-start; padding: 36px 32px; }
+}
+
+@media (max-width: 768px) {
+  .demoSection { padding: 48px 1.5rem; }
+  .demoPanelDark { padding: 20px 20px 0; }
+  .sectionHeadline { font-size: 1.5rem; }
+}
