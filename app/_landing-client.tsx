@@ -216,7 +216,7 @@ export default function LandingClient() {
               </div>
               <div className={styles.demoCopilotExchange}>
                 <div className={styles.demoCopilotDivider} />
-                <div className={styles.demoCopilotMsgUser}>Can we swap the hotel for somewhere quieter, away from the main strip?</div>
+                <div className={styles.demoCopilotMsgUser}>Can we swap the hotel for somewhere quieter?</div>
                 <div className={styles.demoCopilotMsgJoli}>
                   <span className={styles.demoCopilotMsgSender}>JOLI</span>
                   Foresteria Monforte — a restored palazzo in a residential pocket, ten minutes from Tortona on foot. Want me to update the plan?
