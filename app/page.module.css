@@ -514,6 +514,20 @@
   margin-bottom: 20px;
 }
 .demoBlock:last-child { margin-bottom: 0; }
+.demoPairGrid .demoBlock { margin-bottom: 0; }
+
+.demoPairGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .demoPairGrid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .demoBlockLabel {
   font-size: 10px;

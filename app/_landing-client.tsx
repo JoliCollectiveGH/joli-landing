@@ -196,6 +196,7 @@ export default function LandingClient() {
             </div>
           </div>
 
+          <div className={styles.demoPairGrid}>
           {/* Demo 2 — The copilot */}
           <div className={styles.demoBlock}>
             <p className={styles.demoBlockLabel}>The copilot</p>
@@ -261,6 +262,7 @@ export default function LandingClient() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
