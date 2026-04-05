@@ -505,82 +505,17 @@
 .demoSection { background: var(--white); padding: 40px 2rem 64px; }
 .demoInner { max-width: 1080px; margin: 0 auto; }
 
-.demoTabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+/* ──────────────────── DEMO VERTICAL STACK ──────────────────── */
 
-.demoTab {
-  padding: 8px 20px;
-  border-radius: 100px;
-  border: 1px solid var(--surface-border);
-  background: transparent;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.demoTab:hover { color: var(--ink); border-color: var(--ink-faint); }
-.demoTabActive { background: var(--brand); border-color: var(--brand); color: #fff; }
-
-/* Desktop only / Mobile only toggles */
-.demoTabsDesktop { display: flex; }
-.demoDesktopOnly { display: block; }
-.demoCarousel { display: none; }
-
-/* ──────────────────── MOBILE CAROUSEL ──────────────────── */
-
-.demoCarousel {
-  width: 100%;
-  overflow: hidden;
-}
-
-.demoCarouselHint {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.demoCarouselHintLabel {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
-
-.demoCarouselHintArrow {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--ink-faint);
-}
-
-.demoCarouselTrack {
-  display: flex;
-  gap: 12px;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding-right: 32px;
-  padding-bottom: 4px;
-  cursor: grab;
-}
-
-.demoCarouselTrack:active { cursor: grabbing; }
-.demoCarouselTrack::-webkit-scrollbar { display: none; }
-
-.demoCarouselCard {
-  flex: 0 0 82vw;
-  scroll-snap-align: start;
+.demoBlock {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
+.demoBlock:last-child { margin-bottom: 0; }
 
-.demoCarouselLabel {
+.demoBlockLabel {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.15em;
@@ -588,21 +523,6 @@
   color: var(--brand);
   margin: 0;
   padding: 0 2px;
-}
-
-.demoCarouselDots {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  padding-top: 14px;
-}
-
-.demoCarouselDot {
-  width: 20px;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--surface-border);
-  transition: background 0.2s ease;
 }
 
 .demoCopilotPickerMobile {
@@ -624,20 +544,13 @@
   gap: 2px;
 }
 
-/* Responsive overrides */
-@media (max-width: 768px) {
-  .demoTabsDesktop { display: none; }
-  .demoDesktopOnly { display: none !important; }
-  .demoCarousel { display: block; }
-}
-
 .demoPanelDark {
   position: relative;
   background: #342F2C;
   border-radius: 16px;
   padding: 24px 24px 0;
   overflow: hidden;
-  max-height: 380px;
+  max-height: 440px;
 }
 
 .demoChatHeader { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }

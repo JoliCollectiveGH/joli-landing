@@ -71,8 +71,6 @@ const FAQS = [
 export default function LandingClient() {
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [activeDemo, setActiveDemo] = useState<'chat' | 'copilot' | 'budget'>('chat');
-  const [activeCopilot, setActiveCopilot] = useState<'stay' | 'dining' | 'activities' | null>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -165,130 +163,10 @@ export default function LandingClient() {
             <h2 data-stagger className={`${styles.sectionHeadline} ${styles.staggerChild}`}>Built to feel like a conversation.</h2>
           </div>
 
-          {/* Desktop tab switcher — hidden on mobile */}
-          <div data-stagger className={`${styles.demoTabs} ${styles.staggerChild} ${styles.demoTabsDesktop}`}>
-            {(['chat', 'copilot', 'budget'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => { setActiveDemo(tab); setActiveCopilot(null); }}
-                className={`${styles.demoTab} ${activeDemo === tab ? styles.demoTabActive : ''}`}
-              >
-                {tab === 'chat' ? 'The intake chat' : tab === 'copilot' ? 'The copilot' : 'Budget tracker'}
-              </button>
-            ))}
-          </div>
-
-          {/* Mobile carousel — hidden on desktop */}
-          <div className={styles.demoCarousel}>
-            <div className={styles.demoCarouselHint}>
-              <span className={styles.demoCarouselHintLabel}>3 features</span>
-              <span className={styles.demoCarouselHintArrow}>
-                Swipe to explore
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </span>
-            </div>
-            <div className={styles.demoCarouselTrack}>
-
-              {/* Card 1 — Chat */}
-              <div className={styles.demoCarouselCard}>
-                <p className={styles.demoCarouselLabel}>The intake chat</p>
-                <div className={styles.demoPanelDark}>
-                  <div className={styles.demoChatHeader}>
-                    <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.demoChatLogo} />
-                    <span className={styles.demoChatLabel}>JOLI</span>
-                  </div>
-                  <div className={styles.demoChatMessages}>
-                    {[
-                      { role: 'joli', text: "Hi — I'm here to help plan your trip. Where are you thinking of going?" },
-                      { role: 'user', text: 'South Africa — Cape Town and maybe a safari' },
-                      { role: 'joli', text: "Great combination. Most people do 4–5 nights in Cape Town then head to a private reserve. When are you thinking of travelling?" },
-                      { role: 'user', text: 'Late September, about 10 days' },
-                    ].map((msg, i) => (
-                      msg.role === 'joli' ? (
-                        <div key={i} className={styles.demoChatJoli}>
-                          <span className={styles.demoChatSender}>JOLI</span>
-                          <div className={styles.demoChatBubbleJoli}>{msg.text}</div>
-                        </div>
-                      ) : (
-                        <div key={i} className={styles.demoChatUser}>
-                          <div className={styles.demoChatBubbleUser}>{msg.text}</div>
-                        </div>
-                      )
-                    ))}
-                  </div>
-                  <div className={styles.demoChatFade} />
-                </div>
-              </div>
-
-              {/* Card 2 — Copilot */}
-              <div className={styles.demoCarouselCard}>
-                <p className={styles.demoCarouselLabel}>The copilot</p>
-                <div className={styles.demoPanelLight}>
-                  <div className={styles.demoCopilotPickerMobile}>
-                    <p className={styles.demoCopilotPickerPrompt}>What would you like to work on?</p>
-                    {[
-                      { label: "Where you'll stay", sub: 'Find alternatives, compare options, update details' },
-                      { label: 'Where to eat', sub: 'Find restaurants, check reviews, add or swap' },
-                      { label: 'Things to do', sub: 'Discover activities, day trips, experiences' },
-                    ].map(s => (
-                      <div key={s.label} className={styles.demoCopilotPickerCardStatic}>
-                        <span className={styles.demoCopilotPickerLabel}>{s.label}</span>
-                        <span className={styles.demoCopilotPickerSub}>{s.sub}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 3 — Budget */}
-              <div className={styles.demoCarouselCard}>
-                <p className={styles.demoCarouselLabel}>Budget tracker</p>
-                <div className={styles.demoPanelLight}>
-                  <div className={styles.demoBudgetWrap}>
-                    <p className={styles.demoBudgetNote}>South Africa — 10 nights, 2 travellers</p>
-                    <div className={styles.demoBudgetRows}>
-                      {[
-                        { label: 'Accommodation', estimate: 'Est. £2,800–3,400', spent: 2950, low: 2800, high: 3400 },
-                        { label: 'Food & drink', estimate: 'Est. £480–620', spent: 310, low: 480, high: 620 },
-                      ].map((cat) => {
-                        const max = cat.high * 1.1;
-                        const pct = Math.min((cat.spent / max) * 100, 100);
-                        const color = cat.spent <= cat.low ? '#7A8B5E' : '#B8860B';
-                        return (
-                          <div key={cat.label} className={styles.demoBudgetRow}>
-                            <div className={styles.demoBudgetRowTop}>
-                              <span className={styles.demoBudgetLabel}>{cat.label}</span>
-                              <span className={styles.demoBudgetEstimate}>{cat.estimate}</span>
-                            </div>
-                            <div className={styles.demoBudgetRowMid}>
-                              <span className={styles.demoBudgetSpent}>£{cat.spent.toLocaleString()}</span>
-                              <span className={styles.demoBudgetStatus} style={{ color }}>Under budget</span>
-                            </div>
-                            <div className={styles.demoBudgetBar}>
-                              <div className={styles.demoBudgetBarFill} style={{ width: `${pct}%`, backgroundColor: color }} />
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            {/* Scroll dots */}
-            <div className={styles.demoCarouselDots}>
-              {['chat', 'copilot', 'budget'].map((_, i) => (
-                <div key={i} className={styles.demoCarouselDot} />
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop chat demo */}
-          {activeDemo === 'chat' && (
-            <div className={`${styles.demoPanelDark} ${styles.demoDesktopOnly}`}>
+          {/* Demo 1 — The intake chat */}
+          <div className={styles.demoBlock}>
+            <p className={styles.demoBlockLabel}>The intake chat</p>
+            <div className={styles.demoPanelDark}>
               <div className={styles.demoChatHeader}>
                 <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.demoChatLogo} />
                 <span className={styles.demoChatLabel}>JOLI</span>
@@ -316,81 +194,34 @@ export default function LandingClient() {
               </div>
               <div className={styles.demoChatFade} />
             </div>
-          )}
+          </div>
 
-          {/* Copilot demo */}
-          {activeDemo === 'copilot' && (
-            <div className={`${styles.demoPanelLight} ${styles.demoDesktopOnly}`}>
-              <div className={styles.demoCopilotWrap}>
-                <div className={styles.demoCopilotContext}>
-                  <p className={styles.demoCopilotEyebrow}>Your trip plan</p>
-                  <h3 className={styles.demoCopilotTitle}>Milan — Design Week</h3>
-                  <p className={styles.demoCopilotMeta}>20–26 April · 2 travellers</p>
-                  <div className={styles.demoCopilotItems}>
-                    {['Stay · Navigli district', 'Itinerary · 7 days', 'Dining · 8 restaurants', 'Activities · Fuorisalone', 'Logistics · Flights + transfers'].map(item => (
-                      <div key={item} className={styles.demoCopilotItem}>
-                        <span className={styles.demoCopilotStar}>✦</span>
-                        {item}
-                      </div>
-                    ))}
+          {/* Demo 2 — The copilot */}
+          <div className={styles.demoBlock}>
+            <p className={styles.demoBlockLabel}>The copilot</p>
+            <div className={styles.demoPanelLight}>
+              <div className={styles.demoCopilotPickerMobile}>
+                <p className={styles.demoCopilotPickerPrompt}>What would you like to work on?</p>
+                {[
+                  { label: "Where you'll stay", sub: 'Find alternatives, compare options, update details' },
+                  { label: 'Where to eat', sub: 'Find restaurants, check reviews, add or swap' },
+                  { label: 'Things to do', sub: 'Discover activities, day trips, experiences' },
+                ].map(s => (
+                  <div key={s.label} className={styles.demoCopilotPickerCardStatic}>
+                    <span className={styles.demoCopilotPickerLabel}>{s.label}</span>
+                    <span className={styles.demoCopilotPickerSub}>{s.sub}</span>
                   </div>
-                </div>
-                <div className={styles.demoCopilotPanel}>
-                  <div className={styles.demoCopilotPanelHeader}>
-                    <span className={styles.demoCopilotPanelTitle}>
-                      {activeCopilot ? (
-                        <button onClick={() => setActiveCopilot(null)} className={styles.demoCopilotBack}>
-                          ← {activeCopilot === 'stay' ? "Where you'll stay" : activeCopilot === 'dining' ? 'Where to eat' : 'Things to do'}
-                        </button>
-                      ) : 'JOLI Copilot'}
-                    </span>
-                  </div>
-                  {!activeCopilot ? (
-                    <div className={styles.demoCopilotPicker}>
-                      <p className={styles.demoCopilotPickerPrompt}>What would you like to work on?</p>
-                      {[
-                        { key: 'stay' as const, label: "Where you'll stay", sub: 'Find alternatives, compare options, update details' },
-                        { key: 'dining' as const, label: 'Where to eat', sub: 'Find restaurants, check reviews, add or swap' },
-                        { key: 'activities' as const, label: 'Things to do', sub: 'Discover activities, day trips, experiences' },
-                      ].map(s => (
-                        <button key={s.key} onClick={() => setActiveCopilot(s.key)} className={styles.demoCopilotPickerCard}>
-                          <span className={styles.demoCopilotPickerLabel}>{s.label}</span>
-                          <span className={styles.demoCopilotPickerSub}>{s.sub}</span>
-                        </button>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className={styles.demoCopilotChat}>
-                      {activeCopilot === 'stay' && (
-                        <>
-                          <div className={styles.demoCopilotMsgUser}>Can you find something more design-led? Maybe a boutique apartment in Navigli?</div>
-                          <div className={styles.demoCopilotMsgJoli}>Good call. I'd swap to Foresteria Monforte — a design apartment in a restored palazzo, ten minutes from the Tortona district on foot. Want me to update the plan?</div>
-                        </>
-                      )}
-                      {activeCopilot === 'dining' && (
-                        <>
-                          <div className={styles.demoCopilotMsgUser}>Can you recommend a special place to eat for a date on day 2?</div>
-                          <div className={styles.demoCopilotMsgJoli}>For something that earns the occasion — Contraste on Via Meda. Tasting menu in a townhouse, very calm, very considered. Book the chef's table if available. I'll add it to day 2 evening.</div>
-                        </>
-                      )}
-                      {activeCopilot === 'activities' && (
-                        <>
-                          <div className={styles.demoCopilotMsgUser}>What's worth seeing at Fuorisalone that's not too crowded?</div>
-                          <div className={styles.demoCopilotMsgJoli}>Start at Alcova in the Maggiolina district — quieter and consistently the most interesting venue. Then 5Vie in the afternoon when crowds thin. I'll add both to your itinerary.</div>
-                        </>
-                      )}
-                    </div>
-                  )}
-                </div>
+                ))}
               </div>
             </div>
-          )}
+          </div>
 
-          {/* Budget demo */}
-          {activeDemo === 'budget' && (
-            <div className={`${styles.demoPanelLight} ${styles.demoDesktopOnly}`}>
+          {/* Demo 3 — Budget tracker */}
+          <div className={styles.demoBlock}>
+            <p className={styles.demoBlockLabel}>Budget tracker</p>
+            <div className={styles.demoPanelLight}>
               <div className={styles.demoBudgetWrap}>
-                <p className={styles.demoBudgetNote}>Estimated total for two people, 10 nights — Cape Town + Greater Kruger, including internal flights</p>
+                <p className={styles.demoBudgetNote}>South Africa — 10 nights, 2 travellers</p>
                 <div className={styles.demoBudgetRows}>
                   {[
                     { label: 'Accommodation', estimate: 'Est. £2,800–3,400', spent: 2950, low: 2800, high: 3400 },
@@ -430,7 +261,7 @@ export default function LandingClient() {
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
