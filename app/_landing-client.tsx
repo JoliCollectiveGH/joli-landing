@@ -214,6 +214,14 @@ export default function LandingClient() {
                   </div>
                 ))}
               </div>
+              <div className={styles.demoCopilotExchange}>
+                <div className={styles.demoCopilotDivider} />
+                <div className={styles.demoCopilotMsgUser}>Can you find somewhere more design-led to stay?</div>
+                <div className={styles.demoCopilotMsgJoli}>
+                  <span className={styles.demoCopilotMsgSender}>JOLI</span>
+                  Foresteria Monforte — a design apartment in a restored palazzo, ten minutes from Tortona on foot. Want me to update the plan?
+                </div>
+              </div>
             </div>
           </div>
 
