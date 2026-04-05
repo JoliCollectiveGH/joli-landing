@@ -164,128 +164,8 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────────────── PRODUCT DEMO ──────────────────── */}
-      <section className={`${styles.section} ${styles.demoSection} ${styles.revealSection}`} ref={setRef(1)}>
-        <div className={styles.demoInner}>
-          <div className={styles.sectionHeader}>
-            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>See it in action</span>
-            <h2 data-stagger className={`${styles.sectionHeadline} ${styles.staggerChild}`}>Built to feel like a conversation.</h2>
-          </div>
-
-          {/* Demo 1 — The intake chat */}
-          <div className={styles.demoBlock}>
-            <p className={styles.demoBlockLabel}>The intake chat</p>
-            <div className={styles.demoPanelDark}>
-              <div className={styles.demoChatHeader}>
-                <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="" className={styles.demoChatLogo} />
-                <span className={styles.demoChatLabel}>JOLI</span>
-              </div>
-              <div className={styles.demoChatMessages}>
-                {[
-                  { role: 'joli', text: "Hi — I'm here to help plan your trip. Where are you thinking of going?" },
-                  { role: 'user', text: 'South Africa — Cape Town and maybe a safari' },
-                  { role: 'joli', text: "Great combination. Most people do 4–5 nights in Cape Town then head to a private reserve. When are you thinking of travelling?" },
-                  { role: 'user', text: 'Late September, about 10 days' },
-                  { role: 'joli', text: "Good timing — late September is dry season in the bush, ideal for game viewing. Who's travelling?" },
-                  { role: 'user', text: "Just the two of us — we just want it to feel special" },
-                ].map((msg, i) => (
-                  msg.role === 'joli' ? (
-                    <div key={i} className={styles.demoChatJoli}>
-                      <span className={styles.demoChatSender}>JOLI</span>
-                      <div className={styles.demoChatBubbleJoli}>{msg.text}</div>
-                    </div>
-                  ) : (
-                    <div key={i} className={styles.demoChatUser}>
-                      <div className={styles.demoChatBubbleUser}>{msg.text}</div>
-                    </div>
-                  )
-                ))}
-              </div>
-              <div className={styles.demoChatFade} />
-            </div>
-          </div>
-
-          <div className={styles.demoPairGrid}>
-          {/* Demo 2 — The copilot */}
-          <div className={styles.demoBlock}>
-            <p className={styles.demoBlockLabel}>The copilot</p>
-            <div className={styles.demoPanelLight}>
-              <div className={styles.demoCopilotPickerMobile}>
-                <p className={styles.demoCopilotPickerPrompt}>What would you like to work on?</p>
-                {[
-                  { label: "Where you'll stay", sub: 'Find alternatives, compare options, update details' },
-                  { label: 'Where to eat', sub: 'Find restaurants, check reviews, add or swap' },
-                  { label: 'Things to do', sub: 'Discover activities, day trips, experiences' },
-                ].map(s => (
-                  <div key={s.label} className={styles.demoCopilotPickerCardStatic}>
-                    <span className={styles.demoCopilotPickerLabel}>{s.label}</span>
-                    <span className={styles.demoCopilotPickerSub}>{s.sub}</span>
-                  </div>
-                ))}
-              </div>
-              <div className={styles.demoCopilotExchange}>
-                <div className={styles.demoCopilotDivider} />
-                <div className={styles.demoCopilotMsgUser}>Can we swap the hotel for somewhere quieter?</div>
-                <div className={styles.demoCopilotMsgJoli}>
-                  <span className={styles.demoCopilotMsgSender}>JOLI</span>
-                  Foresteria Monforte — a restored palazzo in a residential pocket, ten minutes from Tortona on foot. Want me to update the plan?
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Demo 3 — Budget tracker */}
-          <div className={styles.demoBlock}>
-            <p className={styles.demoBlockLabel}>Budget tracker</p>
-            <div className={styles.demoPanelLight}>
-              <div className={styles.demoBudgetWrap}>
-                <p className={styles.demoBudgetNote}>South Africa — 10 nights, 2 travellers</p>
-                <div className={styles.demoBudgetRows}>
-                  {[
-                    { label: 'Accommodation', estimate: 'Est. £2,800–3,400', spent: 2950, low: 2800, high: 3400 },
-                    { label: 'Food & drink', estimate: 'Est. £480–620', spent: 310, low: 480, high: 620 },
-                    { label: 'Transport', estimate: 'Est. £900–1,200', spent: 820, low: 900, high: 1200 },
-                  ].map((cat) => {
-                    const max = cat.high * 1.1;
-                    const pct = Math.min((cat.spent / max) * 100, 100);
-                    const color = cat.spent === 0 ? '#E0DCD5' : cat.spent <= cat.low ? '#7A8B5E' : cat.spent <= cat.high ? '#B8860B' : '#C0392B';
-                    return (
-                      <div key={cat.label} className={styles.demoBudgetRow}>
-                        <div className={styles.demoBudgetRowTop}>
-                          <span className={styles.demoBudgetLabel}>{cat.label}</span>
-                          <span className={styles.demoBudgetEstimate}>{cat.estimate}</span>
-                        </div>
-                        <div className={styles.demoBudgetRowMid}>
-                          <span className={styles.demoBudgetSpent}>{cat.spent > 0 ? `£${cat.spent.toLocaleString()}` : '£0'}</span>
-                          {cat.spent > 0 && cat.spent <= cat.low && <span className={styles.demoBudgetStatus} style={{ color: '#7A8B5E' }}>Under budget</span>}
-                          {cat.spent > cat.low && cat.spent <= cat.high && <span className={styles.demoBudgetStatus} style={{ color: '#B8860B' }}>On track</span>}
-                        </div>
-                        <div className={styles.demoBudgetBar}>
-                          <div className={styles.demoBudgetBarFill} style={{ width: `${pct}%`, backgroundColor: color }} />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className={styles.demoBudgetTotal}>
-                  <div className={styles.demoBudgetRowTop}>
-                    <span className={styles.demoBudgetLabel}>Total spent</span>
-                    <span className={styles.demoBudgetEstimate}>Budget: £4,500–5,720</span>
-                  </div>
-                  <div className={styles.demoBudgetSpentLarge}>£3,260</div>
-                  <div className={styles.demoBudgetBar}>
-                    <div className={styles.demoBudgetBarFill} style={{ width: '57%', backgroundColor: '#7A8B5E' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </section>
-
       {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
-      <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(2)}>
+      <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(1)}>
         <div className={styles.testimonialsInner}>
           <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>What people say</span>
           <div className={styles.quoteRow}>
@@ -311,7 +191,7 @@ export default function LandingClient() {
       </div>
 
       {/* ──────────────────── FAQ ──────────────────── */}
-      <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(3)}>
+      <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(2)}>
         <div className={styles.faqOuter}>
           <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild} ${styles.faqImageDesktop}`}>
             <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
