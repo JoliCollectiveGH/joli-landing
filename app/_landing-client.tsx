@@ -114,10 +114,19 @@ export default function LandingClient() {
       {/* ──────────────────────────── NAV ──────────────────────────── */}
       <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
         <div className={styles.navInner}>
-          <div className={styles.navPills}>
-            <a href={`${APP_URL}/how-it-works`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>How it works</a>
-            <a href={`${APP_URL}/membership`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Pricing</a>
-            <a href={`${APP_URL}/request`} className={`${styles.navPill} ${scrolled ? styles.navPillScrolled : styles.navPillHero}`}>Plan a trip</a>
+          <div className={`${styles.navCapsule} ${scrolled ? styles.navCapsuleScrolled : styles.navCapsuleHero}`}>
+            <a href="https://jolicollective.net" className={styles.navLogo}>
+              <img
+                src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`}
+                alt="JOLI"
+                className={styles.navLogoImg}
+                style={scrolled ? { filter: 'invert(1) brightness(0)' } : undefined}
+              />
+            </a>
+            <div className={styles.navDivider} />
+            <a href={`${APP_URL}/how-it-works`} className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}>How it works</a>
+            <a href={`${APP_URL}/membership`} className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}>Pricing</a>
+            <a href={`${APP_URL}/request`} className={`${styles.navCta} ${scrolled ? styles.navCtaScrolled : styles.navCtaHero}`}>Plan a trip</a>
           </div>
         </div>
       </nav>
