@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import styles from './page.module.css';
+import LandingNavAuthSlot from './_LandingNavAuthSlot';
 
 const SUPABASE_ASSETS =
   'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets';
@@ -127,6 +128,7 @@ export default function LandingClient() {
             <a href={`${APP_URL}/how-it-works`} className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}>How it works</a>
             <a href={`${APP_URL}/membership`} className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}>Pricing</a>
             <a href={`${APP_URL}/request`} className={`${styles.navCta} ${scrolled ? styles.navCtaScrolled : styles.navCtaHero}`}>Plan a trip</a>
+            <LandingNavAuthSlot scrolled={scrolled} />
           </div>
         </div>
       </nav>
