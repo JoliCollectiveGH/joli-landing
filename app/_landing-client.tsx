@@ -250,19 +250,64 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── FOOTER ──────────────────────────── */}
-      <footer className={`${styles.section} ${styles.footer}`}>
-        <div className={styles.footerInner}>
-          <a href="https://jolicollective.net" className={styles.footerLogo}>
-            <img src={`${SUPABASE_ASSETS}/JOLI_Wordmark_Black.svg`} alt="JOLI" className={styles.footerLogoImg} />
-          </a>
-          <div className={styles.footerLinks}>
-            <a href={`${APP_URL}/how-it-works`}>How it works</a>
-            <span className={styles.footerDot}>·</span>
-            <a href={`${APP_URL}/membership`}>Pricing</a>
-            <span className={styles.footerDot}>·</span>
-            <a href="https://www.instagram.com/jolicollective/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <footer className="w-full bg-[#F7F6F2] border-t border-[#E0DCD5]">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 mb-12">
+            {/* Wordmark */}
+            <div className="col-span-2 md:col-span-1">
+              <a href="https://jolicollective.net" className="inline-block">
+                <img
+                  src={`${SUPABASE_ASSETS}/JOLI_Wordmark_Black.svg`}
+                  alt="JOLI"
+                  className="h-5 w-auto"
+                />
+              </a>
+            </div>
+
+            {/* Product */}
+            <div>
+              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Product</h4>
+              <ul className="space-y-3">
+                <li><a href={`${APP_URL}/how-it-works`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">How it works</a></li>
+                <li><a href={`${APP_URL}/membership`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Pricing</a></li>
+                <li><a href={`${APP_URL}/hospitable`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Partners</a></li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Company</h4>
+              <ul className="space-y-3">
+                <li><a href={`${APP_URL}/about`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">About</a></li>
+                <li><a href="mailto:info@jolicollective.net" className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Resources</h4>
+              <ul className="space-y-3">
+                <li><a href={`${APP_URL}/faq`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">FAQ</a></li>
+                <li><a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Trustpilot</a></li>
+                <li><a href="https://www.instagram.com/joli.collective/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Instagram</a></li>
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Legal</h4>
+              <ul className="space-y-3">
+                <li><a href={`${APP_URL}/privacy`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Privacy</a></li>
+                <li><a href={`${APP_URL}/terms`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Terms</a></li>
+              </ul>
+            </div>
           </div>
-          <p className={styles.footerCopy}>&copy; 2026 JOLI Collective</p>
+
+          {/* Bottom row */}
+          <div className="pt-8 border-t border-[#E0DCD5] flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+            <p className="text-xs text-[#9A938C]">&copy; 2026 JOLI Collective</p>
+            <p className="text-xs text-[#9A938C] italic">Made with care in London</p>
+          </div>
         </div>
       </footer>
     </div>
