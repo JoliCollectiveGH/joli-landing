@@ -250,7 +250,7 @@ export default function LandingClient() {
       </section>
 
       {/* ──────────────────────────── FOOTER ──────────────────────────── */}
-      <footer className="w-full bg-[#F7F6F2] border-t border-[#E0DCD5]">
+      <footer className="relative z-10 w-full bg-[#F7F6F2] border-t border-[#E0DCD5]">
         <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 mb-12">
             {/* Wordmark */}
