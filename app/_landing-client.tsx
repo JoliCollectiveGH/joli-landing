@@ -206,27 +206,6 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
-      <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(2)}>
-        <div className={styles.testimonialsInner}>
-          <span data-stagger className={`${styles.eyebrow} ${styles.eyebrowCentre} ${styles.staggerChild}`}>What people say</span>
-          <div className={styles.quoteRow}>
-            {TESTIMONIALS.map((t) => (
-              <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
-                <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
-                <cite className={styles.quoteCite}>— {t.name}</cite>
-              </blockquote>
-            ))}
-          </div>
-          <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`} style={{ textAlign: 'center' }}>
-            <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
-              <span className={styles.trustpilotStars}>★★★★</span>
-              <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* ──────────────────────────── CTA BANNER ──────────────────────────── */}
       <section className={styles.ctaBannerSection}>
         <div className={styles.howInner}>
@@ -248,6 +227,67 @@ export default function LandingClient() {
               </a>
             </div>
           </a>
+        </div>
+      </section>
+
+      {/* MANIFESTO */}
+      <section className={styles.manifesto}>
+        <div className={styles.manifestoInner}>
+          <div className={styles.manifestoGrid}>
+            <div className={styles.manifestoLeft}>
+              <div className={styles.sectionHeader}>
+                <span className={styles.eyebrow}>Our philosophy</span>
+                <h2 className={styles.sectionHeadline}>Like a friend who&apos;s been everywhere.</h2>
+              </div>
+              <p className={styles.manifestoBody}>
+                JOLI is a travel copilot for people who care what they&apos;re searching for and how a place feels. Not the highest rated. Not the most reviewed. The right one for you.
+              </p>
+              <a href="https://app.jolicollective.net/about" className={styles.manifestoCta}>
+                Read our story →
+              </a>
+            </div>
+            <div className={styles.manifestoRight}>
+              <div className={styles.manifestoStanzaFirst}>
+                <span className={styles.manifestoSubLabel}>A true story</span>
+                <p className={styles.manifestoPullquote}>
+                  The places that had shaped my best trips — the small hotels, the restaurants without websites, the conversations with hosts, the villages that didn&apos;t photograph well but had the best food — were precisely the places the internet was worst at recommending.
+                </p>
+              </div>
+              <div className={styles.manifestoStanza}>
+                <span className={styles.manifestoSubLabel}>The work</span>
+                <p className={styles.manifestoStanzaText}>
+                  Taste is a form of currency. The work of curation — the reading, the visiting, the saying no to ninety-nine things — is the art of the edit.
+                </p>
+              </div>
+              <div className={styles.manifestoStanza}>
+                <span className={styles.manifestoSubLabel}>What we&apos;re not</span>
+                <p className={styles.manifestoStanzaText}>
+                  We are not a travel agency. We are not a booking platform. JOLI is an inspiration tool with a backbone.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──────────────────── WHAT PEOPLE SAY ──────────────────── */}
+      <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(2)}>
+        <div className={styles.testimonialsInner}>
+          <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>What people say</span>
+          <div className={styles.quoteRow}>
+            {TESTIMONIALS.map((t) => (
+              <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
+                <p className={styles.quoteText}>&ldquo;{t.quote}&rdquo;</p>
+                <cite className={styles.quoteCite}>— {t.name}</cite>
+              </blockquote>
+            ))}
+          </div>
+          <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
+            <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
+              <span className={styles.trustpilotStars}>★★★★</span>
+              <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
+            </a>
+          </div>
         </div>
       </section>
 
