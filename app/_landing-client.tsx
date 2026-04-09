@@ -70,15 +70,8 @@ const FAQS = [
 ];
 
 export default function LandingClient() {
-  const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     const els = revealRefs.current.filter(Boolean) as HTMLElement[];
@@ -113,22 +106,22 @@ export default function LandingClient() {
   return (
     <div className={styles.pageWrap}>
       {/* ──────────────────────────── NAV ──────────────────────────── */}
-      <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
+      <nav className={styles.nav}>
         <div className={styles.navInner}>
-          <div className={`${styles.navCapsule} ${scrolled ? styles.navCapsuleScrolled : styles.navCapsuleHero}`}>
+          <div className={styles.navCapsule}>
             <a href="https://jolicollective.net" className={styles.navLogo}>
               <img
                 src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`}
                 alt="JOLI"
                 className={styles.navLogoImg}
-                style={scrolled ? { filter: 'invert(1) brightness(0)' } : undefined}
+                style={{ filter: 'invert(1) brightness(0)' }}
               />
             </a>
             <div className={styles.navDivider} />
-            <a href={`${APP_URL}/how-it-works`} className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}>How it works</a>
-            <a href={`${APP_URL}/membership`} className={`${styles.navLink} ${scrolled ? styles.navLinkScrolled : styles.navLinkHero}`}>Pricing</a>
-            <a href={`${APP_URL}/request`} className={`${styles.navCta} ${scrolled ? styles.navCtaScrolled : styles.navCtaHero}`}>Plan a trip</a>
-            <LandingNavAuthSlot scrolled={scrolled} />
+            <a href={`${APP_URL}/how-it-works`} className={styles.navLink}>How it works</a>
+            <a href={`${APP_URL}/membership`} className={styles.navLink}>Pricing</a>
+            <a href={`${APP_URL}/request`} className={styles.navCta}>Plan a trip</a>
+            <LandingNavAuthSlot scrolled={false} />
           </div>
         </div>
       </nav>
@@ -312,7 +305,7 @@ export default function LandingClient() {
               <ul className="space-y-3">
                 <li><a href={`${APP_URL}/how-it-works`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">How it works</a></li>
                 <li><a href={`${APP_URL}/membership`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Pricing</a></li>
-                <li><a href={`${APP_URL}/hospitable`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Partners</a></li>
+                <li><a href={`${APP_URL}/hospitable`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Hospitable</a></li>
               </ul>
             </div>
 
