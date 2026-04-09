@@ -202,24 +202,23 @@ export default function LandingClient() {
       {/* ──────────────────────────── CTA BANNER ──────────────────────────── */}
       <section className={styles.ctaBannerSection}>
         <div className={styles.howInner}>
-          <a href={`${APP_URL}/request`} className={styles.ctaBanner}>
+          <div className={styles.ctaBanner}>
             <div className={styles.ctaBannerLeft}>
               <p className={styles.ctaBannerEyebrow}>JOLI COLLECTIVE</p>
               <h3 className={styles.ctaBannerHeadline}>Your next trip is one<br /> conversation away.</h3>
             </div>
             <div className={styles.ctaBannerBtns}>
-              <span className={styles.ctaBannerBtn}>
+              <a href={`${APP_URL}/request`} className={styles.ctaBannerBtn}>
                 Start planning <span className={styles.ctaBannerArrow}>→</span>
-              </span>
+              </a>
               <a
                 href={`${APP_URL}/taste-profile`}
                 className={styles.ctaBannerBtnGhost}
-                onClick={e => e.stopPropagation()}
               >
                 Set up your taste profile
               </a>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 
