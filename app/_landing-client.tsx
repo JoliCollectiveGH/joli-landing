@@ -119,7 +119,7 @@ export default function LandingClient() {
             </a>
             <div className={styles.navDivider} />
             <a href={`${APP_URL}/how-it-works`} className={styles.navLink}>How it works</a>
-            <a href={`${APP_URL}/membership`} className={styles.navLink}>Pricing</a>
+            <a href={`${APP_URL}/pricing`} className={styles.navLink}>Pricing</a>
             <a href={`${APP_URL}/request`} className={styles.navCta}>Plan a trip</a>
             <LandingNavAuthSlot scrolled={false} />
           </div>
@@ -303,7 +303,7 @@ export default function LandingClient() {
               <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Product</h4>
               <ul className="space-y-3">
                 <li><a href={`${APP_URL}/how-it-works`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">How it works</a></li>
-                <li><a href={`${APP_URL}/membership`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Pricing</a></li>
+                <li><a href={`${APP_URL}/pricing`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Pricing</a></li>
                 <li><a href={`${APP_URL}/hospitable`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Hospitable</a></li>
               </ul>
             </div>
