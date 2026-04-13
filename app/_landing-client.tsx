@@ -141,7 +141,6 @@ export default function LandingClient() {
         <div className={styles.howInner}>
           <div className={styles.sectionHeader}>
             <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>How it works</span>
-            <h2 data-stagger className={`${styles.sectionHeadline} ${styles.staggerChild}`}>A complete trip plan in minutes.</h2>
           </div>
           <div className={styles.stepsRow}>
             {[
