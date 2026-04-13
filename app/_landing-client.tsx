@@ -147,7 +147,7 @@ export default function LandingClient() {
             {[
               { num: '01', title: 'Describe your trip', desc: 'A quick conversation with our AI — not a form.' },
               { num: '02', title: 'Get a complete plan', desc: 'An itinerary with handpicked stays, restaurants, and experiences — matched to what you told us.' },
-              { num: '03', title: 'Refine with your copilot', desc: 'Swap a hotel, add a day, ask for a quieter dinner. Your AI copilot edits the plan with you, before and during the trip.' },
+              { num: '03', title: 'Refine with your copilot', desc: 'Swap a hotel, add a day, ask for a quieter dinner. JOLI edits the plan with you, before and during the trip.' },
             ].map((step) => (
               <div key={step.num} data-stagger className={`${styles.stepCard} ${styles.staggerChild}`}>
                 <span className={styles.stepNum}>{step.num}</span>
