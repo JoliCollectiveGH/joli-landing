@@ -494,6 +494,10 @@
   .faqCol { text-align: left; }
   .faqCol .eyebrow { text-align: left; }
   .faqQuestion { text-align: left; }
+  .manifestoStanzaFirst,
+  .manifestoStanzaHideMobile {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {

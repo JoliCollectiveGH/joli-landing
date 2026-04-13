@@ -245,7 +245,7 @@ export default function LandingClient() {
                   The places that had shaped my best trips — the small hotels, the restaurants without websites, the conversations with hosts, the villages that didn&apos;t photograph well but had the best food — were precisely the places the internet was worst at recommending.
                 </p>
               </div>
-              <div className={styles.manifestoStanza}>
+              <div className={`${styles.manifestoStanza} ${styles.manifestoStanzaHideMobile}`}>
                 <span className={styles.manifestoSubLabel}>The work</span>
                 <p className={styles.manifestoStanzaText}>
                   Taste is a form of currency. The work of curation — the reading, the visiting, the saying no to ninety-nine things — is the art of the edit.
