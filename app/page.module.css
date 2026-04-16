@@ -39,16 +39,19 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 32px;
-  background: #F7F6F2;
+  gap: 28px;
+  background: rgba(247, 246, 242, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid #E0DCD5;
   border-radius: 999px;
-  padding: 8px 8px 8px 24px;
+  padding: 8px 8px 8px 20px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   z-index: 100;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   max-width: 720px;
   width: max-content;
+  transition: max-height 240ms ease-out;
 }
 
 .navLogo {
@@ -56,10 +59,11 @@
   color: #1A1814;
 }
 
-.navLogoText {
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+.navLogoImg {
+  height: 20px;
+  width: auto;
+  display: block;
+  filter: invert(1) brightness(0);
 }
 
 .navLinks {
@@ -120,25 +124,42 @@
 
 .navDrawer {
   position: fixed;
-  top: 80px;
-  left: 16px;
-  right: 16px;
-  background: #F7F6F2;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  min-width: 240px;
+  max-width: calc(100vw - 32px);
+  background: rgba(247, 246, 242, 0.92);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid #E0DCD5;
-  border-radius: 16px;
-  padding: 20px 16px;
+  border-radius: 24px;
+  padding: 16px;
   display: none;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   z-index: 99;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  animation: drawerOpen 240ms ease-out;
+}
+
+@keyframes drawerOpen {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .drawerLink {
   font-size: 16px;
   color: #1A1814;
   text-decoration: none;
-  padding: 14px 16px;
+  padding: 10px 16px;
   border-radius: 8px;
   transition: background 0.15s ease;
   text-align: center;
@@ -146,6 +167,26 @@
 
 .drawerLink:hover {
   background: rgba(0, 0, 0, 0.04);
+}
+
+.drawerDivider {
+  height: 1px;
+  background: #E0DCD5;
+  margin: 8px 12px 6px;
+}
+
+.drawerFooterLink {
+  font-size: 12px;
+  color: #6B6560;
+  text-decoration: none;
+  padding: 8px 16px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+}
+
+.drawerFooterLink:hover {
+  color: #1A1814;
 }
 
 .drawerCta {
@@ -163,18 +204,19 @@
 
 @media (max-width: 768px) {
   .navPill {
-    padding: 8px 8px 8px 20px;
-    gap: 0;
+    padding: 8px 8px 8px 16px;
+    gap: 8px;
   }
   .navLinks {
     display: none;
   }
   .navCta {
-    display: none;
+    font-size: 13px;
+    padding: 8px 14px;
   }
   .navHamburger {
     display: block;
-    margin-left: auto;
+    margin-left: 0;
   }
   .navDrawer {
     display: flex;

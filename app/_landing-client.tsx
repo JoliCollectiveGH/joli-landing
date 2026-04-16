@@ -84,7 +84,11 @@ export default function LandingClient() {
       <div ref={menuRef}>
         <nav className={styles.navPill}>
           <a href="/" className={styles.navLogo} aria-label="JOLI Collective home">
-            <span className={styles.navLogoText}>JOLI</span>
+            <img
+              src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`}
+              alt="JOLI"
+              className={styles.navLogoImg}
+            />
           </a>
 
           <div className={styles.navLinks}>
