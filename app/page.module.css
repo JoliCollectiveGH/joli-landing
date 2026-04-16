@@ -847,6 +847,8 @@
   .manifestoRight {
     padding-top: 0;
   }
+  .manifestoCta { align-self: flex-start; }
+  .tasteCta { align-self: flex-start; }
 }
 
 @media (max-width: 640px) {
