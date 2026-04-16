@@ -361,6 +361,9 @@
 }
 
 @media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+  }
   .heroInner {
     grid-template-columns: 1fr;
     gap: 0;
@@ -411,15 +414,17 @@
 .mobilePhoneSection {
   display: none;
   background: #AD531B;
-  padding: 0 0 60px;
+  padding: 40px 0 60px;
+  overflow: visible;
 }
 
 .mobilePhoneInner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
   padding: 0 24px;
+  overflow: visible;
 }
 
 .mobilePhoneCaption {
