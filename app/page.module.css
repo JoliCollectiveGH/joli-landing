@@ -34,19 +34,19 @@
 
 .navPill {
   position: fixed;
-  top: 24px;
+  top: 12px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
   background: rgba(247, 246, 242, 0.92);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border: 1px solid #E0DCD5;
   border-radius: 999px;
-  padding: 8px 8px 8px 20px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  padding: 6px 8px 6px 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   z-index: 100;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   max-width: 720px;
@@ -69,11 +69,11 @@
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .navLink {
-  font-size: 14px;
+  font-size: 13px;
   color: #1A1814;
   text-decoration: none;
   opacity: 0.75;
@@ -88,9 +88,9 @@
   display: inline-block;
   background: #AD531B;
   color: #F7F6F2;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  padding: 10px 20px;
+  padding: 6px 16px;
   border-radius: 999px;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -124,7 +124,7 @@
 
 .navDrawer {
   position: fixed;
-  top: 64px;
+  top: 52px;
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
@@ -204,7 +204,7 @@
 
 @media (max-width: 768px) {
   .navPill {
-    padding: 8px 8px 8px 16px;
+    padding: 6px 8px 6px 16px;
     gap: 8px;
   }
   .navLinks {
@@ -212,7 +212,7 @@
   }
   .navCta {
     font-size: 13px;
-    padding: 8px 14px;
+    padding: 6px 14px;
   }
   .navHamburger {
     display: block;
@@ -408,7 +408,7 @@
   .heroInner {
     grid-template-columns: 1fr;
     gap: 0;
-    padding: 100px 24px 48px;
+    padding: 88px 24px 48px;
   }
   .heroLeft {
     align-items: center;
@@ -429,7 +429,7 @@
 
 @media (max-width: 480px) {
   .heroInner {
-    padding: 90px 20px 40px;
+    padding: 78px 20px 40px;
   }
   .preheading {
     margin-bottom: 16px;
