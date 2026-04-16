@@ -146,8 +146,8 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  height: 58dvh;
-  min-height: 420px;
+  height: 48dvh;
+  min-height: 360px;
   background: #AD531B;
   overflow: hidden;
   display: flex;
