@@ -832,7 +832,7 @@
   text-decoration: none;
   transition: background 0.2s ease;
   margin-top: auto;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .manifestoCta:hover {
@@ -847,8 +847,6 @@
   .manifestoRight {
     padding-top: 0;
   }
-  .manifestoCta { align-self: flex-start; }
-  .tasteCta { align-self: flex-start; }
 }
 
 @media (max-width: 640px) {
@@ -929,7 +927,7 @@
   color: var(--brand);
   text-decoration: none;
   transition: opacity 0.2s ease;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .tasteCta:hover {
