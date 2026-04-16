@@ -204,9 +204,7 @@
 /* ──────────────────── HERO ──────────────────── */
 
 .hero {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  position: relative;
   min-height: 600px;
   background: #AD531B;
   overflow: hidden;
