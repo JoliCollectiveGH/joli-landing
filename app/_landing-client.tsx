@@ -144,7 +144,7 @@ export default function LandingClient() {
           </div>
           <div className={styles.stepsRow}>
             {[
-              { num: '01', title: 'Describe your trip', desc: 'A quick conversation — we learn your taste, not just your dates.' },
+              { num: '01', title: 'Describe your trip', desc: 'A quick conversation to start. Your taste profile learns and sharpens with every trip you plan.' },
               { num: '02', title: 'Get a complete plan', desc: 'An itinerary with handpicked stays, restaurants, and experiences — matched to what you told us.' },
               { num: '03', title: 'Refine with your copilot', desc: 'Swap a hotel, add a day, ask for a quieter dinner. JOLI edits the plan with you, before and during the trip.' },
             ].map((step) => (
