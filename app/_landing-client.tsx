@@ -30,47 +30,8 @@ const TESTIMONIALS = [
   },
 ];
 
-const FAQS = [
-  {
-    q: 'What is JOLI?',
-    a: 'JOLI is a travel concierge that learns your taste. Tell us where you\'re going, build your taste profile, and we\'ll create a complete personalised plan — stays, dining, experiences, and logistics — that gets sharper every trip.',
-  },
-  {
-    q: 'How does it work?',
-    a: 'Start with a quick conversation about your trip. JOLI uses your taste profile — built from your preferences and refined with every plan — to build a complete itinerary matched to what you actually like.',
-  },
-  {
-    q: 'How much does it cost?',
-    a: 'A single trip plan is £5 with no subscription. Monthly plans start at £9/month with copilot editing included.',
-  },
-  {
-    q: 'Can I edit my plan?',
-    a: 'Yes. Paid plans include access to the copilot — an in-plan AI editor that can swap recommendations, add days, or rework any section based on your feedback.',
-  },
-  {
-    q: 'Where do you cover?',
-    a: 'JOLI plans trips worldwide. Tell us where you\'re going and we\'ll build you a plan.',
-  },
-  {
-    q: 'Is JOLI just AI?',
-    a: 'The plans are generated in minutes, but what makes them feel curated is the taste layer underneath — your preferences, your travel style, your history with JOLI. The more you use it, the better it fits.',
-  },
-  {
-    q: 'How long does a plan take?',
-    a: 'Most plans are ready within a few minutes of submission. You\'ll receive an email the moment yours is complete.',
-  },
-  {
-    q: 'Can I request changes after I receive my plan?',
-    a: 'Yes. Every plan includes a built-in copilot you can use to swap recommendations, adjust the pace, or ask questions about any part of your itinerary.',
-  },
-  {
-    q: 'Do I need an account to get a plan?',
-    a: 'You\'ll need to create a free account to submit a request and receive your plan. It takes under a minute and your plan is saved to your account for easy access.',
-  },
-];
 
 export default function LandingClient() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [planDropdownOpen, setPlanDropdownOpen] = useState(false);
   const planDropdownRef = useRef<HTMLDivElement>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
@@ -215,39 +176,31 @@ export default function LandingClient() {
         </div>
       </section>
 
-      {/* Mobile-only image between testimonials and FAQ */}
-      <div className={styles.faqImageMobile}>
-        <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
-      </div>
-
-      {/* ──────────────────── FAQ ──────────────────── */}
-      <section className={`${styles.section} ${styles.faqSection} ${styles.revealSection}`} ref={setRef(1)}>
-        <div className={styles.faqOuter}>
-          <div data-stagger className={`${styles.faqImageCol} ${styles.staggerChild} ${styles.faqImageDesktop}`}>
-            <img src={`${SUPABASE_ASSETS}/Landing1.jpeg`} alt="" className={styles.faqImage} />
-          </div>
-          <div className={styles.faqCol}>
-            <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Frequently asked</span>
-            <div data-stagger className={`${styles.faqList} ${styles.staggerChild}`}>
-              {FAQS.map((faq, i) => (
-                <div key={i} className={styles.faqItem}>
-                  <button
-                    className={styles.faqQuestion}
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  >
-                    <span>{faq.q}</span>
-                    <svg
-                      width="16" height="16" viewBox="0 0 16 16" fill="none"
-                      className={`${styles.faqChevron} ${openFaq === i ? styles.faqChevronOpen : ''}`}
-                    >
-                      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
-                  {openFaq === i && (
-                    <div className={styles.faqAnswer}>
-                      <p>{faq.a}</p>
-                    </div>
-                  )}
+      {/* ──────────────────── TASTE PROFILE ──────────────────── */}
+      <section className={`${styles.tasteSection} ${styles.revealSection}`} ref={setRef(1)}>
+        <div className={styles.howInner}>
+          <div className={styles.tasteGrid}>
+            <div className={styles.tasteLeft}>
+              <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>Your Taste Profile</span>
+              <h2 data-stagger className={`${styles.sectionHeadline} ${styles.staggerChild}`}>
+                The more you travel with JOLI,<br />the better it gets.
+              </h2>
+              <p data-stagger className={`${styles.sectionSub} ${styles.staggerChild}`}>
+                Tell us your travel style once. Every trip plan you make refines your profile — so recommendations get closer to what you actually want, not just what's popular.
+              </p>
+              <a data-stagger href={`${APP_URL}/taste-profile`} className={`${styles.tasteCta} ${styles.staggerChild}`}>
+                Set up your taste profile →
+              </a>
+            </div>
+            <div data-stagger className={`${styles.tasteRight} ${styles.staggerChild}`}>
+              {[
+                'Stays matched to how you like to feel, not just where you want to go.',
+                'Dining picked for your palate, not the highest rating.',
+                'Experiences filtered for your pace, your interests, your trip.',
+              ].map((item, i) => (
+                <div key={i} className={styles.tasteBenefit}>
+                  <span className={styles.tasteDash}>—</span>
+                  <p className={styles.tasteBenefitText}>{item}</p>
                 </div>
               ))}
             </div>
@@ -282,7 +235,7 @@ export default function LandingClient() {
                 <h2 className={styles.sectionHeadline}>Like a friend who&apos;s been everywhere.</h2>
               </div>
               <p className={styles.manifestoBody}>
-                JOLI is a travel copilot for people who care what they&apos;re searching for and how a place feels. Not the highest rated. Not the most reviewed. The right one for you.
+                JOLI is the travel concierge that learns your taste. The more you travel with it, the sharper it gets — building a picture of how you like to move through the world, so every plan feels less like a search result and more like a recommendation from someone who knows you.
               </p>
               <a href="https://app.jolicollective.net/about" className={styles.manifestoCta}>
                 Read our story →
@@ -299,12 +252,6 @@ export default function LandingClient() {
                 <span className={styles.manifestoSubLabel}>The work</span>
                 <p className={styles.manifestoStanzaText}>
                   Taste is a form of currency. The work of curation — the reading, the visiting, the saying no to ninety-nine things — is the art of the edit.
-                </p>
-              </div>
-              <div className={styles.manifestoStanza}>
-                <span className={styles.manifestoSubLabel}>What we&apos;re not</span>
-                <p className={styles.manifestoStanzaText}>
-                  We are not a travel agency. We are not a booking platform. JOLI is an inspiration tool with a backbone.
                 </p>
               </div>
             </div>
@@ -350,7 +297,7 @@ export default function LandingClient() {
 
             {/* Product */}
             <div>
-              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Product</h4>
+              <h4 className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest mb-4">Product</h4>
               <ul className="space-y-3">
                 <li><a href={`${APP_URL}/how-it-works`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">How it works</a></li>
                 <li><a href={`${APP_URL}/pricing`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Pricing</a></li>
@@ -360,7 +307,7 @@ export default function LandingClient() {
 
             {/* Company */}
             <div>
-              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Company</h4>
+              <h4 className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest mb-4">Company</h4>
               <ul className="space-y-3">
                 <li><a href={`${APP_URL}/about`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">About</a></li>
                 <li><a href="mailto:info@jolicollective.net" className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Contact</a></li>
@@ -369,7 +316,7 @@ export default function LandingClient() {
 
             {/* Resources */}
             <div>
-              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Resources</h4>
+              <h4 className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest mb-4">Resources</h4>
               <ul className="space-y-3">
                 <li><a href={`${APP_URL}/faq`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">FAQ</a></li>
                 <li><a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Trustpilot</a></li>
@@ -379,7 +326,7 @@ export default function LandingClient() {
 
             {/* Legal */}
             <div>
-              <h4 className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest mb-4">Legal</h4>
+              <h4 className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest mb-4">Legal</h4>
               <ul className="space-y-3">
                 <li><a href={`${APP_URL}/privacy`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Privacy</a></li>
                 <li><a href={`${APP_URL}/terms`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Terms</a></li>
