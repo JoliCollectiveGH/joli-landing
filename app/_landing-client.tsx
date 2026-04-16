@@ -32,21 +32,8 @@ const TESTIMONIALS = [
 
 
 export default function LandingClient() {
-  const [planDropdownOpen, setPlanDropdownOpen] = useState(false);
-  const planDropdownRef = useRef<HTMLDivElement>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
-  // Close plan dropdown on outside click
-  useEffect(() => {
-    if (!planDropdownOpen) return;
-    function handleClickOutside(e: MouseEvent) {
-      if (planDropdownRef.current && !planDropdownRef.current.contains(e.target as Node)) {
-        setPlanDropdownOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [planDropdownOpen]);
 
   useEffect(() => {
     const els = revealRefs.current.filter(Boolean) as HTMLElement[];
@@ -92,53 +79,10 @@ export default function LandingClient() {
                 style={{ filter: 'invert(1) brightness(0)' }}
               />
             </a>
-            {/* Plan a trip click-toggle dropdown — all screen sizes */}
-            <div className="relative" ref={planDropdownRef}>
-              <button
-                onClick={() => setPlanDropdownOpen(o => !o)}
-                className={styles.navCta}
-              >
-                Start planning
-                <svg
-                  width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-                  style={{ opacity: 0.5, marginLeft: 4, display: 'inline', verticalAlign: 'middle', transition: 'transform 150ms', transform: planDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                >
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-              {planDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-max">
-                  <div
-                    className="border border-[#E0DCD5] rounded-xl shadow-lg py-2 min-w-[200px]"
-                    style={{ background: 'rgba(247, 246, 242, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
-                  >
-                    {[
-                      { heading: 'Plan a trip', items: [
-                        { href: `${APP_URL}/request`, label: 'New trip' },
-                        { href: `${APP_URL}/trip-plans`, label: 'Trip plans' },
-                        { href: `${APP_URL}/taste-profile`, label: 'Taste profile' },
-                      ]},
-                      { heading: 'Explore', items: [
-                        { href: `${APP_URL}/how-it-works`, label: 'How it works' },
-                        { href: `${APP_URL}/pricing`, label: 'Pricing' },
-                      ]},
-                    ].map((section, i) => (
-                      <div key={section.heading}>
-                        {i > 0 && <div className="h-px bg-[#E0DCD5] mx-3 my-1.5" />}
-                        <div className="px-4 pt-1.5 pb-1">
-                          <span className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest">{section.heading}</span>
-                        </div>
-                        {section.items.map(({ href, label }) => (
-                          <a key={href} href={href} className="block px-4 py-1.5 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">
-                            {label}
-                          </a>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            {/* Plan a trip — direct link */}
+            <a href={`${APP_URL}/request`} className={styles.navCta}>
+              Start planning
+            </a>
             <LandingNavAuthSlot scrolled={false} />
           </div>
         </div>
