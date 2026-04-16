@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import styles from './page.module.css';
 import LandingNavAuthSlot from './_LandingNavAuthSlot';
-import PhoneMockup from './components/PhoneMockup'; // TEMP PREVIEW - remove in step 2
+import PhoneMockup from './components/PhoneMockup';
 
 const SUPABASE_ASSETS =
   'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets';
@@ -116,7 +116,7 @@ export default function LandingClient() {
             <div className="relative" ref={menuRef}>
               <button
                 onClick={() => setMenuOpen(o => !o)}
-                className="flex items-center justify-center w-8 h-8 rounded-full ml-1 text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors"
+                className={`flex items-center justify-center w-8 h-8 rounded-full ml-1 text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors ${styles.navMenuButton}`}
                 aria-label="Menu"
               >
                 {menuOpen ? (
@@ -179,23 +179,32 @@ export default function LandingClient() {
 
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>
-        <div className={styles.heroContent}>
-          <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="JOLI" className={styles.heroSymbol} />
-          <h1 className={styles.heroHeadline}>The travel concierge that learns your taste.</h1>
-          <p className={styles.heroSub}>Gets better every trip.</p>
-          <a href={`${APP_URL}/request`} className={styles.heroCta}>
-            Plan with JOLI
-          </a>
-          {/* TEMP PREVIEW - remove in step 2 */}
-          <PhoneMockup />
-          <a
-            href={TRUSTPILOT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.heroTrustpilot}
-          >
-            ★★★★★ <span>5.0 on Trustpilot</span>
-          </a>
+        <div className={styles.heroInner}>
+          <div className={styles.heroLeft}>
+            <p className={styles.preheading}>edited by joli</p>
+            <h1 className={styles.heroHeadline}>
+              The travel copilot that learns what you&apos;d choose.
+            </h1>
+            <p className={styles.heroSub}>
+              Plans that get sharper the more you travel.
+            </p>
+            <a href={`${APP_URL}/request`} className={styles.heroCta}>
+              Plan with JOLI
+            </a>
+            <a
+              href={TRUSTPILOT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.trustChip}
+            >
+              <span className={styles.trustStars}>★★★★★</span>
+              <span className={styles.trustText}>5.0 on Trustpilot</span>
+            </a>
+          </div>
+
+          <div className={styles.heroRight}>
+            <PhoneMockup />
+          </div>
         </div>
       </section>
 
