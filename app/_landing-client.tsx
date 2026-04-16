@@ -132,8 +132,8 @@ export default function LandingClient() {
                 style={{ filter: 'invert(1) brightness(0)' }}
               />
             </a>
-            {/* Plan a trip — click-toggle dropdown */}
-            <div className="relative" ref={planDropdownRef}>
+            {/* Desktop: Plan a trip click-toggle dropdown */}
+            <div className="relative hidden md:block" ref={planDropdownRef}>
               <button
                 onClick={() => setPlanDropdownOpen(o => !o)}
                 className={styles.navCta}
@@ -149,7 +149,7 @@ export default function LandingClient() {
               {planDropdownOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-max">
                   <div
-                    className="border border-[#E0DCD5] rounded-xl shadow-lg py-2"
+                    className="border border-[#E0DCD5] rounded-xl shadow-lg py-2 min-w-[200px]"
                     style={{ background: 'rgba(247, 246, 242, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
                   >
                     {[
@@ -166,7 +166,7 @@ export default function LandingClient() {
                       <div key={section.heading}>
                         {i > 0 && <div className="h-px bg-[#E0DCD5] mx-3 my-1.5" />}
                         <div className="px-4 pt-1.5 pb-1">
-                          <span className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest">{section.heading}</span>
+                          <span className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest">{section.heading}</span>
                         </div>
                         {section.items.map(({ href, label }) => (
                           <a key={href} href={href} className="block px-4 py-1.5 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">
@@ -179,11 +179,13 @@ export default function LandingClient() {
                 </div>
               )}
             </div>
+            {/* Mobile: Plan a trip direct link */}
+            <a href={`${APP_URL}/request`} className={`${styles.navCta} md:hidden`}>Plan a trip</a>
             <LandingNavAuthSlot scrolled={false} />
             {/* Mobile: hamburger */}
             <button
               onClick={() => setMobileMenuOpen(o => !o)}
-              className="md:hidden flex items-center justify-center w-7 h-7 rounded-full ml-1 text-[#6B6560] hover:text-[#1A1814] transition-colors"
+              className="md:hidden flex items-center justify-center w-7 h-7 rounded-full ml-1 text-[#6B6560] hover:text-[#1A1814] transition-colors flex-shrink-0"
               aria-label="Menu"
             >
               {mobileMenuOpen ? (

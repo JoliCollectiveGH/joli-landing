@@ -52,7 +52,7 @@ export default function LandingNavAuthSlot({ scrolled }: Props) {
 
   return (
     <a
-      href={APP_URL}
+      href={`${APP_URL}/account`}
       aria-label="Open JOLI app"
       title="You are signed in — open JOLI"
       style={{
