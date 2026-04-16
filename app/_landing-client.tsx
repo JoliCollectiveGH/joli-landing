@@ -49,7 +49,7 @@ const FAQS = [
   },
   {
     q: 'Where do you cover?',
-    a: 'JOLI plans trips worldwide. Our curated database is strongest across Europe, but we research and build plans for any destination.',
+    a: 'JOLI plans trips worldwide. Tell us where you\'re going and we\'ll build you a plan.',
   },
   {
     q: 'Is JOLI just AI?',
