@@ -137,7 +137,7 @@ export default function LandingClient() {
                 onClick={() => setPlanDropdownOpen(o => !o)}
                 className={styles.navCta}
               >
-                Plan a trip
+                Start planning
                 <svg
                   width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
                   style={{ opacity: 0.5, marginLeft: 4, display: 'inline', verticalAlign: 'middle', transition: 'transform 150ms', transform: planDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
