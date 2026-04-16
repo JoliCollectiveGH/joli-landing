@@ -126,7 +126,7 @@
   background: #F7F6F2;
   border: 1px solid #E0DCD5;
   border-radius: 16px;
-  padding: 16px;
+  padding: 20px 16px;
   display: none;
   flex-direction: column;
   gap: 4px;
@@ -141,6 +141,7 @@
   padding: 14px 16px;
   border-radius: 8px;
   transition: background 0.15s ease;
+  text-align: center;
 }
 
 .drawerLink:hover {
@@ -368,8 +369,8 @@
     padding: 100px 24px 48px;
   }
   .heroLeft {
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
     max-width: 100%;
   }
   .heroRight {

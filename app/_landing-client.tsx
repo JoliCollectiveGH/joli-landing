@@ -112,9 +112,6 @@ export default function LandingClient() {
             <a href={`${APP_URL}/how-it-works`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>How it works</a>
             <a href={`${APP_URL}/pricing`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Pricing</a>
             <a href={`${APP_URL}/about`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>About</a>
-            <a href={`${APP_URL}/request`} className={styles.drawerCta} onClick={() => setMenuOpen(false)}>
-              Plan with JOLI
-            </a>
           </div>
         )}
       </div>
