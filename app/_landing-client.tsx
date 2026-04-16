@@ -44,6 +44,7 @@ const NAV_SECTIONS = [
     items: [
       { href: `${APP_URL}/how-it-works`, label: 'How it works' },
       { href: `${APP_URL}/pricing`, label: 'Pricing' },
+      { href: `${APP_URL}/about`, label: 'About' },
     ],
   },
 ];
