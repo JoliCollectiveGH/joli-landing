@@ -189,7 +189,7 @@ export default function LandingClient() {
           <img src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`} alt="JOLI" className={styles.heroSymbol} />
           <h1 className={styles.heroHeadline}>The travel concierge that learns your taste.</h1>
           <p className={styles.heroSub}>Gets better every trip.</p>
-          <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Plan a trip</a>
+          <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Get started</a>
         </div>
       </section>
 
@@ -266,12 +266,6 @@ export default function LandingClient() {
             <div className={styles.ctaBannerBtns}>
               <a href={`${APP_URL}/request`} className={styles.ctaBannerBtn}>
                 Start planning <span className={styles.ctaBannerArrow}>→</span>
-              </a>
-              <a
-                href={`${APP_URL}/taste-profile`}
-                className={styles.ctaBannerBtnGhost}
-              >
-                Set up your taste profile
               </a>
             </div>
           </div>
