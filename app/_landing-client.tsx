@@ -71,7 +71,21 @@ const FAQS = [
 
 export default function LandingClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [planDropdownOpen, setPlanDropdownOpen] = useState(false);
+  const planDropdownRef = useRef<HTMLDivElement>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
+
+  // Close plan dropdown on outside click
+  useEffect(() => {
+    if (!planDropdownOpen) return;
+    function handleClickOutside(e: MouseEvent) {
+      if (planDropdownRef.current && !planDropdownRef.current.contains(e.target as Node)) {
+        setPlanDropdownOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [planDropdownOpen]);
 
   useEffect(() => {
     const els = revealRefs.current.filter(Boolean) as HTMLElement[];
@@ -120,21 +134,31 @@ export default function LandingClient() {
             <div className={styles.navDivider} />
             <a href={`${APP_URL}/how-it-works`} className={styles.navLink}>How it works</a>
             <a href={`${APP_URL}/pricing`} className={styles.navLink}>Pricing</a>
-            <div className="relative group">
-              <a href={`${APP_URL}/request`} className={styles.navCta}>
+            <div className="relative" ref={planDropdownRef}>
+              <button
+                onClick={() => setPlanDropdownOpen(o => !o)}
+                className={styles.navCta}
+              >
                 Plan a trip
-                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" style={{ opacity: 0.5, marginLeft: 4, display: 'inline', verticalAlign: 'middle' }}><polyline points="6 9 12 15 18 9"/></svg>
-              </a>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                <div
-                  className="border border-[#E0DCD5] rounded-xl shadow-lg py-1.5 min-w-[160px]"
-                  style={{ background: 'rgba(247, 246, 242, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+                <svg
+                  width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                  style={{ opacity: 0.5, marginLeft: 4, display: 'inline', verticalAlign: 'middle', transition: 'transform 150ms', transform: planDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
                 >
-                  <a href={`${APP_URL}/request`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">New trip</a>
-                  <a href={`${APP_URL}/trip-plans`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Trip plans</a>
-                  <a href={`${APP_URL}/taste-profile`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Taste profile</a>
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              {planDropdownOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+                  <div
+                    className="border border-[#E0DCD5] rounded-xl shadow-lg py-1.5 min-w-[160px]"
+                    style={{ background: 'rgba(247, 246, 242, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+                  >
+                    <a href={`${APP_URL}/request`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">New trip</a>
+                    <a href={`${APP_URL}/trip-plans`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Trip plans</a>
+                    <a href={`${APP_URL}/taste-profile`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Taste profile</a>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
             <LandingNavAuthSlot scrolled={false} />
           </div>
