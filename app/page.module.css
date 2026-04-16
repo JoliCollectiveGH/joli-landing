@@ -199,6 +199,27 @@
   line-height: 1.5;
 }
 
+.heroTrustpilot {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+}
+
+.heroTrustpilot:hover {
+  opacity: 1;
+}
+
+.heroTrustpilot span {
+  color: rgba(255, 255, 255, 0.55);
+}
+
 
 /* ──────────────────── SCROLL REVEAL ──────────────────── */
 

@@ -12,21 +12,21 @@ const TRUSTPILOT_URL = 'https://uk.trustpilot.com/review/jolicollective.net';
 const TESTIMONIALS = [
   {
     quote: 'Great suggestions within budget plus options if I fancied treating myself.',
-    name: 'Peter',
+    name: 'Peter, Cape Town',
   },
   {
     quote: 'An incredibly inspiring programme, even with my very basic details.',
-    name: 'Laura',
+    name: 'Laura, Germany & the Netherlands',
   },
   {
     quote:
       'It actually filtered for the things we genuinely enjoy. It took all the guesswork out of planning.',
-    name: 'Nicole',
+    name: 'Nicole, Turin',
   },
   {
     quote:
       'It\u2019s like being taken by the hand by someone who really understands you.',
-    name: 'Ali',
+    name: 'Ali, Galicia',
   },
 ];
 
@@ -187,6 +187,14 @@ export default function LandingClient() {
           <img src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`} alt="JOLI" className={styles.heroSymbol} />
           <h1 className={styles.heroHeadline}>The travel concierge that learns your taste.</h1>
           <p className={styles.heroSub}>Gets better every trip.</p>
+          <a
+            href={TRUSTPILOT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.heroTrustpilot}
+          >
+            ★★★★★ <span>5.0 on Trustpilot</span>
+          </a>
         </div>
       </section>
 
@@ -297,8 +305,8 @@ export default function LandingClient() {
           </div>
           <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
             <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
-              <span className={styles.trustpilotStars}>★★★★</span>
-              <span className={styles.trustpilotText}>Rated 4/5 on Trustpilot</span>
+              <span className={styles.trustpilotStars}>★★★★★</span>
+              <span className={styles.trustpilotText}>Rated 5/5 on Trustpilot</span>
             </a>
           </div>
         </div>
