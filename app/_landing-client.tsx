@@ -130,7 +130,7 @@ export default function LandingClient() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <img src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`} alt="JOLI" className={styles.heroSymbol} />
-          <h1 className={styles.heroHeadline}>The travel concierge that knows you.</h1>
+          <h1 className={styles.heroHeadline}>The travel concierge built around your taste.</h1>
           <p className={styles.heroSub}>Plans built around your taste.</p>
           <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Plan a trip</a>
         </div>
