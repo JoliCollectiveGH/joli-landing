@@ -260,7 +260,7 @@ export default function LandingClient() {
               <p className={styles.manifestoBody}>
                 JOLI is the travel concierge that learns your taste. The more you travel with it, the sharper it gets — building a picture of how you like to move through the world, so every plan feels less like a search result and more like a recommendation from someone who knows you.
               </p>
-              <a href="https://app.jolicollective.net/about" className={`${styles.tasteCta} ${styles.staggerChild}`}>
+              <a href="https://app.jolicollective.net/about" className={styles.manifestoCta}>
                 Read our story →
               </a>
             </div>
