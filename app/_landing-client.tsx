@@ -149,7 +149,7 @@ export default function LandingClient() {
         <div className={styles.heroContent}>
           <img src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`} alt="JOLI" className={styles.heroSymbol} />
           <h1 className={styles.heroHeadline}>The travel concierge that learns your taste.</h1>
-          <p className={styles.heroSub}>Gets better every trip.</p>
+
 
         </div>
       </section>
