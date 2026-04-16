@@ -367,7 +367,7 @@
   .heroInner {
     grid-template-columns: 1fr;
     gap: 0;
-    padding: 32px 24px 48px;
+    padding: 100px 24px 48px;
   }
   .heroLeft {
     align-items: flex-start;
@@ -388,7 +388,7 @@
 
 @media (max-width: 480px) {
   .heroInner {
-    padding: 24px 20px 40px;
+    padding: 90px 20px 40px;
   }
   .preheading {
     margin-bottom: 16px;

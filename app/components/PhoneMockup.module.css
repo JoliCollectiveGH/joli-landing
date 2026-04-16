@@ -144,11 +144,37 @@
     width: 240px;
     height: 490px;
   }
+  .chat {
+    gap: 8px;
+    padding: 12px 10px;
+  }
+  .userMessage,
+  .joliMessage {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+  .statusLine {
+    font-size: 9px;
+  }
+  .appHeader {
+    padding: 30px 14px 10px;
+  }
+  .inputBar {
+    padding: 10px 10px 20px;
+  }
+  .inputField {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .bezel {
     width: 220px;
     height: 450px;
+  }
+  .chat {
+    gap: 6px;
+    padding: 10px 8px;
   }
 }
