@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import styles from './page.module.css';
 import LandingNavAuthSlot from './_LandingNavAuthSlot';
+import PhoneMockup from './components/PhoneMockup'; // TEMP PREVIEW - remove in step 2
 
 const SUPABASE_ASSETS =
   'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets';
@@ -185,6 +186,8 @@ export default function LandingClient() {
           <a href={`${APP_URL}/request`} className={styles.heroCta}>
             Plan with JOLI
           </a>
+          {/* TEMP PREVIEW - remove in step 2 */}
+          <PhoneMockup />
           <a
             href={TRUSTPILOT_URL}
             target="_blank"
