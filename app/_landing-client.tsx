@@ -130,8 +130,8 @@ export default function LandingClient() {
       <section className={styles.hero}>
         <div className={styles.heroContent}>
           <img src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`} alt="JOLI" className={styles.heroSymbol} />
-          <h1 className={styles.heroHeadline}>The AI travel concierge.</h1>
-          <p className={styles.heroSub}>For design-led travellers.</p>
+          <h1 className={styles.heroHeadline}>The travel concierge that knows you.</h1>
+          <p className={styles.heroSub}>Plans built around your taste.</p>
           <a href={`${APP_URL}/request`} className={styles.btnPillGhostWhite}>Plan a trip</a>
         </div>
       </section>
@@ -144,7 +144,7 @@ export default function LandingClient() {
           </div>
           <div className={styles.stepsRow}>
             {[
-              { num: '01', title: 'Describe your trip', desc: 'A quick conversation with our AI — not a form.' },
+              { num: '01', title: 'Describe your trip', desc: 'A quick conversation — we learn your taste, not just your dates.' },
               { num: '02', title: 'Get a complete plan', desc: 'An itinerary with handpicked stays, restaurants, and experiences — matched to what you told us.' },
               { num: '03', title: 'Refine with your copilot', desc: 'Swap a hotel, add a day, ask for a quieter dinner. JOLI edits the plan with you, before and during the trip.' },
             ].map((step) => (
