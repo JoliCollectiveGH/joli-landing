@@ -33,11 +33,11 @@ const TESTIMONIALS = [
 const FAQS = [
   {
     q: 'What is JOLI?',
-    a: 'JOLI is a premium trip planning service. Tell us where you\'re going and what kind of experience you\'re after — and we build a complete, personalised plan: accommodation, dining, activities, and logistics.',
+    a: 'JOLI is a travel concierge that learns your taste. Tell us where you\'re going, build your taste profile, and we\'ll create a complete personalised plan — stays, dining, experiences, and logistics — that gets sharper every trip.',
   },
   {
     q: 'How does it work?',
-    a: 'Start a conversation with JOLI, answer a few questions about your trip, and your plan is built in minutes — powered by AI working within our proprietary curated datasets.',
+    a: 'Start with a quick conversation about your trip. JOLI uses your taste profile — built from your preferences and refined with every plan — to build a complete itinerary matched to what you actually like.',
   },
   {
     q: 'How much does it cost?',
@@ -53,7 +53,7 @@ const FAQS = [
   },
   {
     q: 'Is JOLI just AI?',
-    a: 'JOLI is AI-powered — that\'s how we deliver plans in minutes. But the AI works within proprietary datasets we\'ve built ourselves, with quality filters we set. The result feels curated because the system behind it is curated.',
+    a: 'The plans are generated in minutes, but what makes them feel curated is the taste layer underneath — your preferences, your travel style, your history with JOLI. The more you use it, the better it fits.',
   },
   {
     q: 'How long does a plan take?',
