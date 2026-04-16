@@ -72,6 +72,7 @@ const FAQS = [
 export default function LandingClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [planDropdownOpen, setPlanDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const planDropdownRef = useRef<HTMLDivElement>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -131,10 +132,12 @@ export default function LandingClient() {
                 style={{ filter: 'invert(1) brightness(0)' }}
               />
             </a>
-            <div className={styles.navDivider} />
-            <a href={`${APP_URL}/how-it-works`} className={styles.navLink}>How it works</a>
-            <a href={`${APP_URL}/pricing`} className={styles.navLink}>Pricing</a>
-            <div className="relative" ref={planDropdownRef}>
+            {/* Desktop: divider + links */}
+            <div className={`${styles.navDivider} hidden md:block`} />
+            <a href={`${APP_URL}/how-it-works`} className={`${styles.navLink} hidden md:inline-flex`}>How it works</a>
+            <a href={`${APP_URL}/pricing`} className={`${styles.navLink} hidden md:inline-flex`}>Pricing</a>
+            {/* Desktop: click-toggle dropdown */}
+            <div className="relative hidden md:block" ref={planDropdownRef}>
               <button
                 onClick={() => setPlanDropdownOpen(o => !o)}
                 className={styles.navCta}
@@ -160,10 +163,52 @@ export default function LandingClient() {
                 </div>
               )}
             </div>
+            {/* Mobile: direct link */}
+            <a href={`${APP_URL}/request`} className={`${styles.navCta} md:hidden`}>Plan a trip</a>
             <LandingNavAuthSlot scrolled={false} />
+            {/* Mobile: hamburger */}
+            <button
+              onClick={() => setMobileMenuOpen(o => !o)}
+              className="md:hidden flex items-center justify-center w-7 h-7 rounded-full ml-1 text-[#6B6560] hover:text-[#1A1814] transition-colors"
+              aria-label="Menu"
+            >
+              {mobileMenuOpen ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+              )}
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Mobile dropdown menu */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden" onClick={() => setMobileMenuOpen(false)}>
+          <div className="absolute inset-0 bg-black/20" />
+          <div
+            className="absolute top-16 left-4 right-4 rounded-2xl border border-[#E0DCD5] shadow-lg p-4 flex flex-col gap-1"
+            style={{ background: 'rgba(247, 246, 242, 0.98)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {[
+              { href: `${APP_URL}/request`, label: 'New trip' },
+              { href: `${APP_URL}/trip-plans`, label: 'Trip plans' },
+              { href: `${APP_URL}/taste-profile`, label: 'Taste profile' },
+              { href: `${APP_URL}/how-it-works`, label: 'How it works' },
+              { href: `${APP_URL}/pricing`, label: 'Pricing' },
+            ].map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="block px-4 py-2.5 rounded-xl text-sm font-normal text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.03] transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>
