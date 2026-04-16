@@ -112,7 +112,7 @@ export default function LandingClient() {
 
             {/* Start planning — direct link */}
             <a href={`${APP_URL}/request`} className={styles.navCta}>
-              Start planning
+              New trip
             </a>
 
             {/* Hamburger menu */}
