@@ -47,6 +47,8 @@
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   z-index: 100;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  max-width: 720px;
+  width: max-content;
 }
 
 .navLogo {
@@ -361,14 +363,19 @@
 @media (max-width: 1024px) {
   .heroInner {
     grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 48px 24px;
+    gap: 0;
+    padding: 32px 24px 48px;
   }
   .heroLeft {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 100%;
+  }
+  .heroRight {
+    display: none;
   }
   .heroHeadline {
+    font-size: 44px;
     max-width: 100%;
   }
   .heroSub {
@@ -377,11 +384,57 @@
 }
 
 @media (max-width: 480px) {
+  .heroInner {
+    padding: 24px 20px 40px;
+  }
+  .preheading {
+    margin-bottom: 16px;
+  }
   .heroHeadline {
-    font-size: 2rem;
+    font-size: 32px;
+    margin-bottom: 16px;
+    letter-spacing: -0.005em;
   }
   .heroSub {
-    font-size: 1rem;
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .heroCta {
+    margin-bottom: 16px;
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+}
+
+/* ──────────────────── MOBILE PHONE SECTION ──────────────────── */
+
+.mobilePhoneSection {
+  display: none;
+  background: #AD531B;
+  padding: 0 0 60px;
+}
+
+.mobilePhoneInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+}
+
+.mobilePhoneCaption {
+  font-size: 13px;
+  color: #F7F6F2;
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .mobilePhoneSection {
+    display: block;
   }
 }
 

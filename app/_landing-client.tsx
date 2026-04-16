@@ -150,6 +150,13 @@ export default function LandingClient() {
         </div>
       </section>
 
+      <section className={styles.mobilePhoneSection}>
+        <div className={styles.mobilePhoneInner}>
+          <PhoneMockup />
+          <p className={styles.mobilePhoneCaption}>How a conversation begins</p>
+        </div>
+      </section>
+
       {/* ──────────────────── HOW IT WORKS ──────────────────── */}
       <section className={`${styles.cardFirst} ${styles.howSection} ${styles.revealSection}`} ref={setRef(0)}>
         <div className={styles.howInner}>
