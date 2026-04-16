@@ -232,7 +232,7 @@
 /* ──────────────────── HOW IT WORKS ──────────────────── */
 
 .howSection {
-  background: var(--white);
+  background: var(--surface);
   padding: 64px 2rem 40px;
 }
 
@@ -503,7 +503,6 @@
 
 @media (max-width: 480px) {
   .quoteRow { grid-template-columns: 1fr; }
-  .quoteText { font-size: 14px; }
 }
 
 /* ──────────────────── SECTION HEADERS ──────────────────── */
@@ -867,7 +866,7 @@
 /* ──────────────────── TASTE PROFILE ──────────────────── */
 
 .tasteSection {
-  background: var(--white);
+  background: var(--surface);
   padding: 64px 2rem;
   position: relative;
   z-index: 2;
