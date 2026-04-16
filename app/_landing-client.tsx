@@ -313,7 +313,7 @@ export default function LandingClient() {
             </div>
             <div className={styles.ctaBannerBtns}>
               <a href={`${APP_URL}/request`} className={styles.ctaBannerBtn}>
-                Start planning <span className={styles.ctaBannerArrow}>→</span>
+                New trip <span className={styles.ctaBannerArrow}>→</span>
               </a>
             </div>
           </div>
