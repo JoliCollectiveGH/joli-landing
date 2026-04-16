@@ -132,12 +132,8 @@ export default function LandingClient() {
                 style={{ filter: 'invert(1) brightness(0)' }}
               />
             </a>
-            {/* Desktop: divider + links */}
-            <div className={`${styles.navDivider} hidden md:block`} />
-            <a href={`${APP_URL}/how-it-works`} className={`${styles.navLink} hidden md:inline-flex`}>How it works</a>
-            <a href={`${APP_URL}/pricing`} className={`${styles.navLink} hidden md:inline-flex`}>Pricing</a>
-            {/* Desktop: click-toggle dropdown */}
-            <div className="relative hidden md:block" ref={planDropdownRef}>
+            {/* Plan a trip — click-toggle dropdown */}
+            <div className="relative" ref={planDropdownRef}>
               <button
                 onClick={() => setPlanDropdownOpen(o => !o)}
                 className={styles.navCta}
@@ -159,12 +155,12 @@ export default function LandingClient() {
                     <a href={`${APP_URL}/request`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">New trip</a>
                     <a href={`${APP_URL}/trip-plans`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Trip plans</a>
                     <a href={`${APP_URL}/taste-profile`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Taste profile</a>
+                    <a href={`${APP_URL}/how-it-works`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">How it works</a>
+                    <a href={`${APP_URL}/pricing`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Pricing</a>
                   </div>
                 </div>
               )}
             </div>
-            {/* Mobile: direct link */}
-            <a href={`${APP_URL}/request`} className={`${styles.navCta} md:hidden`}>Plan a trip</a>
             <LandingNavAuthSlot scrolled={false} />
             {/* Mobile: hamburger */}
             <button
