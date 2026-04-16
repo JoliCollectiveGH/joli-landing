@@ -72,7 +72,6 @@ const FAQS = [
 export default function LandingClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [planDropdownOpen, setPlanDropdownOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const planDropdownRef = useRef<HTMLDivElement>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
@@ -132,8 +131,8 @@ export default function LandingClient() {
                 style={{ filter: 'invert(1) brightness(0)' }}
               />
             </a>
-            {/* Desktop: Plan a trip click-toggle dropdown */}
-            <div className="relative hidden md:block" ref={planDropdownRef}>
+            {/* Plan a trip click-toggle dropdown — all screen sizes */}
+            <div className="relative" ref={planDropdownRef}>
               <button
                 onClick={() => setPlanDropdownOpen(o => !o)}
                 className={styles.navCta}
@@ -179,60 +178,10 @@ export default function LandingClient() {
                 </div>
               )}
             </div>
-            {/* Mobile: Plan a trip direct link */}
-            <a href={`${APP_URL}/request`} className={`${styles.navCta} md:hidden`}>Plan a trip</a>
             <LandingNavAuthSlot scrolled={false} />
-            {/* Mobile: hamburger */}
-            <button
-              onClick={() => setMobileMenuOpen(o => !o)}
-              className="md:hidden flex items-center justify-center w-7 h-7 rounded-full ml-1 text-[#6B6560] hover:text-[#1A1814] transition-colors flex-shrink-0"
-              aria-label="Menu"
-            >
-              {mobileMenuOpen ? (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
-              )}
-            </button>
           </div>
         </div>
       </nav>
-
-      {/* Hamburger dropdown menu */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40" onClick={() => setMobileMenuOpen(false)}>
-          <div className="absolute inset-0 bg-black/20" />
-          <div
-            className="absolute top-16 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:right-auto md:w-52 rounded-2xl border border-[#E0DCD5] shadow-lg py-3 px-2"
-            style={{ background: 'rgba(247, 246, 242, 0.98)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {[
-              { heading: 'Plan a trip', items: [
-                { href: `${APP_URL}/request`, label: 'New trip' },
-                { href: `${APP_URL}/trip-plans`, label: 'Trip plans' },
-                { href: `${APP_URL}/taste-profile`, label: 'Taste profile' },
-              ]},
-              { heading: 'Explore', items: [
-                { href: `${APP_URL}/how-it-works`, label: 'How it works' },
-                { href: `${APP_URL}/pricing`, label: 'Pricing' },
-              ]},
-            ].map((section, i) => (
-              <div key={section.heading}>
-                {i > 0 && <div className="h-px bg-[#E0DCD5] mx-2 my-1.5" />}
-                <div className="px-3 pt-1.5 pb-1">
-                  <span className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest">{section.heading}</span>
-                </div>
-                {section.items.map(({ href, label }) => (
-                  <a key={href} href={href} className="block px-3 py-2 rounded-xl text-sm font-normal text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.03] transition-colors">
-                    {label}
-                  </a>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>
