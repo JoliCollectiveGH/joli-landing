@@ -147,16 +147,34 @@ export default function LandingClient() {
                 </svg>
               </button>
               {planDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-max">
                   <div
-                    className="border border-[#E0DCD5] rounded-xl shadow-lg py-1.5 min-w-[160px]"
+                    className="border border-[#E0DCD5] rounded-xl shadow-lg py-2"
                     style={{ background: 'rgba(247, 246, 242, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
                   >
-                    <a href={`${APP_URL}/request`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">New trip</a>
-                    <a href={`${APP_URL}/trip-plans`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Trip plans</a>
-                    <a href={`${APP_URL}/taste-profile`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Taste profile</a>
-                    <a href={`${APP_URL}/how-it-works`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">How it works</a>
-                    <a href={`${APP_URL}/pricing`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Pricing</a>
+                    {[
+                      { heading: 'Plan a trip', items: [
+                        { href: `${APP_URL}/request`, label: 'New trip' },
+                        { href: `${APP_URL}/trip-plans`, label: 'Trip plans' },
+                        { href: `${APP_URL}/taste-profile`, label: 'Taste profile' },
+                      ]},
+                      { heading: 'Explore', items: [
+                        { href: `${APP_URL}/how-it-works`, label: 'How it works' },
+                        { href: `${APP_URL}/pricing`, label: 'Pricing' },
+                      ]},
+                    ].map((section, i) => (
+                      <div key={section.heading}>
+                        {i > 0 && <div className="h-px bg-[#E0DCD5] mx-3 my-1.5" />}
+                        <div className="px-4 pt-1.5 pb-1">
+                          <span className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest">{section.heading}</span>
+                        </div>
+                        {section.items.map(({ href, label }) => (
+                          <a key={href} href={href} className="block px-4 py-1.5 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">
+                            {label}
+                          </a>
+                        ))}
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -178,29 +196,37 @@ export default function LandingClient() {
         </div>
       </nav>
 
-      {/* Mobile dropdown menu */}
+      {/* Hamburger dropdown menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden" onClick={() => setMobileMenuOpen(false)}>
+        <div className="fixed inset-0 z-40" onClick={() => setMobileMenuOpen(false)}>
           <div className="absolute inset-0 bg-black/20" />
           <div
-            className="absolute top-16 left-4 right-4 rounded-2xl border border-[#E0DCD5] shadow-lg p-4 flex flex-col gap-1"
+            className="absolute top-16 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:right-auto md:w-52 rounded-2xl border border-[#E0DCD5] shadow-lg py-3 px-2"
             style={{ background: 'rgba(247, 246, 242, 0.98)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
             onClick={(e) => e.stopPropagation()}
           >
             {[
-              { href: `${APP_URL}/request`, label: 'New trip' },
-              { href: `${APP_URL}/trip-plans`, label: 'Trip plans' },
-              { href: `${APP_URL}/taste-profile`, label: 'Taste profile' },
-              { href: `${APP_URL}/how-it-works`, label: 'How it works' },
-              { href: `${APP_URL}/pricing`, label: 'Pricing' },
-            ].map(({ href, label }) => (
-              <a
-                key={href}
-                href={href}
-                className="block px-4 py-2.5 rounded-xl text-sm font-normal text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.03] transition-colors"
-              >
-                {label}
-              </a>
+              { heading: 'Plan a trip', items: [
+                { href: `${APP_URL}/request`, label: 'New trip' },
+                { href: `${APP_URL}/trip-plans`, label: 'Trip plans' },
+                { href: `${APP_URL}/taste-profile`, label: 'Taste profile' },
+              ]},
+              { heading: 'Explore', items: [
+                { href: `${APP_URL}/how-it-works`, label: 'How it works' },
+                { href: `${APP_URL}/pricing`, label: 'Pricing' },
+              ]},
+            ].map((section, i) => (
+              <div key={section.heading}>
+                {i > 0 && <div className="h-px bg-[#E0DCD5] mx-2 my-1.5" />}
+                <div className="px-3 pt-1.5 pb-1">
+                  <span className="text-[10px] font-semibold text-[#9A938C] uppercase tracking-widest">{section.heading}</span>
+                </div>
+                {section.items.map(({ href, label }) => (
+                  <a key={href} href={href} className="block px-3 py-2 rounded-xl text-sm font-normal text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.03] transition-colors">
+                    {label}
+                  </a>
+                ))}
+              </div>
             ))}
           </div>
         </div>
