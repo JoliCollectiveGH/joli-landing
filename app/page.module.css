@@ -189,7 +189,6 @@
   color: #fff;
   margin: 0 0 32px;
   line-height: 1.15;
-  white-space: nowrap;
 }
 
 .heroSub {
@@ -489,7 +488,7 @@
   .howSection { padding: 48px 1.5rem 32px; }
   .testimonials { padding: 40px 1.5rem; }
   .faqSection { padding: 40px 1.5rem; }
-  .heroHeadline { font-size: 1.625rem; }
+  .heroHeadline { font-size: 1.625rem; white-space: normal; }
   .navInner { padding: 14px 1.25rem; }
   .cardFirst { border-radius: 12px 12px 0 0; }
   .quoteCite { font-size: 12px; }
