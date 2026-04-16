@@ -946,3 +946,9 @@
     padding: 48px 1.5rem;
   }
 }
+
+.howCta {
+  margin-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+}

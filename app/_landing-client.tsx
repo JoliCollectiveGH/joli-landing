@@ -208,6 +208,11 @@ export default function LandingClient() {
               </div>
             ))}
           </div>
+          <div className={styles.howCta}>
+            <a data-stagger href={`${APP_URL}/how-it-works`} className={`${styles.tasteCta} ${styles.staggerChild}`}>
+              See how it works →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -238,23 +243,6 @@ export default function LandingClient() {
                   <p className={styles.tasteBenefitText}>{item}</p>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ──────────────────────────── CTA BANNER ──────────────────────────── */}
-      <section className={styles.ctaBannerSection}>
-        <div className={styles.howInner}>
-          <div className={styles.ctaBanner}>
-            <div className={styles.ctaBannerLeft}>
-              <p className={styles.ctaBannerEyebrow}>JOLI COLLECTIVE</p>
-              <h3 className={styles.ctaBannerHeadline}>Your next trip is one<br /> conversation away.</h3>
-            </div>
-            <div className={styles.ctaBannerBtns}>
-              <a href={`${APP_URL}/request`} className={styles.ctaBannerBtn}>
-                Start planning <span className={styles.ctaBannerArrow}>→</span>
-              </a>
             </div>
           </div>
         </div>
@@ -315,8 +303,25 @@ export default function LandingClient() {
         </div>
       </section>
 
+      {/* ──────────────────────────── CTA BANNER ──────────────────────────── */}
+      <section className={styles.ctaBannerSection}>
+        <div className={styles.howInner}>
+          <div className={styles.ctaBanner}>
+            <div className={styles.ctaBannerLeft}>
+              <p className={styles.ctaBannerEyebrow}>JOLI COLLECTIVE</p>
+              <h3 className={styles.ctaBannerHeadline}>Your next trip is one<br /> conversation away.</h3>
+            </div>
+            <div className={styles.ctaBannerBtns}>
+              <a href={`${APP_URL}/request`} className={styles.ctaBannerBtn}>
+                Start planning <span className={styles.ctaBannerArrow}>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ──────────────────────────── FOOTER ──────────────────────────── */}
-      <footer className="relative z-10 w-full bg-[#F7F6F2] border-t border-[#E0DCD5]">
+      <footer className="relative z-10 w-full bg-white border-t border-[#E0DCD5]">
         <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 mb-12">
             <div className="col-span-2 md:col-span-1">
