@@ -86,7 +86,7 @@ export default function LandingClient() {
           <div className={styles.navCapsule}>
             <a href="https://jolicollective.net" className={styles.navLogo}>
               <img
-                src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`}
+                src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`}
                 alt="JOLI"
                 className={styles.navLogoImg}
                 style={{ filter: 'invert(1) brightness(0)' }}
