@@ -130,6 +130,7 @@ export default function LandingClient() {
                   className="border border-[#E0DCD5] rounded-xl shadow-lg py-1.5 min-w-[160px]"
                   style={{ background: 'rgba(247, 246, 242, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
                 >
+                  <a href={`${APP_URL}/request`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">New trip</a>
                   <a href={`${APP_URL}/trip-plans`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Trip plans</a>
                   <a href={`${APP_URL}/taste-profile`} className="block px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap">Taste profile</a>
                 </div>
