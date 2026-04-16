@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import styles from './page.module.css';
-import LandingNavAuthSlot from './_LandingNavAuthSlot';
 import PhoneMockup from './components/PhoneMockup';
 
 const SUPABASE_ASSETS =
@@ -31,24 +30,6 @@ const TESTIMONIALS = [
   },
 ];
 
-const NAV_SECTIONS = [
-  {
-    heading: 'Plan a trip',
-    items: [
-      { href: `${APP_URL}/request`, label: 'New trip' },
-      { href: `${APP_URL}/trip-plans`, label: 'Trip plans' },
-      { href: `${APP_URL}/taste-profile`, label: 'Taste profile' },
-    ],
-  },
-  {
-    heading: 'Explore',
-    items: [
-      { href: `${APP_URL}/how-it-works`, label: 'How it works' },
-      { href: `${APP_URL}/pricing`, label: 'Pricing' },
-      { href: `${APP_URL}/about`, label: 'About' },
-    ],
-  },
-];
 
 export default function LandingClient() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -100,82 +81,43 @@ export default function LandingClient() {
   return (
     <div className={styles.pageWrap}>
       {/* ──────────────────────────── NAV ──────────────────────────── */}
-      <nav className={styles.nav}>
-        <div className={styles.navInner}>
-          <div className={styles.navCapsule}>
-            <a href="https://jolicollective.net" className={styles.navLogo}>
-              <img
-                src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`}
-                alt="JOLI"
-                className={styles.navLogoImg}
-                style={{ filter: 'invert(1) brightness(0)' }}
-              />
-            </a>
+      <div ref={menuRef}>
+        <nav className={styles.navPill}>
+          <a href="/" className={styles.navLogo} aria-label="JOLI Collective home">
+            <span className={styles.navLogoText}>JOLI</span>
+          </a>
 
-            {/* Hamburger menu */}
-            <div className="relative" ref={menuRef}>
-              <button
-                onClick={() => setMenuOpen(o => !o)}
-                className={`flex items-center justify-center w-8 h-8 rounded-full ml-1 text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors ${styles.navMenuButton}`}
-                aria-label="Menu"
-              >
-                {menuOpen ? (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                ) : (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
-                )}
-              </button>
-
-              {menuOpen && (
-                <div className="absolute top-full right-0 pt-2 z-50 w-max">
-                  <div
-                    className="border border-[#E0DCD5] rounded-xl shadow-lg py-2 min-w-[200px]"
-                    style={{ background: 'rgba(247, 246, 242, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
-                  >
-                    {NAV_SECTIONS.map((section, i) => (
-                      <div key={section.heading}>
-                        {i > 0 && <div className="h-px bg-[#E0DCD5] mx-3 my-1.5" />}
-                        <div className="px-4 pt-1.5 pb-1">
-                          <span className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest">{section.heading}</span>
-                        </div>
-                        {section.items.map(({ href, label }) => (
-                          <a
-                            key={href}
-                            href={href}
-                            onClick={() => setMenuOpen(false)}
-                            className="block px-4 py-1.5 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors whitespace-nowrap"
-                          >
-                            {label}
-                          </a>
-                        ))}
-                      </div>
-                    ))}
-
-                    {/* Account at bottom */}
-                    <div className="h-px bg-[#E0DCD5] mx-3 my-1.5" />
-                    <a
-                      href={`${APP_URL}/account`}
-                      onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-2.5 px-4 py-2 text-[13px] text-[#6B6560] hover:text-[#1A1814] hover:bg-[#1A1814]/[0.04] transition-colors"
-                    >
-                      <div
-                        className="w-5 h-5 rounded-full flex items-center justify-center text-white shrink-0"
-                        style={{ backgroundColor: '#AD531B' }}
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <circle cx="12" cy="12" r="3"/>
-                          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                        </svg>
-                      </div>
-                      Account
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
+          <div className={styles.navLinks}>
+            <a href={`${APP_URL}/how-it-works`} className={styles.navLink}>How it works</a>
+            <a href={`${APP_URL}/pricing`} className={styles.navLink}>Pricing</a>
+            <a href={`${APP_URL}/about`} className={styles.navLink}>About</a>
           </div>
-        </div>
-      </nav>
+
+          <a href={`${APP_URL}/request`} className={styles.navCta}>
+            Plan with JOLI
+          </a>
+
+          <button
+            className={styles.navHamburger}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(o => !o)}
+          >
+            {menuOpen ? '×' : '☰'}
+          </button>
+        </nav>
+
+        {menuOpen && (
+          <div className={styles.navDrawer}>
+            <a href={`${APP_URL}/how-it-works`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>How it works</a>
+            <a href={`${APP_URL}/pricing`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Pricing</a>
+            <a href={`${APP_URL}/about`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>About</a>
+            <a href={`${APP_URL}/request`} className={styles.drawerCta} onClick={() => setMenuOpen(false)}>
+              Plan with JOLI
+            </a>
+          </div>
+        )}
+      </div>
 
       {/* ──────────────────────────── HERO ──────────────────────────── */}
       <section className={styles.hero}>

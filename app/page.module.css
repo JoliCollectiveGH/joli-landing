@@ -19,118 +19,163 @@
 
 /* ──────────────────── NAV ──────────────────── */
 
-.nav {
+/* ── OLD NAV STYLES (commented out — kept for rollback) ──
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: transparent; pointer-events: none; }
+.navInner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-end; padding: 16px 2rem; }
+.navCapsule { display: inline-flex; align-items: center; gap: 4px; border-radius: 9999px; padding: 4px 8px; background: rgba(247,246,242,0.92); border: 1px solid #E0DCD5; box-shadow: 0 1px 2px rgba(0,0,0,0.05); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); pointer-events: auto; }
+.navLogoImg { height: 16px; }
+.navDivider { width: 1px; height: 16px; background: #E0DCD5; margin: 0 4px; }
+.navMenuButton:focus { outline: none; }
+.navMenuButton:focus-visible { outline: 2px solid rgba(247,246,242,0.4); outline-offset: 2px; border-radius: 999px; }
+.navCapsule .navMenuButton { color: #AD531B; }
+── END OLD NAV STYLES ── */
+
+/* ──────────────────── NAV PILL ──────────────────── */
+
+.navPill {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: transparent;
-  pointer-events: none;
-}
-
-
-.navInner {
-  max-width: 1200px;
-  margin: 0 auto;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding: 16px 2rem;
-}
-
-.navCapsule {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  border-radius: 9999px;
-  padding: 4px 8px;
-  background: rgba(247, 246, 242, 0.92);
+  gap: 32px;
+  background: #F7F6F2;
   border: 1px solid #E0DCD5;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  pointer-events: auto;
-}
-
-@media (min-width: 1024px) {
-  .navCapsule {
-    padding: 6px 8px;
-  }
+  border-radius: 999px;
+  padding: 8px 8px 8px 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  z-index: 100;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .navLogo {
+  text-decoration: none;
+  color: #1A1814;
+}
+
+.navLogoText {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.navLinks {
   display: flex;
   align-items: center;
-  padding: 0 8px;
-  text-decoration: none;
-}
-
-.navLogoImg {
-  height: 16px;
-}
-
-.navDivider {
-  width: 1px;
-  height: 16px;
-  background: #E0DCD5;
-  margin: 0 4px;
+  gap: 28px;
 }
 
 .navLink {
-  display: inline-flex;
-  align-items: center;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0;
-  border-radius: 9999px;
-  padding: 4px 12px;
-  color: #9A938C;
-  transition: color 0.2s ease;
-  white-space: nowrap;
+  font-size: 14px;
+  color: #1A1814;
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
 }
 
 .navLink:hover {
-  color: #1A1814;
+  opacity: 1;
 }
 
 .navCta {
-  display: inline-flex;
-  align-items: center;
-  font-size: 12px;
+  display: inline-block;
+  background: #AD531B;
+  color: #F7F6F2;
+  font-size: 14px;
   font-weight: 500;
-  border-radius: 9999px;
-  padding: 6px 12px;
-  background: transparent;
-  color: #1A1814;
-  border: 1px solid rgba(26, 24, 20, 0.2);
-  white-space: nowrap;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .navCta:hover {
-  border-color: rgba(26, 24, 20, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(173, 83, 27, 0.3);
 }
 
-@media (min-width: 768px) {
-  .navCta {
-    font-size: 13px;
-    padding: 6px 16px;
-  }
+.navHamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #1A1814;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
 }
 
-.navMenuButton:focus {
+.navHamburger:focus {
   outline: none;
 }
 
-.navMenuButton:focus-visible {
-  outline: 2px solid rgba(247, 246, 242, 0.4);
+.navHamburger:focus-visible {
+  outline: 2px solid rgba(173, 83, 27, 0.4);
   outline-offset: 2px;
-  border-radius: 999px;
+  border-radius: 4px;
 }
 
-.navCapsule .navMenuButton {
-  color: #AD531B;
+.navDrawer {
+  position: fixed;
+  top: 80px;
+  left: 16px;
+  right: 16px;
+  background: #F7F6F2;
+  border: 1px solid #E0DCD5;
+  border-radius: 16px;
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 99;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.drawerLink {
+  font-size: 16px;
+  color: #1A1814;
+  text-decoration: none;
+  padding: 14px 16px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.drawerLink:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.drawerCta {
+  display: block;
+  background: #AD531B;
+  color: #F7F6F2;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .navPill {
+    padding: 8px 8px 8px 20px;
+    gap: 0;
+  }
+  .navLinks {
+    display: none;
+  }
+  .navCta {
+    display: none;
+  }
+  .navHamburger {
+    display: block;
+    margin-left: auto;
+  }
+  .navDrawer {
+    display: flex;
+  }
 }
 
 /* ──────────────────── BUTTONS ──────────────────── */
@@ -622,15 +667,15 @@
 }
 
 @media (max-width: 768px) {
-  .navCapsule { gap: 1px; padding: 3px 3px 3px 5px; }
-  .navLink { font-size: 11px; padding: 4px 10px; }
-  .navCta { font-size: 11px; padding: 4px 12px; }
-  .navLogoImg { height: 14px; }
+  /* .navCapsule { gap: 1px; padding: 3px 3px 3px 5px; } — old nav, removed */
+  /* .navLink { font-size: 11px; padding: 4px 10px; } — old nav, removed */
+  /* .navCta { font-size: 11px; padding: 4px 12px; } — old nav, removed */
+  /* .navLogoImg { height: 14px; } — old nav, removed */
   .howSection { padding: 48px 1.5rem 32px; }
   .testimonials { padding: 40px 1.5rem; }
   .faqSection { padding: 40px 1.5rem; }
   .heroHeadline { font-size: 1.625rem; white-space: normal; }
-  .navInner { padding: 14px 1.25rem; }
+  /* .navInner { padding: 14px 1.25rem; } — old nav, removed */
   .cardFirst { border-radius: 12px 12px 0 0; }
   .quoteCite { font-size: 12px; }
   .faqCol { text-align: left; }
