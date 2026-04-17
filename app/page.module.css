@@ -180,9 +180,6 @@
     display: inline-flex;
     margin-left: 0;
   }
-  .mobileMenu {
-    display: block;
-  }
 }
 
 /* ──────────────────── MOBILE FULL-PAGE MENU ──────────────────── */
@@ -195,7 +192,6 @@
   bottom: 0;
   background: #F7F6F2;
   z-index: 99;
-  display: none;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   animation: mobileMenuFadeIn 240ms ease-out;
