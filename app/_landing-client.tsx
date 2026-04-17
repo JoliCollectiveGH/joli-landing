@@ -108,25 +108,49 @@ export default function LandingClient() {
           </a>
 
           <button
+            type="button"
             className={styles.navHamburger}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(o => !o)}
           >
-            {menuOpen ? '×' : '☰'}
+            {menuOpen ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="4" y1="8" x2="20" y2="8"/>
+                <line x1="4" y1="16" x2="20" y2="16"/>
+              </svg>
+            )}
           </button>
         </nav>
 
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
-              <button
-                className={styles.mobileMenuClose}
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close menu"
-              >
-                ×
-              </button>
+              <div className={styles.mobileMenuHeader}>
+                <a href="/" className={styles.mobileMenuLogo} onClick={() => setMenuOpen(false)} aria-label="JOLI Collective home">
+                  <img
+                    src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`}
+                    alt="JOLI"
+                    className={styles.mobileMenuLogoImg}
+                  />
+                </a>
+                <button
+                  className={styles.mobileMenuClose}
+                  onClick={() => setMenuOpen(false)}
+                  aria-label="Close menu"
+                  type="button"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
               {/* Primary nav items */}
               <nav className={styles.mobileMenuPrimary}>
                 <a
