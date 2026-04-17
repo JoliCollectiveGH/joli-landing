@@ -44,8 +44,14 @@ export default function LandingClient() {
         setMenuOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    // Defer attachment so the opening click doesn't immediately close
+    const timeoutId = setTimeout(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+    }, 0);
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -114,6 +120,13 @@ export default function LandingClient() {
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
+              <button
+                className={styles.mobileMenuClose}
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                ×
+              </button>
               {/* Primary nav items */}
               <nav className={styles.mobileMenuPrimary}>
                 <a
