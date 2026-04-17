@@ -215,7 +215,7 @@ export default function LandingClient() {
               The travel copilot that learns what you&apos;d choose.
             </h1>
             <p className={styles.heroSub}>
-              Plans that get closer to you the more you travel.
+              Plans shaped by every trip you take.
             </p>
             <a href={`${APP_URL}/request`} className={styles.heroCta}>
               Plan with JOLI
