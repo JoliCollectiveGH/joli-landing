@@ -39,13 +39,6 @@ export default function LandingClient() {
     setMenuOpen(o => !o);
   }, []);
 
-  const closeMenu = useCallback((e?: React.SyntheticEvent) => {
-    if (e) {
-      e.stopPropagation();
-    }
-    setMenuOpen(false);
-  }, []);
-
   // Lock body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
@@ -135,26 +128,6 @@ export default function LandingClient() {
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
-              <div className={styles.mobileMenuHeader}>
-                <a href="/" className={styles.mobileMenuLogo} onClick={() => setMenuOpen(false)} aria-label="JOLI Collective home">
-                  <img
-                    src={`${SUPABASE_ASSETS}/JOLI_Lockup_White_Clean.svg`}
-                    alt="JOLI"
-                    className={styles.mobileMenuLogoImg}
-                  />
-                </a>
-                <button
-                  className={styles.mobileMenuClose}
-                  onClick={closeMenu}
-                  aria-label="Close menu"
-                  type="button"
-                >
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                  </svg>
-                </button>
-              </div>
               {/* Primary nav items */}
               <nav className={styles.mobileMenuPrimary}>
                 <a
