@@ -35,12 +35,7 @@ export default function LandingClient() {
   const [menuOpen, setMenuOpen] = useState(false);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
-  // Toggle menu — wrapped so we can attach to both onClick and onTouchEnd
-  const toggleMenu = useCallback((e?: React.SyntheticEvent) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  const toggleMenu = useCallback(() => {
     setMenuOpen(o => !o);
   }, []);
 
