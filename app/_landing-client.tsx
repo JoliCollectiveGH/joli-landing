@@ -36,6 +36,22 @@ export default function LandingClient() {
   const menuRef = useRef<HTMLDivElement>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
+  // Toggle menu — wrapped so we can attach to both onClick and onTouchEnd
+  const toggleMenu = useCallback((e?: React.SyntheticEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setMenuOpen(o => !o);
+  }, []);
+
+  const closeMenu = useCallback((e?: React.SyntheticEvent) => {
+    if (e) {
+      e.stopPropagation();
+    }
+    setMenuOpen(false);
+  }, []);
+
   // Close menu on outside click
   useEffect(() => {
     if (!menuOpen) return;
@@ -47,10 +63,22 @@ export default function LandingClient() {
     // Defer attachment so the opening click doesn't immediately close
     const timeoutId = setTimeout(() => {
       document.addEventListener('mousedown', handleClickOutside);
-    }, 0);
+    }, 100);
     return () => {
       clearTimeout(timeoutId);
       document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
     };
   }, [menuOpen]);
 
@@ -112,15 +140,15 @@ export default function LandingClient() {
             className={styles.navHamburger}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(o => !o)}
+            onClick={toggleMenu}
           >
             {menuOpen ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="18" y1="6" x2="6" y2="18"/>
                 <line x1="6" y1="6" x2="18" y2="18"/>
               </svg>
             ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="4" y1="8" x2="20" y2="8"/>
                 <line x1="4" y1="16" x2="20" y2="16"/>
               </svg>
@@ -141,11 +169,11 @@ export default function LandingClient() {
                 </a>
                 <button
                   className={styles.mobileMenuClose}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={closeMenu}
                   aria-label="Close menu"
                   type="button"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="18" y1="6" x2="6" y2="18"/>
                     <line x1="6" y1="6" x2="18" y2="18"/>
                   </svg>
