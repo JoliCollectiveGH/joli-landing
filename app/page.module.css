@@ -536,7 +536,7 @@
 .mobilePhoneSection {
   display: none;
   background: #F7F6F2;
-  padding: 48px 0 56px;
+  padding: 48px 0 120px;
   overflow: visible;
   border-radius: 24px 24px 0 0;
   margin-top: -24px;
@@ -556,7 +556,7 @@
 .mobilePhoneInner > :global(div) {
   transform: scale(0.85);
   transform-origin: center top;
-  margin-bottom: -60px;
+  margin-bottom: -30px;
 }
 
 .mobilePhoneCaption {
