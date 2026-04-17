@@ -33,13 +33,10 @@ const TESTIMONIALS = [
 
 export default function LandingClient() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [debugLog, setDebugLog] = useState({ clicks: 0, touchStarts: 0, touchEnds: 0, lastEvent: 'none', renderCount: 0 });
-  const menuRef = useRef<HTMLDivElement>(null);
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
   // Toggle menu — wrapped so we can attach to both onClick and onTouchEnd
   const toggleMenu = useCallback((e?: React.SyntheticEvent) => {
-    setDebugLog(d => ({ ...d, clicks: d.clicks + 1, lastEvent: 'click' }));
     if (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -53,24 +50,6 @@ export default function LandingClient() {
     }
     setMenuOpen(false);
   }, []);
-
-  // Close menu on outside click
-  useEffect(() => {
-    if (!menuOpen) return;
-    function handleClickOutside(e: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMenuOpen(false);
-      }
-    }
-    // Defer attachment so the opening click doesn't immediately close
-    const timeoutId = setTimeout(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-    }, 100);
-    return () => {
-      clearTimeout(timeoutId);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [menuOpen]);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -116,35 +95,8 @@ export default function LandingClient() {
 
   return (
     <div className={styles.pageWrap}>
-      {/* DEBUG BADGE — remove after diagnosis */}
-      <div
-        style={{
-          position: 'fixed',
-          bottom: '16px',
-          left: '16px',
-          zIndex: 9999,
-          background: '#AD531B',
-          color: '#fff',
-          padding: '10px 14px',
-          borderRadius: '8px',
-          fontSize: '11px',
-          fontFamily: 'monospace',
-          lineHeight: 1.5,
-          maxWidth: 'calc(100vw - 32px)',
-          pointerEvents: 'none',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-        }}
-      >
-        menuOpen: {String(menuOpen)}<br/>
-        clicks: {debugLog.clicks}<br/>
-        touchStart: {debugLog.touchStarts}<br/>
-        touchEnd: {debugLog.touchEnds}<br/>
-        last: {debugLog.lastEvent}
-      </div>
-      {/* END DEBUG BADGE */}
-
       {/* ──────────────────────────── NAV ──────────────────────────── */}
-      <div ref={menuRef}>
+      <div>
         <nav className={styles.navPill}>
           <a href="/" className={styles.navLogo} aria-label="JOLI Collective home">
             <img
@@ -170,8 +122,6 @@ export default function LandingClient() {
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             onClick={toggleMenu}
-            onTouchStart={() => setDebugLog(d => ({ ...d, touchStarts: d.touchStarts + 1, lastEvent: 'touchStart' }))}
-            onTouchEnd={() => setDebugLog(d => ({ ...d, touchEnds: d.touchEnds + 1, lastEvent: 'touchEnd' }))}
           >
             {menuOpen ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
