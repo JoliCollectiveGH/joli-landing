@@ -489,7 +489,7 @@
   .heroInner {
     grid-template-columns: 1fr;
     gap: 0;
-    padding: 88px 24px 32px;
+    padding: 96px 24px 44px;
   }
   .heroLeft {
     align-items: center;
@@ -505,27 +505,36 @@
   }
   .heroSub {
     max-width: 100%;
+    margin-bottom: 36px;
+  }
+  .preheading {
+    margin-bottom: 24px;
+  }
+  .heroCta {
+    margin-bottom: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .heroInner {
-    padding: 78px 20px 28px;
+    padding: 90px 20px 40px;
   }
   .preheading {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
   .heroHeadline {
-    font-size: 32px;
-    margin-bottom: 16px;
+    font-size: 30px;
+    margin-bottom: 20px;
     letter-spacing: -0.005em;
+    line-height: 1.15;
   }
   .heroSub {
     font-size: 15px;
-    margin-bottom: 28px;
+    margin-bottom: 36px;
+    line-height: 1.6;
   }
   .heroCta {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     padding: 14px 28px;
     font-size: 15px;
   }
@@ -536,7 +545,7 @@
 .mobilePhoneSection {
   display: none;
   background: #F7F6F2;
-  padding: 48px 0 120px;
+  padding: 48px 0 64px;
   overflow: visible;
   border-radius: 24px 24px 0 0;
   margin-top: -24px;
