@@ -122,6 +122,7 @@
   border-radius: 4px;
 }
 
+/* ── OLD DRAWER STYLES (commented out — kept for rollback) ──
 .navDrawer {
   position: fixed;
   top: 52px;
@@ -145,62 +146,17 @@
 }
 
 @keyframes drawerOpen {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-.drawerLink {
-  font-size: 16px;
-  color: #1A1814;
-  text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  transition: background 0.15s ease;
-  text-align: center;
-}
-
-.drawerLink:hover {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.drawerDivider {
-  height: 1px;
-  background: #E0DCD5;
-  margin: 8px 12px 6px;
-}
-
-.drawerFooterLink {
-  font-size: 12px;
-  color: #6B6560;
-  text-decoration: none;
-  padding: 8px 16px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  transition: color 0.15s ease;
-}
-
-.drawerFooterLink:hover {
-  color: #1A1814;
-}
-
-.drawerCta {
-  display: block;
-  background: #AD531B;
-  color: #F7F6F2;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 14px 16px;
-  border-radius: 12px;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 8px;
-}
+.drawerLink { font-size: 16px; color: #1A1814; text-decoration: none; padding: 10px 16px; border-radius: 8px; transition: background 0.15s ease; text-align: center; }
+.drawerLink:hover { background: rgba(0, 0, 0, 0.04); }
+.drawerDivider { height: 1px; background: #E0DCD5; margin: 8px 12px 6px; }
+.drawerFooterLink { font-size: 12px; color: #6B6560; text-decoration: none; padding: 8px 16px; text-align: center; letter-spacing: 0.02em; transition: color 0.15s ease; }
+.drawerFooterLink:hover { color: #1A1814; }
+.drawerCta { display: block; background: #AD531B; color: #F7F6F2; font-size: 16px; font-weight: 500; padding: 14px 16px; border-radius: 12px; text-decoration: none; text-align: center; margin-top: 8px; }
+── END OLD DRAWER STYLES ── */
 
 @media (max-width: 768px) {
   .navPill {
@@ -218,9 +174,131 @@
     display: block;
     margin-left: 0;
   }
-  .navDrawer {
-    display: flex;
+  .mobileMenu {
+    display: block;
   }
+}
+
+/* ──────────────────── MOBILE FULL-PAGE MENU ──────────────────── */
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F7F6F2;
+  z-index: 99;
+  display: none;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  animation: mobileMenuFadeIn 240ms ease-out;
+}
+
+@keyframes mobileMenuFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mobileMenuInner {
+  padding: 80px 24px 40px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.mobileMenuPrimary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobileMenuLink {
+  display: block;
+  font-size: 32px;
+  font-weight: 400;
+  color: #1A1814;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  padding: 8px 0;
+  line-height: 1.2;
+  transition: opacity 0.15s ease;
+}
+
+.mobileMenuLink:hover {
+  opacity: 0.6;
+}
+
+.mobileMenuFooter {
+  margin-top: auto;
+  padding-top: 32px;
+  border-top: 1px solid #E0DCD5;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mobileMenuFooterCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 20px;
+}
+
+.mobileMenuFooterCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobileMenuFooterHeading {
+  font-size: 10px;
+  font-weight: 600;
+  color: #AD531B;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0 0 4px;
+}
+
+.mobileMenuFooterLink {
+  font-size: 13px;
+  color: #6B6560;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.mobileMenuFooterLink:hover {
+  color: #1A1814;
+}
+
+.mobileMenuSocials {
+  display: flex;
+  gap: 24px;
+}
+
+.mobileMenuSocialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #6B6560;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.mobileMenuSocialLink svg {
+  flex-shrink: 0;
+}
+
+.mobileMenuSocialLink:hover {
+  color: #1A1814;
+}
+
+.mobileMenuBottom {
+  font-size: 11px;
+  color: #9A938C;
+  padding-top: 16px;
+  border-top: 1px solid #E0DCD5;
 }
 
 /* ──────────────────── BUTTONS ──────────────────── */

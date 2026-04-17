@@ -112,10 +112,82 @@ export default function LandingClient() {
         </nav>
 
         {menuOpen && (
-          <div className={styles.navDrawer}>
-            <a href={`${APP_URL}/how-it-works`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>How it works</a>
-            <a href={`${APP_URL}/pricing`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>Pricing</a>
-            <a href={`${APP_URL}/about`} className={styles.drawerLink} onClick={() => setMenuOpen(false)}>About</a>
+          <div className={styles.mobileMenu}>
+            <div className={styles.mobileMenuInner}>
+              {/* Primary nav items */}
+              <nav className={styles.mobileMenuPrimary}>
+                <a
+                  href={`${APP_URL}/how-it-works`}
+                  className={styles.mobileMenuLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  How it works
+                </a>
+                <a
+                  href={`${APP_URL}/pricing`}
+                  className={styles.mobileMenuLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Pricing
+                </a>
+                <a
+                  href={`${APP_URL}/about`}
+                  className={styles.mobileMenuLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  About
+                </a>
+              </nav>
+
+              {/* Footer section inside menu */}
+              <div className={styles.mobileMenuFooter}>
+                <div className={styles.mobileMenuFooterCols}>
+                  <div className={styles.mobileMenuFooterCol}>
+                    <h4 className={styles.mobileMenuFooterHeading}>Product</h4>
+                    <a href={`${APP_URL}/how-it-works`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>How it works</a>
+                    <a href={`${APP_URL}/pricing`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Pricing</a>
+                    <a href={`${APP_URL}/hospitable`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Hospitable</a>
+                  </div>
+                  <div className={styles.mobileMenuFooterCol}>
+                    <h4 className={styles.mobileMenuFooterHeading}>Company</h4>
+                    <a href={`${APP_URL}/about`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>About</a>
+                    <a href="mailto:info@jolicollective.net" className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Contact</a>
+                  </div>
+                  <div className={styles.mobileMenuFooterCol}>
+                    <h4 className={styles.mobileMenuFooterHeading}>Resources</h4>
+                    <a href={`${APP_URL}/faq`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>FAQ</a>
+                  </div>
+                  <div className={styles.mobileMenuFooterCol}>
+                    <h4 className={styles.mobileMenuFooterHeading}>Legal</h4>
+                    <a href={`${APP_URL}/privacy`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Privacy</a>
+                    <a href={`${APP_URL}/terms`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Terms</a>
+                  </div>
+                </div>
+
+                {/* Social icons row */}
+                <div className={styles.mobileMenuSocials}>
+                  <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.mobileMenuSocialLink} aria-label="Trustpilot reviews">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>Trustpilot</span>
+                  </a>
+                  <a href="https://www.instagram.com/joli.collective/" target="_blank" rel="noopener noreferrer" className={styles.mobileMenuSocialLink} aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="2" y="2" width="20" height="20" rx="5"/>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                      <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+                    </svg>
+                    <span>Instagram</span>
+                  </a>
+                </div>
+
+                {/* Bottom row */}
+                <div className={styles.mobileMenuBottom}>
+                  <span>© 2026 JOLI Collective</span>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
