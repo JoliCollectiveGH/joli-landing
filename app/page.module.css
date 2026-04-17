@@ -516,11 +516,11 @@
 }
 
 @media (max-width: 480px) {
+  .preheading {
+    display: none;
+  }
   .heroInner {
     padding: 90px 20px 40px;
-  }
-  .preheading {
-    margin-bottom: 24px;
   }
   .heroHeadline {
     font-size: 30px;
