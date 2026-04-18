@@ -39,6 +39,12 @@ export default function LandingClient() {
     setMenuOpen(o => !o);
   }, []);
 
+  // Defer close so the browser's default <a> navigation isn't cancelled by
+  // synchronous unmount of the menu during the click handler (iOS Safari).
+  const closeMenuDeferred = useCallback(() => {
+    setTimeout(() => setMenuOpen(false), 0);
+  }, []);
+
   // Lock body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
@@ -98,6 +104,7 @@ export default function LandingClient() {
             <a href={`${APP_URL}/how-it-works`} className={styles.navLink}>How it works</a>
             <a href={`${APP_URL}/pricing`} className={styles.navLink}>Pricing</a>
             <a href={`${APP_URL}/about`} className={styles.navLink}>About</a>
+            <a href={`${APP_URL}/account`} className={styles.navLink}>Account</a>
           </div>
 
           <a href={`${APP_URL}/request`} className={styles.navCta}>
@@ -133,23 +140,30 @@ export default function LandingClient() {
                 <a
                   href={`${APP_URL}/how-it-works`}
                   className={styles.mobileMenuLink}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={closeMenuDeferred}
                 >
                   How it works
                 </a>
                 <a
                   href={`${APP_URL}/pricing`}
                   className={styles.mobileMenuLink}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={closeMenuDeferred}
                 >
                   Pricing
                 </a>
                 <a
                   href={`${APP_URL}/about`}
                   className={styles.mobileMenuLink}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={closeMenuDeferred}
                 >
                   About
+                </a>
+                <a
+                  href={`${APP_URL}/account`}
+                  className={styles.mobileMenuLink}
+                  onClick={closeMenuDeferred}
+                >
+                  Account
                 </a>
               </nav>
 
@@ -158,23 +172,23 @@ export default function LandingClient() {
                 <div className={styles.mobileMenuFooterCols}>
                   <div className={styles.mobileMenuFooterCol}>
                     <h4 className={styles.mobileMenuFooterHeading}>Product</h4>
-                    <a href={`${APP_URL}/how-it-works`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>How it works</a>
-                    <a href={`${APP_URL}/pricing`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Pricing</a>
-                    <a href={`${APP_URL}/hospitable`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Hospitable</a>
+                    <a href={`${APP_URL}/how-it-works`} className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>How it works</a>
+                    <a href={`${APP_URL}/pricing`} className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>Pricing</a>
+                    <a href={`${APP_URL}/hospitable`} className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>Hospitable</a>
                   </div>
                   <div className={styles.mobileMenuFooterCol}>
                     <h4 className={styles.mobileMenuFooterHeading}>Company</h4>
-                    <a href={`${APP_URL}/about`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>About</a>
-                    <a href="mailto:info@jolicollective.net" className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Contact</a>
+                    <a href={`${APP_URL}/about`} className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>About</a>
+                    <a href="mailto:info@jolicollective.net" className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>Contact</a>
                   </div>
                   <div className={styles.mobileMenuFooterCol}>
                     <h4 className={styles.mobileMenuFooterHeading}>Resources</h4>
-                    <a href={`${APP_URL}/faq`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>FAQ</a>
+                    <a href={`${APP_URL}/faq`} className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>FAQ</a>
                   </div>
                   <div className={styles.mobileMenuFooterCol}>
                     <h4 className={styles.mobileMenuFooterHeading}>Legal</h4>
-                    <a href={`${APP_URL}/privacy`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Privacy</a>
-                    <a href={`${APP_URL}/terms`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Terms</a>
+                    <a href={`${APP_URL}/privacy`} className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>Privacy</a>
+                    <a href={`${APP_URL}/terms`} className={styles.mobileMenuFooterLink} onClick={closeMenuDeferred}>Terms</a>
                   </div>
                 </div>
 
