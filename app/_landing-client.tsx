@@ -31,12 +31,32 @@ const TESTIMONIALS = [
 ];
 
 
+type MenuAuthStatus = 'loading' | 'signedIn' | 'signedOut';
+
 export default function LandingClient() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [authStatus, setAuthStatus] = useState<MenuAuthStatus>('loading');
   const revealRefs = useRef<(HTMLElement | null)[]>([]);
 
   const toggleMenu = useCallback(() => {
     setMenuOpen(o => !o);
+  }, []);
+
+  // Fetch auth state once on mount — drives the menu's auth-aware items.
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`${APP_URL}/api/auth/whoami`, { credentials: 'include', cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (cancelled) return;
+        setAuthStatus(data && data.signedIn ? 'signedIn' : 'signedOut');
+      })
+      .catch(() => {
+        if (!cancelled) setAuthStatus('signedOut');
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Lock body scroll when menu is open
@@ -151,6 +171,46 @@ export default function LandingClient() {
                 >
                   About
                 </a>
+
+                {authStatus === 'signedIn' && (
+                  <>
+                    <div style={{ height: 1, background: '#E0DCD5', margin: '16px 0' }} />
+                    <a
+                      href={`${APP_URL}/trip-plans`}
+                      className={styles.mobileMenuLink}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Trip plans
+                    </a>
+                    <a
+                      href={`${APP_URL}/taste-profile`}
+                      className={styles.mobileMenuLink}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Taste profile
+                    </a>
+                    <a
+                      href={`${APP_URL}/account`}
+                      className={styles.mobileMenuLink}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Account
+                    </a>
+                  </>
+                )}
+
+                {authStatus === 'signedOut' && (
+                  <>
+                    <div style={{ height: 1, background: '#E0DCD5', margin: '16px 0' }} />
+                    <a
+                      href={`${APP_URL}/auth/login?next=/account`}
+                      className={styles.mobileMenuLink}
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Sign in
+                    </a>
+                  </>
+                )}
               </nav>
 
               {/* Footer section inside menu */}
