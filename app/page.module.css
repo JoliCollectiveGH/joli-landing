@@ -173,8 +173,7 @@
     display: none;
   }
   .navCta {
-    font-size: 13px;
-    padding: 6px 14px;
+    display: none;
   }
   .navHamburger {
     display: inline-flex;
@@ -219,18 +218,39 @@
 
 .mobileMenuLink {
   display: block;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 400;
   color: #1A1814;
   text-decoration: none;
   letter-spacing: -0.01em;
-  padding: 8px 0;
-  line-height: 1.2;
+  padding: 6px 0;
+  line-height: 1.25;
   transition: opacity 0.15s ease;
 }
 
 .mobileMenuLink:hover {
   opacity: 0.6;
+}
+
+.mobileMenuCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #AD531B;
+  color: #F7F6F2;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-bottom: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobileMenuCta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(173, 83, 27, 0.3);
 }
 
 .mobileMenuFooter {

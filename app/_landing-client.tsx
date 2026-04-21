@@ -148,6 +148,15 @@ export default function LandingClient() {
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
+              {/* Primary CTA */}
+              <a
+                href={`${APP_URL}/request`}
+                className={styles.mobileMenuCta}
+                onClick={() => setMenuOpen(false)}
+              >
+                Plan with JOLI
+              </a>
+
               {/* Primary nav items */}
               <nav className={styles.mobileMenuPrimary}>
                 <a
