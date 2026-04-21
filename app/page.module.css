@@ -507,8 +507,8 @@
     padding: 96px 24px 44px;
   }
   .heroLeft {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     max-width: 100%;
   }
   .heroRight {
@@ -531,17 +531,17 @@
 }
 
 @media (max-width: 480px) {
-  .preheading {
-    display: none;
-  }
   .heroInner {
-    padding: 90px 20px 40px;
+    padding: 96px 24px 56px;
+  }
+  .preheading {
+    margin-bottom: 20px;
   }
   .heroHeadline {
-    font-size: 30px;
+    font-size: 36px;
     margin-bottom: 20px;
-    letter-spacing: -0.005em;
-    line-height: 1.15;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
   }
   .heroSub {
     font-size: 15px;
