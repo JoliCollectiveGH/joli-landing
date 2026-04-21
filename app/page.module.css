@@ -808,8 +808,9 @@
   width: 240px;
   height: 240px;
   flex-shrink: 0;
-  opacity: 0.12;
+  opacity: 0.08;
   object-fit: contain;
+  filter: invert(1) brightness(0);
 }
 
 .heroQuoteMark {

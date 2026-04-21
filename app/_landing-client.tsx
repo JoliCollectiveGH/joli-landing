@@ -531,7 +531,7 @@ export default function LandingClient() {
               <cite className={styles.heroQuoteCite}>— Ali, on a trip to Galicia</cite>
             </div>
             <img
-              src={`${SUPABASE_ASSETS}/JOLI_Snail_Black_Clean.svg`}
+              src={`${SUPABASE_ASSETS}/JOLI_Symbol_White_Clean.svg`}
               alt=""
               aria-hidden="true"
               className={styles.heroQuoteSwirl}
