@@ -731,29 +731,34 @@
 .stepsRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: 56px;
 }
 
 .stepCard {
-  padding-top: 20px;
-  border-top: 1px solid var(--surface-border-soft);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .stepNum {
   display: block;
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1;
   color: var(--brand);
-  font-weight: 500;
-  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  opacity: 0.85;
 }
 
 .stepTitle {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--ink);
   margin: 0 0 8px;
   line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 .stepDesc {
@@ -761,7 +766,8 @@
   font-weight: 300;
   color: var(--ink-muted);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.65;
+  max-width: 340px;
 }
 
 /* ──────────────────── TESTIMONIALS ──────────────────── */
@@ -784,14 +790,15 @@
 .heroQuoteBlock {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   padding: 24px 8% 16px;
 }
 
 .heroQuoteMark {
   color: var(--brand);
   opacity: 0.28;
-  margin-bottom: -8px;
+  margin-bottom: -20px;
+  margin-left: -6px;
 }
 
 .heroQuoteText {
@@ -835,9 +842,17 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-bottom: 8px;
+  align-items: stretch;
 }
 
-.quote { margin: 0; padding: 0; }
+.quote {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 
 .quoteText {
   font-size: 17px;
@@ -855,7 +870,11 @@
   letter-spacing: 0.01em;
 }
 
-.trustpilot { padding-top: 32px; padding-bottom: 32px; }
+.trustpilot {
+  padding-top: 0;
+  padding-bottom: 32px;
+  margin-top: -32px;
+}
 
 .trustpilotLink {
   display: inline-flex;
@@ -1016,8 +1035,8 @@
 /* ──────────────────── RESPONSIVE ──────────────────── */
 
 @media (max-width: 900px) {
-  .stepsRow { grid-template-columns: 1fr; gap: 0; }
-  .stepCard { border-top: none; border-bottom: 1px solid var(--surface-border-soft); padding: 20px 0; }
+  .stepsRow { grid-template-columns: 1fr; gap: 32px; }
+  .stepCard { padding: 0; }
   .stepCard:last-child { border-bottom: none; }
   .quoteRow { grid-template-columns: 1fr 1fr; }
   .cardFirst { border-radius: 16px 16px 0 0; }
@@ -1492,13 +1511,11 @@
   flex-direction: column;
   gap: 12px;
   align-items: flex-start;
-  padding: 22px 0;
-  border-top: 1px solid var(--surface-border-soft);
+  padding: 14px 0;
 }
 
 .tasteBenefit:first-child {
   padding-top: 0;
-  border-top: none;
 }
 
 .tasteDash {

@@ -390,7 +390,6 @@ export default function LandingClient() {
 
           {/* Mockup 1 — Trip plan day card */}
           <div data-stagger className={`${styles.mockupWrap} ${styles.staggerChild}`}>
-            <span className={styles.mockupLabel}>The plan</span>
             <article className={styles.tripPlanCard}>
               <header className={styles.tripPlanHeader}>
                 <span className={styles.tripPlanDayLabel}>Day 2 · Ostuni</span>
@@ -416,7 +415,7 @@ export default function LandingClient() {
               <div className={styles.tripPlanBlock}>
                 <span className={styles.tripPlanBlockTime}>AFTERNOON</span>
                 <div className={styles.tripPlanItem}>
-                  <p className={styles.tripPlanItemTitle}>Moroseta pool</p>
+                  <p className={styles.tripPlanItemTitle}>Masseria pool</p>
                   <p className={styles.tripPlanItemMeta}>Deliberately empty. This is the point.</p>
                 </div>
               </div>
@@ -433,7 +432,6 @@ export default function LandingClient() {
 
           {/* Mockup 2 — Copilot conversation */}
           <div data-stagger className={`${styles.mockupWrap} ${styles.staggerChild}`}>
-            <span className={styles.mockupLabel}>The copilot</span>
             <div className={styles.copilotCard}>
               <header className={styles.copilotHeader}>
                 <span className={styles.copilotHeaderLogo}>JOLI</span>
