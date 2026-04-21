@@ -299,6 +299,14 @@ export default function LandingClient() {
               <span className={styles.trustStars}>★★★★★</span>
               <span className={styles.trustText}>5.0 on Trustpilot</span>
             </a>
+
+            {/* Mobile-only voice signature — hidden on desktop where full phone mockup handles this role */}
+            <div className={styles.heroBubbleMobile} aria-hidden="true">
+              <span className={styles.heroBubbleLabel}>JOLI</span>
+              <div className={styles.heroBubble}>
+                Good time of year for Italy. City base, or somewhere slower?
+              </div>
+            </div>
           </div>
 
           <div className={styles.heroRight}>
