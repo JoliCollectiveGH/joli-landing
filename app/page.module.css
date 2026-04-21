@@ -776,13 +776,65 @@
 .testimonialsInner {
   max-width: 1080px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.heroQuoteBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 8% 16px;
+}
+
+.heroQuoteMark {
+  color: var(--brand);
+  opacity: 0.28;
+  margin-bottom: -8px;
+}
+
+.heroQuoteText {
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0;
+  max-width: 880px;
+}
+
+.heroQuoteCite {
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+  padding-left: 4px;
+}
+
+@media (max-width: 900px) {
+  .heroQuoteBlock {
+    padding: 16px 0 12px;
+    gap: 18px;
+  }
+  .heroQuoteMark {
+    width: 36px;
+    height: 36px;
+  }
+  .heroQuoteText {
+    font-size: clamp(1.35rem, 5vw, 1.9rem);
+  }
+  .testimonialsInner {
+    gap: 40px;
+  }
 }
 
 .quoteRow {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 8px;
 }
 
 .quote { margin: 0; padding: 0; }
@@ -1217,68 +1269,6 @@
   .sectionHeadline { font-size: 1.5rem; }
 }
 
-/* ──────────────────── HERO PULLQUOTE ──────────────────── */
-
-.pullquoteSection {
-  background: var(--surface);
-  padding: 88px 2rem 72px;
-  position: relative;
-  z-index: 2;
-}
-
-.pullquoteInner {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  padding-left: 8%;
-  padding-right: 8%;
-}
-
-.pullquoteMark {
-  color: var(--brand);
-  opacity: 0.28;
-  margin-bottom: -12px;
-}
-
-.pullquote {
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin: 0;
-  max-width: 880px;
-}
-
-.pullquoteCite {
-  font-size: 13px;
-  font-weight: 500;
-  font-style: normal;
-  color: var(--ink-muted);
-  letter-spacing: 0.02em;
-  padding-left: 4px;
-}
-
-@media (max-width: 900px) {
-  .pullquoteSection {
-    padding: 64px 1.5rem 56px;
-  }
-  .pullquoteInner {
-    padding-left: 0;
-    padding-right: 0;
-    gap: 20px;
-  }
-  .pullquote {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-  }
-  .pullquoteMark {
-    width: 36px;
-    height: 36px;
-  }
-}
-
 .faqImageDesktop { display: block; }
 .faqImageMobile { display: none; position: relative; z-index: 2; background: var(--surface); }
 
@@ -1499,9 +1489,10 @@
 
 .tasteBenefit {
   display: flex;
-  gap: 14px;
+  flex-direction: column;
+  gap: 12px;
   align-items: flex-start;
-  padding: 20px 0;
+  padding: 22px 0;
   border-top: 1px solid var(--surface-border-soft);
 }
 
@@ -1518,12 +1509,26 @@
   font-weight: 300;
 }
 
+.tastePill {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: rgba(173, 83, 27, 0.08);
+  padding: 6px 14px;
+  border-radius: 999px;
+  line-height: 1;
+}
+
 .tasteBenefitText {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.55;
   margin: 0;
+  max-width: 520px;
 }
 
 .tasteCta {

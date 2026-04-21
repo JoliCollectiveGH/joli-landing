@@ -23,11 +23,6 @@ const TESTIMONIALS = [
       'It actually filtered for the things we genuinely enjoy. It took all the guesswork out of planning.',
     name: 'Nicole, Turin',
   },
-  {
-    quote:
-      'It\u2019s like being taken by the hand by someone who really understands you.',
-    name: 'Ali, Galicia',
-  },
 ];
 
 
@@ -375,13 +370,13 @@ export default function LandingClient() {
             </div>
             <div data-stagger className={`${styles.tasteRight} ${styles.staggerChild}`}>
               {[
-                'Stays matched to how you like to feel, not just where you want to go.',
-                'Dining picked for your palate, not the highest rating.',
-                'Experiences filtered for your pace, your interests, your trip.',
+                { label: 'Stays', text: 'Matched to how you like to feel, not just where you want to go.' },
+                { label: 'Dining', text: 'Picked for your palate, not the highest rating.' },
+                { label: 'Experiences', text: 'Filtered for your pace, your interests, your trip.' },
               ].map((item, i) => (
                 <div key={i} className={styles.tasteBenefit}>
-                  <span className={styles.tasteDash}>—</span>
-                  <p className={styles.tasteBenefitText}>{item}</p>
+                  <span className={styles.tastePill}>{item.label}</span>
+                  <p className={styles.tasteBenefitText}>{item.text}</p>
                 </div>
               ))}
             </div>
@@ -519,6 +514,19 @@ export default function LandingClient() {
       <section className={`${styles.section} ${styles.testimonials} ${styles.revealSection}`} ref={setRef(2)}>
         <div className={styles.testimonialsInner}>
           <span data-stagger className={`${styles.eyebrow} ${styles.staggerChild}`}>What people say</span>
+
+          {/* Hero quote — Ali */}
+          <div data-stagger className={`${styles.heroQuoteBlock} ${styles.staggerChild}`}>
+            <svg className={styles.heroQuoteMark} width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M9.33 8.5L7 12.33V16h3.67v-3.67H9L9.33 8.5zm7.34 0L14.33 12.33V16H18v-3.67h-1.67L16.67 8.5z"/>
+            </svg>
+            <blockquote className={styles.heroQuoteText}>
+              It&apos;s like being taken by the hand by someone who really understands you.
+            </blockquote>
+            <cite className={styles.heroQuoteCite}>— Ali, on a trip to Galicia</cite>
+          </div>
+
+          {/* Compact row — other 3 testimonials */}
           <div className={styles.quoteRow}>
             {TESTIMONIALS.map((t) => (
               <blockquote key={t.name} data-stagger className={`${styles.quote} ${styles.staggerChild}`}>
@@ -527,6 +535,8 @@ export default function LandingClient() {
               </blockquote>
             ))}
           </div>
+
+          {/* Trustpilot footer */}
           <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
             <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
               <span className={styles.trustpilotStars} aria-label="5 star rating">
@@ -539,21 +549,6 @@ export default function LandingClient() {
               <span className={styles.trustpilotText}>Rated 5/5 on Trustpilot</span>
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* ──────────────────── HERO PULLQUOTE ──────────────────── */}
-      <section className={`${styles.pullquoteSection} ${styles.revealSection}`} ref={setRef(5)}>
-        <div className={styles.pullquoteInner}>
-          <svg className={styles.pullquoteMark} width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M9.33 8.5L7 12.33V16h3.67v-3.67H9L9.33 8.5zm7.34 0L14.33 12.33V16H18v-3.67h-1.67L16.67 8.5z"/>
-          </svg>
-          <blockquote data-stagger className={`${styles.pullquote} ${styles.staggerChild}`}>
-            It's like being taken by the hand by someone who really understands you.
-          </blockquote>
-          <cite data-stagger className={`${styles.pullquoteCite} ${styles.staggerChild}`}>
-            — Ali, on a trip to Galicia
-          </cite>
         </div>
       </section>
 
