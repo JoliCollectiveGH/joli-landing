@@ -499,18 +499,17 @@ export default function LandingClient() {
               </a>
             </div>
             <div className={styles.manifestoRight}>
-              <div className={styles.manifestoStanzaFirst}>
-                <span className={styles.manifestoSubLabel}>A true story</span>
-                <p className={styles.manifestoPullquote}>
-                  The places that had shaped my best trips — the small hotels, the restaurants without websites, the conversations with hosts, the villages that didn&apos;t photograph well but had the best food — were precisely the places the internet was worst at recommending.
-                </p>
-              </div>
-              <div className={`${styles.manifestoStanza} ${styles.manifestoStanzaHideMobile}`}>
-                <span className={styles.manifestoSubLabel}>The work</span>
-                <p className={styles.manifestoStanzaText}>
-                  Taste is a form of currency. The work of curation — the reading, the visiting, the saying no to ninety-nine things — is the art of the edit.
-                </p>
-              </div>
+              <figure className={styles.manifestoPhotoFigure}>
+                <img
+                  src="https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/landingpage/stefan-stefancik-1NwEDhtL_QA-unsplash.jpg"
+                  alt="A solitary swimmer in a geothermal pool set into the hills of Iceland — a quiet morning, no one else around."
+                  className={styles.manifestoPhotoImg}
+                  loading="lazy"
+                />
+                <figcaption className={styles.manifestoPhotoCaption}>
+                  Iceland. A pool no one else was using.
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>

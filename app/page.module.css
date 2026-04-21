@@ -1340,6 +1340,8 @@
 
 .manifestoRight {
   padding-top: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .manifestoStanzaFirst {
@@ -1415,13 +1417,46 @@
   border-bottom-color: #F7F6F2;
 }
 
+.manifestoPhotoFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: start;
+}
+
+.manifestoPhotoImg {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+}
+
+.manifestoPhotoCaption {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(247, 246, 242, 0.65);
+  letter-spacing: 0.02em;
+  max-width: 440px;
+  padding-left: 2px;
+}
+
 @media (max-width: 900px) {
   .manifestoGrid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px;
   }
   .manifestoRight {
     padding-top: 0;
+    justify-content: flex-start;
+  }
+  .manifestoPhotoImg {
+    max-width: 100%;
+    aspect-ratio: 4 / 5;
   }
 }
 
@@ -1429,13 +1464,8 @@
   .manifesto {
     padding: 3.5rem 1.5rem;
   }
-  .manifestoSubLabel {
-    display: none;
-  }
-  .manifestoStanza {
-    margin-top: 1.5rem;
-    padding-top: 0;
-    border-top: none;
+  .manifestoPhotoImg {
+    aspect-ratio: 4 / 5;
   }
 }
 
