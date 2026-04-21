@@ -789,9 +789,27 @@
 
 .heroQuoteBlock {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+  padding: 24px 8% 16px;
+  position: relative;
+}
+
+.heroQuoteContent {
+  display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 24px 8% 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.heroQuoteSwirl {
+  width: 240px;
+  height: 240px;
+  flex-shrink: 0;
+  opacity: 0.12;
+  object-fit: contain;
 }
 
 .heroQuoteMark {
@@ -822,15 +840,25 @@
 
 @media (max-width: 900px) {
   .heroQuoteBlock {
+    flex-direction: column;
     padding: 16px 0 12px;
-    gap: 18px;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .heroQuoteContent {
+    gap: 14px;
   }
   .heroQuoteMark {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
   }
   .heroQuoteText {
-    font-size: clamp(1.35rem, 5vw, 1.9rem);
+    font-size: 1.25rem;
+    line-height: 1.35;
+    font-weight: 400;
+  }
+  .heroQuoteSwirl {
+    display: none;
   }
   .testimonialsInner {
     gap: 40px;
@@ -1426,6 +1454,13 @@
   border-bottom-color: #F7F6F2;
 }
 
+.manifestoStanzaLeft {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(247, 246, 242, 0.2);
+  max-width: 440px;
+}
+
 .manifestoPhotoFigure {
   margin: 0;
   display: flex;
@@ -1466,6 +1501,10 @@
   .manifestoPhotoImg {
     max-width: 100%;
     aspect-ratio: 4 / 5;
+  }
+  .manifestoStanzaLeft {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
   }
 }
 

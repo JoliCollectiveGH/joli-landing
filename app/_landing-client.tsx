@@ -490,6 +490,12 @@ export default function LandingClient() {
               <a href="https://app.jolicollective.net/about" className={styles.manifestoCta}>
                 Read our story →
               </a>
+              <div className={styles.manifestoStanzaLeft}>
+                <span className={styles.manifestoSubLabel}>The work</span>
+                <p className={styles.manifestoStanzaText}>
+                  Taste is a form of currency. The work of curation — the reading, the visiting, the saying no to ninety-nine things — is the art of the edit.
+                </p>
+              </div>
             </div>
             <div className={styles.manifestoRight}>
               <figure className={styles.manifestoPhotoFigure}>
@@ -515,13 +521,21 @@ export default function LandingClient() {
 
           {/* Hero quote — Ali */}
           <div data-stagger className={`${styles.heroQuoteBlock} ${styles.staggerChild}`}>
-            <svg className={styles.heroQuoteMark} width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M9.33 8.5L7 12.33V16h3.67v-3.67H9L9.33 8.5zm7.34 0L14.33 12.33V16H18v-3.67h-1.67L16.67 8.5z"/>
-            </svg>
-            <blockquote className={styles.heroQuoteText}>
-              It&apos;s like being taken by the hand by someone who really understands you.
-            </blockquote>
-            <cite className={styles.heroQuoteCite}>— Ali, on a trip to Galicia</cite>
+            <div className={styles.heroQuoteContent}>
+              <svg className={styles.heroQuoteMark} width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M9.33 8.5L7 12.33V16h3.67v-3.67H9L9.33 8.5zm7.34 0L14.33 12.33V16H18v-3.67h-1.67L16.67 8.5z"/>
+              </svg>
+              <blockquote className={styles.heroQuoteText}>
+                It&apos;s like being taken by the hand by someone who really understands you.
+              </blockquote>
+              <cite className={styles.heroQuoteCite}>— Ali, on a trip to Galicia</cite>
+            </div>
+            <img
+              src={`${SUPABASE_ASSETS}/JOLI_Snail_Black_Clean.svg`}
+              alt=""
+              aria-hidden="true"
+              className={styles.heroQuoteSwirl}
+            />
           </div>
 
           {/* Compact row — other 3 testimonials */}
