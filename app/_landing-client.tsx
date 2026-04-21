@@ -574,7 +574,7 @@ export default function LandingClient() {
             </div>
             <div className={styles.ctaBannerBtns}>
               <a href={`${APP_URL}/request`} className={styles.ctaBannerBtn}>
-                New trip <span className={styles.ctaBannerArrow}>→</span>
+                Plan with JOLI <span className={styles.ctaBannerArrow}>→</span>
               </a>
             </div>
           </div>
