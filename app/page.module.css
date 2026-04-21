@@ -1445,7 +1445,7 @@
   color: #F7F6F2;
   text-decoration: none;
   transition: opacity 0.2s ease;
-  margin-top: auto;
+  margin-top: 0;
   align-self: flex-start;
   border-bottom: 1px solid rgba(247, 246, 242, 0.4);
   padding-bottom: 2px;
@@ -1460,6 +1460,10 @@
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(247, 246, 242, 0.2);
+}
+
+.manifestoStanzaLeft .manifestoSubLabel,
+.manifestoStanzaLeft .manifestoStanzaText {
   max-width: 440px;
 }
 
