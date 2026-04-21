@@ -487,6 +487,8 @@
   transform: rotate(-2deg);
   opacity: 0;
   animation: bubbleFadeIn 900ms ease 800ms forwards;
+  position: relative;
+  z-index: 3;
 }
 
 .heroBubbleLabel {
@@ -550,7 +552,7 @@
   .heroInner {
     grid-template-columns: 1fr;
     gap: 0;
-    padding: 96px 24px 44px;
+    padding: 96px 24px 88px;
   }
   .heroLeft {
     align-items: flex-start;
@@ -581,7 +583,7 @@
 
 @media (max-width: 480px) {
   .heroInner {
-    padding: 96px 24px 56px;
+    padding: 96px 24px 96px;
   }
   .preheading {
     margin-bottom: 20px;

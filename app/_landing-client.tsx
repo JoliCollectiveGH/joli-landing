@@ -304,7 +304,7 @@ export default function LandingClient() {
             <div className={styles.heroBubbleMobile} aria-hidden="true">
               <span className={styles.heroBubbleLabel}>JOLI</span>
               <div className={styles.heroBubble}>
-                Good time of year for Italy. City base, or somewhere slower?
+                You liked slow mornings in Lisbon. Keeping that in mind for Rome.
               </div>
             </div>
           </div>
