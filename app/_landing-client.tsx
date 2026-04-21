@@ -7,8 +7,6 @@ import PhoneMockup from './components/PhoneMockup';
 const SUPABASE_ASSETS =
   'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets';
 const APP_URL = 'https://app.jolicollective.net';
-// TODO: verify upload path once image is in Supabase
-const LANDING_PHOTO = `${SUPABASE_ASSETS}/bruno-bd-XKvbGtdUUyQ-unsplash.jpg`;
 const TRUSTPILOT_URL = 'https://uk.trustpilot.com/review/jolicollective.net';
 
 const TESTIMONIALS = [
@@ -388,20 +386,6 @@ export default function LandingClient() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ──────────────────── EDITORIAL PHOTO ──────────────────── */}
-      <section className={styles.photoSection} ref={setRef(4)}>
-        <div className={styles.photoFrame}>
-          <img
-            src={LANDING_PHOTO}
-            alt="A glimpse of Rome through a framed window — the kind of small moment JOLI is made for."
-            className={styles.photoImg}
-          />
-          <figcaption className={styles.photoCaption}>
-            — From a recent trip plan. Rome, morning light.
-          </figcaption>
         </div>
       </section>
 
