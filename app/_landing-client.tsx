@@ -389,6 +389,99 @@ export default function LandingClient() {
         </div>
       </section>
 
+      {/* ──────────────────── PRODUCT IN ACTION ──────────────────── */}
+      <section className={`${styles.productSection} ${styles.revealSection}`} ref={setRef(4)}>
+        <div className={styles.productInner}>
+
+          {/* Mockup 1 — Trip plan day card */}
+          <div data-stagger className={`${styles.mockupWrap} ${styles.staggerChild}`}>
+            <span className={styles.mockupLabel}>The plan</span>
+            <article className={styles.tripPlanCard}>
+              <header className={styles.tripPlanHeader}>
+                <span className={styles.tripPlanDayLabel}>Day 2 · Ostuni</span>
+                <h3 className={styles.tripPlanDayTitle}>The White City on Foot</h3>
+              </header>
+
+              <div className={styles.tripPlanBlock}>
+                <span className={styles.tripPlanBlockTime}>MORNING</span>
+                <div className={styles.tripPlanItem}>
+                  <p className={styles.tripPlanItemTitle}>Centro storico, before the heat</p>
+                  <p className={styles.tripPlanItemMeta}>Cathedral of Santa Maria · 15th-century rose window</p>
+                </div>
+              </div>
+
+              <div className={styles.tripPlanBlock}>
+                <span className={styles.tripPlanBlockTime}>MIDDAY</span>
+                <div className={styles.tripPlanItem}>
+                  <p className={styles.tripPlanItemTitle}>Pizzeria Ostuni</p>
+                  <p className={styles.tripPlanItemMeta}>Wood-fired, local, unfussy — where residents eat</p>
+                </div>
+              </div>
+
+              <div className={styles.tripPlanBlock}>
+                <span className={styles.tripPlanBlockTime}>AFTERNOON</span>
+                <div className={styles.tripPlanItem}>
+                  <p className={styles.tripPlanItemTitle}>Moroseta pool</p>
+                  <p className={styles.tripPlanItemMeta}>Deliberately empty. This is the point.</p>
+                </div>
+              </div>
+
+              <div className={styles.tripPlanBlock}>
+                <span className={styles.tripPlanBlockTime}>EVENING</span>
+                <div className={styles.tripPlanItem}>
+                  <p className={styles.tripPlanItemTitle}>Aperitivo on the terrace</p>
+                  <p className={styles.tripPlanItemMeta}>7pm light on the olive groves · the reason to be here</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          {/* Mockup 2 — Copilot conversation */}
+          <div data-stagger className={`${styles.mockupWrap} ${styles.staggerChild}`}>
+            <span className={styles.mockupLabel}>The copilot</span>
+            <div className={styles.copilotCard}>
+              <header className={styles.copilotHeader}>
+                <span className={styles.copilotHeaderLogo}>JOLI</span>
+                <span className={styles.copilotHeaderContext}>Day 3 · Valle d'Itria</span>
+              </header>
+
+              <div className={styles.copilotBody}>
+                <div className={styles.copilotMsgUser}>
+                  Can we swap Alberobello for something quieter? Crowds aren't really our thing.
+                </div>
+
+                <div className={styles.copilotMsgJoli}>
+                  <span className={styles.copilotMsgSender}>JOLI</span>
+                  <p className={styles.copilotMsgText}>
+                    Try Locorotondo or Cisternino instead — circular hilltop towns in the same valley, none of Alberobello's coach traffic. Cisternino has the fornelli pronti butcher-rotisseries for lunch, which is the better meal anyway.
+                  </p>
+                </div>
+
+                <div className={styles.copilotMsgUser}>
+                  Perfect. Swap it.
+                </div>
+
+                <div className={styles.copilotMsgStatus}>
+                  <span className={styles.copilotStatusDot}></span>
+                  Day 3 updated
+                </div>
+              </div>
+
+              <div className={styles.copilotInput}>
+                <span className={styles.copilotInputPlaceholder}>Reply to JOLI…</span>
+                <div className={styles.copilotInputSend}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="12" y1="19" x2="12" y2="5"/>
+                    <polyline points="5 12 12 5 19 12"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* MANIFESTO */}
       <section className={styles.manifesto}>
         <div className={styles.manifestoInner}>
