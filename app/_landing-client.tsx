@@ -7,6 +7,8 @@ import PhoneMockup from './components/PhoneMockup';
 const SUPABASE_ASSETS =
   'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets';
 const APP_URL = 'https://app.jolicollective.net';
+// TODO: verify upload path once image is in Supabase
+const LANDING_PHOTO = `${SUPABASE_ASSETS}/bruno-bd-XKvbGtdUUyQ-unsplash.jpg`;
 const TRUSTPILOT_URL = 'https://uk.trustpilot.com/review/jolicollective.net';
 
 const TESTIMONIALS = [
@@ -389,6 +391,20 @@ export default function LandingClient() {
         </div>
       </section>
 
+      {/* ──────────────────── EDITORIAL PHOTO ──────────────────── */}
+      <section className={styles.photoSection} ref={setRef(4)}>
+        <div className={styles.photoFrame}>
+          <img
+            src={LANDING_PHOTO}
+            alt="A glimpse of Rome through a framed window — the kind of small moment JOLI is made for."
+            className={styles.photoImg}
+          />
+          <figcaption className={styles.photoCaption}>
+            — From a recent trip plan. Rome, morning light.
+          </figcaption>
+        </div>
+      </section>
+
       {/* MANIFESTO */}
       <section className={styles.manifesto}>
         <div className={styles.manifestoInner}>
@@ -447,6 +463,21 @@ export default function LandingClient() {
               <span className={styles.trustpilotText}>Rated 5/5 on Trustpilot</span>
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ──────────────────── HERO PULLQUOTE ──────────────────── */}
+      <section className={`${styles.pullquoteSection} ${styles.revealSection}`} ref={setRef(5)}>
+        <div className={styles.pullquoteInner}>
+          <svg className={styles.pullquoteMark} width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M9.33 8.5L7 12.33V16h3.67v-3.67H9L9.33 8.5zm7.34 0L14.33 12.33V16H18v-3.67h-1.67L16.67 8.5z"/>
+          </svg>
+          <blockquote data-stagger className={`${styles.pullquote} ${styles.staggerChild}`}>
+            It's like being taken by the hand by someone who really understands you.
+          </blockquote>
+          <cite data-stagger className={`${styles.pullquoteCite} ${styles.staggerChild}`}>
+            — Ali, on a trip to Galicia
+          </cite>
         </div>
       </section>
 

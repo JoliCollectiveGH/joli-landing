@@ -1217,6 +1217,68 @@
   .sectionHeadline { font-size: 1.5rem; }
 }
 
+/* ──────────────────── HERO PULLQUOTE ──────────────────── */
+
+.pullquoteSection {
+  background: var(--surface);
+  padding: 88px 2rem 72px;
+  position: relative;
+  z-index: 2;
+}
+
+.pullquoteInner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.pullquoteMark {
+  color: var(--brand);
+  opacity: 0.28;
+  margin-bottom: -12px;
+}
+
+.pullquote {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0;
+  max-width: 880px;
+}
+
+.pullquoteCite {
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+  padding-left: 4px;
+}
+
+@media (max-width: 900px) {
+  .pullquoteSection {
+    padding: 64px 1.5rem 56px;
+  }
+  .pullquoteInner {
+    padding-left: 0;
+    padding-right: 0;
+    gap: 20px;
+  }
+  .pullquote {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  .pullquoteMark {
+    width: 36px;
+    height: 36px;
+  }
+}
+
 .faqImageDesktop { display: block; }
 .faqImageMobile { display: none; position: relative; z-index: 2; background: var(--surface); }
 
@@ -1241,15 +1303,27 @@
 .manifesto {
   position: relative;
   z-index: 2;
-  background: var(--surface);
-  border-top: 1px solid var(--surface-border-soft);
-  border-bottom: 1px solid var(--surface-border-soft);
-  padding: 64px 2rem 64px;
+  background: #AD531B;
+  padding: 80px 2rem 88px;
+  overflow: hidden;
+}
+
+.manifesto::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  z-index: 1;
 }
 
 .manifestoInner {
   max-width: 1080px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .manifestoGrid {
@@ -1272,35 +1346,44 @@
   margin-bottom: 0;
 }
 
+.manifesto .eyebrow {
+  color: rgba(247, 246, 242, 0.7);
+}
+
+.manifesto .sectionHeadline {
+  color: #F7F6F2;
+}
+
 .manifestoPullquote {
   font-size: 14px;
   line-height: 1.6;
   font-weight: 300;
-  color: var(--ink-muted);
+  color: rgba(247, 246, 242, 0.78);
   margin: 0;
 }
 
 .manifestoStanza {
   margin-top: 1.75rem;
   padding-top: 1.75rem;
-  border-top: 1px solid var(--surface-border-soft);
+  border-top: 1px solid rgba(247, 246, 242, 0.2);
 }
 
 .manifestoSubLabel {
   display: block;
   font-size: 11px;
   font-weight: 500;
-  color: var(--ink);
+  color: #F7F6F2;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   margin-bottom: 10px;
+  opacity: 0.65;
 }
 
 .manifestoStanzaText {
   font-size: 14px;
   line-height: 1.6;
   font-weight: 300;
-  color: var(--ink-muted);
+  color: rgba(247, 246, 242, 0.78);
   margin: 0;
 }
 
@@ -1308,7 +1391,7 @@
   font-size: 16px;
   line-height: 1.65;
   font-weight: 300;
-  color: var(--ink-secondary);
+  color: rgba(247, 246, 242, 0.88);
   max-width: 640px;
   margin: 0 0 2.5rem 0;
 }
@@ -1318,15 +1401,18 @@
   align-items: center;
   font-size: 14px;
   font-weight: 500;
-  color: var(--brand);
+  color: #F7F6F2;
   text-decoration: none;
   transition: opacity 0.2s ease;
   margin-top: auto;
   align-self: flex-start;
+  border-bottom: 1px solid rgba(247, 246, 242, 0.4);
+  padding-bottom: 2px;
 }
 
 .manifestoCta:hover {
-  opacity: 0.7;
+  opacity: 1;
+  border-bottom-color: #F7F6F2;
 }
 
 @media (max-width: 900px) {
@@ -1436,6 +1522,53 @@
 @media (max-width: 768px) {
   .tasteSection {
     padding: 48px 1.5rem;
+  }
+}
+
+/* ──────────────────── EDITORIAL PHOTO ──────────────────── */
+
+.photoSection {
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+  padding: 32px 2rem 56px;
+}
+
+.photoFrame {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.photoImg {
+  width: 100%;
+  height: 56vh;
+  min-height: 420px;
+  max-height: 640px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 12px 48px rgba(26, 24, 20, 0.12);
+}
+
+.photoCaption {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-muted);
+  letter-spacing: 0.01em;
+  padding-left: 4px;
+}
+
+@media (max-width: 768px) {
+  .photoSection {
+    padding: 24px 1.5rem 40px;
+  }
+  .photoImg {
+    height: 44vh;
+    min-height: 320px;
+    border-radius: 8px;
   }
 }
 
