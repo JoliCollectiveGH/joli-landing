@@ -148,17 +148,15 @@ export default function LandingClient() {
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
-              {/* Primary CTA */}
-              <a
-                href={`${APP_URL}/request`}
-                className={styles.mobileMenuCta}
-                onClick={() => setMenuOpen(false)}
-              >
-                Plan with JOLI
-              </a>
-
-              {/* Primary nav items */}
+              {/* Primary nav items — "Plan with JOLI" leads as a terracotta text link */}
               <nav className={styles.mobileMenuPrimary}>
+                <a
+                  href={`${APP_URL}/request`}
+                  className={styles.mobileMenuCtaLink}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Plan with JOLI
+                </a>
                 <a
                   href={`${APP_URL}/how-it-works`}
                   className={styles.mobileMenuLink}
