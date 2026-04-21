@@ -296,7 +296,13 @@ export default function LandingClient() {
               rel="noopener noreferrer"
               className={styles.trustChip}
             >
-              <span className={styles.trustStars}>★★★★★</span>
+              <span className={styles.trustStars} aria-label="5 star rating">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </span>
               <span className={styles.trustText}>5.0 on Trustpilot</span>
             </a>
 
@@ -315,10 +321,12 @@ export default function LandingClient() {
         </div>
       </section>
 
-      <section className={styles.mobilePhoneSection}>
+      <section className={`${styles.mobilePhoneSection} ${styles.revealSection}`} ref={setRef(3)}>
         <div className={styles.mobilePhoneInner}>
-          <PhoneMockup />
-          <p className={styles.mobilePhoneCaption}>How a conversation begins</p>
+          <div data-stagger className={styles.staggerChild}>
+            <PhoneMockup />
+          </div>
+          <p data-stagger className={`${styles.mobilePhoneCaption} ${styles.staggerChild}`}>How a conversation begins</p>
         </div>
       </section>
 
@@ -429,7 +437,13 @@ export default function LandingClient() {
           </div>
           <div data-stagger className={`${styles.trustpilot} ${styles.staggerChild}`}>
             <a href={TRUSTPILOT_URL} target="_blank" rel="noopener noreferrer" className={styles.trustpilotLink}>
-              <span className={styles.trustpilotStars}>★★★★★</span>
+              <span className={styles.trustpilotStars} aria-label="5 star rating">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </span>
               <span className={styles.trustpilotText}>Rated 5/5 on Trustpilot</span>
             </a>
           </div>
