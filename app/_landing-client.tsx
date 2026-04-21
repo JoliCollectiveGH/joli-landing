@@ -220,6 +220,9 @@ export default function LandingClient() {
                     <h4 className={styles.mobileMenuFooterHeading}>Product</h4>
                     <a href={`${APP_URL}/how-it-works`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>How it works</a>
                     <a href={`${APP_URL}/pricing`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Pricing</a>
+                  </div>
+                  <div className={styles.mobileMenuFooterCol}>
+                    <h4 className={styles.mobileMenuFooterHeading}>Integrations</h4>
                     <a href={`${APP_URL}/hospitable`} className={styles.mobileMenuFooterLink} onClick={() => setMenuOpen(false)}>Hospitable</a>
                   </div>
                   <div className={styles.mobileMenuFooterCol}>
@@ -438,7 +441,7 @@ export default function LandingClient() {
       {/* ──────────────────────────── FOOTER ──────────────────────────── */}
       <footer className="relative z-10 w-full bg-white border-t border-[#E0DCD5]">
         <div className="max-w-6xl mx-auto px-6 py-12 md:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-12 mb-12">
             <div className="col-span-2 md:col-span-1">
               <a href="https://jolicollective.net" className="inline-block">
                 <img
@@ -453,6 +456,11 @@ export default function LandingClient() {
               <ul className="space-y-3">
                 <li><a href={`${APP_URL}/how-it-works`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">How it works</a></li>
                 <li><a href={`${APP_URL}/pricing`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Pricing</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-[10px] font-semibold text-[#AD531B] uppercase tracking-widest mb-4">Integrations</h4>
+              <ul className="space-y-3">
                 <li><a href={`${APP_URL}/hospitable`} className="text-sm text-[#6B6560] hover:text-[#1A1814] transition-colors">Hospitable</a></li>
               </ul>
             </div>
