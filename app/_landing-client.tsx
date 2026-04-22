@@ -143,75 +143,68 @@ export default function LandingClient() {
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
-              {/* Primary nav items — "Plan with JOLI" leads as a terracotta text link */}
-              <nav className={styles.mobileMenuPrimary}>
+              {/* Primary action — Plan with JOLI as terracotta pill, Sign in as muted secondary */}
+              <nav style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
                 <a
                   href={`${APP_URL}/request`}
-                  className={styles.mobileMenuCtaLink}
                   onClick={() => setMenuOpen(false)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '14px 24px',
+                    borderRadius: '9999px',
+                    background: '#AD531B',
+                    color: '#FFFFFF',
+                    fontSize: '16px',
+                    fontWeight: 500,
+                    textDecoration: 'none',
+                    transition: 'background 0.2s',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#92461A'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = '#AD531B'; }}
                 >
                   Plan with JOLI
                 </a>
-                <a
-                  href={`${APP_URL}/how-it-works`}
-                  className={styles.mobileMenuLink}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  How it works
-                </a>
-                <a
-                  href={`${APP_URL}/pricing`}
-                  className={styles.mobileMenuLink}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Pricing
-                </a>
-                <a
-                  href={`${APP_URL}/about`}
-                  className={styles.mobileMenuLink}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  About
-                </a>
-
-                {authStatus === 'signedIn' && (
-                  <>
-                    <div style={{ height: 1, background: '#E0DCD5', margin: '16px 0' }} />
-                    <a
-                      href={`${APP_URL}/trip-plans`}
-                      className={styles.mobileMenuLink}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Trip plans
-                    </a>
-                    <a
-                      href={`${APP_URL}/taste-profile`}
-                      className={styles.mobileMenuLink}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Taste profile
-                    </a>
-                    <a
-                      href={`${APP_URL}/account`}
-                      className={styles.mobileMenuLink}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Account
-                    </a>
-                  </>
-                )}
 
                 {authStatus === 'signedOut' && (
-                  <>
-                    <div style={{ height: 1, background: '#E0DCD5', margin: '16px 0' }} />
-                    <a
-                      href={`${APP_URL}/auth/login?next=/account`}
-                      className={styles.mobileMenuLink}
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      Sign in
-                    </a>
-                  </>
+                  <a
+                    href={`${APP_URL}/auth/login?next=/account`}
+                    onClick={() => setMenuOpen(false)}
+                    style={{
+                      display: 'block',
+                      textAlign: 'center',
+                      fontSize: '14px',
+                      color: '#6B6560',
+                      padding: '4px 0',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1814'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6B6560'; }}
+                  >
+                    Sign in
+                  </a>
+                )}
+
+                {authStatus === 'signedIn' && (
+                  <a
+                    href={`${APP_URL}/account`}
+                    onClick={() => setMenuOpen(false)}
+                    style={{
+                      display: 'block',
+                      textAlign: 'center',
+                      fontSize: '14px',
+                      color: '#6B6560',
+                      padding: '4px 0',
+                      textDecoration: 'none',
+                      transition: 'color 0.2s',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1814'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6B6560'; }}
+                  >
+                    Account
+                  </a>
                 )}
               </nav>
 
