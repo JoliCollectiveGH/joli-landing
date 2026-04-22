@@ -189,13 +189,27 @@ export default function LandingClient() {
                     href={`${APP_URL}/account`}
                     onClick={() => setMenuOpen(false)}
                     style={{
-                      fontSize: '13px',
-                      color: '#6B6560',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      padding: '10px 18px',
+                      borderRadius: '999px',
+                      background: 'transparent',
+                      color: '#AD531B',
+                      fontSize: '15px',
+                      fontWeight: 500,
+                      letterSpacing: '-0.01em',
                       textDecoration: 'none',
-                      transition: 'color 0.2s',
+                      border: '1px solid #AD531B',
+                      transition: 'background 0.2s, color 0.2s',
                     }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#1A1814'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = '#6B6560'; }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = '#AD531B';
+                      e.currentTarget.style.color = '#FFFFFF';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = '#AD531B';
+                    }}
                   >
                     Account
                   </a>
