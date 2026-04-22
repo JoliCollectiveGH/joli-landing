@@ -143,17 +143,16 @@ export default function LandingClient() {
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
-              {/* Primary action — Plan with JOLI pill + secondary link */}
-              <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '12px' }}>
+              {/* Primary action — content-hugging terracotta pill, left-aligned */}
+              <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px' }}>
                 <a
                   href={`${APP_URL}/request`}
                   onClick={() => setMenuOpen(false)}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '12px 24px',
-                    borderRadius: '32px',
+                    padding: '10px 18px',
+                    borderRadius: '999px',
                     background: '#AD531B',
                     color: '#FFFFFF',
                     fontSize: '15px',
@@ -173,11 +172,8 @@ export default function LandingClient() {
                     href={`${APP_URL}/auth/login?next=/account`}
                     onClick={() => setMenuOpen(false)}
                     style={{
-                      display: 'block',
-                      textAlign: 'center',
                       fontSize: '13px',
                       color: '#6B6560',
-                      padding: '4px 0',
                       textDecoration: 'none',
                       transition: 'color 0.2s',
                     }}
@@ -193,11 +189,8 @@ export default function LandingClient() {
                     href={`${APP_URL}/account`}
                     onClick={() => setMenuOpen(false)}
                     style={{
-                      display: 'block',
-                      textAlign: 'center',
                       fontSize: '13px',
                       color: '#6B6560',
-                      padding: '4px 0',
                       textDecoration: 'none',
                       transition: 'color 0.2s',
                     }}
