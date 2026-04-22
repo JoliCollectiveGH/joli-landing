@@ -143,8 +143,8 @@ export default function LandingClient() {
         {menuOpen && (
           <div className={styles.mobileMenu}>
             <div className={styles.mobileMenuInner}>
-              {/* Primary action — Plan with JOLI as terracotta pill, Sign in as muted secondary */}
-              <nav style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
+              {/* Primary action — Plan with JOLI pill + secondary link */}
+              <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', gap: '12px' }}>
                 <a
                   href={`${APP_URL}/request`}
                   onClick={() => setMenuOpen(false)}
@@ -152,12 +152,13 @@ export default function LandingClient() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '14px 24px',
-                    borderRadius: '9999px',
+                    padding: '12px 24px',
+                    borderRadius: '32px',
                     background: '#AD531B',
                     color: '#FFFFFF',
-                    fontSize: '16px',
+                    fontSize: '15px',
                     fontWeight: 500,
+                    letterSpacing: '-0.01em',
                     textDecoration: 'none',
                     transition: 'background 0.2s',
                   }}
@@ -174,7 +175,7 @@ export default function LandingClient() {
                     style={{
                       display: 'block',
                       textAlign: 'center',
-                      fontSize: '14px',
+                      fontSize: '13px',
                       color: '#6B6560',
                       padding: '4px 0',
                       textDecoration: 'none',
@@ -194,7 +195,7 @@ export default function LandingClient() {
                     style={{
                       display: 'block',
                       textAlign: 'center',
-                      fontSize: '14px',
+                      fontSize: '13px',
                       color: '#6B6560',
                       padding: '4px 0',
                       textDecoration: 'none',
