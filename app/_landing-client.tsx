@@ -278,7 +278,7 @@ export default function LandingClient() {
           <div className={styles.heroLeft}>
             <p className={styles.preheading}>edited by joli</p>
             <h1 className={styles.heroHeadline}>
-              The travel copilot that learns your taste.
+              The travel concierge that learns your taste.
             </h1>
             <p className={styles.heroSub}>
               Plans shaped by every trip you take.
