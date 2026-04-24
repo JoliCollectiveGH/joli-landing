@@ -115,7 +115,7 @@ export default function LandingClient() {
             <a href={`${APP_URL}/about`} className={styles.navLink}>About</a>
           </div>
 
-          <a href={`${APP_URL}/request`} className={styles.navCta}>
+          <a href={`${APP_URL}/start`} className={styles.navCta}>
             Plan with JOLI
           </a>
 
@@ -146,7 +146,7 @@ export default function LandingClient() {
               {/* Primary action — content-hugging terracotta pill, left-aligned */}
               <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '12px' }}>
                 <a
-                  href={`${APP_URL}/request`}
+                  href={`${APP_URL}/start`}
                   onClick={() => setMenuOpen(false)}
                   style={{
                     display: 'inline-flex',
@@ -283,7 +283,7 @@ export default function LandingClient() {
             <p className={styles.heroSub}>
               Plans shaped by every trip you take.
             </p>
-            <a href={`${APP_URL}/request`} className={styles.heroCta}>
+            <a href={`${APP_URL}/start`} className={styles.heroCta}>
               Plan with JOLI
             </a>
             <a
@@ -574,7 +574,7 @@ export default function LandingClient() {
               <h3 className={styles.ctaBannerHeadline}>Your next trip is one<br /> conversation away.</h3>
             </div>
             <div className={styles.ctaBannerBtns}>
-              <a href={`${APP_URL}/request`} className={styles.ctaBannerBtn}>
+              <a href={`${APP_URL}/start`} className={styles.ctaBannerBtn}>
                 Plan with JOLI <span className={styles.ctaBannerArrow}>→</span>
               </a>
             </div>
