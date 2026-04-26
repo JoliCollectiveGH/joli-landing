@@ -326,6 +326,17 @@ export default function LandingClient() {
         </div>
       </section>
 
+      <section className={`${styles.heroIllustrationSection} ${styles.revealSection}`} ref={setRef(8)}>
+        <div data-stagger className={styles.staggerChild}>
+          <img
+            src="/hero-illustration.svg"
+            alt=""
+            aria-hidden="true"
+            className={styles.heroIllustrationImg}
+          />
+        </div>
+      </section>
+
       {/* ──────────────────── HOW IT WORKS ──────────────────── */}
       <section className={`${styles.cardFirst} ${styles.howSection} ${styles.revealSection}`} ref={setRef(0)}>
         <div className={styles.howInner}>
@@ -392,40 +403,57 @@ export default function LandingClient() {
           {/* Mockup 1 — Trip plan day card */}
           <div data-stagger className={`${styles.mockupWrap} ${styles.staggerChild}`}>
             <article className={styles.tripPlanCard}>
-              <header className={styles.tripPlanHeader}>
-                <span className={styles.tripPlanDayLabel}>Day 2 · Ostuni</span>
-                <h3 className={styles.tripPlanDayTitle}>The White City on Foot</h3>
-              </header>
-
-              <div className={styles.tripPlanBlock}>
-                <span className={styles.tripPlanBlockTime}>MORNING</span>
-                <div className={styles.tripPlanItem}>
-                  <p className={styles.tripPlanItemTitle}>Centro storico, before the heat</p>
-                  <p className={styles.tripPlanItemMeta}>Cathedral of Santa Maria · 15th-century rose window</p>
+              <div className={styles.tripPlanDay}>
+                <div className={styles.tripPlanDayIcon} aria-hidden="true">
+                  <svg viewBox="0 0 100 100" overflow="visible">
+                    <ellipse cx="49" cy="58" rx="36" ry="14" fill="#F8E5C9" style={{ mixBlendMode: 'multiply', opacity: 0.85 }} />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M 14 58 Q 14 46 50 46 Q 86 46 86 58 Q 86 70 50 70 Q 14 70 14 58 Z" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 22 56 q 6 -3 12 0 M 38 60 q 6 -3 12 0 M 56 56 q 6 -3 12 0 M 70 60 q 6 -3 10 0" />
+                    <circle cx="58" cy="52" r="3" fill="none" stroke="#1A1814" strokeWidth="1.6" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 58 55 q -8 4 -12 0" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 78 40 v 18 M 84 40 v 18 M 78 46 h 6 M 78 52 h 6" />
+                  </svg>
+                </div>
+                <div className={styles.tripPlanDayBody}>
+                  <span className={styles.tripPlanDayLabel}>Day 01 · Ostuni</span>
+                  <h3 className={styles.tripPlanDayTitle}>Arrival, into the valley</h3>
+                  <p className={styles.tripPlanDayDesc}>Pick up the car at Bari, an hour through the olive groves, and a long pool waiting.</p>
                 </div>
               </div>
 
-              <div className={styles.tripPlanBlock}>
-                <span className={styles.tripPlanBlockTime}>MIDDAY</span>
-                <div className={styles.tripPlanItem}>
-                  <p className={styles.tripPlanItemTitle}>Pizzeria Ostuni</p>
-                  <p className={styles.tripPlanItemMeta}>Wood-fired, local, unfussy — where residents eat</p>
+              <div className={styles.tripPlanDay}>
+                <div className={styles.tripPlanDayIcon} aria-hidden="true">
+                  <svg viewBox="0 0 100 100" overflow="visible">
+                    <path fill="#B85C28" style={{ mixBlendMode: 'multiply', opacity: 0.85 }} d="M 18 78 l 22 -36 l 18 22 l 14 -18 l 18 32 z" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M 8 80 l 28 -42 l 18 24 l 14 -16 l 24 34" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 30 56 l 6 8 M 44 60 l 6 -4" />
+                    <circle cx="20" cy="28" r="6" fill="none" stroke="#1A1814" strokeWidth="1.1" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 28 84 q 14 -2 24 -10 q 12 -10 22 -8" />
+                  </svg>
+                </div>
+                <div className={styles.tripPlanDayBody}>
+                  <span className={styles.tripPlanDayLabel}>Day 02 · Locorotondo</span>
+                  <h3 className={styles.tripPlanDayTitle}>The white city, on foot</h3>
+                  <p className={styles.tripPlanDayDesc}>The hilltop circle of Locorotondo before the heat, lunch with the brothers.</p>
                 </div>
               </div>
 
-              <div className={styles.tripPlanBlock}>
-                <span className={styles.tripPlanBlockTime}>AFTERNOON</span>
-                <div className={styles.tripPlanItem}>
-                  <p className={styles.tripPlanItemTitle}>Masseria pool</p>
-                  <p className={styles.tripPlanItemMeta}>Deliberately empty. This is the point.</p>
+              <div className={styles.tripPlanDay}>
+                <div className={styles.tripPlanDayIcon} aria-hidden="true">
+                  <svg viewBox="0 0 100 100" overflow="visible">
+                    <rect x="6" y="46" width="88" height="36" fill="#6B8AA0" style={{ mixBlendMode: 'multiply', opacity: 0.85 }} />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.6" strokeLinecap="round" d="M 8 50 q 10 -4 22 0 q 12 4 24 0 q 12 -4 24 0 q 10 4 14 0" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 8 60 q 10 -3 22 0 q 12 3 24 0 q 12 -3 24 0 q 10 3 14 0" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 8 70 q 10 -3 22 0 q 12 3 24 0 q 12 -3 24 0 q 10 3 14 0" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d="M 56 30 l 0 22 l 16 0 z" />
+                    <path fill="none" stroke="#1A1814" strokeWidth="1.1" strokeLinecap="round" d="M 50 52 q 8 4 28 0" />
+                    <circle cx="80" cy="28" r="6" fill="none" stroke="#1A1814" strokeWidth="1.1" />
+                  </svg>
                 </div>
-              </div>
-
-              <div className={styles.tripPlanBlock}>
-                <span className={styles.tripPlanBlockTime}>EVENING</span>
-                <div className={styles.tripPlanItem}>
-                  <p className={styles.tripPlanItemTitle}>Aperitivo on the terrace</p>
-                  <p className={styles.tripPlanItemMeta}>7pm light on the olive groves · the reason to be here</p>
+                <div className={styles.tripPlanDayBody}>
+                  <span className={styles.tripPlanDayLabel}>Day 03 · Otranto</span>
+                  <h3 className={styles.tripPlanDayTitle}>To the sea</h3>
+                  <p className={styles.tripPlanDayDesc}>Drive south to the Salento. A converted lighthouse at the edge of the cove.</p>
                 </div>
               </div>
             </article>
