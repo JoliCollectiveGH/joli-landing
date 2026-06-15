@@ -11,7 +11,7 @@
 
 .inner {
   width: 100%;
-  max-width: 460px;
+  max-width: 600px;
 }
 
 .wordmark {
@@ -28,6 +28,7 @@
   line-height: 1.12;
   letter-spacing: -0.02em;
   color: var(--ink);
+  text-wrap: balance;
 }
 
 .sub {
