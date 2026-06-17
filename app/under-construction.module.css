@@ -44,9 +44,19 @@
   margin: 0 auto;
 }
 
+.invite {
+  margin: 30px auto 22px;
+  max-width: 320px;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.78);
+  text-wrap: balance;
+}
+
 .email {
   display: inline-block;
-  margin-top: 40px;
+  margin-top: 28px;
   font-size: 15px;
   letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.82);

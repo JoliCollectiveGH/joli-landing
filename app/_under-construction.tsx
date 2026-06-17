@@ -1,4 +1,5 @@
 import styles from './under-construction.module.css';
+import WaitlistForm from './components/WaitlistForm';
 
 export default function UnderConstruction() {
   return (
@@ -23,6 +24,12 @@ export default function UnderConstruction() {
           alt="JOLI"
           className={styles.lockup}
         />
+
+        <p className={styles.invite}>
+          Join the list for invitations to what we stage next.
+        </p>
+
+        <WaitlistForm />
 
         <a className={styles.email} href="mailto:info@jolicollective.net">
           info@jolicollective.net
