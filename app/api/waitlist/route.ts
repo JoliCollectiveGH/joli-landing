@@ -14,11 +14,13 @@ async function sendConfirmation(email: string) {
     <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 480px; margin: 0 auto; padding: 48px 24px; color: #1A1814; text-align: center;">
       <img src="https://jolicollective.net/JOLI_Lockup_Black.png" alt="JOLI" width="160" style="width: 160px; max-width: 55%; height: auto; margin: 0 auto 32px; display: block;" />
       <p style="font-size: 15px; line-height: 1.65; margin: 0;">Thank you for joining. You&rsquo;ll be among the first to receive invitations.</p>
+      <p style="font-size: 14px; line-height: 1.65; margin: 28px 0 0;"><a href="https://instagram.com/joli.collective" style="color: #1A1814; text-decoration: none; border-bottom: 1px solid rgba(26, 24, 20, 0.3);">@joli.collective</a></p>
     </div>`;
 
   const text =
     'JOLI\n\n' +
-    "Thank you for joining. You'll be among the first to receive invitations.";
+    "Thank you for joining. You'll be among the first to receive invitations.\n\n" +
+    '@joli.collective — instagram.com/joli.collective';
 
   try {
     await fetch('https://api.postmarkapp.com/email', {

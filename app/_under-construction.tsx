@@ -1,20 +1,15 @@
 import styles from './under-construction.module.css';
 import WaitlistForm from './components/WaitlistForm';
+import BackgroundVideo from './components/BackgroundVideo';
 
 export default function UnderConstruction() {
   return (
     <main className={styles.wrap}>
-      <video
+      <BackgroundVideo
         className={styles.bg}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
         poster="/Joli_Texture_06_poster.jpg"
-      >
-        <source src="/Joli_Texture_06.mp4" type="video/mp4" />
-      </video>
+        src="/Joli_Texture_06.mp4"
+      />
       <div className={styles.scrim} />
 
       <div className={styles.inner}>
@@ -32,11 +27,22 @@ export default function UnderConstruction() {
         <WaitlistForm />
       </div>
 
-      <a className={styles.email} href="mailto:info@jolicollective.net">
-        info@jolicollective.net
-      </a>
-
-      <p className={styles.footer}>© 2026 JOLI</p>
+      <div className={styles.bottomBar}>
+        <div className={styles.contact}>
+          <a className={styles.link} href="mailto:info@jolicollective.net">
+            info@jolicollective.net
+          </a>
+          <a
+            className={styles.link}
+            href="https://instagram.com/joli.collective"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @joli.collective
+          </a>
+        </div>
+        <p className={styles.footer}>© 2026 JOLI</p>
+      </div>
     </main>
   );
 }
