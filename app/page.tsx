@@ -3,10 +3,12 @@ import UnderConstruction from './_under-construction';
 
 export const metadata: Metadata = {
   title: 'JOLI Collective',
-  description: 'Something new is on the way.',
+  description:
+    'A social club staging brand experiences in cultural spaces. Join the waiting list for access.',
   openGraph: {
     title: 'JOLI Collective',
-    description: 'Something new is on the way.',
+    description:
+      'A social club staging brand experiences in cultural spaces. Join the waiting list for access.',
     url: 'https://jolicollective.net',
     siteName: 'JOLI Collective',
     type: 'website',
@@ -14,7 +16,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'JOLI Collective',
-    description: 'Something new is on the way.',
+    description:
+      'A social club staging brand experiences in cultural spaces. Join the waiting list for access.',
   },
   alternates: {
     canonical: 'https://jolicollective.net',
