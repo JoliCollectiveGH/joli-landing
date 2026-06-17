@@ -26,7 +26,7 @@ export default function UnderConstruction() {
         />
 
         <p className={styles.invite}>
-          Join the waiting list for access to JOLI Collective social club
+          Join the waiting list for access to JOLI social club
         </p>
 
         <WaitlistForm />
