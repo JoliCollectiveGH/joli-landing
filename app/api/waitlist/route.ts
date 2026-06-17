@@ -11,19 +11,14 @@ async function sendConfirmation(email: string) {
   if (!token || !from) return; // confirmation email is best-effort
 
   const html = `
-    <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 480px; margin: 0 auto; padding: 40px 24px; color: #1A1814;">
-      <p style="font-size: 22px; letter-spacing: 0.16em; margin: 0 0 28px;">JOLI</p>
-      <p style="font-size: 15px; line-height: 1.65; margin: 0 0 16px;">Thank you for joining.</p>
-      <p style="font-size: 15px; line-height: 1.65; margin: 0 0 16px;">JOLI stages brand experiences inside cultural spaces, built to be felt in the room. You&rsquo;ll be among the first to receive invitations.</p>
-      <p style="font-size: 15px; line-height: 1.65; margin: 28px 0 0;">&mdash; JOLI</p>
+    <div style="font-family: Georgia, 'Times New Roman', serif; max-width: 480px; margin: 0 auto; padding: 48px 24px; color: #1A1814; text-align: center;">
+      <img src="https://jolicollective.net/JOLI_Lockup_Black.png" alt="JOLI" width="160" style="width: 160px; max-width: 55%; height: auto; margin: 0 auto 32px; display: block;" />
+      <p style="font-size: 15px; line-height: 1.65; margin: 0;">Thank you for joining. You&rsquo;ll be among the first to receive invitations.</p>
     </div>`;
 
   const text =
     'JOLI\n\n' +
-    'Thank you for joining.\n\n' +
-    'JOLI stages brand experiences inside cultural spaces, built to be felt in the room. ' +
-    "You'll be among the first to receive invitations.\n\n" +
-    '— JOLI';
+    "Thank you for joining. You'll be among the first to receive invitations.";
 
   try {
     await fetch('https://api.postmarkapp.com/email', {
