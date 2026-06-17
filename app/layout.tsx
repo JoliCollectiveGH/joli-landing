@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'JOLI Collective',
   description:
-    'A social club staging brand experiences in cultural spaces. Join the waiting list for access.',
+    'Welcome to JOLI Collective. Join the waiting list for access.',
   icons: {
     icon: [
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
