@@ -26,15 +26,15 @@ export default function UnderConstruction() {
         />
 
         <p className={styles.invite}>
-          Join the list for invitations to what we stage next.
+          Join the waiting list for access to JOLI Collective social club
         </p>
 
         <WaitlistForm />
-
-        <a className={styles.email} href="mailto:info@jolicollective.net">
-          info@jolicollective.net
-        </a>
       </div>
+
+      <a className={styles.email} href="mailto:info@jolicollective.net">
+        info@jolicollective.net
+      </a>
 
       <p className={styles.footer}>© 2026 JOLI</p>
     </main>
