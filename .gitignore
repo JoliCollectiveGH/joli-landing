@@ -39,5 +39,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-public/Joli_Texture_06.mp4
 public/IMG_2899.jpg
