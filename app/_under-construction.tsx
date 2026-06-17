@@ -1,28 +1,35 @@
 import styles from './under-construction.module.css';
 
-const SUPABASE_ASSETS =
-  'https://vzjcbnlsfkpigrdfrifx.supabase.co/storage/v1/object/public/Assets';
-
 export default function UnderConstruction() {
   return (
     <main className={styles.wrap}>
+      <video
+        className={styles.bg}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/Joli_Texture_06_poster.jpg"
+      >
+        <source src="/Joli_Texture_06.mp4" type="video/mp4" />
+      </video>
+      <div className={styles.scrim} />
+
       <div className={styles.inner}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${SUPABASE_ASSETS}/JOLI_Wordmark_Black.svg`}
-          alt="JOLI Collective"
-          className={styles.wordmark}
+          src="/JOLI_Lockup_White.png"
+          alt="JOLI"
+          className={styles.lockup}
         />
-
-        <h1 className={styles.headline}>Something new is on the way.</h1>
-        <p className={styles.sub}>JOLI is being rebuilt.</p>
 
         <a className={styles.email} href="mailto:info@jolicollective.net">
           info@jolicollective.net
         </a>
-
-        <p className={styles.footer}>© 2026 JOLI Collective</p>
       </div>
+
+      <p className={styles.footer}>© 2026 JOLI</p>
     </main>
   );
 }
