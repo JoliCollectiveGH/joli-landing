@@ -4,11 +4,11 @@ import UnderConstruction from './_under-construction';
 export const metadata: Metadata = {
   title: 'JOLI Collective',
   description:
-    'A social club and hospitality agency curating intimate evenings at the intersection of art, food, and drink. Launching July 2026.',
+    'A social club curating intimate hospitality at the intersection of art, food, and drink. Launching July 2026.',
   openGraph: {
     title: 'JOLI Collective',
     description:
-      'A social club and hospitality agency curating intimate evenings at the intersection of art, food, and drink. Launching July 2026.',
+      'A social club curating intimate hospitality at the intersection of art, food, and drink. Launching July 2026.',
     url: 'https://jolicollective.net',
     siteName: 'JOLI Collective',
     type: 'website',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'JOLI Collective',
     description:
-      'A social club and hospitality agency curating intimate evenings at the intersection of art, food, and drink. Launching July 2026.',
+      'A social club curating intimate hospitality at the intersection of art, food, and drink. Launching July 2026.',
   },
   alternates: {
     canonical: 'https://jolicollective.net',
