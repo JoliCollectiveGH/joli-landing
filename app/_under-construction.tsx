@@ -21,8 +21,10 @@ export default function UnderConstruction() {
         />
 
         <p className={styles.invite}>
-          A social club and hospitality agency curating intimate evenings at the intersection of art, food, and drink. Launching July 2026. Sign up to receive updates.
+          A social club and hospitality agency curating intimate evenings at the intersection of art, food, and drink.
         </p>
+        <p className={styles.launch}>Launching July 2026</p>
+        <p className={styles.prompt}>Sign up to be kept in the loop</p>
 
         <WaitlistForm />
       </div>

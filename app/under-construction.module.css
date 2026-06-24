@@ -45,13 +45,35 @@
 }
 
 .invite {
-  margin: 30px auto 22px;
-  max-width: 320px;
+  margin: 32px auto 12px;
+  max-width: 420px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.65;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.78);
   text-wrap: balance;
+}
+
+.launch {
+  margin: 0 auto 20px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.prompt {
+  margin: 0 auto 16px;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 480px) {
+  .invite {
+    font-size: 14px;
+    max-width: 100%;
+  }
 }
 
 .bottomBar {

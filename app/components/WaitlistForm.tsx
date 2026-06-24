@@ -29,7 +29,7 @@ export default function WaitlistForm() {
   if (status === 'done') {
     return (
       <p className={styles.success}>
-        You&rsquo;re in. We&rsquo;ll be in touch before launch.
+        You&rsquo;re on the list. More soon.
       </p>
     );
   }
