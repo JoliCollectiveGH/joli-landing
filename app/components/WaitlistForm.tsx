@@ -29,7 +29,7 @@ export default function WaitlistForm() {
   if (status === 'done') {
     return (
       <p className={styles.success}>
-        You&rsquo;re on the list. Look out for an invitation.
+        You&rsquo;re in. We&rsquo;ll be in touch before launch.
       </p>
     );
   }
@@ -52,7 +52,7 @@ export default function WaitlistForm() {
           className={styles.button}
           disabled={status === 'loading'}
         >
-          {status === 'loading' ? 'Joining' : 'Join'}
+          {status === 'loading' ? 'Signing up' : 'Sign up'}
         </button>
       </form>
       {status === 'error' && (

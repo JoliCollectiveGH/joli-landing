@@ -21,7 +21,7 @@ export default function UnderConstruction() {
         />
 
         <p className={styles.invite}>
-          Join the waiting list for access to JOLI social club
+          A social club and hospitality agency curating intimate evenings at the intersection of art, food, and drink. Launching July 2026. Sign up to receive updates.
         </p>
 
         <WaitlistForm />
