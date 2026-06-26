@@ -21,8 +21,7 @@ export default function UnderConstruction() {
             className={styles.lockup}
           />
           <p className={styles.inviteMobile}>
-            Joli curates intimate hospitality
-            at the intersection of art, food, and drink.
+            Joli curates intimate hospitality - launches, private functions, artist-led collaborations. The kind of occasions that stay with you.
           </p>
         </div>
       </div>
@@ -30,8 +29,8 @@ export default function UnderConstruction() {
       <div className={styles.bottomBar}>
         <div className={styles.infoBlock}>
           <p className={styles.invite}>
-            Joli curates intimate hospitality<br />
-            at the intersection of art, food, and drink.
+            Joli curates intimate hospitality - launches, private functions, artist-led collaborations.<br />
+            The kind of occasions that stay with you.
           </p>
         </div>
 
