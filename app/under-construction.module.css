@@ -33,22 +33,53 @@
   z-index: 2;
 }
 
-/* Desktop: fadeWrap is invisible — children render as if it weren't there */
-.fadeWrap {
-  display: contents;
+/* ── Crossfade — both elements share the same grid cell ─────────────────── */
+
+@keyframes crossfadeA {
+  0%, 30%  { opacity: 1; }
+  45%, 85% { opacity: 0; }
+  100%     { opacity: 1; }
 }
 
-.inviteMobile {
-  display: none;
+@keyframes crossfadeB {
+  0%, 30%  { opacity: 0; }
+  45%, 85% { opacity: 1; }
+  100%     { opacity: 0; }
+}
+
+.fadeWrap {
+  display: grid;
+  place-items: center;
+  width: clamp(220px, 44vw, 460px);
+}
+
+.fadeWrap > * {
+  grid-area: 1 / 1;
 }
 
 .lockup {
-  width: clamp(220px, 44vw, 460px);
+  width: 100%;
   height: auto;
   display: block;
+  animation: crossfadeA 8s ease-in-out infinite;
+}
+
+.inviteMobile {
+  display: block;
+  font-size: 15px;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  text-wrap: balance;
+  animation: crossfadeB 8s ease-in-out infinite;
 }
 
 /* ── Bottom bar ─────────────────────────────────────────────────────────── */
+
+.infoBlock {
+  display: none;
+}
 
 .bottomBar {
   position: absolute;
@@ -57,17 +88,12 @@
   bottom: 0;
   z-index: 2;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-end;
   gap: 40px;
   padding: 0 28px 32px;
 }
 
-.infoBlock {
-  flex: 0 1 320px;
-}
-
-/* form + tags grouped together, left-aligned */
 .rightColumn {
   display: flex;
   flex-direction: column;
@@ -130,51 +156,16 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
-/* ── Mobile crossfade ───────────────────────────────────────────────────── */
-
-@keyframes crossfadeA {
-  0%, 30%  { opacity: 1; }
-  45%, 85% { opacity: 0; }
-  100%     { opacity: 1; }
-}
-
-@keyframes crossfadeB {
-  0%, 30%  { opacity: 0; }
-  45%, 85% { opacity: 1; }
-  100%     { opacity: 0; }
-}
+/* ── Mobile overrides ───────────────────────────────────────────────────── */
 
 @media (max-width: 640px) {
-  /* Both elements share one grid cell — they overlap and crossfade */
   .fadeWrap {
-    display: grid;
-    place-items: center;
     width: 72vw;
     max-width: 300px;
   }
 
-  .fadeWrap > * {
-    grid-area: 1 / 1;
-  }
-
-  .lockup {
-    width: 100%;
-    animation: crossfadeA 8s ease-in-out infinite;
-  }
-
   .inviteMobile {
-    display: block;
     font-size: 14px;
-    line-height: 1.75;
-    letter-spacing: 0.01em;
-    color: rgba(255, 255, 255, 0.72);
-    text-align: center;
-    text-wrap: balance;
-    animation: crossfadeB 8s ease-in-out infinite;
-  }
-
-  .infoBlock {
-    display: none;
   }
 
   .bottomBar {
@@ -192,19 +183,11 @@
     gap: 16px;
   }
 
-  .formBlock {
-    width: 100%;
-  }
-
   .rightGroup {
     align-items: flex-start;
   }
 
   .contact {
     justify-content: flex-start;
-  }
-
-  .footer {
-    margin: 0;
   }
 }
