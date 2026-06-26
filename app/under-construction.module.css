@@ -114,6 +114,19 @@
 }
 
 @media (max-width: 640px) {
+  .inner {
+    position: absolute;
+    top: 18%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .lockup {
+    width: clamp(200px, 62vw, 360px);
+    margin: 0 auto;
+  }
+
   .bottomBar {
     flex-direction: column;
     align-items: center;
@@ -126,7 +139,7 @@
   .formBlock {
     flex: none;
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
   }
 
   .rightGroup {
@@ -134,6 +147,8 @@
   }
 
   .contact {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
   }
 }
