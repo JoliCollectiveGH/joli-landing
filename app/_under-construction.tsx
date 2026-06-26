@@ -38,7 +38,7 @@ export default function UnderConstruction() {
         <div className={styles.rightColumn}>
           <div className={styles.formBlock}>
             <WaitlistForm />
-            <p className={styles.prompt}>Join the waiting list</p>
+            <p className={styles.prompt}>Join the guestlist</p>
           </div>
 
           <div className={styles.rightGroup}>
