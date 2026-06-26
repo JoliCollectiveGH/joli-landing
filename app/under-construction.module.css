@@ -31,7 +31,11 @@
 .inner {
   position: relative;
   z-index: 2;
-  text-align: center;
+}
+
+/* Desktop: fadeWrap is invisible — children render as if it weren't there */
+.fadeWrap {
+  display: contents;
 }
 
 .inviteMobile {
@@ -44,6 +48,8 @@
   display: block;
 }
 
+/* ── Bottom bar ─────────────────────────────────────────────────────────── */
+
 .bottomBar {
   position: absolute;
   left: 0;
@@ -53,7 +59,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 24px 40px;
+  gap: 40px;
   padding: 0 28px 32px;
 }
 
@@ -61,12 +67,21 @@
   flex: 0 1 320px;
 }
 
+/* form + tags grouped together, left-aligned */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 0 1 300px;
+}
+
 .formBlock {
-  flex: 0 1 280px;
+  width: 100%;
 }
 
 .invite {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 13px;
   line-height: 1.65;
   letter-spacing: 0.01em;
@@ -83,15 +98,13 @@
 .rightGroup {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .contact {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
   gap: 18px;
 }
 
@@ -117,26 +130,47 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
+/* ── Mobile crossfade ───────────────────────────────────────────────────── */
+
+@keyframes crossfadeA {
+  0%, 30%  { opacity: 1; }
+  45%, 85% { opacity: 0; }
+  100%     { opacity: 1; }
+}
+
+@keyframes crossfadeB {
+  0%, 30%  { opacity: 0; }
+  45%, 85% { opacity: 1; }
+  100%     { opacity: 0; }
+}
+
 @media (max-width: 640px) {
-  .inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
+  /* Both elements share one grid cell — they overlap and crossfade */
+  .fadeWrap {
+    display: grid;
+    place-items: center;
+    width: 72vw;
+    max-width: 300px;
+  }
+
+  .fadeWrap > * {
+    grid-area: 1 / 1;
+  }
+
+  .lockup {
+    width: 100%;
+    animation: crossfadeA 8s ease-in-out infinite;
   }
 
   .inviteMobile {
     display: block;
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 14px;
+    line-height: 1.75;
     letter-spacing: 0.01em;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.72);
     text-align: center;
-    margin: 0;
-  }
-
-  .lockup {
-    width: clamp(200px, 62vw, 360px);
+    text-wrap: balance;
+    animation: crossfadeB 8s ease-in-out infinite;
   }
 
   .infoBlock {
@@ -147,14 +181,20 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 28px;
+    gap: 24px;
     padding: 0 32px 48px;
   }
 
-  .formBlock {
+  .rightColumn {
     flex: none;
     width: 100%;
     max-width: 300px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .formBlock {
+    width: 100%;
   }
 
   .rightGroup {
@@ -163,6 +203,5 @@
 
   .contact {
     justify-content: center;
-    gap: 20px;
   }
 }
