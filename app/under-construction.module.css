@@ -48,8 +48,32 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 32px 48px;
+  gap: 24px 40px;
   padding: 0 28px 32px;
+}
+
+.infoBlock {
+  flex: 0 1 240px;
+}
+
+.formBlock {
+  flex: 0 1 280px;
+}
+
+.invite {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  text-wrap: balance;
+}
+
+.prompt {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .rightGroup {
@@ -62,6 +86,7 @@
 .contact {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: center;
   gap: 18px;
 }
@@ -88,26 +113,6 @@
   color: rgba(255, 255, 255, 0.45);
 }
 
-.waitlistBlock {
-  max-width: 300px;
-}
-
-.invite {
-  margin: 0 0 12px;
-  font-size: 13px;
-  line-height: 1.65;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.65);
-  text-wrap: balance;
-}
-
-.prompt {
-  margin: 0 0 14px;
-  font-size: 13px;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
 @media (max-width: 640px) {
   .bottomBar {
     flex-direction: column;
@@ -116,12 +121,17 @@
     padding: 0 24px 28px;
   }
 
-  .waitlistBlock {
-    max-width: 100%;
+  .infoBlock,
+  .formBlock {
+    flex: none;
     width: 100%;
   }
 
   .rightGroup {
     align-items: flex-start;
+  }
+
+  .contact {
+    justify-content: flex-start;
   }
 }
