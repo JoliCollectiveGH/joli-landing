@@ -63,7 +63,6 @@ export default function UnderConstruction() {
                 <span className={styles.linkText}>@joli.collective</span>
               </a>
             </div>
-            <p className={styles.footer}>© 2026 JOLI</p>
           </div>
         </div>
       </div>
