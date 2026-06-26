@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     url: 'https://jolicollective.net',
     siteName: 'JOLI',
     type: 'website',
+    images: [{ url: 'https://jolicollective.net/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary',
