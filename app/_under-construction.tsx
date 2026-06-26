@@ -19,30 +19,33 @@ export default function UnderConstruction() {
           alt="JOLI"
           className={styles.lockup}
         />
-
-        <p className={styles.invite}>
-          A social club curating intimate hospitality at the intersection of art, food, and drink.
-        </p>
-        <p className={styles.prompt}>Join the waiting list</p>
-
-        <WaitlistForm />
       </div>
 
       <div className={styles.bottomBar}>
-        <div className={styles.contact}>
-          <a className={styles.link} href="mailto:info@jolicollective.net">
-            info@jolicollective.net
-          </a>
-          <a
-            className={styles.link}
-            href="https://instagram.com/joli.collective"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @joli.collective
-          </a>
+        <div className={styles.leftGroup}>
+          <div className={styles.contact}>
+            <a className={styles.link} href="mailto:info@jolicollective.net">
+              info@jolicollective.net
+            </a>
+            <a
+              className={styles.link}
+              href="https://instagram.com/joli.collective"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @joli.collective
+            </a>
+          </div>
+          <p className={styles.footer}>© 2026 JOLI</p>
         </div>
-        <p className={styles.footer}>© 2026 JOLI</p>
+
+        <div className={styles.waitlistBlock}>
+          <p className={styles.invite}>
+            A social club curating intimate hospitality at the intersection of art, food, and drink.
+          </p>
+          <p className={styles.prompt}>Join the waiting list</p>
+          <WaitlistForm />
+        </div>
       </div>
     </main>
   );

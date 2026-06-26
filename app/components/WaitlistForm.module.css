@@ -1,6 +1,5 @@
 .root {
-  max-width: 360px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .form {
@@ -54,8 +53,6 @@
 }
 
 .success {
-  max-width: 360px;
-  margin: 0 auto;
   font-size: 15px;
   line-height: 1.5;
   letter-spacing: 0.01em;

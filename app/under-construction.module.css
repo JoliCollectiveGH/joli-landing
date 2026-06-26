@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px 24px;
   overflow: hidden;
   background: #0a0705;
 }
@@ -32,48 +31,12 @@
 .inner {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 540px;
-  text-align: center;
 }
 
 .lockup {
   width: clamp(220px, 44vw, 460px);
   height: auto;
   display: block;
-  margin: 0 auto;
-}
-
-.invite {
-  margin: 32px auto 12px;
-  max-width: 420px;
-  font-size: 15px;
-  line-height: 1.65;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.78);
-  text-wrap: balance;
-}
-
-.launch {
-  margin: 0 auto 20px;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.prompt {
-  margin: 0 auto 16px;
-  font-size: 13px;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-@media (max-width: 480px) {
-  .invite {
-    font-size: 14px;
-    max-width: 100%;
-  }
 }
 
 .bottomBar {
@@ -84,10 +47,15 @@
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px 24px;
-  padding: 0 28px 26px;
+  align-items: flex-end;
+  gap: 32px 48px;
+  padding: 0 28px 32px;
+}
+
+.leftGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .contact {
@@ -117,4 +85,39 @@
   font-size: 12px;
   letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.45);
+}
+
+.waitlistBlock {
+  max-width: 300px;
+}
+
+.invite {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  text-wrap: balance;
+}
+
+.prompt {
+  margin: 0 0 14px;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 640px) {
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 0 24px 28px;
+  }
+
+  .waitlistBlock {
+    max-width: 100%;
+    width: 100%;
+    order: -1;
+  }
 }
