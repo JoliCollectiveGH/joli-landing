@@ -21,7 +21,7 @@ export default function UnderConstruction() {
             className={styles.lockup}
           />
           <p className={styles.inviteMobile}>
-            A social club curating intimate hospitality
+            Joli curates intimate hospitality
             at the intersection of art, food, and drink.
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function UnderConstruction() {
       <div className={styles.bottomBar}>
         <div className={styles.infoBlock}>
           <p className={styles.invite}>
-            A social club curating intimate hospitality<br />
+            Joli curates intimate hospitality<br />
             at the intersection of art, food, and drink.
           </p>
         </div>
