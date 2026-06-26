@@ -19,11 +19,7 @@ export default function UnderConstruction() {
             alt="JOLI"
             className={styles.lockup}
           />
-          <p className={styles.inviteMobile}>
-            Joli curates intimate hospitality<br />
-            The kind of occasions that stay with you
-          </p>
-          <div className={styles.mobileIcons}>
+<div className={styles.mobileIcons}>
             <a className={styles.iconLink} href="mailto:info@jolicollective.net" aria-label="Email">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -42,14 +38,7 @@ export default function UnderConstruction() {
       </div>
 
       <div className={styles.bottomBar}>
-        <div className={styles.infoBlock}>
-          <p className={styles.invite}>
-            Joli curates intimate hospitality<br />
-            The kind of occasions that stay with you
-          </p>
-        </div>
-
-        <div className={styles.rightColumn}>
+<div className={styles.rightColumn}>
           <div className={styles.rightGroup}>
             <div className={styles.contact}>
               <a className={styles.link} href="mailto:info@jolicollective.net" aria-label="Email">
