@@ -118,6 +118,9 @@
 }
 
 .link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 14px;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.7);
@@ -130,6 +133,17 @@
 .link:hover {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.7);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: none;
+}
+
+.linkText {
+  display: inline;
 }
 
 .footer {
@@ -172,5 +186,18 @@
 
   .contact {
     justify-content: flex-start;
+  }
+
+  .icon {
+    display: block;
+  }
+
+  .linkText {
+    display: none;
+  }
+
+  .link {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 }
