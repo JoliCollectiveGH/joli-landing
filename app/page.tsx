@@ -2,22 +2,22 @@ import type { Metadata } from 'next';
 import UnderConstruction from './_under-construction';
 
 export const metadata: Metadata = {
-  title: 'JOLI Collective',
+  title: 'JOLI',
   description:
-    'A social club curating intimate hospitality at the intersection of art, food, and drink. Launching July 2026.',
+    'Joli curates intimate hospitality at the intersection of art, food, and drink.',
   openGraph: {
-    title: 'JOLI Collective',
+    title: 'JOLI',
     description:
-      'A social club curating intimate hospitality at the intersection of art, food, and drink. Launching July 2026.',
+      'Joli curates intimate hospitality at the intersection of art, food, and drink.',
     url: 'https://jolicollective.net',
-    siteName: 'JOLI Collective',
+    siteName: 'JOLI',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'JOLI Collective',
+    title: 'JOLI',
     description:
-      'A social club curating intimate hospitality at the intersection of art, food, and drink. Launching July 2026.',
+      'Joli curates intimate hospitality at the intersection of art, food, and drink.',
   },
   alternates: {
     canonical: 'https://jolicollective.net',
