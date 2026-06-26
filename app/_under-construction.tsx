@@ -24,13 +24,14 @@ export default function UnderConstruction() {
       <div className={styles.bottomBar}>
         <div className={styles.infoBlock}>
           <p className={styles.invite}>
-            A social club curating intimate hospitality at the intersection of art, food, and drink.
+            A social club curating intimate hospitality<br />
+            at the intersection of art, food, and drink.
           </p>
-          <p className={styles.prompt}>Join the waiting list</p>
         </div>
 
         <div className={styles.formBlock}>
           <WaitlistForm />
+          <p className={styles.prompt}>Join the waiting list</p>
         </div>
 
         <div className={styles.rightGroup}>
