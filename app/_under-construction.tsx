@@ -1,5 +1,4 @@
 import styles from './under-construction.module.css';
-import WaitlistForm from './components/WaitlistForm';
 import BackgroundVideo from './components/BackgroundVideo';
 
 export default function UnderConstruction() {
@@ -21,7 +20,8 @@ export default function UnderConstruction() {
             className={styles.lockup}
           />
           <p className={styles.inviteMobile}>
-            Joli curates intimate hospitality - launches, private functions, artist-led collaborations. The kind of occasions that stay with you.
+            Joli curates intimate hospitality.<br />
+            The kind of occasions that stay with you.
           </p>
         </div>
       </div>
@@ -29,17 +29,12 @@ export default function UnderConstruction() {
       <div className={styles.bottomBar}>
         <div className={styles.infoBlock}>
           <p className={styles.invite}>
-            Joli curates intimate hospitality - launches, private functions, artist-led collaborations.<br />
+            Joli curates intimate hospitality.<br />
             The kind of occasions that stay with you.
           </p>
         </div>
 
         <div className={styles.rightColumn}>
-          <div className={styles.formBlock}>
-            <WaitlistForm />
-            <p className={styles.prompt}>Join the guestlist</p>
-          </div>
-
           <div className={styles.rightGroup}>
             <div className={styles.contact}>
               <a className={styles.link} href="mailto:info@jolicollective.net">
@@ -59,5 +54,6 @@ export default function UnderConstruction() {
         </div>
       </div>
     </main>
+
   );
 }

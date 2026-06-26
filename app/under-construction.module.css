@@ -33,35 +33,19 @@
   z-index: 2;
 }
 
-/* ── Crossfade — both elements share the same grid cell ─────────────────── */
-
-@keyframes crossfadeA {
-  0%, 30%  { opacity: 1; }
-  45%, 85% { opacity: 0; }
-  100%     { opacity: 1; }
-}
-
-@keyframes crossfadeB {
-  0%, 30%  { opacity: 0; }
-  45%, 85% { opacity: 1; }
-  100%     { opacity: 0; }
-}
 
 .fadeWrap {
-  display: grid;
-  place-items: center;
-  width: clamp(220px, 44vw, 460px);
-}
-
-.fadeWrap > * {
-  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: clamp(160px, 28vw, 320px);
 }
 
 .lockup {
   width: 100%;
   height: auto;
   display: block;
-  animation: crossfadeA 8s ease-in-out infinite;
 }
 
 .inviteMobile {
@@ -72,7 +56,6 @@
   color: rgba(255, 255, 255, 0.72);
   text-align: center;
   text-wrap: balance;
-  animation: crossfadeB 8s ease-in-out infinite;
 }
 
 /* ── Bottom bar ─────────────────────────────────────────────────────────── */
