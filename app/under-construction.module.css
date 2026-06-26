@@ -149,7 +149,7 @@
 .mobileIcons {
   display: none;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
 }
 
 .iconLink {
@@ -162,8 +162,8 @@
 }
 
 .iconLink svg {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   display: block;
 }
 
