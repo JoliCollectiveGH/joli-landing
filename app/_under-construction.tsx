@@ -13,6 +13,10 @@ export default function UnderConstruction() {
       <div className={styles.scrim} />
 
       <div className={styles.inner}>
+        <p className={styles.inviteMobile}>
+          A social club curating intimate hospitality<br />
+          at the intersection of art, food, and drink.
+        </p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/JOLI_Lockup_White.png"
