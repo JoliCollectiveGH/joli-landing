@@ -52,7 +52,7 @@ export default function WaitlistForm() {
           className={styles.button}
           disabled={status === 'loading'}
         >
-          {status === 'loading' ? 'Signing up' : 'Sign up'}
+          {status === 'loading' ? 'Joining' : 'Join'}
         </button>
       </form>
       {status === 'error' && (

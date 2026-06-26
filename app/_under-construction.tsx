@@ -23,8 +23,7 @@ export default function UnderConstruction() {
         <p className={styles.invite}>
           A social club curating intimate hospitality at the intersection of art, food, and drink.
         </p>
-        <p className={styles.launch}>Launching July 2026</p>
-        <p className={styles.prompt}>Sign up to be kept in the loop</p>
+        <p className={styles.prompt}>Join the waiting list</p>
 
         <WaitlistForm />
       </div>
