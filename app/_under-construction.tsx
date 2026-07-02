@@ -16,16 +16,15 @@ export default function UnderConstruction() {
       <section className={styles.wrap}>
         <BackgroundVideo
           className={styles.bg}
-          poster="/Joli_Texture_06_poster.jpg"
-          src="/Joli_Texture_06.mp4"
+          poster="/Joli_Texture_03_poster.jpg"
+          src="/Joli_Texture_03.mp4"
         />
-        <div className={styles.scrim} />
 
         <div className={styles.inner}>
           <div className={styles.fadeWrap}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/JOLI_Lockup_White.png"
+              src="/JOLI_Lockup_Black.png"
               alt="JOLI"
               className={styles.lockup}
             />
