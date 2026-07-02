@@ -85,31 +85,57 @@ export default function UnderConstruction() {
           <path d={SWIRL_PATH} />
         </svg>
 
-        <div className={styles.manifestoText}>
-          <p className={`${styles.reveal} ${styles.lead}`} data-reveal>
-            There is a particular kind of disconnection that has become so ordinary we no
-            longer notice it - the half-present conversation, the room full of people looking
-            elsewhere, the evening that passes without anyone quite landing in it.
-          </p>
+        <p className={`${styles.lead} ${styles.reveal}`} data-reveal>
+          There is a particular kind of disconnection that has become so ordinary we no
+          longer notice it - the half-present conversation, the room full of people looking
+          elsewhere, the evening that passes without anyone quite landing in it.
+        </p>
+      </section>
 
-          <p className={styles.reveal} data-reveal>
-            JOLI is a response to that: a space that asks nothing of you except that you
-            arrive; an evening to inhabit, not to get through. Inspired by two disciplines -
-            the slow movement&apos;s understanding that attention is a practice rather than a
-            luxury, and the contemplative traditions that have always known the body and mind
-            need to arrive in the same place before anything real can happen.
-          </p>
+      <section className={styles.moment}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className={`${styles.imgLeft} ${styles.reveal}`}
+          data-reveal
+          src="/Joli_Tote.jpg"
+          alt="A JOLI tote bag hanging on a cantilever chair against a raw concrete wall."
+          loading="lazy"
+        />
+      </section>
 
-          <p className={styles.reveal} data-reveal>
-            Everything is chosen for what it produces in you. The person seated beside you.
-            The weight of the vessel you&apos;re holding. The light in the room. None of it
-            is incidental.
-          </p>
+      <section className={styles.passage}>
+        <p className={styles.reveal} data-reveal>
+          JOLI is a response to that: a space that asks nothing of you except that you
+          arrive; an evening to inhabit, not to get through. Inspired by two disciplines -
+          the slow movement&apos;s understanding that attention is a practice rather than a
+          luxury, and the contemplative traditions that have always known the body and mind
+          need to arrive in the same place before anything real can happen.
+        </p>
+      </section>
 
-          <p className={`${styles.reveal} ${styles.close}`} data-reveal>
-            The occasion invites you to be present. That is all it asks.
-          </p>
-        </div>
+      <section className={styles.moment}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className={`${styles.imgRight} ${styles.reveal}`}
+          data-reveal
+          src="/Joli_Vessel.jpg"
+          alt="A hand-formed dark clay vessel with looped handles, on a concrete plinth in soft daylight."
+          loading="lazy"
+        />
+      </section>
+
+      <section className={styles.passage}>
+        <p className={styles.reveal} data-reveal>
+          Everything is chosen for what it produces in you. The person seated beside you.
+          The weight of the vessel you&apos;re holding. The light in the room. None of it
+          is incidental.
+        </p>
+      </section>
+
+      <section className={`${styles.passage} ${styles.passageClose}`}>
+        <p className={styles.reveal} data-reveal>
+          The occasion invites you to be present. That is all it asks.
+        </p>
       </section>
 
       <section className={styles.occasion}>
