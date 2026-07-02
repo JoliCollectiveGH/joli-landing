@@ -231,14 +231,24 @@
 .manifestoText p {
   margin: 0;
   font-weight: 300;
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  line-height: 1.7;
+  letter-spacing: 0.005em;
+  color: #191817;
+  max-width: 36em;
+}
+
+.manifestoText p.lead {
   font-size: clamp(1.45rem, 3vw, 2.55rem);
   line-height: 1.5;
   letter-spacing: -0.005em;
-  color: #191817;
+  max-width: none;
 }
 
 .manifestoText p.close {
   margin-top: clamp(2.5rem, 7vh, 5rem);
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1.55;
 }
 
 .occasion {

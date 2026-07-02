@@ -86,7 +86,7 @@ export default function UnderConstruction() {
         </svg>
 
         <div className={styles.manifestoText}>
-          <p className={styles.reveal} data-reveal>
+          <p className={`${styles.reveal} ${styles.lead}`} data-reveal>
             There is a particular kind of disconnection that has become so ordinary we no
             longer notice it - the half-present conversation, the room full of people looking
             elsewhere, the evening that passes without anyone quite landing in it.
