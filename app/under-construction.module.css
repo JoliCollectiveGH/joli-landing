@@ -247,9 +247,25 @@
   justify-content: center;
 }
 
+.occasionFigure {
+  margin: 0;
+  width: min(100%, 620px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.occasionLabel {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #75736a;
+}
+
 .occasionImg {
   display: block;
-  width: min(100%, 620px);
+  width: 100%;
   height: auto;
 }
 

@@ -113,14 +113,16 @@ export default function UnderConstruction() {
       </section>
 
       <section className={styles.occasion}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className={`${styles.occasionImg} ${styles.reveal}`}
-          data-reveal
-          src="/1014_Joli_SakiTasting.jpg"
-          alt="An intimate evening of Saki Tasting presented by Erika Haigh & Mai. Invitation only. JOLI — 10 14."
-          loading="lazy"
-        />
+        <figure className={`${styles.occasionFigure} ${styles.reveal}`} data-reveal>
+          <figcaption className={styles.occasionLabel}>Occasion 001</figcaption>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={styles.occasionImg}
+            src="/1014_Joli_SakiTasting.jpg"
+            alt="An intimate evening of Saki Tasting presented by Erika Haigh & Mai. Invitation only. JOLI — 10 14."
+            loading="lazy"
+          />
+        </figure>
       </section>
 
       <footer className={styles.siteFooter}>
