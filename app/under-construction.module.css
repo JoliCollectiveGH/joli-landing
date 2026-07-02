@@ -240,6 +240,10 @@
   max-width: 34em;
 }
 
+.passage p + p {
+  margin-top: clamp(1.4rem, 3.5vh, 2.2rem);
+}
+
 .passageClose p {
   font-size: clamp(1.25rem, 2vw, 1.7rem);
   line-height: 1.55;
