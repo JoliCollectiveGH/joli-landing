@@ -101,8 +101,9 @@ export default function UnderConstruction() {
           </p>
 
           <p className={styles.reveal} data-reveal>
-            Everything is chosen for what it produces in you. The conversation. The weight of
-            the vessel you&apos;re holding. The light in the room. None of it is incidental.
+            Everything is chosen for what it produces in you. The person seated beside you.
+            The weight of the vessel you&apos;re holding. The light in the room. None of it
+            is incidental.
           </p>
 
           <p className={`${styles.reveal} ${styles.close}`} data-reveal>
