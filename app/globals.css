@@ -65,8 +65,8 @@ html {
 }
 
 ::selection {
-  background: var(--brand);
-  color: var(--white);
+  background: #191817;
+  color: #F5F4EF;
 }
 
 /* Suppress iOS Safari's native play button overlay on background video */
