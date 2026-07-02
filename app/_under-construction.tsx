@@ -105,8 +105,8 @@ export default function UnderConstruction() {
 
       <section className={styles.passage}>
         <p className={styles.reveal} data-reveal>
-          JOLI is a response to that. A space that asks nothing of you except that you
-          arrive. An evening to inhabit, not to get through. Two disciplines shape it. The
+          JOLI is a response to that disconnection. A space that asks nothing of you except
+          that you arrive. An evening to inhabit, not to get through. Two disciplines shape it. The
           slow movement, which treats attention as a practice rather than a luxury. The
           contemplative traditions, which have always known the body and mind must arrive
           in the same place before anything real can happen.
