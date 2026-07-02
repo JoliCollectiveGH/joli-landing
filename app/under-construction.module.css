@@ -245,8 +245,10 @@
 }
 
 .passageClose p {
-  font-size: clamp(1.25rem, 2vw, 1.7rem);
-  line-height: 1.55;
+  font-size: clamp(1.45rem, 3vw, 2.55rem);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  max-width: none;
 }
 
 .moment {
