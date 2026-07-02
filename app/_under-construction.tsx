@@ -111,9 +111,9 @@ export default function UnderConstruction() {
           to get through.
         </p>
         <p className={styles.reveal} data-reveal>
-          Two disciplines shape it. The slow movement, which treats attention as a practice
-          rather than a luxury. The contemplative traditions, which have always known the
-          body and mind must arrive in the same place before anything real can happen.
+          Two disciplines shape it: the slow movement, which treats attention as a practice
+          rather than a luxury, and the contemplative traditions, which have always known
+          the body and mind must arrive in the same place before anything real can happen.
         </p>
       </section>
 
