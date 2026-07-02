@@ -94,11 +94,10 @@ export default function UnderConstruction() {
 
           <p className={styles.reveal} data-reveal>
             JOLI is a response to that: a space that asks nothing of you except that you
-            arrive. Inspired by three disciplines - the European hospitality that understood
-            an evening as something to inhabit, not to get through; the slow movement&apos;s
-            understanding that attention is a practice rather than a luxury; and the
-            contemplative traditions that have always known the body and mind need to arrive
-            in the same place before anything real can happen.
+            arrive; an evening to inhabit, not to get through. Inspired by two disciplines -
+            the slow movement&apos;s understanding that attention is a practice rather than a
+            luxury, and the contemplative traditions that have always known the body and mind
+            need to arrive in the same place before anything real can happen.
           </p>
 
           <p className={styles.reveal} data-reveal>
