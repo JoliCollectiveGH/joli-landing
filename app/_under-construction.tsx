@@ -105,7 +105,8 @@ export default function UnderConstruction() {
       <section className={styles.passage}>
         <p className={styles.reveal} data-reveal>
           JOLI is a response to that disconnection.
-          <br />
+        </p>
+        <p className={styles.reveal} data-reveal>
           A space that asks nothing of you except that you arrive. A moment to inhabit, not
           to get through.
         </p>
