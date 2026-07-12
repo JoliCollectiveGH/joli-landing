@@ -86,8 +86,8 @@ export default function UnderConstruction() {
 
         <p className={`${styles.lead} ${styles.reveal}`} data-reveal>
           There is a particular kind of disconnection that has become so ordinary we no
-          longer notice it. The half-present conversation. The room full of people looking
-          elsewhere. The evening that passes without anyone quite landing in it.
+          longer notice it. The half-present conversation, one eye on a screen. The evening
+          that passes without anyone quite landing in it.
         </p>
       </section>
 
