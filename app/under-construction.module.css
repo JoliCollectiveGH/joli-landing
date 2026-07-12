@@ -217,12 +217,13 @@
 
 .lead {
   margin: 0;
+  max-width: 20em;
   font-weight: 300;
   font-size: clamp(1.45rem, 3vw, 2.55rem);
   line-height: 1.5;
   letter-spacing: -0.005em;
   color: #191817;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .passage {
