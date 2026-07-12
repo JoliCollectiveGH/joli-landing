@@ -124,8 +124,7 @@ export default function UnderConstruction() {
       <section className={styles.passage}>
         <p className={styles.reveal} data-reveal>
           JOLI brings together the right artists, brands, and spaces.
-        </p>
-        <p className={styles.reveal} data-reveal>
+          <br />
           A room that can&apos;t simply be booked.
         </p>
       </section>
