@@ -122,7 +122,7 @@ export default function UnderConstruction() {
 
       <section className={styles.passage}>
         <p className={styles.reveal} data-reveal>
-          JOLI brings together the right artists, brands, and spaces.
+          JOLI makes occasions. Bringing together the right artists, brands, and spaces.
           <br />
           A room that can&apos;t simply be booked.
         </p>
@@ -146,16 +146,22 @@ export default function UnderConstruction() {
       </section>
 
       <section className={styles.occasion}>
-        <figure className={`${styles.occasionFigure} ${styles.reveal}`} data-reveal>
-          <figcaption className={styles.occasionLabel}>Occasion 001</figcaption>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className={styles.occasionImg}
-            src="/1014_Joli_SakiTasting.jpg"
-            alt="An intimate evening of Saki Tasting presented by Erika Haigh & Mai. Invitation only. JOLI — 10 14."
-            loading="lazy"
-          />
-        </figure>
+        <div className={styles.occasionInner}>
+          <figure className={`${styles.occasionFigure} ${styles.reveal}`} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={styles.occasionImg}
+              src="/1014_Joli_SakiTasting.jpg"
+              alt="An intimate evening of Saki Tasting presented by Erika Haigh & Mai. Invitation only. JOLI — 10 14."
+              loading="lazy"
+            />
+          </figure>
+          <div className={`${styles.occasionText} ${styles.reveal}`} data-reveal>
+            <span className={styles.occasionLabel}>Occasion 001</span>
+            <span className={styles.occasionTitle}>MaiSake at 1014 Gallery</span>
+            <span className={styles.occasionMeta}>2 July 2026</span>
+          </div>
+        </div>
       </section>
 
       <footer className={styles.siteFooter}>

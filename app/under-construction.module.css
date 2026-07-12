@@ -296,12 +296,29 @@
   justify-content: center;
 }
 
+.occasionInner {
+  width: min(100%, 1060px);
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: end;
+}
+
 .occasionFigure {
   margin: 0;
-  width: min(100%, 620px);
+}
+
+.occasionImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.occasionText {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.5rem;
+  padding-bottom: 0.25rem;
 }
 
 .occasionLabel {
@@ -312,10 +329,26 @@
   color: #75736a;
 }
 
-.occasionImg {
-  display: block;
-  width: 100%;
-  height: auto;
+.occasionTitle {
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: #191817;
+}
+
+.occasionMeta {
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  color: #75736a;
+}
+
+@media (max-width: 640px) {
+  .occasionInner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
 }
 
 .reveal {
