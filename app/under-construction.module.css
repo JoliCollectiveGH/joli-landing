@@ -227,7 +227,7 @@
 .passage {
   max-width: 1360px;
   margin: 0 auto;
-  padding: clamp(2.5rem, 7vh, 5rem) clamp(1.5rem, 6vw, 4rem);
+  padding: clamp(1.6rem, 4vh, 2.75rem) clamp(1.5rem, 6vw, 4rem);
 }
 
 .passage p {
@@ -241,7 +241,7 @@
 }
 
 .passage p + p {
-  margin-top: clamp(1.4rem, 3.5vh, 2.2rem);
+  margin-top: clamp(1rem, 2.4vh, 1.5rem);
 }
 
 .passageClose p {
@@ -254,7 +254,7 @@
 .moment {
   max-width: 1360px;
   margin: 0 auto;
-  padding: clamp(3.5rem, 9vh, 6.5rem) clamp(1.5rem, 6vw, 4rem);
+  padding: clamp(2.5rem, 6vh, 4.5rem) clamp(1.5rem, 6vw, 4rem);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
