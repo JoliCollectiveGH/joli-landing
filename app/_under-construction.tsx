@@ -169,7 +169,7 @@ export default function UnderConstruction() {
             </a>
             <span className={styles.footerDot} aria-hidden="true">·</span>
             <a className={styles.footerLink} href="mailto:partnerships@jolicollective.net">
-              partnerships@jolicollective.net
+              Partnerships
             </a>
             <span className={styles.footerDot} aria-hidden="true">·</span>
             <a
