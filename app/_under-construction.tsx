@@ -107,7 +107,9 @@ export default function UnderConstruction() {
           JOLI is a response to that disconnection.
         </p>
         <p className={styles.reveal} data-reveal>
-          A space that asks nothing of you. A moment to inhabit, not to get through.
+          A space that asks nothing of you.
+          <br />
+          A moment to inhabit, not to get through.
         </p>
         <p className={styles.reveal} data-reveal>
           Shaped by the slow movement, which treats attention as a practice rather than a
