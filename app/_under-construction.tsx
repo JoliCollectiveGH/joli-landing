@@ -159,20 +159,30 @@ export default function UnderConstruction() {
       </section>
 
       <footer className={styles.siteFooter}>
-        <a className={styles.footerLink} href="mailto:info@jolicollective.net">
-          info@jolicollective.net
-        </a>
-        <a className={styles.footerLink} href="mailto:partnerships@jolicollective.net">
-          partnerships@jolicollective.net
-        </a>
-        <a
-          className={styles.footerLink}
-          href="https://instagram.com/joli.collective"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @joli.collective
-        </a>
+        <svg className={styles.footerMark} viewBox="0 0 2000 2000" aria-hidden="true">
+          <path d={SWIRL_PATH} />
+        </svg>
+        <div className={styles.footerRight}>
+          <div className={styles.footerLinks}>
+            <a className={styles.footerLink} href="mailto:info@jolicollective.net">
+              info@jolicollective.net
+            </a>
+            <span className={styles.footerDot} aria-hidden="true">·</span>
+            <a className={styles.footerLink} href="mailto:partnerships@jolicollective.net">
+              partnerships@jolicollective.net
+            </a>
+            <span className={styles.footerDot} aria-hidden="true">·</span>
+            <a
+              className={styles.footerLink}
+              href="https://instagram.com/joli.collective"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </div>
+          <p className={styles.footerMeta}>London · © 2026</p>
+        </div>
       </footer>
     </main>
   );
