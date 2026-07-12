@@ -4,11 +4,11 @@ import UnderConstruction from './_under-construction';
 export const metadata: Metadata = {
   title: 'JOLI',
   description:
-    'Joli curates intimate hospitality - launches, private functions, artist-led collaborations. The kind of occasions that stay with you.',
+    'JOLI makes occasions. Bringing together the right artists, brands, and spaces in a room that cannot simply be booked.',
   openGraph: {
     title: 'JOLI',
     description:
-      'Joli curates intimate hospitality. The kind of occasions that stay with you.',
+      'JOLI makes occasions. Bringing together the right artists, brands, and spaces.',
     url: 'https://jolicollective.net',
     siteName: 'JOLI',
     type: 'website',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'JOLI',
     description:
-      'Joli curates intimate hospitality. The kind of occasions that stay with you.',
+      'JOLI makes occasions. Bringing together the right artists, brands, and spaces.',
   },
   alternates: {
     canonical: 'https://jolicollective.net',

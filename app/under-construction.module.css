@@ -196,15 +196,6 @@
   }
 }
 
-.manifesto {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: clamp(6rem, 14vh, 10rem) clamp(1.5rem, 6vw, 4rem) clamp(2rem, 5vh, 3.5rem);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .mark {
   width: 34px;
   height: 34px;
@@ -226,67 +217,26 @@
   text-wrap: pretty;
 }
 
-.passage {
-  max-width: 1360px;
+/* Statement */
+.statement {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: clamp(1.6rem, 4vh, 2.75rem) clamp(1.5rem, 6vw, 4rem);
+  padding: clamp(6rem, 14vh, 10rem) clamp(1.5rem, 6vw, 4rem) clamp(3rem, 8vh, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* When two text passages stack, don't double the section padding. */
-.passage + .passage {
-  padding-top: 0;
-}
-
-.passage p {
-  margin: 0;
-  font-weight: 300;
-  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
-  line-height: 1.65;
-  letter-spacing: 0.003em;
-  color: #191817;
-  max-width: 34em;
-}
-
-.passage p + p {
-  margin-top: clamp(1rem, 2.4vh, 1.5rem);
-}
-
-.passageClose p {
-  font-size: clamp(1.45rem, 3vw, 2.55rem);
-  line-height: 1.5;
-  letter-spacing: -0.005em;
+.statementHero {
   max-width: none;
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
 }
 
-.moment {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: clamp(2.5rem, 6vh, 4.5rem) clamp(1.5rem, 6vw, 4rem);
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
-
-.moment img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.imgLeft {
-  grid-column: 1 / 7;
-  grid-row: 1;
-}
-
-.imgRight {
-  grid-column: 6 / 13;
-  grid-row: 1;
-}
-
-@media (max-width: 719px) {
-  .imgLeft,
-  .imgRight {
-    grid-column: 1 / -1;
-    grid-row: auto;
+/* Smaller big-text on phones so the single paragraph isn't a long scroll */
+@media (max-width: 600px) {
+  .statementHero {
+    font-size: clamp(1.15rem, 5vw, 1.5rem);
+    line-height: 1.45;
   }
 }
 

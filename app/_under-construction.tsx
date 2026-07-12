@@ -79,69 +79,18 @@ export default function UnderConstruction() {
         <div className={styles.scrollCue} aria-hidden="true" />
       </section>
 
-      <section className={styles.manifesto}>
+      <section className={styles.statement}>
         <svg className={`${styles.mark} ${styles.reveal}`} data-reveal viewBox="0 0 2000 2000" aria-hidden="true">
           <path d={SWIRL_PATH} />
         </svg>
 
-        <p className={`${styles.lead} ${styles.reveal}`} data-reveal>
+        <p className={`${styles.lead} ${styles.statementHero} ${styles.reveal}`} data-reveal>
           There is a particular kind of disconnection that has become so ordinary we no
-          longer notice it. The half-present conversation, one eye on a screen. The evening
-          that passes without anyone quite landing in it.
-        </p>
-      </section>
-
-      <section className={styles.moment}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className={`${styles.imgLeft} ${styles.reveal}`}
-          data-reveal
-          src="/Joli_Tote.jpg"
-          alt="A JOLI tote bag hanging on a cantilever chair against a raw concrete wall."
-          loading="lazy"
-        />
-      </section>
-
-      <section className={styles.passage}>
-        <p className={styles.reveal} data-reveal>
-          JOLI is a response to that disconnection.
-        </p>
-        <p className={styles.reveal} data-reveal>
-          A space that asks nothing of you. A moment to inhabit, not to get through.
-        </p>
-        <p className={styles.reveal} data-reveal>
-          Shaped by the slow movement, which treats attention as a practice rather than a
-          luxury. And by an understanding that the body and mind must arrive in the same
-          place before anything real can happen.
-        </p>
-        <p className={styles.reveal} data-reveal>
-          Everything is chosen for what it produces in you. The person seated beside you.
-          The weight of the vessel you&apos;re holding. None of it is incidental.
-        </p>
-      </section>
-
-      <section className={styles.passage}>
-        <p className={styles.reveal} data-reveal>
-          JOLI makes occasions. Bringing together the right artists, brands, and spaces.
-          <br />
-          A room that can&apos;t simply be booked.
-        </p>
-      </section>
-
-      <section className={styles.moment}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className={`${styles.imgRight} ${styles.reveal}`}
-          data-reveal
-          src="/Joli_Vessel.jpg"
-          alt="A hand-formed dark clay vessel with looped handles, on a concrete plinth in soft daylight."
-          loading="lazy"
-        />
-      </section>
-
-      <section className={`${styles.passage} ${styles.passageClose}`}>
-        <p className={styles.reveal} data-reveal>
-          The occasion invites you to be present. That is all it asks.
+          longer notice it. JOLI responds by making occasions that ask nothing of you.
+          Bringing together the right artists, brands, and spaces in a room that can&apos;t
+          simply be booked. Everything is chosen for what it produces in you. From the person
+          seated beside you to the weight of the vessel you&apos;re holding, none of it is
+          incidental. The occasion invites you to be present. That is all it asks.
         </p>
       </section>
 
@@ -159,8 +108,8 @@ export default function UnderConstruction() {
           <div className={`${styles.occasionText} ${styles.reveal}`} data-reveal>
             <span className={styles.occasionLabel}>Occasion 001</span>
             <span className={styles.occasionTitle}>MaiSake at 1014 Gallery</span>
-            <span className={styles.occasionCredit}>Still Formation, Jess Gough&apos;s solo show</span>
-            <span className={styles.occasionMeta}>2 July 2026</span>
+            <span className={styles.occasionCredit}>An intimate sake tasting surrounded by Still Formation, Jess Gough&apos;s solo show</span>
+            <span className={styles.occasionMeta}>9 July 2026</span>
           </div>
         </div>
       </section>
