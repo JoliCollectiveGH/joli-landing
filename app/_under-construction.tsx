@@ -159,6 +159,7 @@ export default function UnderConstruction() {
           <div className={`${styles.occasionText} ${styles.reveal}`} data-reveal>
             <span className={styles.occasionLabel}>Occasion 001</span>
             <span className={styles.occasionTitle}>MaiSake at 1014 Gallery</span>
+            <span className={styles.occasionCredit}>Around the photography of Jess Gough</span>
             <span className={styles.occasionMeta}>2 July 2026</span>
           </div>
         </div>

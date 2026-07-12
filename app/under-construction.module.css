@@ -337,6 +337,12 @@
   color: #191817;
 }
 
+.occasionCredit {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #55524d;
+}
+
 .occasionMeta {
   font-size: 0.85rem;
   letter-spacing: 0.01em;
