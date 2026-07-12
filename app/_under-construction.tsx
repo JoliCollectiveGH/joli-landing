@@ -135,18 +135,18 @@ export default function UnderConstruction() {
         />
       </section>
 
-      <section className={`${styles.passage} ${styles.passageClose}`}>
-        <p className={styles.reveal} data-reveal>
-          The occasion invites you to be present. That is all it asks.
-        </p>
-      </section>
-
       <section className={styles.passage}>
         <p className={styles.reveal} data-reveal>
           JOLI brings together the right artists, brands, and spaces.
         </p>
         <p className={styles.reveal} data-reveal>
           A room that can&apos;t simply be booked.
+        </p>
+      </section>
+
+      <section className={`${styles.passage} ${styles.passageClose}`}>
+        <p className={styles.reveal} data-reveal>
+          The occasion invites you to be present. That is all it asks.
         </p>
       </section>
 
