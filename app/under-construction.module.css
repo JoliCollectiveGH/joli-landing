@@ -280,11 +280,44 @@
   grid-row: 1;
 }
 
+.letterWrap {
+  grid-column: 8 / 13;
+  grid-row: 1;
+  align-self: center;
+}
+
+.letter {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .letter {
+    animation: letterFloat 11s ease-in-out infinite;
+  }
+}
+
+@keyframes letterFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 @media (max-width: 719px) {
   .imgLeft,
-  .imgRight {
+  .imgRight,
+  .letterWrap {
     grid-column: 1 / -1;
     grid-row: auto;
+  }
+
+  .letterWrap {
+    margin-top: clamp(1.5rem, 5vw, 2.5rem);
   }
 }
 

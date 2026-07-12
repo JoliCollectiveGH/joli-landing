@@ -100,6 +100,15 @@ export default function UnderConstruction() {
           alt="A JOLI tote bag hanging on a cantilever chair against a raw concrete wall."
           loading="lazy"
         />
+        <div className={`${styles.letterWrap} ${styles.reveal}`} data-reveal>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={styles.letter}
+            src="/Joli_Letter.jpg"
+            alt="A JOLI envelope sealed with the swirl mark, resting on a brushed metal surface."
+            loading="lazy"
+          />
+        </div>
       </section>
 
       <section className={styles.passage}>
