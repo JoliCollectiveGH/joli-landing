@@ -226,6 +226,18 @@
   text-wrap: pretty;
 }
 
+.leadExamples {
+  margin-top: clamp(1.25rem, 3vh, 2rem);
+}
+
+@media (min-width: 768px) {
+  .leadExamples {
+    align-self: flex-end;
+    max-width: 17em;
+    margin-top: clamp(2.5rem, 7vh, 5rem);
+  }
+}
+
 .passage {
   max-width: 1360px;
   margin: 0 auto;

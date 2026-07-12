@@ -86,8 +86,11 @@ export default function UnderConstruction() {
 
         <p className={`${styles.lead} ${styles.reveal}`} data-reveal>
           There is a particular kind of disconnection that has become so ordinary we no
-          longer notice it. The half-present conversation, one eye on a screen. The evening
-          that passes without anyone quite landing in it.
+          longer notice it.
+        </p>
+        <p className={`${styles.lead} ${styles.leadExamples} ${styles.reveal}`} data-reveal>
+          The half-present conversation, one eye on a screen. The evening that passes
+          without anyone quite landing in it.
         </p>
       </section>
 
@@ -159,7 +162,7 @@ export default function UnderConstruction() {
           <div className={`${styles.occasionText} ${styles.reveal}`} data-reveal>
             <span className={styles.occasionLabel}>Occasion 001</span>
             <span className={styles.occasionTitle}>MaiSake at 1014 Gallery</span>
-            <span className={styles.occasionCredit}>Around the photography of Jess Gough</span>
+            <span className={styles.occasionCredit}>Still Formation, Jess Gough&apos;s solo show</span>
             <span className={styles.occasionMeta}>2 July 2026</span>
           </div>
         </div>
