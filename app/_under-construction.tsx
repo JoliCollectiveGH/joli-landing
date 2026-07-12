@@ -111,9 +111,16 @@ export default function UnderConstruction() {
           to get through.
         </p>
         <p className={styles.reveal} data-reveal>
-          Two disciplines shape it: the slow movement, which treats attention as a practice
-          rather than a luxury, and the contemplative traditions, which have always known
-          the body and mind must arrive in the same place before anything real can happen.
+          Shaped by the slow movement, which treats attention as a practice rather than a
+          luxury. And by an understanding that the body and mind must arrive in the same
+          place before anything real can happen.
+        </p>
+        <p className={styles.reveal} data-reveal>
+          Everything is chosen for what it produces in you. The person seated beside you.
+          The weight of the vessel you&apos;re holding. The light in the room.
+        </p>
+        <p className={styles.reveal} data-reveal>
+          None of it is incidental.
         </p>
       </section>
 
@@ -126,16 +133,6 @@ export default function UnderConstruction() {
           alt="A hand-formed dark clay vessel with looped handles, on a concrete plinth in soft daylight."
           loading="lazy"
         />
-      </section>
-
-      <section className={styles.passage}>
-        <p className={styles.reveal} data-reveal>
-          Everything is chosen for what it produces in you. The person seated beside you.
-          The weight of the vessel you&apos;re holding. The light in the room.
-        </p>
-        <p className={styles.reveal} data-reveal>
-          None of it is incidental.
-        </p>
       </section>
 
       <section className={`${styles.passage} ${styles.passageClose}`}>
