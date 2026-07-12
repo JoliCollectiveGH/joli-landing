@@ -124,6 +124,15 @@ export default function UnderConstruction() {
         </p>
       </section>
 
+      <section className={styles.passage}>
+        <p className={styles.reveal} data-reveal>
+          JOLI brings together the right artists, brands, and spaces.
+        </p>
+        <p className={styles.reveal} data-reveal>
+          A room that can&apos;t simply be booked.
+        </p>
+      </section>
+
       <section className={styles.moment}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -133,15 +142,6 @@ export default function UnderConstruction() {
           alt="A hand-formed dark clay vessel with looped handles, on a concrete plinth in soft daylight."
           loading="lazy"
         />
-      </section>
-
-      <section className={styles.passage}>
-        <p className={styles.reveal} data-reveal>
-          JOLI brings together the right artists, brands, and spaces.
-        </p>
-        <p className={styles.reveal} data-reveal>
-          A room that can&apos;t simply be booked.
-        </p>
       </section>
 
       <section className={`${styles.passage} ${styles.passageClose}`}>
