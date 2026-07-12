@@ -144,6 +144,15 @@ export default function UnderConstruction() {
         </p>
       </section>
 
+      <section className={styles.passage}>
+        <p className={styles.reveal} data-reveal>
+          JOLI brings together the right artists, brands, and spaces.
+        </p>
+        <p className={styles.reveal} data-reveal>
+          A room that can&apos;t simply be booked.
+        </p>
+      </section>
+
       <section className={styles.occasion}>
         <figure className={`${styles.occasionFigure} ${styles.reveal}`} data-reveal>
           <figcaption className={styles.occasionLabel}>Occasion 001</figcaption>
@@ -160,6 +169,9 @@ export default function UnderConstruction() {
       <footer className={styles.siteFooter}>
         <a className={styles.footerLink} href="mailto:info@jolicollective.net">
           info@jolicollective.net
+        </a>
+        <a className={styles.footerLink} href="mailto:partnerships@jolicollective.net">
+          partnerships@jolicollective.net
         </a>
         <a
           className={styles.footerLink}
