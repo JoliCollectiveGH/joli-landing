@@ -137,6 +137,10 @@ export default function UnderConstruction() {
               Instagram
             </a>
           </div>
+          <p className={styles.footerMeta}>
+            Jim Turnbull-Walter, Founder &amp; Creative Director ·{' '}
+            <a className={styles.footerLink} href="mailto:jim@jolicollective.net">jim@jolicollective.net</a>
+          </p>
           <p className={styles.footerMeta}>London · © 2026</p>
         </div>
       </footer>
