@@ -86,11 +86,11 @@ export default function UnderConstruction() {
 
         <p className={`${styles.lead} ${styles.statementHero} ${styles.reveal}`} data-reveal>
           There is a particular kind of disconnection that has become so ordinary we no
-          longer notice it. JOLI responds by making occasions that ask nothing of you.
-          Bringing together the people in a space that can&apos;t simply be booked.
-          Everything is chosen for what it produces in you. From the person seated beside
-          you to the weight of the vessel you&apos;re holding, none of it is incidental.
-          It&apos;s the kind of hospitality that invites you to be present. That is all it asks.
+          longer notice it. JOLI responds by making occasions that ask nothing of you and
+          bringing people together in a space that can&apos;t simply be booked. Everything
+          is chosen for what it produces in you. From the person seated beside you to the
+          weight of the vessel you&apos;re holding, none of it is incidental. It&apos;s the
+          kind of hospitality that invites you to be present.
         </p>
       </section>
 
