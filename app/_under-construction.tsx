@@ -76,7 +76,7 @@ export default function UnderConstruction() {
           </div>
         </div>
 
-        <div className={styles.scrollCue} aria-hidden="true" />
+        <span className={styles.scrollCue} aria-hidden="true">Scroll</span>
       </section>
 
       <section className={styles.statement}>
@@ -87,10 +87,10 @@ export default function UnderConstruction() {
         <p className={`${styles.lead} ${styles.statementHero} ${styles.reveal}`} data-reveal>
           There is a particular kind of disconnection that has become so ordinary we no
           longer notice it. JOLI responds by making occasions that ask nothing of you.
-          Bringing together the right artists, brands, and spaces in a room that can&apos;t
-          simply be booked. Everything is chosen for what it produces in you. From the person
-          seated beside you to the weight of the vessel you&apos;re holding, none of it is
-          incidental. The occasion invites you to be present. That is all it asks.
+          Bringing together the people in a space that can&apos;t simply be booked.
+          Everything is chosen for what it produces in you. From the person seated beside
+          you to the weight of the vessel you&apos;re holding, none of it is incidental.
+          It&apos;s the kind of hospitality that invites you to be present. That is all it asks.
         </p>
       </section>
 
@@ -120,8 +120,8 @@ export default function UnderConstruction() {
         </svg>
         <div className={styles.footerRight}>
           <div className={styles.footerLinks}>
-            <a className={styles.footerLink} href="mailto:info@jolicollective.net">
-              info@jolicollective.net
+            <a className={styles.footerLink} href="mailto:jim@jolicollective.net">
+              jim@jolicollective.net
             </a>
             <span className={styles.footerDot} aria-hidden="true">·</span>
             <a className={styles.footerLink} href="mailto:partnerships@jolicollective.net">
@@ -137,10 +137,6 @@ export default function UnderConstruction() {
               Instagram
             </a>
           </div>
-          <p className={styles.footerMeta}>
-            Jim Turnbull-Walter, Founder &amp; Creative Director ·{' '}
-            <a className={styles.footerLink} href="mailto:jim@jolicollective.net">jim@jolicollective.net</a>
-          </p>
           <p className={styles.footerMeta}>London · © 2026</p>
         </div>
       </footer>
