@@ -4,11 +4,11 @@ import UnderConstruction from './_under-construction';
 export const metadata: Metadata = {
   title: 'JOLI',
   description:
-    "JOLI makes capsule collections of decorative arts, with occasions to launch them. In a space that can't simply be booked.",
+    'JOLI makes capsule collections of decorative arts.',
   openGraph: {
     title: 'JOLI',
     description:
-      "JOLI makes capsule collections of decorative arts, with occasions to launch them. In a space that can't simply be booked.",
+      'JOLI makes capsule collections of decorative arts.',
     url: 'https://jolicollective.net',
     siteName: 'JOLI',
     type: 'website',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'JOLI',
     description:
-      "JOLI makes capsule collections of decorative arts, with occasions to launch them. In a space that can't simply be booked.",
+      'JOLI makes capsule collections of decorative arts.',
   },
   alternates: {
     canonical: 'https://jolicollective.net',
