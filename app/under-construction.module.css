@@ -1,7 +1,7 @@
 /* Landing. One screen: the name, the way in, one object, the footer. */
 
 .page {
-  height: 100svh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   background: #f5f4ef;
@@ -102,5 +102,17 @@ a.door:hover .doorLabel {
 
   .lockup {
     width: 78px;
+  }
+}
+
+@media (max-width: 640px) {
+  .doors {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 1.5rem 1rem;
+  }
+
+  .door {
+    width: calc(50% - 0.5rem);
   }
 }
