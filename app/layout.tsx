@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'JOLI',
   description:
-    'Joli curates intimate hospitality. The kind of occasions that stay with you.',
+    "JOLI makes capsule collections of decorative arts, with occasions to launch them. In a space that can't simply be booked.",
   icons: {
     icon: [
       { url: '/favicon-96x96.png?v=2', sizes: '96x96', type: 'image/png' },
