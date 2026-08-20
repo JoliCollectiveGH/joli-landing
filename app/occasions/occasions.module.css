@@ -1,0 +1,103 @@
+.page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f4ef;
+}
+
+.pageHeader {
+  padding: 2rem clamp(1.5rem, 6vw, 4rem) 0;
+}
+
+.headerLockup {
+  width: 72px;
+  height: auto;
+  display: block;
+}
+
+.occasion {
+  flex: 1;
+  padding: clamp(4rem, 10vh, 7rem) clamp(1.5rem, 6vw, 4rem);
+  display: flex;
+  justify-content: center;
+}
+
+.occasionInner {
+  width: min(100%, 1060px);
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: end;
+}
+
+.occasionFigure {
+  margin: 0;
+}
+
+.occasionImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.occasionText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.occasionLabel {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #75736a;
+}
+
+.occasionTitle {
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  color: #191817;
+}
+
+.occasionCredit {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #55524d;
+}
+
+.occasionMeta {
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  color: #75736a;
+}
+
+@media (max-width: 640px) {
+  .occasionInner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal:global(.in) {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
