@@ -21,8 +21,8 @@ export default function UnderConstruction() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className={styles.object}
-          src="/Joli_Vessel.jpg"
-          alt="A hand-built ceramic vessel with three looped handles, on a plinth"
+          src="/Joli_Tote.jpg"
+          alt="A JOLI canvas tote hanging from a tubular steel chair against a concrete wall"
         />
       </section>
 
