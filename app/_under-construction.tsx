@@ -1,5 +1,4 @@
 import styles from './under-construction.module.css';
-import BackgroundVideo from './components/BackgroundVideo';
 import RevealObserver from './components/RevealObserver';
 
 const SWIRL_PATH =
@@ -14,12 +13,6 @@ export default function UnderConstruction() {
       </noscript>
 
       <section className={styles.wrap}>
-        <BackgroundVideo
-          className={styles.bg}
-          poster="/Joli_Texture_03_poster.jpg"
-          src="/Joli_Texture_03.mp4"
-        />
-
         <div className={styles.inner}>
           <div className={styles.fadeWrap}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
