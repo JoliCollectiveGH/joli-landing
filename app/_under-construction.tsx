@@ -5,7 +5,7 @@ import SiteFooter from './components/SiteFooter';
 /* Info joins the row when it exists. A door without an href is not yet open. */
 const DOORS = [
   {
-    label: 'Collection',
+    label: 'Showroom',
     note: '(coming soon)',
     src: '/Joli_Tote.jpg',
     alt: '',
