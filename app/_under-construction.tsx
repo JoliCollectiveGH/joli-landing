@@ -7,8 +7,8 @@ const DOORS = [
   {
     href: '/occasions',
     label: 'Occasions',
-    src: '/1014_Joli_SakiTasting.jpg',
-    alt: 'Occasion 001. An intimate sake tasting at 1014 Gallery',
+    src: '/occasion-001-sake.jpg',
+    alt: 'Guests with sake glasses at Occasion 001',
   },
 ];
 
