@@ -72,12 +72,6 @@ export default function UnderConstruction() {
         <span className={styles.scrollCue} aria-hidden="true">Scroll</span>
       </section>
 
-      <section className={styles.statement}>
-        <svg className={`${styles.mark} ${styles.reveal}`} data-reveal viewBox="0 0 2000 2000" aria-hidden="true">
-          <path d={SWIRL_PATH} />
-        </svg>
-      </section>
-
       <section className={styles.occasion}>
         <div className={styles.occasionInner}>
           <figure className={`${styles.occasionFigure} ${styles.reveal}`} data-reveal>

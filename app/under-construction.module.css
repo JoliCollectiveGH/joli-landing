@@ -188,27 +188,8 @@
   }
 }
 
-.mark {
-  width: 34px;
-  height: 34px;
-}
-
-.mark path {
-  fill: #191817;
-}
-
-/* Statement */
-.statement {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: clamp(6rem, 14vh, 10rem) clamp(1.5rem, 6vw, 4rem) clamp(2rem, 5vh, 3.5rem);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .occasion {
-  padding: clamp(2.5rem, 6vh, 4.5rem) clamp(1.5rem, 6vw, 4rem) clamp(6rem, 14vh, 10rem);
+  padding: clamp(6rem, 14vh, 10rem) clamp(1.5rem, 6vw, 4rem);
   display: flex;
   justify-content: center;
 }
