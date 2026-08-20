@@ -17,6 +17,13 @@ const DOORS = [
     src: '/occasion-001-01.jpg',
     alt: 'A guest before one of the photographs at Occasion 001',
   },
+  {
+    label: 'Designers',
+    note: '(coming soon)',
+    src: '/Joli_Tote.jpg',
+    alt: '',
+    blurred: true,
+  },
 ];
 
 function Frame({ door }: { door: (typeof DOORS)[number] }) {
