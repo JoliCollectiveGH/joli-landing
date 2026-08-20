@@ -20,7 +20,7 @@ const DOORS = [
   {
     label: 'Designers',
     note: '(coming soon)',
-    src: '/Joli_Tote.jpg',
+    src: '/designers-placeholder.jpg',
     alt: '',
     blurred: true,
   },
