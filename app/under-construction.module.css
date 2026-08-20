@@ -45,12 +45,28 @@
   text-decoration: none;
 }
 
-.doorImg {
+.doorFrame {
   width: 100%;
   aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.doorImg {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: opacity 0.3s ease;
+}
+
+/* A door that isn't open yet: the object is there, out of focus. */
+.blurred .doorImg {
+  filter: blur(16px);
+  transform: scale(1.14);
+}
+
+.doorNote {
+  color: rgba(25, 24, 23, 0.38);
 }
 
 .doorLabel {
@@ -62,12 +78,16 @@
   transition: color 0.2s ease;
 }
 
-.door:hover .doorImg {
+a.door:hover .doorImg {
   opacity: 0.84;
 }
 
-.door:hover .doorLabel {
+a.door:hover .doorLabel {
   color: #191817;
+}
+
+.shut {
+  cursor: default;
 }
 
 .door:focus-visible {

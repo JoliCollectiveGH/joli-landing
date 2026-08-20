@@ -28,12 +28,13 @@ export const metadata: Metadata = {
 
 /* wide images take both columns, the rest sit two up */
 const FRAMES = [
-  { src: '/occasion-001-02.jpg', alt: 'The room during the tasting', wide: true },
+  { src: '/occasion-001-01.jpg', alt: 'A guest before one of the photographs' },
   { src: '/occasion-001-03.jpg', alt: 'Sake poured at the counter' },
+  { src: '/occasion-001-02.jpg', alt: 'The room during the tasting', wide: true },
   { src: '/occasion-001-04.jpg', alt: 'A bottle passed between hands' },
   { src: '/occasion-001-05.jpg', alt: 'A bottle held beside a row of empty glasses' },
   { src: '/occasion-001-06.jpg', alt: 'Bottles and hydrangea on the counter' },
-  { src: '/occasion-001-07.jpg', alt: 'Guests with sake glasses', wide: true },
+  { src: '/occasion-001-07.jpg', alt: 'Guests with sake glasses' },
   { src: '/occasion-001-08.jpg', alt: 'Two guests in conversation beside the work' },
   { src: '/occasion-001-09.jpg', alt: 'A guest with a glass, bottles behind' },
   { src: '/occasion-001-10.jpg', alt: 'Glasses on a dark table, seen from above' },
@@ -65,8 +66,8 @@ export default function Occasions() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className={styles.occasionImg}
-              src="/occasion-001-01.jpg"
-              alt="A guest standing before one of the photographs"
+              src="/1014_Joli_SakiTasting.jpg"
+              alt="The invitation. An intimate evening of sake tasting presented by Erika Haigh and Mai. Invitation only."
             />
           </figure>
           <div className={`${styles.occasionText} ${styles.reveal}`} data-reveal>
