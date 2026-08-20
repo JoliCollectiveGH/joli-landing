@@ -21,28 +21,6 @@
   display: block;
 }
 
-.entry {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(25, 24, 23, 0.55);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 3px;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.entry:hover {
-  color: #191817;
-  border-color: rgba(25, 24, 23, 0.4);
-}
-
-.entry:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
-}
-
 .stage {
   flex: 1;
   min-height: 0;
@@ -52,13 +30,49 @@
   padding: clamp(1rem, 3vh, 2.5rem) clamp(1.5rem, 6vw, 4rem);
 }
 
-.object {
-  max-height: 100%;
-  max-width: min(100%, 520px);
-  width: auto;
-  height: auto;
-  object-fit: contain;
+.doors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.door {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: clamp(210px, 24vw, 300px);
+  text-decoration: none;
+}
+
+.doorImg {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   display: block;
+  transition: opacity 0.3s ease;
+}
+
+.doorLabel {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(25, 24, 23, 0.55);
+  transition: color 0.2s ease;
+}
+
+.door:hover .doorImg {
+  opacity: 0.84;
+}
+
+.door:hover .doorLabel {
+  color: #191817;
+}
+
+.door:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
 }
 
 @media (max-width: 640px) {
