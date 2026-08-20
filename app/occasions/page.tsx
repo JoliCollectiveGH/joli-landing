@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://jolicollective.net/1014_Joli_SakiTasting.jpg',
-        width: 1400,
-        height: 1750,
+        url: 'https://jolicollective.net/occasion-001-02.jpg',
+        width: 1800,
+        height: 1200,
       },
     ],
   },
@@ -25,6 +25,20 @@ export const metadata: Metadata = {
     canonical: 'https://jolicollective.net/occasions',
   },
 };
+
+/* wide images take both columns, the rest sit two up */
+const FRAMES = [
+  { src: '/occasion-001-02.jpg', alt: 'The room during the tasting', wide: true },
+  { src: '/occasion-001-03.jpg', alt: 'Sake poured at the counter' },
+  { src: '/occasion-001-04.jpg', alt: 'A bottle passed between hands' },
+  { src: '/occasion-001-05.jpg', alt: 'A bottle held beside a row of empty glasses' },
+  { src: '/occasion-001-06.jpg', alt: 'Bottles and hydrangea on the counter' },
+  { src: '/occasion-001-07.jpg', alt: 'Guests with sake glasses', wide: true },
+  { src: '/occasion-001-08.jpg', alt: 'Two guests in conversation beside the work' },
+  { src: '/occasion-001-09.jpg', alt: 'A guest with a glass, bottles behind' },
+  { src: '/occasion-001-10.jpg', alt: 'Glasses on a dark table, seen from above' },
+  { src: '/occasion-001-11.jpg', alt: 'Three guests in front of a photograph' },
+];
 
 export default function Occasions() {
   return (
@@ -51,8 +65,8 @@ export default function Occasions() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className={styles.occasionImg}
-              src="/1014_Joli_SakiTasting.jpg"
-              alt="An intimate evening of Saki Tasting presented by Erika Haigh & Mai. Invitation only. JOLI — 10 14."
+              src="/occasion-001-01.jpg"
+              alt="A guest standing before one of the photographs"
             />
           </figure>
           <div className={`${styles.occasionText} ${styles.reveal}`} data-reveal>
@@ -61,6 +75,26 @@ export default function Occasions() {
             <span className={styles.occasionCredit}>An intimate sake tasting surrounded by Still Formation, Jess Gough&apos;s solo show</span>
             <span className={styles.occasionMeta}>9 July 2026</span>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.gallery}>
+        <div className={styles.galleryInner}>
+          {FRAMES.map((frame) => (
+            <figure
+              key={frame.src}
+              className={`${styles.frame} ${frame.wide ? styles.wide : ''} ${styles.reveal}`}
+              data-reveal
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className={styles.frameImg}
+                src={frame.src}
+                alt={frame.alt}
+                loading="lazy"
+              />
+            </figure>
+          ))}
         </div>
       </section>
 
