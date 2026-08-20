@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(28px, 5vh, 44px);
+  gap: clamp(34px, 6vh, 52px);
   width: clamp(140px, 22vw, 260px);
 }
 
@@ -34,16 +34,16 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #191817;
+  color: rgba(25, 24, 23, 0.55);
   text-decoration: none;
-  border: 1px solid rgba(25, 24, 23, 0.3);
-  padding: 0.85rem 1.6rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .entry:hover {
-  border-color: rgba(25, 24, 23, 0.7);
-  background: rgba(25, 24, 23, 0.04);
+  color: #191817;
+  border-color: rgba(25, 24, 23, 0.4);
 }
 
 .entry:focus-visible {
