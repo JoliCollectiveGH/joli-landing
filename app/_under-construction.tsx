@@ -76,14 +76,6 @@ export default function UnderConstruction() {
         <svg className={`${styles.mark} ${styles.reveal}`} data-reveal viewBox="0 0 2000 2000" aria-hidden="true">
           <path d={SWIRL_PATH} />
         </svg>
-
-        <p className={`${styles.lead} ${styles.statementHero} ${styles.reveal}`} data-reveal>
-          There is a particular kind of disconnection that has become so ordinary we no
-          longer notice it. JOLI responds with occasions that bring people together in a
-          space that can&apos;t simply be booked. From the person seated beside you to the
-          weight of the vessel you&apos;re holding, none of it is incidental. It&apos;s the
-          kind of hospitality that invites you to be present.
-        </p>
       </section>
 
       <section className={styles.occasion}>
