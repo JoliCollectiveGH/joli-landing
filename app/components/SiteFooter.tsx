@@ -11,12 +11,8 @@ export default function SiteFooter() {
       </svg>
       <div className={styles.footerRight}>
         <div className={styles.footerLinks}>
-          <a className={styles.footerLink} href="mailto:jim@jolicollective.net">
-            jim@jolicollective.net
-          </a>
-          <span className={styles.footerDot} aria-hidden="true">·</span>
-          <a className={styles.footerLink} href="mailto:partnerships@jolicollective.net">
-            Partnerships
+          <a className={styles.footerLink} href="mailto:info@jolicollective.net">
+            info@jolicollective.net
           </a>
           <span className={styles.footerDot} aria-hidden="true">·</span>
           <a
