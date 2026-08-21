@@ -51,6 +51,7 @@ export default function UnderConstruction() {
           alt="JOLI"
           className={styles.lockup}
         />
+        <p className={styles.line}>A showroom for decorative arts</p>
       </header>
 
       <section className={styles.stage}>
