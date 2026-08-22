@@ -12,6 +12,13 @@ const DOORS = [
     blurred: true,
   },
   {
+    label: 'Collections',
+    note: '(coming soon)',
+    src: '/collections-placeholder.jpg',
+    alt: '',
+    blurred: true,
+  },
+  {
     href: '/occasions',
     label: 'Occasions',
     src: '/occasion-001-01.jpg',
