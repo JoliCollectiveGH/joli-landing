@@ -2,7 +2,7 @@
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  background: #f5f4ef;
+  background: #FCFCF5;
 }
 
 .pageHeader {
@@ -51,7 +51,7 @@
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #75736a;
+  color: #AD531B;
 }
 
 .occasionTitle {
@@ -65,13 +65,13 @@
 .occasionCredit {
   font-size: 0.95rem;
   line-height: 1.4;
-  color: #55524d;
+  color: #342F2C;
 }
 
 .occasionMeta {
   font-size: 0.85rem;
   letter-spacing: 0.01em;
-  color: #75736a;
+  color: #94887F;
 }
 
 @media (max-width: 640px) {

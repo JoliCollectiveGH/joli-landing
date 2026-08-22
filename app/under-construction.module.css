@@ -4,7 +4,7 @@
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  background: #f5f4ef;
+  background: #FCFCF5;
 }
 
 .masthead {
@@ -89,7 +89,7 @@ a.door:hover .doorImg {
 }
 
 a.door:hover .doorLabel {
-  color: #191817;
+  color: #AD531B;
 }
 
 .shut {
