@@ -19,7 +19,7 @@ const DOORS = [
     alt: 'A guest before one of the photographs at Occasion 001',
   },
   {
-    label: 'Friends of JOLI',
+    label: 'Friends',
     note: '(coming soon)',
     src: '/friends-placeholder.jpg',
     alt: '',
