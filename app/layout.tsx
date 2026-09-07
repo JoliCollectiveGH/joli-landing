@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { SITE_DESCRIPTION, SITE_NAME } from "./site";
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -9,9 +10,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'JOLI',
-  description:
-    'A travelling showroom for decorative arts.',
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
   icons: {
     icon: [
       { url: '/favicon-96x96.png?v=2', sizes: '96x96', type: 'image/png' },

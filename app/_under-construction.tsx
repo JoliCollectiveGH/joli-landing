@@ -2,19 +2,13 @@ import Link from 'next/link';
 import styles from './under-construction.module.css';
 import SiteFooter from './components/SiteFooter';
 
-/* Info joins the row when it exists. A door without an href is not yet open. */
+/* The four ways in, in the order they're meant to be read.
+   A door without an href is not yet open. */
 const DOORS = [
   {
-    label: 'Showroom',
+    label: 'Stays',
     note: '(coming soon)',
-    src: '/Joli_Tote.jpg',
-    alt: '',
-    blurred: true,
-  },
-  {
-    label: 'Collections',
-    note: '(coming soon)',
-    src: '/collections-placeholder.jpg',
+    src: '/stays-placeholder.jpg',
     alt: '',
     blurred: true,
   },
@@ -25,9 +19,16 @@ const DOORS = [
     alt: 'A guest before one of the photographs at Occasion 001',
   },
   {
-    label: 'Designers',
+    label: 'Friends of JOLI',
     note: '(coming soon)',
-    src: '/designers-placeholder.jpg',
+    src: '/friends-placeholder.jpg',
+    alt: '',
+    blurred: true,
+  },
+  {
+    label: 'Collection',
+    note: '(coming soon)',
+    src: '/Joli_Tote.jpg',
     alt: '',
     blurred: true,
   },
@@ -58,7 +59,6 @@ export default function UnderConstruction() {
           alt="JOLI"
           className={styles.lockup}
         />
-        <p className={styles.line}>A travelling showroom for decorative arts</p>
       </header>
 
       <section className={styles.stage}>

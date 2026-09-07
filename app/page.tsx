@@ -1,27 +1,25 @@
 import type { Metadata } from 'next';
 import UnderConstruction from './_under-construction';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './site';
 
 export const metadata: Metadata = {
-  title: 'JOLI',
-  description:
-    'A travelling showroom for decorative arts.',
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
   openGraph: {
-    title: 'JOLI',
-    description:
-      'A travelling showroom for decorative arts.',
-    url: 'https://jolicollective.net',
-    siteName: 'JOLI',
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     type: 'website',
-    images: [{ url: 'https://jolicollective.net/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/og-image.jpg`, width: 1200, height: 630 }],
   },
   twitter: {
-    card: 'summary',
-    title: 'JOLI',
-    description:
-      'A travelling showroom for decorative arts.',
+    card: 'summary_large_image',
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
   },
   alternates: {
-    canonical: 'https://jolicollective.net',
+    canonical: SITE_URL,
   },
 };
 
