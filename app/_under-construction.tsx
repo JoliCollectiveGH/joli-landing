@@ -29,8 +29,7 @@ const DOORS = [
     label: 'Collection',
     note: '(coming soon)',
     src: '/Joli_Tote.jpg',
-    alt: '',
-    blurred: true,
+    alt: 'The JOLI tote on a tubular steel chair',
   },
 ];
 
