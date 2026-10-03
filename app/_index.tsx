@@ -3,8 +3,8 @@ import styles from './index.module.css';
 import SiteFooter from './components/SiteFooter';
 import { ENTRIES } from './entries';
 
-/* The landing is an index: one line of text per occasion, exhibition or collection.
-   Click a line to open one image and a caption, then click through to its page. */
+/* The landing is an index: one entry per occasion, exhibition or collection.
+   Each shows its line and description, then links through to its page. */
 export default function Index() {
   return (
     <main className={styles.page}>
@@ -16,21 +16,16 @@ export default function Index() {
       <section className={styles.stage}>
         <ol className={styles.list}>
           {ENTRIES.map((e) => (
-            <li key={e.number} className={styles.item}>
-              <details className={styles.entry} name="index">
-                <summary className={styles.row}>
-                  <span className={styles.title}>{e.title}</span>
-                  <span className={styles.kind}>{e.kind}</span>
-                  <span className={styles.date}>{e.date}</span>
-                </summary>
-
-                <div className={styles.panel}>
-                  <p className={styles.captionText}>{e.caption}</p>
-                  <Link href={e.href} className={styles.more}>
-                    {e.linkLabel ?? 'View more'}
-                  </Link>
-                </div>
-              </details>
+            <li key={e.number} className={styles.entry}>
+              <div className={styles.row}>
+                <span className={styles.title}>{e.title}</span>
+                <span className={styles.kind}>{e.kind}</span>
+                <span className={styles.date}>{e.date}</span>
+              </div>
+              <p className={styles.captionText}>{e.caption}</p>
+              <Link href={e.href} className={styles.more}>
+                {e.linkLabel ?? 'View more'}
+              </Link>
             </li>
           ))}
         </ol>
