@@ -25,10 +25,6 @@ export default function Index() {
                 </summary>
 
                 <div className={styles.panel}>
-                  <Link href={e.href} className={styles.figureLink}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className={styles.img} src={e.image} alt={e.alt} loading="lazy" />
-                  </Link>
                   <p className={styles.captionText}>{e.caption}</p>
                   <Link href={e.href} className={styles.more}>
                     {e.linkLabel ?? 'View more'}

@@ -101,46 +101,21 @@
   color: #342F2C;
 }
 
-/* What opens: one image, one caption, one link */
+/* What opens: a description and a link. Photos live on the page it links to. */
 .panel {
   display: grid;
-  grid-template-columns: 1rem minmax(0, 1fr) 25.5rem;
+  grid-template-columns: 1rem minmax(0, 1fr);
   column-gap: 1.5rem;
-  padding: 1.25rem 0 2.5rem;
+  padding: 1.25rem 0 2rem;
   animation: open 0.6s ease both;
 }
 
 .panel > * {
-  grid-column: 3;
+  grid-column: 2;
 }
 
-.panel > * + * {
-  margin-top: 1rem;
-}
-
-.figureLink {
-  display: block;
-  width: 100%;
-}
-
-.img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 50vh;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
-
-.figureLink:hover .img {
-  opacity: 0.86;
-}
-
-/* The description runs the full width of the open row, above the photo */
-.panel > .captionText {
-  grid-column: 2 / -1;
-  order: -1;
-  margin: 0 0 1.75rem;
+.captionText {
+  margin: 0 0 1.5rem;
   font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   font-weight: 300;
   line-height: 1.45;
@@ -211,18 +186,11 @@
   .date { grid-area: date; }
 
   .panel {
-    grid-template-columns: 1rem minmax(0, 1fr);
     column-gap: 1rem;
   }
 
-  .panel > *,
-  .panel > .captionText {
-    grid-column: 2;
-  }
-
-  .panel > .captionText {
+  .captionText {
     font-size: 0.98rem;
-    margin: 1rem 0 0;
-    order: 0;
+    margin-bottom: 1.25rem;
   }
 }
