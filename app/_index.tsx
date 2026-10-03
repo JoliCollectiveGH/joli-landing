@@ -17,15 +17,17 @@ export default function Index() {
         <ol className={styles.list}>
           {ENTRIES.map((e) => (
             <li key={e.number} className={styles.entry}>
-              <div className={styles.row}>
-                <span className={styles.title}>{e.title}</span>
-                <span className={styles.kind}>{e.kind}</span>
-                <span className={styles.date}>{e.date}</span>
-              </div>
+              <h2 className={styles.title}>{e.title}</h2>
               <p className={styles.captionText}>{e.caption}</p>
-              <Link href={e.href} className={styles.more}>
-                {e.linkLabel ?? 'View more'}
-              </Link>
+              <div className={styles.foot}>
+                <Link href={e.href} className={styles.more}>
+                  {e.linkLabel ?? 'View more'}
+                </Link>
+                <span className={styles.meta}>
+                  <span className={styles.kind}>{e.kind}</span>
+                  <span className={styles.date}>{e.date}</span>
+                </span>
+              </div>
             </li>
           ))}
         </ol>
