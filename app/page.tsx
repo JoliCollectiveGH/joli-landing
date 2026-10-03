@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import UnderConstruction from './_under-construction';
+import Index from './_index';
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './site';
 
 export const metadata: Metadata = {
@@ -24,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <UnderConstruction />;
+  return <Index />;
 }

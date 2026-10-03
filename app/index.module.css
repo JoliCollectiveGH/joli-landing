@@ -1,0 +1,240 @@
+/* Index. A quiet list, hairline rules, one line per entry. */
+
+.page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: #FCFCF5;
+  color: #191817;
+}
+
+.masthead {
+  padding: 2rem clamp(1.5rem, 6vw, 4rem);
+}
+
+.lockup {
+  width: 96px;
+  height: auto;
+  display: block;
+}
+
+.stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: clamp(4rem, 14vh, 9rem) clamp(1.5rem, 6vw, 4rem) clamp(5rem, 14vh, 9rem);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(100%, 1060px);
+  border-top: 1px solid #D9D8CB;
+}
+
+.item {
+  border-bottom: 1px solid #D9D8CB;
+}
+
+.entry {
+  margin: 0;
+}
+
+/* The line */
+.row {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr) 9rem 9rem 1.25rem;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.35rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.row::-webkit-details-marker {
+  display: none;
+}
+
+.row:focus-visible {
+  outline: 1px solid #191817;
+  outline-offset: 6px;
+}
+
+.num,
+.kind,
+.date {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #94887F;
+}
+
+.date {
+  letter-spacing: 0.06em;
+  text-transform: none;
+  font-size: 0.85rem;
+}
+
+.title {
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  transition: color 0.2s ease;
+}
+
+.row:hover .title {
+  color: #342F2C;
+}
+
+/* A plus that turns into a minus */
+.toggle {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  justify-self: end;
+  align-self: center;
+}
+
+.toggle::before,
+.toggle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 11px;
+  height: 1px;
+  background: #191817;
+  transition: transform 0.35s ease;
+}
+
+.toggle::after {
+  transform: rotate(90deg);
+}
+
+.entry[open] .toggle::after {
+  transform: rotate(0deg);
+}
+
+/* What opens: one image, one caption */
+.panel {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 5fr) minmax(0, 4fr);
+  gap: 1.5rem;
+  align-items: end;
+  padding: 0.5rem 0 2.5rem;
+  animation: open 0.6s ease both;
+}
+
+.figureLink {
+  grid-column: 2;
+  display: block;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.figureLink:hover .img {
+  opacity: 0.86;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-left: clamp(0rem, 2vw, 1.5rem);
+}
+
+.captionText {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #342F2C;
+  max-width: 30ch;
+}
+
+.more {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #191817;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* Terracotta marks a door that opens */
+.more:hover {
+  color: #AD531B;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .masthead {
+    padding: 1.5rem clamp(1.5rem, 6vw, 4rem);
+  }
+
+  .lockup {
+    width: 78px;
+  }
+
+  .row {
+    grid-template-columns: 3rem minmax(0, 1fr) 1rem;
+    grid-template-areas:
+      'num title toggle'
+      '. meta meta';
+    row-gap: 0.4rem;
+    column-gap: 1rem;
+  }
+
+  .num { grid-area: num; }
+  .title { grid-area: title; }
+  .toggle { grid-area: toggle; }
+
+  .kind,
+  .date {
+    grid-row: 2;
+  }
+
+  .kind { grid-column: 2; }
+  .date { grid-column: 2; justify-self: end; grid-column-end: 4; }
+
+  .panel {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.25rem 1rem;
+  }
+
+  .figureLink,
+  .caption {
+    grid-column: 2;
+  }
+
+  .caption {
+    padding-left: 0;
+  }
+}
