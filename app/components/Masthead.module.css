@@ -1,17 +1,24 @@
 .masthead {
+  flex: 1;
   padding: 2rem clamp(1.5rem, 6vw, 4rem) 0;
 }
 
 .bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
 }
 
 .lockup {
   width: 96px;
   height: auto;
   display: block;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
 }
 
 .toggle {
@@ -25,7 +32,16 @@
   line-height: 1.5;
   color: #191817;
   cursor: pointer;
-  transition: color 0.25s ease;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  text-decoration-color: transparent;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+/* The word that is open keeps a thin underline */
+.toggle[aria-expanded='true'] {
+  text-decoration-color: #191817;
 }
 
 .toggle:hover {
@@ -52,6 +68,10 @@
   overflow: hidden;
 }
 
+.info {
+  padding: 3rem 0 clamp(3rem, 8vh, 5rem);
+}
+
 .intro,
 .facts {
   margin: 0;
@@ -62,7 +82,6 @@
 }
 
 .intro {
-  padding-top: 3rem;
   max-width: 64ch;
 }
 
@@ -114,8 +133,8 @@
     width: 78px;
   }
 
-  .intro {
-    padding-top: 2rem;
+  .info {
+    padding: 2rem 0 3rem;
   }
 
   .facts {

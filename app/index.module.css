@@ -8,9 +8,8 @@
   color: #191817;
 }
 
-.stage {
-  flex: 1;
-  padding: clamp(4rem, 14vh, 9rem) clamp(1.5rem, 6vw, 4rem) clamp(5rem, 14vh, 9rem);
+.shows {
+  padding: 3rem 0 clamp(4rem, 12vh, 8rem);
 }
 
 .list {
@@ -133,7 +132,7 @@
 
 /* Dim the lines you are not on */
 @media (hover: hover) {
-  .stage:has(.item:hover) .item:not(:hover) {
+  .shows:has(.item:hover) .item:not(:hover) {
     opacity: 0.35;
   }
 }

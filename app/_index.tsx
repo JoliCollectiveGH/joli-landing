@@ -4,8 +4,8 @@ import Masthead from './components/Masthead';
 import SiteFooter from './components/SiteFooter';
 import { ENTRIES } from './entries';
 
-/* The landing is an index: one line per occasion, exhibition or collection:
-   the whole line is the link. Hover darkens it and dims the rest. */
+/* The landing is an index. Info and Shows open under the logo. Shows lists one line
+   per occasion, exhibition or collection. The whole line is the link. */
 export default function Index() {
   // Group by the year at the end of each date, keeping the order of ENTRIES (newest first)
   const years: { year: string; entries: typeof ENTRIES }[] = [];
@@ -18,9 +18,9 @@ export default function Index() {
 
   return (
     <main className={styles.page}>
-      <Masthead />
-
-      <section className={styles.stage}>
+      <Masthead
+        shows={
+          <div className={styles.shows}>
         {years.map((y) => (
           <div key={y.year} className={styles.year}>
             {y.year && <h2 className={styles.yearLabel}>{y.year}</h2>}
@@ -39,7 +39,9 @@ export default function Index() {
             </ol>
           </div>
         ))}
-      </section>
+          </div>
+        }
+      />
 
       <SiteFooter />
     </main>
