@@ -24,6 +24,5 @@ export const ENTRIES: Entry[] = [
     caption:
       'An intimate sake tasting presented by Erika Haigh and Mai, surrounded by Still Formation, Jess Gough’s solo show.',
     href: '/occasions',
-    linkLabel: 'View the occasion',
   },
 ];

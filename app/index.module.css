@@ -1,4 +1,4 @@
-/* Index. A quiet list, hairline rules, one line per entry. */
+/* Index. Plain lines of text, no rules, no icons. Underline says "click". */
 
 .page {
   min-height: 100svh;
@@ -20,8 +20,6 @@
 
 .stage {
   flex: 1;
-  display: flex;
-  justify-content: center;
   padding: clamp(4rem, 14vh, 9rem) clamp(1.5rem, 6vw, 4rem) clamp(5rem, 14vh, 9rem);
 }
 
@@ -30,11 +28,9 @@
   margin: 0;
   padding: 0;
   width: min(100%, 1060px);
-  border-top: 1px solid #D9D8CB;
-}
-
-.item {
-  border-bottom: 1px solid #D9D8CB;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .entry {
@@ -44,12 +40,27 @@
 /* The line */
 .row {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr) 9rem 9rem 1.25rem;
+  grid-template-columns: 1rem minmax(0, 1fr) 12rem 12rem;
   align-items: baseline;
   gap: 1.5rem;
-  padding: 1.35rem 0;
   cursor: pointer;
   list-style: none;
+}
+
+/* Old school disclosure triangle */
+.row::before {
+  content: '';
+  align-self: center;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #191817;
+  transition: transform 0.25s ease;
+}
+
+.entry[open] .row::before {
+  transform: rotate(90deg);
 }
 
 .row::-webkit-details-marker {
@@ -61,7 +72,6 @@
   outline-offset: 6px;
 }
 
-.num,
 .kind,
 .date {
   font-size: 0.72rem;
@@ -77,7 +87,9 @@
   font-size: 0.85rem;
 }
 
+/* The title */
 .title {
+  justify-self: start;
   font-size: clamp(1.15rem, 1.8vw, 1.45rem);
   font-weight: 300;
   letter-spacing: -0.01em;
@@ -89,55 +101,33 @@
   color: #342F2C;
 }
 
-/* A plus that turns into a minus */
-.toggle {
-  position: relative;
-  width: 11px;
-  height: 11px;
-  justify-self: end;
-  align-self: center;
-}
-
-.toggle::before,
-.toggle::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 5px;
-  width: 11px;
-  height: 1px;
-  background: #191817;
-  transition: transform 0.35s ease;
-}
-
-.toggle::after {
-  transform: rotate(90deg);
-}
-
-.entry[open] .toggle::after {
-  transform: rotate(0deg);
-}
-
-/* What opens: one image, one caption */
+/* What opens: one image, one caption, one link */
 .panel {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 5fr) minmax(0, 4fr);
-  gap: 1.5rem;
-  align-items: end;
-  padding: 0.5rem 0 2.5rem;
+  grid-template-columns: 1rem minmax(0, 1fr) 25.5rem;
+  column-gap: 1.5rem;
+  padding: 1.25rem 0 2.5rem;
   animation: open 0.6s ease both;
 }
 
+.panel > * {
+  grid-column: 3;
+}
+
+.panel > * + * {
+  margin-top: 1rem;
+}
+
 .figureLink {
-  grid-column: 2;
   display: block;
+  width: 100%;
 }
 
 .img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 72vh;
+  max-height: 50vh;
   object-fit: cover;
   transition: opacity 0.3s ease;
 }
@@ -146,29 +136,28 @@
   opacity: 0.86;
 }
 
-.caption {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  padding-left: clamp(0rem, 2vw, 1.5rem);
-}
-
-.captionText {
-  margin: 0;
-  font-size: 0.98rem;
+/* The description runs the full width of the open row, above the photo */
+.panel > .captionText {
+  grid-column: 2 / -1;
+  order: -1;
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #342F2C;
-  max-width: 30ch;
+  max-width: 64ch;
 }
 
 .more {
+  justify-self: start;
   font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #191817;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.5em;
   transition: color 0.2s ease;
 }
 
@@ -203,38 +192,37 @@
     width: 78px;
   }
 
+  .list {
+    gap: 2rem;
+  }
+
   .row {
-    grid-template-columns: 3rem minmax(0, 1fr) 1rem;
+    grid-template-columns: 1rem minmax(0, 1fr) auto;
     grid-template-areas:
-      'num title toggle'
-      '. meta meta';
-    row-gap: 0.4rem;
+      'tri title title'
+      '. kind date';
+    row-gap: 0.45rem;
     column-gap: 1rem;
   }
 
-  .num { grid-area: num; }
+  .row::before { grid-area: tri; }
   .title { grid-area: title; }
-  .toggle { grid-area: toggle; }
-
-  .kind,
-  .date {
-    grid-row: 2;
-  }
-
-  .kind { grid-column: 2; }
-  .date { grid-column: 2; justify-self: end; grid-column-end: 4; }
+  .kind { grid-area: kind; }
+  .date { grid-area: date; }
 
   .panel {
-    grid-template-columns: 3rem minmax(0, 1fr);
-    gap: 1.25rem 1rem;
+    grid-template-columns: 1rem minmax(0, 1fr);
+    column-gap: 1rem;
   }
 
-  .figureLink,
-  .caption {
+  .panel > *,
+  .panel > .captionText {
     grid-column: 2;
   }
 
-  .caption {
-    padding-left: 0;
+  .panel > .captionText {
+    font-size: 0.98rem;
+    margin: 1rem 0 0;
+    order: 0;
   }
 }
