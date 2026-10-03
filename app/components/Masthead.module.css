@@ -1,0 +1,125 @@
+.masthead {
+  padding: 2rem clamp(1.5rem, 6vw, 4rem) 0;
+}
+
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lockup {
+  width: 96px;
+  height: auto;
+  display: block;
+}
+
+.toggle {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #191817;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.toggle:hover {
+  color: #AD531B;
+}
+
+.toggle:focus-visible {
+  outline: 1px solid #191817;
+  outline-offset: 6px;
+}
+
+/* Opens by animating the row height, so the page below moves down with it */
+.drawer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.drawer.open {
+  grid-template-rows: 1fr;
+}
+
+.drawerInner {
+  overflow: hidden;
+}
+
+.intro,
+.facts {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #342F2C;
+}
+
+.intro {
+  padding-top: 3rem;
+  max-width: 64ch;
+}
+
+.facts {
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2.5rem;
+}
+
+.muted {
+  color: #94887F;
+}
+
+.link {
+  color: #191817;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  text-decoration-color: transparent;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+/* Terracotta marks a door that opens */
+.link:hover,
+.link:focus-visible {
+  color: #AD531B;
+  text-decoration-color: #AD531B;
+}
+
+@media (hover: none) {
+  .link {
+    text-decoration-color: #94887F;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .masthead {
+    padding-top: 1.5rem;
+  }
+
+  .lockup {
+    width: 78px;
+  }
+
+  .intro {
+    padding-top: 2rem;
+  }
+
+  .facts {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

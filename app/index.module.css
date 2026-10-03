@@ -8,16 +8,6 @@
   color: #191817;
 }
 
-.masthead {
-  padding: 2rem clamp(1.5rem, 6vw, 4rem);
-}
-
-.lockup {
-  width: 96px;
-  height: auto;
-  display: block;
-}
-
 .stage {
   flex: 1;
   padding: clamp(4rem, 14vh, 9rem) clamp(1.5rem, 6vw, 4rem) clamp(5rem, 14vh, 9rem);
@@ -33,89 +23,141 @@
   gap: 4rem;
 }
 
-.entry {
+.year {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.year + .year {
+  margin-top: 5rem;
+}
+
+.yearLabel {
   margin: 0;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #94887F;
+}
+
+.item {
+  margin: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* The whole line is the link. No underline at rest. */
+.entry {
+  display: grid;
+  color: inherit;
+  text-decoration: none;
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+  align-items: baseline;
+  column-gap: 2rem;
+}
+
+.title,
+.captionText,
+.kind,
+.date,
+.more {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.title {
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: #191817;
+}
+
+.captionText {
+  font-weight: 300;
+  color: #342F2C;
+  transition: color 0.25s ease;
+  /* Longer than the line: trim rather than wrap */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .kind,
 .date {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
+  font-weight: 300;
   color: #94887F;
-}
-
-.date {
-  letter-spacing: 0.06em;
-  text-transform: none;
-  font-size: 0.85rem;
-}
-
-/* The title */
-.title {
-  margin: 0;
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
-  font-weight: 300;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-}
-
-.captionText {
-  margin: 1.25rem 0 1.5rem;
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  font-weight: 300;
-  line-height: 1.45;
-  color: #342F2C;
-  max-width: none;
-}
-
-.foot {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: baseline;
-  gap: 0.75rem 2.5rem;
-}
-
-.meta {
-  display: flex;
-  align-items: baseline;
-  gap: 2.5rem;
+  white-space: nowrap;
+  transition: color 0.25s ease;
 }
 
 .more {
-  font-size: 0.72rem;
   font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
   color: #191817;
+  white-space: nowrap;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.5em;
-  transition: color 0.2s ease;
+  text-underline-offset: 0.3em;
+  text-decoration-color: transparent;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
 }
 
-/* Terracotta marks a door that opens */
-.more:hover {
+/* Hover and keyboard focus: the line darkens, View more is underlined,
+   terracotta marks the door that opens. */
+.entry:hover .captionText,
+.entry:focus-visible .captionText,
+.entry:hover .kind,
+.entry:focus-visible .kind,
+.entry:hover .date,
+.entry:focus-visible .date {
+  color: #191817;
+}
+
+.entry:hover .more,
+.entry:focus-visible .more {
   color: #AD531B;
+  text-decoration-color: #AD531B;
+}
+
+.entry:focus-visible {
+  outline: 1px solid #191817;
+  outline-offset: 8px;
+}
+
+/* No hover on touch, so keep the underline visible there */
+@media (hover: none) {
+  .more {
+    text-decoration-color: #94887F;
+  }
+}
+
+/* Dim the lines you are not on */
+@media (hover: hover) {
+  .stage:has(.item:hover) .item:not(:hover) {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 1400px) {
+  .entry {
+    grid-template-columns: auto auto auto 1fr;
+    grid-template-areas:
+      'title title title title'
+      'text text text text'
+      'kind date more more';
+    row-gap: 0.5rem;
+    column-gap: 1.5rem;
+  }
+
+  .title { grid-area: title; }
+  .captionText { grid-area: text; white-space: normal; overflow: visible; }
+  .kind { grid-area: kind; }
+  .date { grid-area: date; }
+  .more { grid-area: more; justify-self: start; }
 }
 
 @media (max-width: 760px) {
-  .masthead {
-    padding: 1.5rem clamp(1.5rem, 6vw, 4rem);
-  }
-
-  .lockup {
-    width: 78px;
-  }
-
   .list {
-    gap: 2rem;
-  }
-
-  .captionText {
-    font-size: 0.98rem;
-    margin: 1rem 0 1.25rem;
+    gap: 2.5rem;
   }
 }

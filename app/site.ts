@@ -3,6 +3,10 @@
 export const SITE_NAME = 'JOLI';
 export const SITE_URL = 'https://jolicollective.net';
 
-/* Draft. Names the people and what they make, without claiming a category. */
+/* Full line, shown in the Info panel. */
 export const SITE_DESCRIPTION =
-  'JOLI works with creatives on occasions, objects, and places.';
+  'A travelling curatorial practice founded by Jim Turnbull-Walter. Objects presented in collaboration with spatial designers and makers, with an emphasis on craft and the rituals associated with slowing down.';
+
+/* Short line for link previews and search results. Keep under about 155 characters. */
+export const SITE_SUMMARY =
+  'A travelling curatorial practice founded by Jim Turnbull-Walter. Objects for craft and the rituals of slowing down.';
