@@ -30,7 +30,6 @@ export default function Index() {
                   <Link href={e.href} className={styles.entry}>
                     <h3 className={styles.title}>{e.title}</h3>
                     <p className={styles.captionText}>{e.caption}</p>
-                    <span className={styles.kind}>{e.kind}</span>
                     <span className={styles.date}>{e.date}</span>
                     <span className={styles.more}>{e.linkLabel ?? 'View more'}</span>
                   </Link>

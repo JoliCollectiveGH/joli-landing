@@ -50,14 +50,13 @@
   display: grid;
   color: inherit;
   text-decoration: none;
-  grid-template-columns: auto minmax(0, 1fr) auto auto auto;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: baseline;
   column-gap: 2rem;
 }
 
 .title,
 .captionText,
-.kind,
 .date,
 .more {
   margin: 0;
@@ -82,7 +81,6 @@
   white-space: nowrap;
 }
 
-.kind,
 .date {
   font-weight: 300;
   color: #94887F;
@@ -105,8 +103,6 @@
    terracotta marks the door that opens. */
 .entry:hover .captionText,
 .entry:focus-visible .captionText,
-.entry:hover .kind,
-.entry:focus-visible .kind,
 .entry:hover .date,
 .entry:focus-visible .date {
   color: #191817;
@@ -139,18 +135,17 @@
 
 @media (max-width: 1400px) {
   .entry {
-    grid-template-columns: auto auto auto 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-areas:
       'title title title title'
       'text text text text'
-      'kind date more more';
+      'date more';
     row-gap: 0.5rem;
     column-gap: 1.5rem;
   }
 
   .title { grid-area: title; }
   .captionText { grid-area: text; white-space: normal; overflow: visible; }
-  .kind { grid-area: kind; }
   .date { grid-area: date; }
   .more { grid-area: more; justify-self: start; }
 }
