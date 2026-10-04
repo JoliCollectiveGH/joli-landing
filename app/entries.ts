@@ -18,7 +18,7 @@ export const ENTRIES: Entry[] = [
     number: '001',
     kind: 'Occasion',
     title: 'MaiSake at 1014 Gallery',
-    date: '9 July 2026',
+    date: 'London, 9 July 2026',
     image: '/occasion-001-01.jpg',
     alt: 'A guest before one of the photographs at Occasion 001',
     caption:
