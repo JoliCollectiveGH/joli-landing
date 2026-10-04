@@ -34,7 +34,7 @@ export default function Masthead({ shows }: { shows: ReactNode }) {
             aria-controls="site-shows"
             onClick={() => setView('shows')}
           >
-            Shows
+            Occasions
           </button>
         </nav>
       </div>
