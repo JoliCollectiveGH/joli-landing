@@ -13,5 +13,5 @@ export const SITE_SUMMARY = SITE_DESCRIPTION;
 export const SITE_INFO = [
   SITE_DESCRIPTION,
   'The Joli spiral logo is drawn from the idea that design can help us turn inward rather than outward, towards depth rather than distance.',
-  'In practice that means a lot of time spent looking - at rooms, at the things people keep, at the small rituals that make a day feel like your own. What we find becomes objects, occasions and places, shared here.',
+  'In practice that means a lot of time spent looking - at rooms, at the things people keep, at the small rituals that make a day feel like your own. What we find becomes objects, occasions and collaboration, shared as collections.',
 ];
