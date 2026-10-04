@@ -12,6 +12,6 @@ export const SITE_SUMMARY = SITE_DESCRIPTION;
 /* The longer words in the Info drawer. One string per paragraph. The first is the line above. */
 export const SITE_INFO = [
   SITE_DESCRIPTION,
-  'A snail carries its home with it, and moves slowly enough to notice where it is. Our spiral is drawn from that. It turns inward rather than outward, towards depth rather than distance.',
+  'The Joli spiral logo is drawn from the idea that design can help us turn inward rather than outward, towards depth rather than distance.',
   'In practice that means a lot of time spent looking - at rooms, at the things people keep, at the small rituals that make a day feel like your own. What we find becomes objects, occasions and places, shared here.',
 ];
