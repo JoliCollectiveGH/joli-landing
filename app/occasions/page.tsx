@@ -70,12 +70,6 @@ export default function Occasions() {
               alt="The invitation. An intimate evening of sake tasting presented by Erika Haigh and Mai. Invitation only."
             />
           </figure>
-          <div className={`${styles.occasionText} ${styles.reveal}`} data-reveal>
-            <span className={styles.occasionLabel}>Occasion 001</span>
-            <span className={styles.occasionTitle}>MaiSake at 1014 Gallery</span>
-            <span className={styles.occasionCredit}>An intimate sake tasting surrounded by Still Formation, Jess Gough&apos;s solo show</span>
-            <span className={styles.occasionMeta}>London, 9 July 2026</span>
-          </div>
         </div>
       </section>
 

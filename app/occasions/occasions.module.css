@@ -24,9 +24,9 @@
 .occasionInner {
   width: min(100%, 1060px);
   display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: clamp(1.5rem, 5vw, 4rem);
-  align-items: end;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
 }
 
 .occasionFigure {
@@ -37,41 +37,6 @@
   display: block;
   width: 100%;
   height: auto;
-}
-
-.occasionText {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding-bottom: 0.25rem;
-}
-
-.occasionLabel {
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #AD531B;
-}
-
-.occasionTitle {
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  font-weight: 300;
-  line-height: 1.25;
-  letter-spacing: -0.005em;
-  color: #191817;
-}
-
-.occasionCredit {
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #342F2C;
-}
-
-.occasionMeta {
-  font-size: 0.85rem;
-  letter-spacing: 0.01em;
-  color: #94887F;
 }
 
 @media (max-width: 640px) {
