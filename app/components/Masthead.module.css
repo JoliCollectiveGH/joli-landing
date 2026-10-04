@@ -83,6 +83,11 @@
 
 .intro {
   max-width: 64ch;
+  text-wrap: pretty;
+}
+
+.intro + .intro {
+  margin-top: 0.9rem;
 }
 
 .facts {
