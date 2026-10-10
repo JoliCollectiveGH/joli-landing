@@ -2,7 +2,8 @@
 
 import { useState, type ReactNode } from 'react';
 import styles from './Masthead.module.css';
-import { SITE_INFO } from '../site';
+import { SITE_INFO, SITE_LEAD } from '../site';
+import Spiral from './Spiral';
 
 /* Logo left, two words right. Info and Shows each open a drawer under the logo.
    One is always open, and opening one closes the other. Shows is open on load
@@ -42,25 +43,17 @@ export default function Masthead({ shows }: { shows: ReactNode }) {
       <div id="site-info" className={`${styles.drawer} ${infoOpen ? styles.open : ''}`} inert={!infoOpen}>
         <div className={styles.drawerInner}>
           <div className={styles.info}>
-            {SITE_INFO.map((para) => (
-              <p key={para} className={styles.intro}>
-                {para}
-              </p>
-            ))}
-            <p className={styles.facts}>
-              <span className={styles.muted}>London</span>
-              <a className={styles.link} href="mailto:info@jolicollective.net">
-                info@jolicollective.net
-              </a>
-              <a
-                className={styles.link}
-                href="https://instagram.com/joli.collective"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
-              </a>
-            </p>
+            <div className={styles.spiralWrap}>
+              <Spiral className={styles.spiral} />
+            </div>
+            <div className={styles.words}>
+              <p className={styles.lead}>{SITE_LEAD}</p>
+              {SITE_INFO.map((para) => (
+                <p key={para} className={styles.intro}>
+                  {para}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
