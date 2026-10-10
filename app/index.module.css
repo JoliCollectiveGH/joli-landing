@@ -34,7 +34,7 @@
 
 .yearLabel {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--text-size);
   font-weight: 300;
   line-height: 1.5;
   color: #94887F;
@@ -60,7 +60,7 @@
 .date,
 .more {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--text-size);
   line-height: 1.5;
 }
 

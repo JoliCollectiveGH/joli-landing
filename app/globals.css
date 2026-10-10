@@ -58,6 +58,12 @@
   --surface-border: rgba(26, 24, 20, 0.1);
   --surface-border-soft: rgba(26, 24, 20, 0.06);
   --white: #FFFFFF;
+
+  /* Fluid scale so the site holds its proportions on large screens.
+     Phone and laptop stay at 0.95rem. Wide monitors step up to 1.5rem. */
+  --text-size: clamp(0.95rem, 0.4rem + 0.6vw, 1.5rem);
+  --gutter: clamp(1.5rem, 6vw, 8rem);
+  --lockup-size: clamp(78px, 5vw, 150px);
 }
 
 html {

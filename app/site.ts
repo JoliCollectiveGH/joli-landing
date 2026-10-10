@@ -9,9 +9,12 @@ export const SITE_DESCRIPTION =
 
 export const SITE_SUMMARY = SITE_DESCRIPTION;
 
-/* The longer words in the Info drawer. One string per paragraph. The first is the line above. */
+/* The longer words in the Info drawer. One string per paragraph. */
 export const SITE_INFO = [
-  SITE_DESCRIPTION,
-  'The JOLI spiral is drawn from the idea that design can help us turn inward rather than outward, towards depth and stillness.',
-  'In practice that means a lot of time spent looking - at rooms, at the things people keep, and at how we navigate an overstimulating world.',
+  'JOLI was formed around a shared understanding of how objects and spaces encourage slowing down. The spiral is drawn from the idea of looking inward, towards depth and stillness rather than distraction. We look to everyday rituals, spaces and objects as ways to settle.',
+  'In practice that means a lot of time spent looking. At rooms. At the things people keep. At what overstimulation does to us.',
 ];
+
+/* Under the logo. Two or three words for what we do, then the three areas. */
+export const SITE_BIO = 'Curated collections';
+export const SITE_AREAS = ['Occasions', 'Spaces', 'Objects'];

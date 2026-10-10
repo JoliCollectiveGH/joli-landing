@@ -1,6 +1,6 @@
 .masthead {
   flex: 1;
-  padding: 2rem clamp(1.5rem, 6vw, 4rem) 0;
+  padding: 2rem var(--gutter) 0;
 }
 
 .bar {
@@ -10,8 +10,27 @@
   gap: 2.5rem;
 }
 
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.bio {
+  margin: 0;
+  font-size: var(--text-size);
+  font-weight: 300;
+  line-height: 1.5;
+  color: #191817;
+}
+
+.areas {
+  display: block;
+  color: #94887F;
+}
+
 .lockup {
-  width: 96px;
+  width: max(96px, var(--lockup-size));
   height: auto;
   display: block;
 }
@@ -27,7 +46,7 @@
   border: 0;
   padding: 0;
   font: inherit;
-  font-size: 0.95rem;
+  font-size: var(--text-size);
   font-weight: 300;
   line-height: 1.5;
   color: #191817;
@@ -69,20 +88,20 @@
 }
 
 .info {
-  padding: 3rem 0 clamp(3rem, 8vh, 5rem);
+  padding: 3rem 0 clamp(3rem, 8vh, 6rem);
 }
 
 .intro,
 .facts {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--text-size);
   font-weight: 300;
   line-height: 1.5;
   color: #342F2C;
 }
 
 .intro {
-  max-width: 64ch;
+  max-width: 56ch;
   text-wrap: pretty;
 }
 

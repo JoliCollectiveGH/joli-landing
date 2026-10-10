@@ -2,7 +2,7 @@
 
 import { useState, type ReactNode } from 'react';
 import styles from './Masthead.module.css';
-import { SITE_INFO } from '../site';
+import { SITE_AREAS, SITE_BIO, SITE_INFO } from '../site';
 
 /* Logo left, two words right. Info and Shows each open a drawer under the logo.
    One is always open, and opening one closes the other. Shows is open on load
@@ -15,8 +15,14 @@ export default function Masthead({ shows }: { shows: ReactNode }) {
   return (
     <header className={styles.masthead}>
       <div className={styles.bar}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/JOLI_Lockup_Black.png" alt="JOLI" className={styles.lockup} />
+        <div className={styles.brand}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/JOLI_Lockup_Black.png" alt="JOLI" className={styles.lockup} />
+          <p className={styles.bio}>
+            {SITE_BIO}
+            <span className={styles.areas}>{SITE_AREAS.join(' | ')}</span>
+          </p>
+        </div>
         <nav className={styles.nav}>
           <button
             type="button"
