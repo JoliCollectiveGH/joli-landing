@@ -15,6 +15,5 @@ export const SITE_LEAD =
 
 /* The longer words in the Info drawer. One string per paragraph. */
 export const SITE_INFO = [
-  'JOLI was formed to encourage ways of living that help us reconnect with ourselves and the world around us. The spiral is drawn from the idea of looking inward, towards depth and stillness rather than distraction. We look to the everyday rituals, spaces and objects as the antidote to overstimulation.',
-  'For now that means looking closely, and working with those who are shaping a quieter future.',
+  'JOLI was formed to encourage ways of living that help us reconnect with ourselves and the world around us. The spiral logo is drawn from the idea of looking inward, towards depth rather than distraction. We look to everyday rituals, spaces and objects as antidotes to overstimulation, working in collaboration with those who understand the importance of stillness.',
 ];
