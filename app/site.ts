@@ -14,7 +14,3 @@ export const SITE_INFO = [
   'JOLI was formed around a shared understanding of how objects and spaces encourage slowing down. The spiral is drawn from the idea of looking inward, towards depth and stillness rather than distraction. We look to everyday rituals, spaces and objects as ways to settle.',
   'In practice that means a lot of time spent looking. At rooms. At the things people keep. At what overstimulation does to us.',
 ];
-
-/* Under the logo. Two or three words for what we do, then the three areas. */
-export const SITE_BIO = 'Curated collections';
-export const SITE_AREAS = ['Occasions', 'Spaces', 'Objects'];

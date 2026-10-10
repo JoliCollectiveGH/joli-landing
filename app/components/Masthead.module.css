@@ -10,25 +10,6 @@
   gap: 2.5rem;
 }
 
-.brand {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.bio {
-  margin: 0;
-  font-size: var(--text-size);
-  font-weight: 300;
-  line-height: 1.5;
-  color: #191817;
-}
-
-.areas {
-  display: block;
-  color: #94887F;
-}
-
 .lockup {
   width: max(96px, var(--lockup-size));
   height: auto;
