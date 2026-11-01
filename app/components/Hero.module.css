@@ -29,53 +29,6 @@
   display: block;
 }
 
-.foot {
-  position: absolute;
-  left: var(--gutter);
-  right: var(--gutter);
-  bottom: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1.5rem 3rem;
-}
-
-.line,
-.credit {
-  margin: 0;
-  font-size: var(--text-size);
-  font-weight: 300;
-  line-height: 1.5;
-  color: #191817;
-}
-
-.line {
-  max-width: 22em;
-  text-wrap: balance;
-}
-
-.credit {
-  font-size: calc(var(--text-size) * 0.8);
-  color: #342F2C;
-  text-align: right;
-  text-wrap: balance;
-  max-width: 20em;
-}
-
-/* Bone behind the words, so they sit on the photograph like a label */
-.plate {
-  background: #D9D8CB;
-  padding: 0.1em 0.4em;
-  margin-left: -0.4em;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-.credit .plate {
-  margin-left: 0;
-  margin-right: -0.4em;
-}
-
 @media (max-width: 760px) {
   .hero {
     height: 90svh;
@@ -88,20 +41,5 @@
   .lockup {
     top: 1.5rem;
     width: 78px;
-  }
-
-  .foot {
-    flex-direction: column;
-    align-items: flex-start;
-    bottom: 1.5rem;
-  }
-
-  .credit {
-    text-align: left;
-  }
-
-  .credit .plate {
-    margin-left: -0.4em;
-    margin-right: 0;
   }
 }
