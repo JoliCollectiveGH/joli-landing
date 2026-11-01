@@ -1,6 +1,7 @@
 import styles from './Hero.module.css';
 
-/* The first thing a visitor sees. A full-bleed bitmap, and the lockup. The page below scrolls in as it was.
+/* The first thing a visitor sees. A full-bleed bitmap with nothing on it.
+   The masthead below carries the lockup, and the page scrolls in as it was.
    The images are made by scripts/make-hero.py from the licensed master, which is
    kept outside this repo in Branding/licensed-images/haus-rucker-co. */
 export default function Hero() {
@@ -15,9 +16,6 @@ export default function Hero() {
           fetchPriority="high"
         />
       </picture>
-
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/JOLI_Lockup_Black.png" alt="" className={styles.lockup} />
     </section>
   );
 }

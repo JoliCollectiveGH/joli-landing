@@ -19,16 +19,6 @@
   display: block;
 }
 
-/* Same size and place as the lockup in the masthead */
-.lockup {
-  position: absolute;
-  top: 2rem;
-  left: var(--gutter);
-  width: max(96px, var(--lockup-size));
-  height: auto;
-  display: block;
-}
-
 @media (max-width: 760px) {
   .hero {
     height: 90svh;
@@ -36,10 +26,5 @@
 
   .image {
     object-position: 50% 50%;
-  }
-
-  .lockup {
-    top: 1.5rem;
-    width: 78px;
   }
 }
