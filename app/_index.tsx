@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './index.module.css';
+import Hero from './components/Hero';
 import Masthead from './components/Masthead';
 import SiteFooter from './components/SiteFooter';
 import { ENTRIES } from './entries';
@@ -18,6 +19,7 @@ export default function Index() {
 
   return (
     <main className={styles.page}>
+      <Hero />
       <Masthead
         shows={
           <div className={styles.shows}>
