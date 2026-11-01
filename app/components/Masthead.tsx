@@ -4,7 +4,7 @@ import { useState, type ReactNode } from 'react';
 import styles from './Masthead.module.css';
 import { SITE_INFO, SITE_LEAD } from '../site';
 
-/* Logo left, two words right. Info and Shows each open a drawer under the logo.
+/* Two words on the left. The lockup sits on the hero above. Info and Occasions each open a drawer below.
    One is always open, and opening one closes the other. Shows is open on load
    so the work is never hidden. */
 export default function Masthead({ shows }: { shows: ReactNode }) {
@@ -15,8 +15,6 @@ export default function Masthead({ shows }: { shows: ReactNode }) {
   return (
     <header className={styles.masthead}>
       <div className={styles.bar}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/JOLI_Lockup_Black.png" alt="JOLI" className={styles.lockup} />
         <nav className={styles.nav}>
           <button
             type="button"

@@ -10,12 +10,6 @@
   gap: 2.5rem;
 }
 
-.lockup {
-  width: max(96px, var(--lockup-size));
-  height: auto;
-  display: block;
-}
-
 .nav {
   display: flex;
   gap: 2rem;
@@ -154,10 +148,6 @@
 @media (max-width: 760px) {
   .masthead {
     padding-top: 1.5rem;
-  }
-
-  .lockup {
-    width: 78px;
   }
 
   .info {
