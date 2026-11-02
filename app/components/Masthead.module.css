@@ -24,7 +24,7 @@
   font-size: var(--text-size);
   font-weight: 300;
   line-height: 1.5;
-  color: #AD531B;
+  color: #191817;
   cursor: pointer;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -33,14 +33,14 @@
   transition: color 0.25s ease, text-decoration-color 0.25s ease;
 }
 
-/* Terracotta marks a door that opens. The word that is open turns ink and keeps a thin underline. */
+/* The word that is open turns terracotta and keeps a thin underline */
 .toggle[aria-expanded='true'] {
-  color: #191817;
-  text-decoration-color: #191817;
+  color: #AD531B;
+  text-decoration-color: #AD531B;
 }
 
 .toggle:hover {
-  color: #191817;
+  color: #AD531B;
 }
 
 .toggle:focus-visible {
