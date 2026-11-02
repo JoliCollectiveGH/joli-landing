@@ -10,7 +10,6 @@ export type Entry = {
   alt: string;
   caption: string;  // one or two lines
   href: string;     // the full page
-  linkLabel?: string;
 };
 
 export const ENTRIES: Entry[] = [

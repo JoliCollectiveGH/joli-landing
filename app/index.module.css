@@ -50,15 +50,14 @@
   display: grid;
   color: inherit;
   text-decoration: none;
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: baseline;
   column-gap: 2rem;
 }
 
 .title,
 .captionText,
-.date,
-.more {
+.date {
   margin: 0;
   font-size: var(--text-size);
   line-height: 1.5;
@@ -89,41 +88,19 @@
   transition: color 0.25s ease;
 }
 
-.more {
-  font-weight: 400;
-  color: #191817;
-  white-space: nowrap;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.3em;
-  text-decoration-color: transparent;
-  transition: color 0.25s ease, text-decoration-color 0.25s ease;
-}
-
-/* Hover and keyboard focus: the whole line turns terracotta, the door that opens,
-   and View more is underlined. */
+/* Hover and keyboard focus: the whole line turns terracotta, the door that opens. */
 .entry:hover .title,
 .entry:focus-visible .title,
 .entry:hover .captionText,
 .entry:focus-visible .captionText,
 .entry:hover .date,
-.entry:focus-visible .date,
-.entry:hover .more,
-.entry:focus-visible .more {
+.entry:focus-visible .date {
   color: #AD531B;
-  text-decoration-color: #AD531B;
 }
 
 .entry:focus-visible {
   outline: 1px solid #191817;
   outline-offset: 8px;
-}
-
-/* No hover on touch, so keep the underline visible there */
-@media (hover: none) {
-  .more {
-    text-decoration-color: #94887F;
-  }
 }
 
 /* Dim the lines you are not on */
@@ -135,11 +112,11 @@
 
 @media (max-width: 1400px) {
   .entry {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:
-      'title title'
-      'text text'
-      'date more';
+      'title'
+      'text'
+      'date';
     row-gap: 0.5rem;
     column-gap: 1.5rem;
   }
@@ -147,7 +124,6 @@
   .title { grid-area: title; }
   .captionText { grid-area: text; white-space: normal; overflow: visible; }
   .date { grid-area: date; }
-  .more { grid-area: more; justify-self: start; }
 }
 
 @media (max-width: 760px) {
