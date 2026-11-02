@@ -6,7 +6,7 @@ export const SITE_URL = 'https://jolicollective.net';
 /* One line for the top of the Info drawer, link previews and search results.
    Under 155 characters. */
 export const SITE_DESCRIPTION =
-  'JOLI is a search for new ways of reconnecting with ourselves and the world around us.';
+  'JOLI is a search for depth in an overstimulated world.';
 
 export const SITE_SUMMARY = SITE_DESCRIPTION;
 
