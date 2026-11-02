@@ -15,5 +15,5 @@ export const SITE_LEAD = SITE_DESCRIPTION;
 
 /* The longer words in the Info drawer. One string per paragraph. */
 export const SITE_INFO = [
-  'We look to everyday rituals, spaces and objects as ways of practising this. Our projects are made with people who understand the importance of stillness.',
+  'We look to everyday rituals, spaces and objects as ways of practising this. Our projects are made with people who value stillness and know depth needs time.',
 ];
