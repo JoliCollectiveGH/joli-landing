@@ -69,6 +69,7 @@
   letter-spacing: 0;
   white-space: nowrap;
   color: #191817;
+  transition: color 0.25s ease;
 }
 
 .captionText {
@@ -99,15 +100,14 @@
   transition: color 0.25s ease, text-decoration-color 0.25s ease;
 }
 
-/* Hover and keyboard focus: the line darkens, View more is underlined,
-   terracotta marks the door that opens. */
+/* Hover and keyboard focus: the whole line turns terracotta, the door that opens,
+   and View more is underlined. */
+.entry:hover .title,
+.entry:focus-visible .title,
 .entry:hover .captionText,
 .entry:focus-visible .captionText,
 .entry:hover .date,
-.entry:focus-visible .date {
-  color: #191817;
-}
-
+.entry:focus-visible .date,
 .entry:hover .more,
 .entry:focus-visible .more {
   color: #AD531B;
