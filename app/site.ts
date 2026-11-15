@@ -6,7 +6,7 @@ export const SITE_URL = 'https://jolicollective.net';
 /* One line for the top of the Info drawer, link previews and search results.
    Under 155 characters. */
 export const SITE_DESCRIPTION =
-  'JOLI is a search for depth in an overstimulated world.';
+  'JOLI is a travelling showroom and curatorial practice of Jim Turnbull Walter, shaped by a belief that timeless design can return us to an innate sense of play.';
 
 export const SITE_SUMMARY = SITE_DESCRIPTION;
 
@@ -15,5 +15,5 @@ export const SITE_LEAD = SITE_DESCRIPTION;
 
 /* The longer words in the Info drawer. One string per paragraph. */
 export const SITE_INFO = [
-  'We look to everyday rituals, spaces and craft as ways of practising this. Our projects are shaped with people who make room for play and let ideas develop in time.',
+  'An exploration of how we sense crafted objects through their materiality, and of how they offer rest within an overstimulating world.',
 ];
