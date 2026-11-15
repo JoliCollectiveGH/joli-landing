@@ -10,10 +10,8 @@ export const SITE_DESCRIPTION =
 
 export const SITE_SUMMARY = SITE_DESCRIPTION;
 
-/* The line that leads the Info drawer, set large. Same words as the description. */
-export const SITE_LEAD = SITE_DESCRIPTION;
+/* The Info drawer text, set large as one paragraph. The description above is its first sentence. */
+export const SITE_LEAD = `${SITE_DESCRIPTION} An exploration of how we sense crafted objects through their materiality, and of how they offer rest within an overstimulating world.`;
 
-/* The longer words in the Info drawer. One string per paragraph. */
-export const SITE_INFO = [
-  'An exploration of how we sense crafted objects through their materiality, and of how they offer rest within an overstimulating world.',
-];
+/* Any extra paragraphs under the lead in the Info drawer. One string per paragraph. */
+export const SITE_INFO: string[] = [];

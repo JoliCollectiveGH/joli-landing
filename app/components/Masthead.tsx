@@ -5,10 +5,9 @@ import styles from './Masthead.module.css';
 import { SITE_INFO, SITE_LEAD } from '../site';
 
 /* Two words on the left. The lockup sits on the hero above. Info and Occasions each open a drawer below.
-   One is always open, and opening one closes the other. Shows is open on load
-   so the work is never hidden. */
+   One is always open, and opening one closes the other. Info is open on load. */
 export default function Masthead({ shows }: { shows: ReactNode }) {
-  const [view, setView] = useState<'info' | 'shows'>('shows');
+  const [view, setView] = useState<'info' | 'shows'>('info');
   const infoOpen = view === 'info';
   const showsOpen = view === 'shows';
 
