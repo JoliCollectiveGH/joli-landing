@@ -91,8 +91,10 @@
   text-wrap: pretty;
 }
 
+/* Balanced so the lead reads as an even block, with no short last line. */
 .lead {
   margin: 0 0 1.5rem;
+  text-wrap: balance;
 }
 
 .intro + .intro {
