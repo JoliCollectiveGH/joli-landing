@@ -1,9 +1,9 @@
 /* Bone behind the bitmap, so the page is never white while the image loads.
-   Slightly short of the full screen, so the top of the page below shows and
-   the scroll is understood without a cue. */
+   Short of the full screen by enough that Info, Occasions and the first line of
+   the bio show below it, so the scroll is understood without a cue. */
 .hero {
   position: relative;
-  height: 92svh;
+  height: 80svh;
   min-height: 520px;
   overflow: hidden;
   background: #D9D8CB;
@@ -31,7 +31,7 @@
 
 @media (max-width: 760px) {
   .hero {
-    height: 90svh;
+    height: 80svh;
   }
 
   .image {

@@ -1,18 +1,26 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 import styles from './Masthead.module.css';
 import { SITE_INFO, SITE_LEAD } from '../site';
 
 /* Two words on the left. The lockup sits on the hero above. Info and Occasions each open a drawer below.
-   One is always open, and opening one closes the other. Info is open on load. */
+   One is always open, and opening one closes the other. Info is open on load.
+   Clicking either word glides the page so the words sit at the top, with the drawer opening beneath. */
 export default function Masthead({ shows }: { shows: ReactNode }) {
   const [view, setView] = useState<'info' | 'shows'>('info');
   const infoOpen = view === 'info';
   const showsOpen = view === 'shows';
+  const headerRef = useRef<HTMLElement>(null);
+
+  const open = (next: 'info' | 'shows') => {
+    setView(next);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    headerRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  };
 
   return (
-    <header className={styles.masthead}>
+    <header ref={headerRef} className={styles.masthead}>
       <div className={styles.bar}>
         <nav className={styles.nav}>
           <button
@@ -20,7 +28,7 @@ export default function Masthead({ shows }: { shows: ReactNode }) {
             className={styles.toggle}
             aria-expanded={infoOpen}
             aria-controls="site-info"
-            onClick={() => setView('info')}
+            onClick={() => open('info')}
           >
             Info
           </button>
@@ -29,7 +37,7 @@ export default function Masthead({ shows }: { shows: ReactNode }) {
             className={styles.toggle}
             aria-expanded={showsOpen}
             aria-controls="site-shows"
-            onClick={() => setView('shows')}
+            onClick={() => open('shows')}
           >
             Occasions
           </button>
